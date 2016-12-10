@@ -1,0 +1,15 @@
+--------------- Build Started: 12/10/2016 16:21:14 Project: Design01, Configuration: ARM GCC 4.9-2015-q1-update Debug ---------------
+The code generation step is up to date.
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Debug/I2Cslave.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c .\I2Cslave.c -o .\CortexM0\ARM_GCC_493\Debug\I2Cslave.o
+.\I2Cslave.c: In function 'receiveData':
+.\I2Cslave.c:21:19: error: expected expression before ']' token
+         userarray[] = (int)wrbuf[];
+                   ^
+.\I2Cslave.c:17:14: warning: unused variable 'bytecnt' [-Wunused-variable]
+         int  bytecnt=I2C_1_I2CSlaveGetWriteBufSize();
+              ^
+.\I2Cslave.c:16:13: warning: unused variable 'i' [-Wunused-variable]
+         int i;
+             ^
+The command 'arm-none-eabi-gcc.exe' failed with exit code '1'.
+--------------- Build Failed: 12/10/2016 16:21:15 ---------------

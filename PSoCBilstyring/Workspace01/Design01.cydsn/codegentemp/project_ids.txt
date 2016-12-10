@@ -1,0 +1,5 @@
+C:\Users\PernilleLouise\Documents\Elektro\4. semester\E4PRJ\Projekt\Workspace01\Design01.cydsn\Design01.cyprj|e7118417-e891-4f1b-b2a1-ae2c0e3e8c2a
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|aedd866e-28e8-4fdf-b30a-078d10613d1e
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|3761a3ea-a317-460e-b4cb-b1ab8344abbb
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|9be085be-f2aa-4539-865e-488afafdc1cd
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|9caa723e-cee1-4842-b8da-c7b242dcaac7

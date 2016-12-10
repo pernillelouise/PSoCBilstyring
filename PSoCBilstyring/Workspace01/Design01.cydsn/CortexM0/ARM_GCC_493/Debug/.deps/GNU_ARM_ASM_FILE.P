@@ -1,0 +1,8 @@
+C:/Users/PernilleLouise/Documents/Elektro/4.\ semester/E4PRJ/Projekt/Workspace01/Design01.cydsn/CortexM0/ARM_GCC_493/Debug/CyBootAsmGnu.o : C:/Users/PernilleLouise/Documents/Elektro/4.\ semester/E4PRJ/Projekt/Workspace01/Design01.cydsn/Generated_Source/PSoC4/CyBootAsmGnu.s C:/Users/PernilleLouise/Documents/Elektro/4.\ semester/E4PRJ/Projekt/Workspace01/Design01.cydsn/Generated_Source/PSoC4/cydevicegnu_trm.inc C:/Users/PernilleLouise/Documents/Elektro/4.\ semester/E4PRJ/Projekt/Workspace01/Design01.cydsn/Generated_Source/PSoC4/cyfittergnu.inc 
+
+C:/Users/PernilleLouise/Documents/Elektro/4.\ semester/E4PRJ/Projekt/Workspace01/Design01.cydsn/Generated_Source/PSoC4/CyBootAsmGnu.s : 
+
+C:/Users/PernilleLouise/Documents/Elektro/4.\ semester/E4PRJ/Projekt/Workspace01/Design01.cydsn/Generated_Source/PSoC4/cydevicegnu_trm.inc : 
+
+C:/Users/PernilleLouise/Documents/Elektro/4.\ semester/E4PRJ/Projekt/Workspace01/Design01.cydsn/Generated_Source/PSoC4/cyfittergnu.inc : 
+

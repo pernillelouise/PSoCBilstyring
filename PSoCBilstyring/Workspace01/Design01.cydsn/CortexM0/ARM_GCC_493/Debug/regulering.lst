@@ -1,0 +1,2555 @@
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccJTMNZC.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.fpu softvfp
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 1
+  10              		.eabi_attribute 34, 0
+  11              		.eabi_attribute 18, 4
+  12              		.code	16
+  13              		.file	"regulering.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.global	__aeabi_i2d
+  18              		.global	__aeabi_dmul
+  19              		.global	__aeabi_d2iz
+  20              		.global	__aeabi_d2f
+  21              		.section	.text.convertVtoSpeed,"ax",%progbits
+  22              		.align	2
+  23              		.global	convertVtoSpeed
+  24              		.code	16
+  25              		.thumb_func
+  26              		.type	convertVtoSpeed, %function
+  27              	convertVtoSpeed:
+  28              	.LFB0:
+  29              		.file 1 ".\\regulering.c"
+   1:.\regulering.c **** #include "Regulering.h"
+   2:.\regulering.c **** #include "PWM_hojre.h"
+   3:.\regulering.c **** #include "PWM_venstre.h"
+   4:.\regulering.c **** #include "ADC.h"
+   5:.\regulering.c **** 
+   6:.\regulering.c **** // Regulering: 
+   7:.\regulering.c **** // Returns: Double 
+   8:.\regulering.c **** // Parameter: int 
+   9:.\regulering.c **** // a and b arrays is compensator coeffecients
+  10:.\regulering.c **** //    double a[2] = {7.331, -15.24};
+  11:.\regulering.c **** //    double b[2] = {1, -2};
+  12:.\regulering.c **** //    int y;
+  13:.\regulering.c **** //    int m;
+  14:.\regulering.c **** //           
+  15:.\regulering.c **** //    int Regulering(int x)
+  16:.\regulering.c **** //    {
+  17:.\regulering.c **** //        int res;
+  18:.\regulering.c **** //        res = (x-b[1]*m)*a[0]+a[1]*m;
+  19:.\regulering.c **** //        
+  20:.\regulering.c **** //        y = res;
+  21:.\regulering.c **** //        m = x;
+  22:.\regulering.c **** //        
+  23:.\regulering.c **** //        return y;
+  24:.\regulering.c **** //    }
+  25:.\regulering.c ****     
+  26:.\regulering.c **** volatile int reg;
+  27:.\regulering.c **** volatile int16 V_reg;
+  28:.\regulering.c **** 
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccJTMNZC.s 			page 2
+
+
+  29:.\regulering.c ****     float convertVtoSpeed()
+  30:.\regulering.c ****     {
+  30              		.loc 1 30 0
+  31              		.cfi_startproc
+  32 0000 08B5     		push	{r3, lr}
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 3, -8
+  35              		.cfi_offset 14, -4
+  31:.\regulering.c ****         float speed;
+  32:.\regulering.c ****         V_reg = ADC_GetResult16(1);
+  36              		.loc 1 32 0
+  37 0002 0120     		mov	r0, #1
+  38 0004 FFF7FEFF 		bl	ADC_GetResult16
+  39              	.LVL0:
+  40 0008 0D4B     		ldr	r3, .L2
+  41 000a 1880     		strh	r0, [r3]
+  33:.\regulering.c ****         reg = ADC_CountsTo_mVolts(1,V_reg)*1.5;
+  42              		.loc 1 33 0
+  43 000c 1988     		ldrh	r1, [r3]
+  44 000e 09B2     		sxth	r1, r1
+  45 0010 0120     		mov	r0, #1
+  46 0012 FFF7FEFF 		bl	ADC_CountsTo_mVolts
+  47              	.LVL1:
+  48 0016 FFF7FEFF 		bl	__aeabi_i2d
+  49              	.LVL2:
+  50 001a 0022     		mov	r2, #0
+  51 001c 094B     		ldr	r3, .L2+4
+  52 001e FFF7FEFF 		bl	__aeabi_dmul
+  53              	.LVL3:
+  54 0022 FFF7FEFF 		bl	__aeabi_d2iz
+  55              	.LVL4:
+  56 0026 084B     		ldr	r3, .L2+8
+  57 0028 1860     		str	r0, [r3]
+  34:.\regulering.c ****    
+  35:.\regulering.c ****         speed = 0.024*reg;
+  58              		.loc 1 35 0
+  59 002a 1868     		ldr	r0, [r3]
+  60 002c FFF7FEFF 		bl	__aeabi_i2d
+  61              	.LVL5:
+  62 0030 064A     		ldr	r2, .L2+12
+  63 0032 074B     		ldr	r3, .L2+16
+  64 0034 FFF7FEFF 		bl	__aeabi_dmul
+  65              	.LVL6:
+  66 0038 FFF7FEFF 		bl	__aeabi_d2f
+  67              	.LVL7:
+  36:.\regulering.c ****         
+  37:.\regulering.c ****         return speed;
+  38:.\regulering.c ****     }
+  68              		.loc 1 38 0
+  69              		@ sp needed
+  70 003c 08BD     		pop	{r3, pc}
+  71              	.L3:
+  72 003e C046     		.align	2
+  73              	.L2:
+  74 0040 00000000 		.word	V_reg
+  75 0044 0000F83F 		.word	1073217536
+  76 0048 00000000 		.word	reg
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccJTMNZC.s 			page 3
+
+
+  77 004c FA7E6ABC 		.word	-1133871366
+  78 0050 7493983F 		.word	1066963828
+  79              		.cfi_endproc
+  80              	.LFE0:
+  81              		.size	convertVtoSpeed, .-convertVtoSpeed
+  82              		.section	.text.start_right,"ax",%progbits
+  83              		.align	2
+  84              		.global	start_right
+  85              		.code	16
+  86              		.thumb_func
+  87              		.type	start_right, %function
+  88              	start_right:
+  89              	.LFB2:
+  39:.\regulering.c ****        
+  40:.\regulering.c ****     int regulateDistance(int distance, int setDistance)
+  41:.\regulering.c ****     {
+  42:.\regulering.c ****         distanceFlag = 1;
+  43:.\regulering.c ****         int pwmReadVal_left;
+  44:.\regulering.c ****         int pwmReadVal_right;
+  45:.\regulering.c ****         int pwmSetVal_left;
+  46:.\regulering.c ****         int pwmSetVal_right;
+  47:.\regulering.c ****         if(distance+5 > setDistance)
+  48:.\regulering.c ****         {
+  49:.\regulering.c ****             pwmReadVal_left = PWM_venstre_ReadCompare();
+  50:.\regulering.c ****             pwmReadVal_right = PWM_hojre_ReadCompare();
+  51:.\regulering.c ****             pwmSetVal_left = (pwmReadVal_left+1.525*5 == 255 ? 255 : pwmReadVal_left+1.525*5);
+  52:.\regulering.c ****             pwmSetVal_right = (pwmReadVal_right+1.525*5 == 255 ? 255 : pwmReadVal_right+1.525*5);
+  53:.\regulering.c ****             start_left(pwmSetVal_left);
+  54:.\regulering.c ****             start_right(pwmSetVal_right);
+  55:.\regulering.c ****         }  
+  56:.\regulering.c ****         else if(distance-5 < setDistance)
+  57:.\regulering.c ****         {
+  58:.\regulering.c ****             pwmReadVal_left = PWM_venstre_ReadCompare();
+  59:.\regulering.c ****             pwmReadVal_right = PWM_hojre_ReadCompare();
+  60:.\regulering.c ****             pwmSetVal_left = (pwmReadVal_left-1.525*10 < 10  ? 5 : pwmReadVal_left-1.525*10);
+  61:.\regulering.c ****             pwmSetVal_right = (pwmReadVal_right-1.525*10 < 10  ? 5 : pwmReadVal_right-1.525*10);
+  62:.\regulering.c ****             PWM_venstre_WriteCompare(pwmSetVal_left);
+  63:.\regulering.c ****             //start_left(pwmSetVal_left);
+  64:.\regulering.c ****             //start_right(pwmSetVal_right);
+  65:.\regulering.c ****         }
+  66:.\regulering.c ****         else if(distance < distance+5 && distance > distance-5)
+  67:.\regulering.c ****         {
+  68:.\regulering.c ****             pwmReadVal_left = PWM_venstre_ReadCompare();
+  69:.\regulering.c ****             pwmReadVal_right = PWM_hojre_ReadCompare();
+  70:.\regulering.c ****             start_left(pwmReadVal_left);
+  71:.\regulering.c ****             start_right(pwmReadVal_right);
+  72:.\regulering.c ****         }
+  73:.\regulering.c ****         else if(distance < 10)
+  74:.\regulering.c ****         {
+  75:.\regulering.c ****             stop();
+  76:.\regulering.c ****         }         
+  77:.\regulering.c ****      return 0;
+  78:.\regulering.c ****     }
+  79:.\regulering.c ****     
+  80:.\regulering.c ****     // turns on right dc motor
+  81:.\regulering.c ****     // duty cycle is regulering (0-100% 0-255)
+  82:.\regulering.c ****     int start_right(unsigned int regulering)
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccJTMNZC.s 			page 4
+
+
+  83:.\regulering.c ****     {
+  90              		.loc 1 83 0
+  91              		.cfi_startproc
+  92              	.LVL8:
+  93 0000 08B5     		push	{r3, lr}
+  94              		.cfi_def_cfa_offset 8
+  95              		.cfi_offset 3, -8
+  96              		.cfi_offset 14, -4
+  84:.\regulering.c ****         if(regulering > 0 && regulering < 255)
+  97              		.loc 1 84 0
+  98 0002 431E     		sub	r3, r0, #1
+  99 0004 FD2B     		cmp	r3, #253
+ 100 0006 04D8     		bhi	.L6
+  85:.\regulering.c ****         {   
+  86:.\regulering.c ****             PWM_hojre_WriteCompare(regulering);
+ 101              		.loc 1 86 0
+ 102 0008 C0B2     		uxtb	r0, r0
+ 103              	.LVL9:
+ 104 000a FFF7FEFF 		bl	PWM_hojre_WriteCompare
+ 105              	.LVL10:
+  87:.\regulering.c ****             return 1;
+ 106              		.loc 1 87 0
+ 107 000e 0120     		mov	r0, #1
+ 108 0010 01E0     		b	.L5
+ 109              	.LVL11:
+ 110              	.L6:
+  88:.\regulering.c ****         }
+  89:.\regulering.c ****         else    
+  90:.\regulering.c ****         return -1;
+ 111              		.loc 1 90 0
+ 112 0012 0120     		mov	r0, #1
+ 113              	.LVL12:
+ 114 0014 4042     		neg	r0, r0
+ 115              	.LVL13:
+ 116              	.L5:
+  91:.\regulering.c ****     }
+ 117              		.loc 1 91 0
+ 118              		@ sp needed
+ 119 0016 08BD     		pop	{r3, pc}
+ 120              		.cfi_endproc
+ 121              	.LFE2:
+ 122              		.size	start_right, .-start_right
+ 123              		.section	.text.start_left,"ax",%progbits
+ 124              		.align	2
+ 125              		.global	start_left
+ 126              		.code	16
+ 127              		.thumb_func
+ 128              		.type	start_left, %function
+ 129              	start_left:
+ 130              	.LFB3:
+  92:.\regulering.c **** 
+  93:.\regulering.c ****     
+  94:.\regulering.c ****     // turns on left dc motor
+  95:.\regulering.c ****     // duty cycle is controlled by regulering
+  96:.\regulering.c ****     int start_left(unsigned int regulering)
+  97:.\regulering.c ****     {
+ 131              		.loc 1 97 0
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccJTMNZC.s 			page 5
+
+
+ 132              		.cfi_startproc
+ 133              	.LVL14:
+ 134 0000 10B5     		push	{r4, lr}
+ 135              		.cfi_def_cfa_offset 8
+ 136              		.cfi_offset 4, -8
+ 137              		.cfi_offset 14, -4
+ 138 0002 041C     		mov	r4, r0
+  98:.\regulering.c ****         
+  99:.\regulering.c ****         if(regulering > 0 && regulering < 255)
+ 139              		.loc 1 99 0
+ 140 0004 431E     		sub	r3, r0, #1
+ 141 0006 FD2B     		cmp	r3, #253
+ 142 0008 06D8     		bhi	.L9
+ 100:.\regulering.c ****         {   
+ 101:.\regulering.c ****             PWM_venstre_Start();
+ 143              		.loc 1 101 0
+ 144 000a FFF7FEFF 		bl	PWM_venstre_Start
+ 145              	.LVL15:
+ 102:.\regulering.c ****             PWM_venstre_WriteCompare(regulering);
+ 146              		.loc 1 102 0
+ 147 000e E0B2     		uxtb	r0, r4
+ 148 0010 FFF7FEFF 		bl	PWM_venstre_WriteCompare
+ 149              	.LVL16:
+ 103:.\regulering.c ****             return 1;
+ 150              		.loc 1 103 0
+ 151 0014 0120     		mov	r0, #1
+ 152 0016 01E0     		b	.L8
+ 153              	.LVL17:
+ 154              	.L9:
+ 104:.\regulering.c ****         }
+ 105:.\regulering.c ****         else    
+ 106:.\regulering.c ****         return -1;
+ 155              		.loc 1 106 0
+ 156 0018 0120     		mov	r0, #1
+ 157              	.LVL18:
+ 158 001a 4042     		neg	r0, r0
+ 159              	.L8:
+ 107:.\regulering.c ****     }
+ 160              		.loc 1 107 0
+ 161              		@ sp needed
+ 162              	.LVL19:
+ 163 001c 10BD     		pop	{r4, pc}
+ 164              		.cfi_endproc
+ 165              	.LFE3:
+ 166              		.size	start_left, .-start_left
+ 167 001e C046     		.section	.text.stop,"ax",%progbits
+ 168              		.align	2
+ 169              		.global	stop
+ 170              		.code	16
+ 171              		.thumb_func
+ 172              		.type	stop, %function
+ 173              	stop:
+ 174              	.LFB4:
+ 108:.\regulering.c **** //    NOT IN USE
+ 109:.\regulering.c **** //    int regulatePWM(int setSpeed,int measuredSpeed)
+ 110:.\regulering.c **** //    {
+ 111:.\regulering.c **** //        float regulateSpeed;        
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccJTMNZC.s 			page 6
+
+
+ 112:.\regulering.c **** //        if(setSpeed > measuredSpeed)
+ 113:.\regulering.c **** //        {
+ 114:.\regulering.c **** //            setSpeed = (setSpeed > 0 ? setSpeed : 1);
+ 115:.\regulering.c **** //            regulateSpeed = (measuredSpeed/setSpeed)*setSpeed;
+ 116:.\regulering.c **** //            start_left(regulateSpeed);
+ 117:.\regulering.c **** //            start_right(regulateSpeed);
+ 118:.\regulering.c **** //        }
+ 119:.\regulering.c **** //        else if(setSpeed < measuredSpeed)
+ 120:.\regulering.c **** //        {
+ 121:.\regulering.c **** //            measuredSpeed = (measuredSpeed > 0 ? measuredSpeed : 1);
+ 122:.\regulering.c **** //            regulateSpeed = (setSpeed/measuredSpeed)*setSpeed;
+ 123:.\regulering.c **** //            start_left(regulateSpeed);
+ 124:.\regulering.c **** //            start_right(regulateSpeed);            
+ 125:.\regulering.c **** //        }
+ 126:.\regulering.c **** //        return 0;
+ 127:.\regulering.c **** //    }
+ 128:.\regulering.c ****     
+ 129:.\regulering.c ****     
+ 130:.\regulering.c ****     int stop()
+ 131:.\regulering.c ****     {
+ 175              		.loc 1 131 0
+ 176              		.cfi_startproc
+ 177 0000 08B5     		push	{r3, lr}
+ 178              		.cfi_def_cfa_offset 8
+ 179              		.cfi_offset 3, -8
+ 180              		.cfi_offset 14, -4
+ 132:.\regulering.c ****     PWM_hojre_WriteCompare(0);
+ 181              		.loc 1 132 0
+ 182 0002 0020     		mov	r0, #0
+ 183 0004 FFF7FEFF 		bl	PWM_hojre_WriteCompare
+ 184              	.LVL20:
+ 133:.\regulering.c ****     PWM_venstre_WriteCompare(0);
+ 185              		.loc 1 133 0
+ 186 0008 0020     		mov	r0, #0
+ 187 000a FFF7FEFF 		bl	PWM_venstre_WriteCompare
+ 188              	.LVL21:
+ 134:.\regulering.c ****      return 0;        
+ 135:.\regulering.c ****     }
+ 189              		.loc 1 135 0
+ 190 000e 0020     		mov	r0, #0
+ 191              		@ sp needed
+ 192 0010 08BD     		pop	{r3, pc}
+ 193              		.cfi_endproc
+ 194              	.LFE4:
+ 195              		.size	stop, .-stop
+ 196              		.global	__aeabi_dadd
+ 197              		.global	__aeabi_dcmpeq
+ 198              		.global	__aeabi_dsub
+ 199              		.global	__aeabi_dcmplt
+ 200 0012 C046     		.section	.text.regulateDistance,"ax",%progbits
+ 201              		.align	2
+ 202              		.global	regulateDistance
+ 203              		.code	16
+ 204              		.thumb_func
+ 205              		.type	regulateDistance, %function
+ 206              	regulateDistance:
+ 207              	.LFB1:
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccJTMNZC.s 			page 7
+
+
+  41:.\regulering.c ****         distanceFlag = 1;
+ 208              		.loc 1 41 0
+ 209              		.cfi_startproc
+ 210              	.LVL22:
+ 211 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ 212              		.cfi_def_cfa_offset 24
+ 213              		.cfi_offset 3, -24
+ 214              		.cfi_offset 4, -20
+ 215              		.cfi_offset 5, -16
+ 216              		.cfi_offset 6, -12
+ 217              		.cfi_offset 7, -8
+ 218              		.cfi_offset 14, -4
+  42:.\regulering.c ****         int pwmReadVal_left;
+ 219              		.loc 1 42 0
+ 220 0002 0122     		mov	r2, #1
+ 221 0004 3A4B     		ldr	r3, .L28
+ 222 0006 1A60     		str	r2, [r3]
+  47:.\regulering.c ****         {
+ 223              		.loc 1 47 0
+ 224 0008 431D     		add	r3, r0, #5
+ 225 000a 8B42     		cmp	r3, r1
+ 226 000c 38DD     		ble	.L12
+  49:.\regulering.c ****             pwmReadVal_right = PWM_hojre_ReadCompare();
+ 227              		.loc 1 49 0
+ 228 000e FFF7FEFF 		bl	PWM_venstre_ReadCompare
+ 229              	.LVL23:
+ 230 0012 041C     		mov	r4, r0
+ 231              	.LVL24:
+  50:.\regulering.c ****             pwmSetVal_left = (pwmReadVal_left+1.525*5 == 255 ? 255 : pwmReadVal_left+1.525*5);
+ 232              		.loc 1 50 0
+ 233 0014 FFF7FEFF 		bl	PWM_hojre_ReadCompare
+ 234              	.LVL25:
+ 235 0018 071C     		mov	r7, r0
+ 236              	.LVL26:
+  51:.\regulering.c ****             pwmSetVal_right = (pwmReadVal_right+1.525*5 == 255 ? 255 : pwmReadVal_right+1.525*5);
+ 237              		.loc 1 51 0
+ 238 001a 201C     		mov	r0, r4
+ 239              	.LVL27:
+ 240 001c FFF7FEFF 		bl	__aeabi_i2d
+ 241              	.LVL28:
+ 242 0020 0022     		mov	r2, #0
+ 243 0022 344B     		ldr	r3, .L28+4
+ 244 0024 FFF7FEFF 		bl	__aeabi_dadd
+ 245              	.LVL29:
+ 246 0028 041C     		mov	r4, r0
+ 247              	.LVL30:
+ 248 002a 0D1C     		mov	r5, r1
+ 249 002c 0022     		mov	r2, #0
+ 250 002e 324B     		ldr	r3, .L28+8
+ 251 0030 FFF7FEFF 		bl	__aeabi_dcmpeq
+ 252              	.LVL31:
+ 253 0034 0028     		cmp	r0, #0
+ 254 0036 05D1     		bne	.L26
+  51:.\regulering.c ****             pwmSetVal_right = (pwmReadVal_right+1.525*5 == 255 ? 255 : pwmReadVal_right+1.525*5);
+ 255              		.loc 1 51 0 is_stmt 0 discriminator 1
+ 256 0038 201C     		mov	r0, r4
+ 257 003a 291C     		mov	r1, r5
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccJTMNZC.s 			page 8
+
+
+ 258 003c FFF7FEFF 		bl	__aeabi_d2iz
+ 259              	.LVL32:
+ 260 0040 061C     		mov	r6, r0
+ 261 0042 00E0     		b	.L13
+ 262              	.L26:
+  51:.\regulering.c ****             pwmSetVal_right = (pwmReadVal_right+1.525*5 == 255 ? 255 : pwmReadVal_right+1.525*5);
+ 263              		.loc 1 51 0
+ 264 0044 FF26     		mov	r6, #255
+ 265              	.L13:
+ 266              	.LVL33:
+  52:.\regulering.c ****             start_left(pwmSetVal_left);
+ 267              		.loc 1 52 0 is_stmt 1 discriminator 4
+ 268 0046 381C     		mov	r0, r7
+ 269 0048 FFF7FEFF 		bl	__aeabi_i2d
+ 270              	.LVL34:
+ 271 004c 0022     		mov	r2, #0
+ 272 004e 294B     		ldr	r3, .L28+4
+ 273 0050 FFF7FEFF 		bl	__aeabi_dadd
+ 274              	.LVL35:
+ 275 0054 041C     		mov	r4, r0
+ 276 0056 0D1C     		mov	r5, r1
+ 277 0058 0022     		mov	r2, #0
+ 278 005a 274B     		ldr	r3, .L28+8
+ 279 005c FFF7FEFF 		bl	__aeabi_dcmpeq
+ 280              	.LVL36:
+ 281 0060 0028     		cmp	r0, #0
+ 282 0062 05D1     		bne	.L27
+  52:.\regulering.c ****             start_left(pwmSetVal_left);
+ 283              		.loc 1 52 0 is_stmt 0 discriminator 1
+ 284 0064 201C     		mov	r0, r4
+ 285 0066 291C     		mov	r1, r5
+ 286 0068 FFF7FEFF 		bl	__aeabi_d2iz
+ 287              	.LVL37:
+ 288 006c 041C     		mov	r4, r0
+ 289 006e 00E0     		b	.L15
+ 290              	.L27:
+  52:.\regulering.c ****             start_left(pwmSetVal_left);
+ 291              		.loc 1 52 0
+ 292 0070 FF24     		mov	r4, #255
+ 293              	.L15:
+ 294              	.LVL38:
+  53:.\regulering.c ****             start_right(pwmSetVal_right);
+ 295              		.loc 1 53 0 is_stmt 1 discriminator 4
+ 296 0072 301C     		mov	r0, r6
+ 297 0074 FFF7FEFF 		bl	start_left
+ 298              	.LVL39:
+  54:.\regulering.c ****         }  
+ 299              		.loc 1 54 0 discriminator 4
+ 300 0078 201C     		mov	r0, r4
+ 301 007a FFF7FEFF 		bl	start_right
+ 302              	.LVL40:
+ 303 007e 35E0     		b	.L17
+ 304              	.LVL41:
+ 305              	.L12:
+  56:.\regulering.c ****         {
+ 306              		.loc 1 56 0
+ 307 0080 421F     		sub	r2, r0, #5
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccJTMNZC.s 			page 9
+
+
+ 308 0082 8A42     		cmp	r2, r1
+ 309 0084 1DDA     		bge	.L18
+  58:.\regulering.c ****             pwmReadVal_right = PWM_hojre_ReadCompare();
+ 310              		.loc 1 58 0
+ 311 0086 FFF7FEFF 		bl	PWM_venstre_ReadCompare
+ 312              	.LVL42:
+ 313 008a 041C     		mov	r4, r0
+ 314              	.LVL43:
+  59:.\regulering.c ****             pwmSetVal_left = (pwmReadVal_left-1.525*10 < 10  ? 5 : pwmReadVal_left-1.525*10);
+ 315              		.loc 1 59 0
+ 316 008c FFF7FEFF 		bl	PWM_hojre_ReadCompare
+ 317              	.LVL44:
+  60:.\regulering.c ****             pwmSetVal_right = (pwmReadVal_right-1.525*10 < 10  ? 5 : pwmReadVal_right-1.525*10);
+ 318              		.loc 1 60 0
+ 319 0090 201C     		mov	r0, r4
+ 320 0092 FFF7FEFF 		bl	__aeabi_i2d
+ 321              	.LVL45:
+ 322 0096 0022     		mov	r2, #0
+ 323 0098 184B     		ldr	r3, .L28+12
+ 324 009a FFF7FEFF 		bl	__aeabi_dsub
+ 325              	.LVL46:
+ 326 009e 041C     		mov	r4, r0
+ 327              	.LVL47:
+ 328 00a0 0D1C     		mov	r5, r1
+ 329 00a2 0022     		mov	r2, #0
+ 330 00a4 164B     		ldr	r3, .L28+16
+ 331 00a6 FFF7FEFF 		bl	__aeabi_dcmplt
+ 332              	.LVL48:
+ 333 00aa 0028     		cmp	r0, #0
+ 334 00ac 04D1     		bne	.L23
+  60:.\regulering.c ****             pwmSetVal_right = (pwmReadVal_right-1.525*10 < 10  ? 5 : pwmReadVal_right-1.525*10);
+ 335              		.loc 1 60 0 is_stmt 0 discriminator 2
+ 336 00ae 201C     		mov	r0, r4
+ 337 00b0 291C     		mov	r1, r5
+ 338 00b2 FFF7FEFF 		bl	__aeabi_d2iz
+ 339              	.LVL49:
+ 340 00b6 00E0     		b	.L19
+ 341              	.L23:
+  60:.\regulering.c ****             pwmSetVal_right = (pwmReadVal_right-1.525*10 < 10  ? 5 : pwmReadVal_right-1.525*10);
+ 342              		.loc 1 60 0
+ 343 00b8 0520     		mov	r0, #5
+ 344              	.L19:
+ 345              	.LVL50:
+  62:.\regulering.c ****             //start_left(pwmSetVal_left);
+ 346              		.loc 1 62 0 is_stmt 1 discriminator 4
+ 347 00ba C0B2     		uxtb	r0, r0
+ 348              	.LVL51:
+ 349 00bc FFF7FEFF 		bl	PWM_venstre_WriteCompare
+ 350              	.LVL52:
+ 351 00c0 14E0     		b	.L17
+ 352              	.LVL53:
+ 353              	.L18:
+  66:.\regulering.c ****         {
+ 354              		.loc 1 66 0
+ 355 00c2 9842     		cmp	r0, r3
+ 356 00c4 0EDA     		bge	.L20
+  66:.\regulering.c ****         {
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccJTMNZC.s 			page 10
+
+
+ 357              		.loc 1 66 0 is_stmt 0 discriminator 1
+ 358 00c6 9042     		cmp	r0, r2
+ 359 00c8 0CDD     		ble	.L20
+  68:.\regulering.c ****             pwmReadVal_right = PWM_hojre_ReadCompare();
+ 360              		.loc 1 68 0 is_stmt 1
+ 361 00ca FFF7FEFF 		bl	PWM_venstre_ReadCompare
+ 362              	.LVL54:
+ 363 00ce 051C     		mov	r5, r0
+ 364              	.LVL55:
+  69:.\regulering.c ****             start_left(pwmReadVal_left);
+ 365              		.loc 1 69 0
+ 366 00d0 FFF7FEFF 		bl	PWM_hojre_ReadCompare
+ 367              	.LVL56:
+ 368 00d4 041C     		mov	r4, r0
+ 369              	.LVL57:
+  70:.\regulering.c ****             start_right(pwmReadVal_right);
+ 370              		.loc 1 70 0
+ 371 00d6 281C     		mov	r0, r5
+ 372 00d8 FFF7FEFF 		bl	start_left
+ 373              	.LVL58:
+  71:.\regulering.c ****         }
+ 374              		.loc 1 71 0
+ 375 00dc 201C     		mov	r0, r4
+ 376 00de FFF7FEFF 		bl	start_right
+ 377              	.LVL59:
+ 378 00e2 03E0     		b	.L17
+ 379              	.LVL60:
+ 380              	.L20:
+  73:.\regulering.c ****         {
+ 381              		.loc 1 73 0
+ 382 00e4 0928     		cmp	r0, #9
+ 383 00e6 01DC     		bgt	.L17
+  75:.\regulering.c ****         }         
+ 384              		.loc 1 75 0
+ 385 00e8 FFF7FEFF 		bl	stop
+ 386              	.LVL61:
+ 387              	.L17:
+  78:.\regulering.c ****     
+ 388              		.loc 1 78 0
+ 389 00ec 0020     		mov	r0, #0
+ 390              		@ sp needed
+ 391 00ee F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 392              	.L29:
+ 393              		.align	2
+ 394              	.L28:
+ 395 00f0 00000000 		.word	distanceFlag
+ 396 00f4 00801E40 		.word	1075740672
+ 397 00f8 00E06F40 		.word	1081073664
+ 398 00fc 00802E40 		.word	1076789248
+ 399 0100 00002440 		.word	1076101120
+ 400              		.cfi_endproc
+ 401              	.LFE1:
+ 402              		.size	regulateDistance, .-regulateDistance
+ 403              		.section	.text.direction,"ax",%progbits
+ 404              		.align	2
+ 405              		.global	direction
+ 406              		.code	16
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccJTMNZC.s 			page 11
+
+
+ 407              		.thumb_func
+ 408              		.type	direction, %function
+ 409              	direction:
+ 410              	.LFB5:
+ 136:.\regulering.c ****     
+ 137:.\regulering.c ****     // Search for sound direction
+ 138:.\regulering.c ****     int direction(int dir)
+ 139:.\regulering.c ****     {
+ 411              		.loc 1 139 0
+ 412              		.cfi_startproc
+ 413              	.LVL62:
+ 414 0000 38B5     		push	{r3, r4, r5, lr}
+ 415              		.cfi_def_cfa_offset 16
+ 416              		.cfi_offset 3, -16
+ 417              		.cfi_offset 4, -12
+ 418              		.cfi_offset 5, -8
+ 419              		.cfi_offset 14, -4
+ 420 0002 051C     		mov	r5, r0
+ 421              	.LVL63:
+ 140:.\regulering.c ****         int i = 0;
+ 141:.\regulering.c ****         for(i = 0; i<5;i++)
+ 422              		.loc 1 141 0
+ 423 0004 0024     		mov	r4, #0
+ 424 0006 54E0     		b	.L31
+ 425              	.LVL64:
+ 426              	.L43:
+ 142:.\regulering.c ****         {
+ 143:.\regulering.c ****         switch(dir)
+ 427              		.loc 1 143 0
+ 428 0008 2B1C     		mov	r3, r5
+ 429 000a 0C3B     		sub	r3, r3, #12
+ 430 000c 1F2B     		cmp	r3, #31
+ 431 000e 4DD8     		bhi	.L32
+ 432 0010 9B00     		lsl	r3, r3, #2
+ 433 0012 2A4A     		ldr	r2, .L44
+ 434 0014 D358     		ldr	r3, [r2, r3]
+ 435 0016 9F46     		mov	pc, r3
+ 436              		.section	.rodata
+ 437              		.align	2
+ 438              	.L34:
+ 439 0000 18000000 		.word	.L33
+ 440 0004 AC000000 		.word	.L32
+ 441 0008 98000000 		.word	.L35
+ 442 000c AC000000 		.word	.L32
+ 443 0010 AC000000 		.word	.L32
+ 444 0014 AC000000 		.word	.L32
+ 445 0018 AC000000 		.word	.L32
+ 446 001c AC000000 		.word	.L32
+ 447 0020 AC000000 		.word	.L32
+ 448 0024 22000000 		.word	.L36
+ 449 0028 AC000000 		.word	.L32
+ 450 002c 36000000 		.word	.L37
+ 451 0030 AC000000 		.word	.L32
+ 452 0034 AC000000 		.word	.L32
+ 453 0038 AC000000 		.word	.L32
+ 454 003c AC000000 		.word	.L32
+ 455 0040 AC000000 		.word	.L32
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccJTMNZC.s 			page 12
+
+
+ 456 0044 AC000000 		.word	.L32
+ 457 0048 AC000000 		.word	.L32
+ 458 004c AC000000 		.word	.L32
+ 459 0050 4A000000 		.word	.L38
+ 460 0054 AC000000 		.word	.L32
+ 461 0058 5C000000 		.word	.L39
+ 462 005c AC000000 		.word	.L32
+ 463 0060 AC000000 		.word	.L32
+ 464 0064 AC000000 		.word	.L32
+ 465 0068 AC000000 		.word	.L32
+ 466 006c AC000000 		.word	.L32
+ 467 0070 AC000000 		.word	.L32
+ 468 0074 84000000 		.word	.L40
+ 469 0078 AC000000 		.word	.L32
+ 470 007c 70000000 		.word	.L41
+ 471              		.section	.text.direction
+ 472              	.L33:
+ 144:.\regulering.c ****         {
+ 145:.\regulering.c ****             case 12: 
+ 146:.\regulering.c ****             start_left(100);
+ 473              		.loc 1 146 0
+ 474 0018 6420     		mov	r0, #100
+ 475 001a FFF7FEFF 		bl	start_left
+ 476              	.LVL65:
+ 147:.\regulering.c ****             i++;
+ 477              		.loc 1 147 0
+ 478 001e 0134     		add	r4, r4, #1
+ 479              	.LVL66:
+ 148:.\regulering.c ****             break;
+ 480              		.loc 1 148 0
+ 481 0020 46E0     		b	.L42
+ 482              	.L36:
+ 149:.\regulering.c ****             case 21: 
+ 150:.\regulering.c ****             start_left(150);
+ 483              		.loc 1 150 0
+ 484 0022 9620     		mov	r0, #150
+ 485 0024 FFF7FEFF 		bl	start_left
+ 486              	.LVL67:
+ 151:.\regulering.c ****             CyDelay(200);
+ 487              		.loc 1 151 0
+ 488 0028 C820     		mov	r0, #200
+ 489 002a FFF7FEFF 		bl	CyDelay
+ 490              	.LVL68:
+ 152:.\regulering.c ****             stop();
+ 491              		.loc 1 152 0
+ 492 002e FFF7FEFF 		bl	stop
+ 493              	.LVL69:
+ 153:.\regulering.c ****             i++;
+ 494              		.loc 1 153 0
+ 495 0032 0134     		add	r4, r4, #1
+ 496              	.LVL70:
+ 154:.\regulering.c ****             break;
+ 497              		.loc 1 154 0
+ 498 0034 3CE0     		b	.L42
+ 499              	.L37:
+ 155:.\regulering.c ****             case 23: 
+ 156:.\regulering.c ****             start_left(200);
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccJTMNZC.s 			page 13
+
+
+ 500              		.loc 1 156 0
+ 501 0036 C820     		mov	r0, #200
+ 502 0038 FFF7FEFF 		bl	start_left
+ 503              	.LVL71:
+ 157:.\regulering.c ****             CyDelay(200);
+ 504              		.loc 1 157 0
+ 505 003c C820     		mov	r0, #200
+ 506 003e FFF7FEFF 		bl	CyDelay
+ 507              	.LVL72:
+ 158:.\regulering.c ****             stop();
+ 508              		.loc 1 158 0
+ 509 0042 FFF7FEFF 		bl	stop
+ 510              	.LVL73:
+ 159:.\regulering.c ****             i++;
+ 511              		.loc 1 159 0
+ 512 0046 0134     		add	r4, r4, #1
+ 513              	.LVL74:
+ 160:.\regulering.c ****             break;
+ 514              		.loc 1 160 0
+ 515 0048 32E0     		b	.L42
+ 516              	.L38:
+ 161:.\regulering.c ****             case 32: 
+ 162:.\regulering.c ****             start_left(200);
+ 517              		.loc 1 162 0
+ 518 004a C820     		mov	r0, #200
+ 519 004c FFF7FEFF 		bl	start_left
+ 520              	.LVL75:
+ 163:.\regulering.c ****             CyDelay(200);
+ 521              		.loc 1 163 0
+ 522 0050 C820     		mov	r0, #200
+ 523 0052 FFF7FEFF 		bl	CyDelay
+ 524              	.LVL76:
+ 164:.\regulering.c ****             stop();
+ 525              		.loc 1 164 0
+ 526 0056 FFF7FEFF 		bl	stop
+ 527              	.LVL77:
+ 165:.\regulering.c ****             i++;
+ 528              		.loc 1 165 0
+ 529 005a 0134     		add	r4, r4, #1
+ 530              	.LVL78:
+ 531              	.L39:
+ 166:.\regulering.c ****             case 34: 
+ 167:.\regulering.c ****             start_right(200);
+ 532              		.loc 1 167 0
+ 533 005c C820     		mov	r0, #200
+ 534 005e FFF7FEFF 		bl	start_right
+ 535              	.LVL79:
+ 168:.\regulering.c ****             CyDelay(200);
+ 536              		.loc 1 168 0
+ 537 0062 C820     		mov	r0, #200
+ 538 0064 FFF7FEFF 		bl	CyDelay
+ 539              	.LVL80:
+ 169:.\regulering.c ****             stop();
+ 540              		.loc 1 169 0
+ 541 0068 FFF7FEFF 		bl	stop
+ 542              	.LVL81:
+ 170:.\regulering.c ****             i++;
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccJTMNZC.s 			page 14
+
+
+ 543              		.loc 1 170 0
+ 544 006c 0134     		add	r4, r4, #1
+ 545              	.LVL82:
+ 171:.\regulering.c ****             break; 
+ 546              		.loc 1 171 0
+ 547 006e 1FE0     		b	.L42
+ 548              	.L41:
+ 172:.\regulering.c ****             case 43: 
+ 173:.\regulering.c ****             start_right(200);
+ 549              		.loc 1 173 0
+ 550 0070 C820     		mov	r0, #200
+ 551 0072 FFF7FEFF 		bl	start_right
+ 552              	.LVL83:
+ 174:.\regulering.c ****             CyDelay(200);
+ 553              		.loc 1 174 0
+ 554 0076 C820     		mov	r0, #200
+ 555 0078 FFF7FEFF 		bl	CyDelay
+ 556              	.LVL84:
+ 175:.\regulering.c ****             stop();
+ 557              		.loc 1 175 0
+ 558 007c FFF7FEFF 		bl	stop
+ 559              	.LVL85:
+ 176:.\regulering.c ****             i++;
+ 560              		.loc 1 176 0
+ 561 0080 0134     		add	r4, r4, #1
+ 562              	.LVL86:
+ 177:.\regulering.c ****             break;
+ 563              		.loc 1 177 0
+ 564 0082 15E0     		b	.L42
+ 565              	.L40:
+ 178:.\regulering.c ****             case 41: 
+ 179:.\regulering.c ****             start_right(150);
+ 566              		.loc 1 179 0
+ 567 0084 9620     		mov	r0, #150
+ 568 0086 FFF7FEFF 		bl	start_right
+ 569              	.LVL87:
+ 180:.\regulering.c ****             CyDelay(200);
+ 570              		.loc 1 180 0
+ 571 008a C820     		mov	r0, #200
+ 572 008c FFF7FEFF 		bl	CyDelay
+ 573              	.LVL88:
+ 181:.\regulering.c ****             stop();
+ 574              		.loc 1 181 0
+ 575 0090 FFF7FEFF 		bl	stop
+ 576              	.LVL89:
+ 182:.\regulering.c ****             i++;
+ 577              		.loc 1 182 0
+ 578 0094 0134     		add	r4, r4, #1
+ 579              	.LVL90:
+ 183:.\regulering.c ****             break;
+ 580              		.loc 1 183 0
+ 581 0096 0BE0     		b	.L42
+ 582              	.L35:
+ 184:.\regulering.c ****             case 14:
+ 185:.\regulering.c ****             start_right(100);
+ 583              		.loc 1 185 0
+ 584 0098 6420     		mov	r0, #100
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccJTMNZC.s 			page 15
+
+
+ 585 009a FFF7FEFF 		bl	start_right
+ 586              	.LVL91:
+ 186:.\regulering.c ****             CyDelay(200);
+ 587              		.loc 1 186 0
+ 588 009e C820     		mov	r0, #200
+ 589 00a0 FFF7FEFF 		bl	CyDelay
+ 590              	.LVL92:
+ 187:.\regulering.c ****             stop();
+ 591              		.loc 1 187 0
+ 592 00a4 FFF7FEFF 		bl	stop
+ 593              	.LVL93:
+ 188:.\regulering.c ****             i++;
+ 594              		.loc 1 188 0
+ 595 00a8 0134     		add	r4, r4, #1
+ 596              	.LVL94:
+ 189:.\regulering.c ****             break;
+ 597              		.loc 1 189 0
+ 598 00aa 01E0     		b	.L42
+ 599              	.L32:
+ 190:.\regulering.c ****             default:
+ 191:.\regulering.c ****             stop();
+ 600              		.loc 1 191 0
+ 601 00ac FFF7FEFF 		bl	stop
+ 602              	.LVL95:
+ 603              	.L42:
+ 141:.\regulering.c ****         {
+ 604              		.loc 1 141 0 discriminator 2
+ 605 00b0 0134     		add	r4, r4, #1
+ 606              	.LVL96:
+ 607              	.L31:
+ 141:.\regulering.c ****         {
+ 608              		.loc 1 141 0 is_stmt 0 discriminator 1
+ 609 00b2 042C     		cmp	r4, #4
+ 610 00b4 A8DD     		ble	.L43
+ 192:.\regulering.c ****         }
+ 193:.\regulering.c ****         }
+ 194:.\regulering.c ****     return 0;
+ 195:.\regulering.c ****     }
+ 611              		.loc 1 195 0 is_stmt 1
+ 612 00b6 0020     		mov	r0, #0
+ 613              		@ sp needed
+ 614              	.LVL97:
+ 615              	.LVL98:
+ 616 00b8 38BD     		pop	{r3, r4, r5, pc}
+ 617              	.L45:
+ 618 00ba C046     		.align	2
+ 619              	.L44:
+ 620 00bc 00000000 		.word	.L34
+ 621              		.cfi_endproc
+ 622              	.LFE5:
+ 623              		.size	direction, .-direction
+ 624              		.comm	V_reg,2,2
+ 625              		.comm	reg,4,4
+ 626              		.text
+ 627              	.Letext0:
+ 628              		.file 2 "Generated_Source\\PSoC4/cytypes.h"
+ 629              		.file 3 ".\\Regulering.h"
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccJTMNZC.s 			page 16
+
+
+ 630              		.file 4 "Generated_Source\\PSoC4/ADC.h"
+ 631              		.file 5 "Generated_Source\\PSoC4/PWM_hojre.h"
+ 632              		.file 6 "Generated_Source\\PSoC4/PWM_venstre.h"
+ 633              		.file 7 "Generated_Source\\PSoC4/CyLib.h"
+ 634              		.section	.debug_info,"",%progbits
+ 635              	.Ldebug_info0:
+ 636 0000 11050000 		.4byte	0x511
+ 637 0004 0400     		.2byte	0x4
+ 638 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 639 000a 04       		.byte	0x4
+ 640 000b 01       		.uleb128 0x1
+ 641 000c 03020000 		.4byte	.LASF38
+ 642 0010 01       		.byte	0x1
+ 643 0011 A2010000 		.4byte	.LASF39
+ 644 0015 0C010000 		.4byte	.LASF40
+ 645 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 646 001d 00000000 		.4byte	0
+ 647 0021 00000000 		.4byte	.Ldebug_line0
+ 648 0025 02       		.uleb128 0x2
+ 649 0026 01       		.byte	0x1
+ 650 0027 06       		.byte	0x6
+ 651 0028 F6020000 		.4byte	.LASF0
+ 652 002c 02       		.uleb128 0x2
+ 653 002d 01       		.byte	0x1
+ 654 002e 08       		.byte	0x8
+ 655 002f 73000000 		.4byte	.LASF1
+ 656 0033 02       		.uleb128 0x2
+ 657 0034 02       		.byte	0x2
+ 658 0035 05       		.byte	0x5
+ 659 0036 9C020000 		.4byte	.LASF2
+ 660 003a 02       		.uleb128 0x2
+ 661 003b 02       		.byte	0x2
+ 662 003c 07       		.byte	0x7
+ 663 003d 3C000000 		.4byte	.LASF3
+ 664 0041 02       		.uleb128 0x2
+ 665 0042 04       		.byte	0x4
+ 666 0043 05       		.byte	0x5
+ 667 0044 CD020000 		.4byte	.LASF4
+ 668 0048 02       		.uleb128 0x2
+ 669 0049 04       		.byte	0x4
+ 670 004a 07       		.byte	0x7
+ 671 004b 9A000000 		.4byte	.LASF5
+ 672 004f 02       		.uleb128 0x2
+ 673 0050 08       		.byte	0x8
+ 674 0051 05       		.byte	0x5
+ 675 0052 F0010000 		.4byte	.LASF6
+ 676 0056 02       		.uleb128 0x2
+ 677 0057 08       		.byte	0x8
+ 678 0058 07       		.byte	0x7
+ 679 0059 8B010000 		.4byte	.LASF7
+ 680 005d 03       		.uleb128 0x3
+ 681 005e 04       		.byte	0x4
+ 682 005f 05       		.byte	0x5
+ 683 0060 696E7400 		.ascii	"int\000"
+ 684 0064 02       		.uleb128 0x2
+ 685 0065 04       		.byte	0x4
+ 686 0066 07       		.byte	0x7
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccJTMNZC.s 			page 17
+
+
+ 687 0067 7E010000 		.4byte	.LASF8
+ 688 006b 04       		.uleb128 0x4
+ 689 006c AC000000 		.4byte	.LASF9
+ 690 0070 02       		.byte	0x2
+ 691 0071 3801     		.2byte	0x138
+ 692 0073 2C000000 		.4byte	0x2c
+ 693 0077 04       		.uleb128 0x4
+ 694 0078 6B010000 		.4byte	.LASF10
+ 695 007c 02       		.byte	0x2
+ 696 007d 3A01     		.2byte	0x13a
+ 697 007f 48000000 		.4byte	0x48
+ 698 0083 04       		.uleb128 0x4
+ 699 0084 B1010000 		.4byte	.LASF11
+ 700 0088 02       		.byte	0x2
+ 701 0089 3C01     		.2byte	0x13c
+ 702 008b 33000000 		.4byte	0x33
+ 703 008f 02       		.uleb128 0x2
+ 704 0090 04       		.byte	0x4
+ 705 0091 04       		.byte	0x4
+ 706 0092 6D000000 		.4byte	.LASF12
+ 707 0096 02       		.uleb128 0x2
+ 708 0097 08       		.byte	0x8
+ 709 0098 04       		.byte	0x4
+ 710 0099 E8000000 		.4byte	.LASF13
+ 711 009d 02       		.uleb128 0x2
+ 712 009e 01       		.byte	0x1
+ 713 009f 08       		.byte	0x8
+ 714 00a0 FE010000 		.4byte	.LASF14
+ 715 00a4 02       		.uleb128 0x2
+ 716 00a5 04       		.byte	0x4
+ 717 00a6 07       		.byte	0x7
+ 718 00a7 E7010000 		.4byte	.LASF15
+ 719 00ab 05       		.uleb128 0x5
+ 720 00ac BD020000 		.4byte	.LASF19
+ 721 00b0 01       		.byte	0x1
+ 722 00b1 1D       		.byte	0x1d
+ 723 00b2 8F000000 		.4byte	0x8f
+ 724 00b6 00000000 		.4byte	.LFB0
+ 725 00ba 54000000 		.4byte	.LFE0-.LFB0
+ 726 00be 01       		.uleb128 0x1
+ 727 00bf 9C       		.byte	0x9c
+ 728 00c0 F4000000 		.4byte	0xf4
+ 729 00c4 06       		.uleb128 0x6
+ 730 00c5 E1010000 		.4byte	.LASF24
+ 731 00c9 01       		.byte	0x1
+ 732 00ca 1F       		.byte	0x1f
+ 733 00cb 8F000000 		.4byte	0x8f
+ 734 00cf 01       		.uleb128 0x1
+ 735 00d0 50       		.byte	0x50
+ 736 00d1 07       		.uleb128 0x7
+ 737 00d2 08000000 		.4byte	.LVL0
+ 738 00d6 99040000 		.4byte	0x499
+ 739 00da E4000000 		.4byte	0xe4
+ 740 00de 08       		.uleb128 0x8
+ 741 00df 01       		.uleb128 0x1
+ 742 00e0 50       		.byte	0x50
+ 743 00e1 01       		.uleb128 0x1
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccJTMNZC.s 			page 18
+
+
+ 744 00e2 31       		.byte	0x31
+ 745 00e3 00       		.byte	0
+ 746 00e4 09       		.uleb128 0x9
+ 747 00e5 16000000 		.4byte	.LVL1
+ 748 00e9 AE040000 		.4byte	0x4ae
+ 749 00ed 08       		.uleb128 0x8
+ 750 00ee 01       		.uleb128 0x1
+ 751 00ef 50       		.byte	0x50
+ 752 00f0 01       		.uleb128 0x1
+ 753 00f1 31       		.byte	0x31
+ 754 00f2 00       		.byte	0
+ 755 00f3 00       		.byte	0
+ 756 00f4 0A       		.uleb128 0xa
+ 757 00f5 72010000 		.4byte	.LASF16
+ 758 00f9 01       		.byte	0x1
+ 759 00fa 52       		.byte	0x52
+ 760 00fb 5D000000 		.4byte	0x5d
+ 761 00ff 00000000 		.4byte	.LFB2
+ 762 0103 18000000 		.4byte	.LFE2-.LFB2
+ 763 0107 01       		.uleb128 0x1
+ 764 0108 9C       		.byte	0x9c
+ 765 0109 2E010000 		.4byte	0x12e
+ 766 010d 0B       		.uleb128 0xb
+ 767 010e 91020000 		.4byte	.LASF18
+ 768 0112 01       		.byte	0x1
+ 769 0113 52       		.byte	0x52
+ 770 0114 64000000 		.4byte	0x64
+ 771 0118 00000000 		.4byte	.LLST0
+ 772 011c 09       		.uleb128 0x9
+ 773 011d 0E000000 		.4byte	.LVL10
+ 774 0121 C8040000 		.4byte	0x4c8
+ 775 0125 08       		.uleb128 0x8
+ 776 0126 01       		.uleb128 0x1
+ 777 0127 50       		.byte	0x50
+ 778 0128 03       		.uleb128 0x3
+ 779 0129 F3       		.byte	0xf3
+ 780 012a 01       		.uleb128 0x1
+ 781 012b 50       		.byte	0x50
+ 782 012c 00       		.byte	0
+ 783 012d 00       		.byte	0
+ 784 012e 0A       		.uleb128 0xa
+ 785 012f C9010000 		.4byte	.LASF17
+ 786 0133 01       		.byte	0x1
+ 787 0134 60       		.byte	0x60
+ 788 0135 5D000000 		.4byte	0x5d
+ 789 0139 00000000 		.4byte	.LFB3
+ 790 013d 1E000000 		.4byte	.LFE3-.LFB3
+ 791 0141 01       		.uleb128 0x1
+ 792 0142 9C       		.byte	0x9c
+ 793 0143 70010000 		.4byte	0x170
+ 794 0147 0B       		.uleb128 0xb
+ 795 0148 91020000 		.4byte	.LASF18
+ 796 014c 01       		.byte	0x1
+ 797 014d 60       		.byte	0x60
+ 798 014e 64000000 		.4byte	0x64
+ 799 0152 54000000 		.4byte	.LLST1
+ 800 0156 0C       		.uleb128 0xc
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccJTMNZC.s 			page 19
+
+
+ 801 0157 0E000000 		.4byte	.LVL15
+ 802 015b D9040000 		.4byte	0x4d9
+ 803 015f 09       		.uleb128 0x9
+ 804 0160 14000000 		.4byte	.LVL16
+ 805 0164 E0040000 		.4byte	0x4e0
+ 806 0168 08       		.uleb128 0x8
+ 807 0169 01       		.uleb128 0x1
+ 808 016a 50       		.byte	0x50
+ 809 016b 02       		.uleb128 0x2
+ 810 016c 74       		.byte	0x74
+ 811 016d 00       		.sleb128 0
+ 812 016e 00       		.byte	0
+ 813 016f 00       		.byte	0
+ 814 0170 0D       		.uleb128 0xd
+ 815 0171 68000000 		.4byte	.LASF20
+ 816 0175 01       		.byte	0x1
+ 817 0176 82       		.byte	0x82
+ 818 0177 5D000000 		.4byte	0x5d
+ 819 017b 00000000 		.4byte	.LFB4
+ 820 017f 12000000 		.4byte	.LFE4-.LFB4
+ 821 0183 01       		.uleb128 0x1
+ 822 0184 9C       		.byte	0x9c
+ 823 0185 AC010000 		.4byte	0x1ac
+ 824 0189 07       		.uleb128 0x7
+ 825 018a 08000000 		.4byte	.LVL20
+ 826 018e C8040000 		.4byte	0x4c8
+ 827 0192 9C010000 		.4byte	0x19c
+ 828 0196 08       		.uleb128 0x8
+ 829 0197 01       		.uleb128 0x1
+ 830 0198 50       		.byte	0x50
+ 831 0199 01       		.uleb128 0x1
+ 832 019a 30       		.byte	0x30
+ 833 019b 00       		.byte	0
+ 834 019c 09       		.uleb128 0x9
+ 835 019d 0E000000 		.4byte	.LVL21
+ 836 01a1 E0040000 		.4byte	0x4e0
+ 837 01a5 08       		.uleb128 0x8
+ 838 01a6 01       		.uleb128 0x1
+ 839 01a7 50       		.byte	0x50
+ 840 01a8 01       		.uleb128 0x1
+ 841 01a9 30       		.byte	0x30
+ 842 01aa 00       		.byte	0
+ 843 01ab 00       		.byte	0
+ 844 01ac 0E       		.uleb128 0xe
+ 845 01ad EF000000 		.4byte	.LASF21
+ 846 01b1 01       		.byte	0x1
+ 847 01b2 28       		.byte	0x28
+ 848 01b3 5D000000 		.4byte	0x5d
+ 849 01b7 00000000 		.4byte	.LFB1
+ 850 01bb 04010000 		.4byte	.LFE1-.LFB1
+ 851 01bf 01       		.uleb128 0x1
+ 852 01c0 9C       		.byte	0x9c
+ 853 01c1 B8020000 		.4byte	0x2b8
+ 854 01c5 0B       		.uleb128 0xb
+ 855 01c6 5F000000 		.4byte	.LASF22
+ 856 01ca 01       		.byte	0x1
+ 857 01cb 28       		.byte	0x28
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccJTMNZC.s 			page 20
+
+
+ 858 01cc 5D000000 		.4byte	0x5d
+ 859 01d0 96000000 		.4byte	.LLST2
+ 860 01d4 0B       		.uleb128 0xb
+ 861 01d5 00010000 		.4byte	.LASF23
+ 862 01d9 01       		.byte	0x1
+ 863 01da 28       		.byte	0x28
+ 864 01db 5D000000 		.4byte	0x5d
+ 865 01df 02010000 		.4byte	.LLST3
+ 866 01e3 0F       		.uleb128 0xf
+ 867 01e4 D8000000 		.4byte	.LASF25
+ 868 01e8 01       		.byte	0x1
+ 869 01e9 2B       		.byte	0x2b
+ 870 01ea 5D000000 		.4byte	0x5d
+ 871 01ee 6E010000 		.4byte	.LLST4
+ 872 01f2 0F       		.uleb128 0xf
+ 873 01f3 D6020000 		.4byte	.LASF26
+ 874 01f7 01       		.byte	0x1
+ 875 01f8 2C       		.byte	0x2c
+ 876 01f9 5D000000 		.4byte	0x5d
+ 877 01fd B2010000 		.4byte	.LLST5
+ 878 0201 0F       		.uleb128 0xf
+ 879 0202 E7020000 		.4byte	.LASF27
+ 880 0206 01       		.byte	0x1
+ 881 0207 2D       		.byte	0x2d
+ 882 0208 5D000000 		.4byte	0x5d
+ 883 020c E0010000 		.4byte	.LLST6
+ 884 0210 0F       		.uleb128 0xf
+ 885 0211 C8000000 		.4byte	.LASF28
+ 886 0215 01       		.byte	0x1
+ 887 0216 2E       		.byte	0x2e
+ 888 0217 5D000000 		.4byte	0x5d
+ 889 021b FE010000 		.4byte	.LLST7
+ 890 021f 0C       		.uleb128 0xc
+ 891 0220 12000000 		.4byte	.LVL23
+ 892 0224 F1040000 		.4byte	0x4f1
+ 893 0228 0C       		.uleb128 0xc
+ 894 0229 18000000 		.4byte	.LVL25
+ 895 022d FC040000 		.4byte	0x4fc
+ 896 0231 07       		.uleb128 0x7
+ 897 0232 78000000 		.4byte	.LVL39
+ 898 0236 2E010000 		.4byte	0x12e
+ 899 023a 45020000 		.4byte	0x245
+ 900 023e 08       		.uleb128 0x8
+ 901 023f 01       		.uleb128 0x1
+ 902 0240 50       		.byte	0x50
+ 903 0241 02       		.uleb128 0x2
+ 904 0242 76       		.byte	0x76
+ 905 0243 00       		.sleb128 0
+ 906 0244 00       		.byte	0
+ 907 0245 07       		.uleb128 0x7
+ 908 0246 7E000000 		.4byte	.LVL40
+ 909 024a F4000000 		.4byte	0xf4
+ 910 024e 59020000 		.4byte	0x259
+ 911 0252 08       		.uleb128 0x8
+ 912 0253 01       		.uleb128 0x1
+ 913 0254 50       		.byte	0x50
+ 914 0255 02       		.uleb128 0x2
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccJTMNZC.s 			page 21
+
+
+ 915 0256 74       		.byte	0x74
+ 916 0257 00       		.sleb128 0
+ 917 0258 00       		.byte	0
+ 918 0259 0C       		.uleb128 0xc
+ 919 025a 8A000000 		.4byte	.LVL42
+ 920 025e F1040000 		.4byte	0x4f1
+ 921 0262 0C       		.uleb128 0xc
+ 922 0263 90000000 		.4byte	.LVL44
+ 923 0267 FC040000 		.4byte	0x4fc
+ 924 026b 0C       		.uleb128 0xc
+ 925 026c C0000000 		.4byte	.LVL52
+ 926 0270 E0040000 		.4byte	0x4e0
+ 927 0274 0C       		.uleb128 0xc
+ 928 0275 CE000000 		.4byte	.LVL54
+ 929 0279 F1040000 		.4byte	0x4f1
+ 930 027d 0C       		.uleb128 0xc
+ 931 027e D4000000 		.4byte	.LVL56
+ 932 0282 FC040000 		.4byte	0x4fc
+ 933 0286 07       		.uleb128 0x7
+ 934 0287 DC000000 		.4byte	.LVL58
+ 935 028b 2E010000 		.4byte	0x12e
+ 936 028f 9A020000 		.4byte	0x29a
+ 937 0293 08       		.uleb128 0x8
+ 938 0294 01       		.uleb128 0x1
+ 939 0295 50       		.byte	0x50
+ 940 0296 02       		.uleb128 0x2
+ 941 0297 75       		.byte	0x75
+ 942 0298 00       		.sleb128 0
+ 943 0299 00       		.byte	0
+ 944 029a 07       		.uleb128 0x7
+ 945 029b E2000000 		.4byte	.LVL59
+ 946 029f F4000000 		.4byte	0xf4
+ 947 02a3 AE020000 		.4byte	0x2ae
+ 948 02a7 08       		.uleb128 0x8
+ 949 02a8 01       		.uleb128 0x1
+ 950 02a9 50       		.byte	0x50
+ 951 02aa 02       		.uleb128 0x2
+ 952 02ab 74       		.byte	0x74
+ 953 02ac 00       		.sleb128 0
+ 954 02ad 00       		.byte	0
+ 955 02ae 0C       		.uleb128 0xc
+ 956 02af EC000000 		.4byte	.LVL61
+ 957 02b3 70010000 		.4byte	0x170
+ 958 02b7 00       		.byte	0
+ 959 02b8 0A       		.uleb128 0xa
+ 960 02b9 55000000 		.4byte	.LASF29
+ 961 02bd 01       		.byte	0x1
+ 962 02be 8A       		.byte	0x8a
+ 963 02bf 5D000000 		.4byte	0x5d
+ 964 02c3 00000000 		.4byte	.LFB5
+ 965 02c7 C0000000 		.4byte	.LFE5-.LFB5
+ 966 02cb 01       		.uleb128 0x1
+ 967 02cc 9C       		.byte	0x9c
+ 968 02cd 62040000 		.4byte	0x462
+ 969 02d1 10       		.uleb128 0x10
+ 970 02d2 64697200 		.ascii	"dir\000"
+ 971 02d6 01       		.byte	0x1
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccJTMNZC.s 			page 22
+
+
+ 972 02d7 8A       		.byte	0x8a
+ 973 02d8 5D000000 		.4byte	0x5d
+ 974 02dc 11020000 		.4byte	.LLST8
+ 975 02e0 11       		.uleb128 0x11
+ 976 02e1 6900     		.ascii	"i\000"
+ 977 02e3 01       		.byte	0x1
+ 978 02e4 8C       		.byte	0x8c
+ 979 02e5 5D000000 		.4byte	0x5d
+ 980 02e9 3D020000 		.4byte	.LLST9
+ 981 02ed 07       		.uleb128 0x7
+ 982 02ee 1E000000 		.4byte	.LVL65
+ 983 02f2 2E010000 		.4byte	0x12e
+ 984 02f6 01030000 		.4byte	0x301
+ 985 02fa 08       		.uleb128 0x8
+ 986 02fb 01       		.uleb128 0x1
+ 987 02fc 50       		.byte	0x50
+ 988 02fd 02       		.uleb128 0x2
+ 989 02fe 08       		.byte	0x8
+ 990 02ff 64       		.byte	0x64
+ 991 0300 00       		.byte	0
+ 992 0301 07       		.uleb128 0x7
+ 993 0302 28000000 		.4byte	.LVL67
+ 994 0306 2E010000 		.4byte	0x12e
+ 995 030a 15030000 		.4byte	0x315
+ 996 030e 08       		.uleb128 0x8
+ 997 030f 01       		.uleb128 0x1
+ 998 0310 50       		.byte	0x50
+ 999 0311 02       		.uleb128 0x2
+ 1000 0312 08       		.byte	0x8
+ 1001 0313 96       		.byte	0x96
+ 1002 0314 00       		.byte	0
+ 1003 0315 07       		.uleb128 0x7
+ 1004 0316 2E000000 		.4byte	.LVL68
+ 1005 031a 07050000 		.4byte	0x507
+ 1006 031e 29030000 		.4byte	0x329
+ 1007 0322 08       		.uleb128 0x8
+ 1008 0323 01       		.uleb128 0x1
+ 1009 0324 50       		.byte	0x50
+ 1010 0325 02       		.uleb128 0x2
+ 1011 0326 08       		.byte	0x8
+ 1012 0327 C8       		.byte	0xc8
+ 1013 0328 00       		.byte	0
+ 1014 0329 0C       		.uleb128 0xc
+ 1015 032a 32000000 		.4byte	.LVL69
+ 1016 032e 70010000 		.4byte	0x170
+ 1017 0332 07       		.uleb128 0x7
+ 1018 0333 3C000000 		.4byte	.LVL71
+ 1019 0337 2E010000 		.4byte	0x12e
+ 1020 033b 46030000 		.4byte	0x346
+ 1021 033f 08       		.uleb128 0x8
+ 1022 0340 01       		.uleb128 0x1
+ 1023 0341 50       		.byte	0x50
+ 1024 0342 02       		.uleb128 0x2
+ 1025 0343 08       		.byte	0x8
+ 1026 0344 C8       		.byte	0xc8
+ 1027 0345 00       		.byte	0
+ 1028 0346 07       		.uleb128 0x7
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccJTMNZC.s 			page 23
+
+
+ 1029 0347 42000000 		.4byte	.LVL72
+ 1030 034b 07050000 		.4byte	0x507
+ 1031 034f 5A030000 		.4byte	0x35a
+ 1032 0353 08       		.uleb128 0x8
+ 1033 0354 01       		.uleb128 0x1
+ 1034 0355 50       		.byte	0x50
+ 1035 0356 02       		.uleb128 0x2
+ 1036 0357 08       		.byte	0x8
+ 1037 0358 C8       		.byte	0xc8
+ 1038 0359 00       		.byte	0
+ 1039 035a 0C       		.uleb128 0xc
+ 1040 035b 46000000 		.4byte	.LVL73
+ 1041 035f 70010000 		.4byte	0x170
+ 1042 0363 07       		.uleb128 0x7
+ 1043 0364 50000000 		.4byte	.LVL75
+ 1044 0368 2E010000 		.4byte	0x12e
+ 1045 036c 77030000 		.4byte	0x377
+ 1046 0370 08       		.uleb128 0x8
+ 1047 0371 01       		.uleb128 0x1
+ 1048 0372 50       		.byte	0x50
+ 1049 0373 02       		.uleb128 0x2
+ 1050 0374 08       		.byte	0x8
+ 1051 0375 C8       		.byte	0xc8
+ 1052 0376 00       		.byte	0
+ 1053 0377 07       		.uleb128 0x7
+ 1054 0378 56000000 		.4byte	.LVL76
+ 1055 037c 07050000 		.4byte	0x507
+ 1056 0380 8B030000 		.4byte	0x38b
+ 1057 0384 08       		.uleb128 0x8
+ 1058 0385 01       		.uleb128 0x1
+ 1059 0386 50       		.byte	0x50
+ 1060 0387 02       		.uleb128 0x2
+ 1061 0388 08       		.byte	0x8
+ 1062 0389 C8       		.byte	0xc8
+ 1063 038a 00       		.byte	0
+ 1064 038b 0C       		.uleb128 0xc
+ 1065 038c 5A000000 		.4byte	.LVL77
+ 1066 0390 70010000 		.4byte	0x170
+ 1067 0394 07       		.uleb128 0x7
+ 1068 0395 62000000 		.4byte	.LVL79
+ 1069 0399 F4000000 		.4byte	0xf4
+ 1070 039d A8030000 		.4byte	0x3a8
+ 1071 03a1 08       		.uleb128 0x8
+ 1072 03a2 01       		.uleb128 0x1
+ 1073 03a3 50       		.byte	0x50
+ 1074 03a4 02       		.uleb128 0x2
+ 1075 03a5 08       		.byte	0x8
+ 1076 03a6 C8       		.byte	0xc8
+ 1077 03a7 00       		.byte	0
+ 1078 03a8 07       		.uleb128 0x7
+ 1079 03a9 68000000 		.4byte	.LVL80
+ 1080 03ad 07050000 		.4byte	0x507
+ 1081 03b1 BC030000 		.4byte	0x3bc
+ 1082 03b5 08       		.uleb128 0x8
+ 1083 03b6 01       		.uleb128 0x1
+ 1084 03b7 50       		.byte	0x50
+ 1085 03b8 02       		.uleb128 0x2
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccJTMNZC.s 			page 24
+
+
+ 1086 03b9 08       		.byte	0x8
+ 1087 03ba C8       		.byte	0xc8
+ 1088 03bb 00       		.byte	0
+ 1089 03bc 0C       		.uleb128 0xc
+ 1090 03bd 6C000000 		.4byte	.LVL81
+ 1091 03c1 70010000 		.4byte	0x170
+ 1092 03c5 07       		.uleb128 0x7
+ 1093 03c6 76000000 		.4byte	.LVL83
+ 1094 03ca F4000000 		.4byte	0xf4
+ 1095 03ce D9030000 		.4byte	0x3d9
+ 1096 03d2 08       		.uleb128 0x8
+ 1097 03d3 01       		.uleb128 0x1
+ 1098 03d4 50       		.byte	0x50
+ 1099 03d5 02       		.uleb128 0x2
+ 1100 03d6 08       		.byte	0x8
+ 1101 03d7 C8       		.byte	0xc8
+ 1102 03d8 00       		.byte	0
+ 1103 03d9 07       		.uleb128 0x7
+ 1104 03da 7C000000 		.4byte	.LVL84
+ 1105 03de 07050000 		.4byte	0x507
+ 1106 03e2 ED030000 		.4byte	0x3ed
+ 1107 03e6 08       		.uleb128 0x8
+ 1108 03e7 01       		.uleb128 0x1
+ 1109 03e8 50       		.byte	0x50
+ 1110 03e9 02       		.uleb128 0x2
+ 1111 03ea 08       		.byte	0x8
+ 1112 03eb C8       		.byte	0xc8
+ 1113 03ec 00       		.byte	0
+ 1114 03ed 0C       		.uleb128 0xc
+ 1115 03ee 80000000 		.4byte	.LVL85
+ 1116 03f2 70010000 		.4byte	0x170
+ 1117 03f6 07       		.uleb128 0x7
+ 1118 03f7 8A000000 		.4byte	.LVL87
+ 1119 03fb F4000000 		.4byte	0xf4
+ 1120 03ff 0A040000 		.4byte	0x40a
+ 1121 0403 08       		.uleb128 0x8
+ 1122 0404 01       		.uleb128 0x1
+ 1123 0405 50       		.byte	0x50
+ 1124 0406 02       		.uleb128 0x2
+ 1125 0407 08       		.byte	0x8
+ 1126 0408 96       		.byte	0x96
+ 1127 0409 00       		.byte	0
+ 1128 040a 07       		.uleb128 0x7
+ 1129 040b 90000000 		.4byte	.LVL88
+ 1130 040f 07050000 		.4byte	0x507
+ 1131 0413 1E040000 		.4byte	0x41e
+ 1132 0417 08       		.uleb128 0x8
+ 1133 0418 01       		.uleb128 0x1
+ 1134 0419 50       		.byte	0x50
+ 1135 041a 02       		.uleb128 0x2
+ 1136 041b 08       		.byte	0x8
+ 1137 041c C8       		.byte	0xc8
+ 1138 041d 00       		.byte	0
+ 1139 041e 0C       		.uleb128 0xc
+ 1140 041f 94000000 		.4byte	.LVL89
+ 1141 0423 70010000 		.4byte	0x170
+ 1142 0427 07       		.uleb128 0x7
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccJTMNZC.s 			page 25
+
+
+ 1143 0428 9E000000 		.4byte	.LVL91
+ 1144 042c F4000000 		.4byte	0xf4
+ 1145 0430 3B040000 		.4byte	0x43b
+ 1146 0434 08       		.uleb128 0x8
+ 1147 0435 01       		.uleb128 0x1
+ 1148 0436 50       		.byte	0x50
+ 1149 0437 02       		.uleb128 0x2
+ 1150 0438 08       		.byte	0x8
+ 1151 0439 64       		.byte	0x64
+ 1152 043a 00       		.byte	0
+ 1153 043b 07       		.uleb128 0x7
+ 1154 043c A4000000 		.4byte	.LVL92
+ 1155 0440 07050000 		.4byte	0x507
+ 1156 0444 4F040000 		.4byte	0x44f
+ 1157 0448 08       		.uleb128 0x8
+ 1158 0449 01       		.uleb128 0x1
+ 1159 044a 50       		.byte	0x50
+ 1160 044b 02       		.uleb128 0x2
+ 1161 044c 08       		.byte	0x8
+ 1162 044d C8       		.byte	0xc8
+ 1163 044e 00       		.byte	0
+ 1164 044f 0C       		.uleb128 0xc
+ 1165 0450 A8000000 		.4byte	.LVL93
+ 1166 0454 70010000 		.4byte	0x170
+ 1167 0458 0C       		.uleb128 0xc
+ 1168 0459 B0000000 		.4byte	.LVL95
+ 1169 045d 70010000 		.4byte	0x170
+ 1170 0461 00       		.byte	0
+ 1171 0462 12       		.uleb128 0x12
+ 1172 0463 D4010000 		.4byte	.LASF30
+ 1173 0467 03       		.byte	0x3
+ 1174 0468 02       		.byte	0x2
+ 1175 0469 5D000000 		.4byte	0x5d
+ 1176 046d 13       		.uleb128 0x13
+ 1177 046e 72656700 		.ascii	"reg\000"
+ 1178 0472 01       		.byte	0x1
+ 1179 0473 1A       		.byte	0x1a
+ 1180 0474 7E040000 		.4byte	0x47e
+ 1181 0478 05       		.uleb128 0x5
+ 1182 0479 03       		.byte	0x3
+ 1183 047a 00000000 		.4byte	reg
+ 1184 047e 14       		.uleb128 0x14
+ 1185 047f 5D000000 		.4byte	0x5d
+ 1186 0483 15       		.uleb128 0x15
+ 1187 0484 4F000000 		.4byte	.LASF31
+ 1188 0488 01       		.byte	0x1
+ 1189 0489 1B       		.byte	0x1b
+ 1190 048a 94040000 		.4byte	0x494
+ 1191 048e 05       		.uleb128 0x5
+ 1192 048f 03       		.byte	0x3
+ 1193 0490 00000000 		.4byte	V_reg
+ 1194 0494 14       		.uleb128 0x14
+ 1195 0495 83000000 		.4byte	0x83
+ 1196 0499 16       		.uleb128 0x16
+ 1197 049a 00000000 		.4byte	.LASF32
+ 1198 049e 04       		.byte	0x4
+ 1199 049f 9F       		.byte	0x9f
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccJTMNZC.s 			page 26
+
+
+ 1200 04a0 83000000 		.4byte	0x83
+ 1201 04a4 AE040000 		.4byte	0x4ae
+ 1202 04a8 17       		.uleb128 0x17
+ 1203 04a9 77000000 		.4byte	0x77
+ 1204 04ad 00       		.byte	0
+ 1205 04ae 16       		.uleb128 0x16
+ 1206 04af 28000000 		.4byte	.LASF33
+ 1207 04b3 04       		.byte	0x4
+ 1208 04b4 AB       		.byte	0xab
+ 1209 04b5 83000000 		.4byte	0x83
+ 1210 04b9 C8040000 		.4byte	0x4c8
+ 1211 04bd 17       		.uleb128 0x17
+ 1212 04be 77000000 		.4byte	0x77
+ 1213 04c2 17       		.uleb128 0x17
+ 1214 04c3 83000000 		.4byte	0x83
+ 1215 04c7 00       		.byte	0
+ 1216 04c8 18       		.uleb128 0x18
+ 1217 04c9 A6020000 		.4byte	.LASF34
+ 1218 04cd 05       		.byte	0x5
+ 1219 04ce C3       		.byte	0xc3
+ 1220 04cf D9040000 		.4byte	0x4d9
+ 1221 04d3 17       		.uleb128 0x17
+ 1222 04d4 6B000000 		.4byte	0x6b
+ 1223 04d8 00       		.byte	0
+ 1224 04d9 19       		.uleb128 0x19
+ 1225 04da B7010000 		.4byte	.LASF41
+ 1226 04de 06       		.byte	0x6
+ 1227 04df 92       		.byte	0x92
+ 1228 04e0 18       		.uleb128 0x18
+ 1229 04e1 81000000 		.4byte	.LASF35
+ 1230 04e5 06       		.byte	0x6
+ 1231 04e6 C3       		.byte	0xc3
+ 1232 04e7 F1040000 		.4byte	0x4f1
+ 1233 04eb 17       		.uleb128 0x17
+ 1234 04ec 6B000000 		.4byte	0x6b
+ 1235 04f0 00       		.byte	0
+ 1236 04f1 1A       		.uleb128 0x1a
+ 1237 04f2 10000000 		.4byte	.LASF36
+ 1238 04f6 06       		.byte	0x6
+ 1239 04f7 C5       		.byte	0xc5
+ 1240 04f8 6B000000 		.4byte	0x6b
+ 1241 04fc 1A       		.uleb128 0x1a
+ 1242 04fd B2000000 		.4byte	.LASF37
+ 1243 0501 05       		.byte	0x5
+ 1244 0502 C5       		.byte	0xc5
+ 1245 0503 6B000000 		.4byte	0x6b
+ 1246 0507 1B       		.uleb128 0x1b
+ 1247 0508 02030000 		.4byte	.LASF42
+ 1248 050c 07       		.byte	0x7
+ 1249 050d 5A       		.byte	0x5a
+ 1250 050e 17       		.uleb128 0x17
+ 1251 050f 77000000 		.4byte	0x77
+ 1252 0513 00       		.byte	0
+ 1253 0514 00       		.byte	0
+ 1254              		.section	.debug_abbrev,"",%progbits
+ 1255              	.Ldebug_abbrev0:
+ 1256 0000 01       		.uleb128 0x1
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccJTMNZC.s 			page 27
+
+
+ 1257 0001 11       		.uleb128 0x11
+ 1258 0002 01       		.byte	0x1
+ 1259 0003 25       		.uleb128 0x25
+ 1260 0004 0E       		.uleb128 0xe
+ 1261 0005 13       		.uleb128 0x13
+ 1262 0006 0B       		.uleb128 0xb
+ 1263 0007 03       		.uleb128 0x3
+ 1264 0008 0E       		.uleb128 0xe
+ 1265 0009 1B       		.uleb128 0x1b
+ 1266 000a 0E       		.uleb128 0xe
+ 1267 000b 55       		.uleb128 0x55
+ 1268 000c 17       		.uleb128 0x17
+ 1269 000d 11       		.uleb128 0x11
+ 1270 000e 01       		.uleb128 0x1
+ 1271 000f 10       		.uleb128 0x10
+ 1272 0010 17       		.uleb128 0x17
+ 1273 0011 00       		.byte	0
+ 1274 0012 00       		.byte	0
+ 1275 0013 02       		.uleb128 0x2
+ 1276 0014 24       		.uleb128 0x24
+ 1277 0015 00       		.byte	0
+ 1278 0016 0B       		.uleb128 0xb
+ 1279 0017 0B       		.uleb128 0xb
+ 1280 0018 3E       		.uleb128 0x3e
+ 1281 0019 0B       		.uleb128 0xb
+ 1282 001a 03       		.uleb128 0x3
+ 1283 001b 0E       		.uleb128 0xe
+ 1284 001c 00       		.byte	0
+ 1285 001d 00       		.byte	0
+ 1286 001e 03       		.uleb128 0x3
+ 1287 001f 24       		.uleb128 0x24
+ 1288 0020 00       		.byte	0
+ 1289 0021 0B       		.uleb128 0xb
+ 1290 0022 0B       		.uleb128 0xb
+ 1291 0023 3E       		.uleb128 0x3e
+ 1292 0024 0B       		.uleb128 0xb
+ 1293 0025 03       		.uleb128 0x3
+ 1294 0026 08       		.uleb128 0x8
+ 1295 0027 00       		.byte	0
+ 1296 0028 00       		.byte	0
+ 1297 0029 04       		.uleb128 0x4
+ 1298 002a 16       		.uleb128 0x16
+ 1299 002b 00       		.byte	0
+ 1300 002c 03       		.uleb128 0x3
+ 1301 002d 0E       		.uleb128 0xe
+ 1302 002e 3A       		.uleb128 0x3a
+ 1303 002f 0B       		.uleb128 0xb
+ 1304 0030 3B       		.uleb128 0x3b
+ 1305 0031 05       		.uleb128 0x5
+ 1306 0032 49       		.uleb128 0x49
+ 1307 0033 13       		.uleb128 0x13
+ 1308 0034 00       		.byte	0
+ 1309 0035 00       		.byte	0
+ 1310 0036 05       		.uleb128 0x5
+ 1311 0037 2E       		.uleb128 0x2e
+ 1312 0038 01       		.byte	0x1
+ 1313 0039 3F       		.uleb128 0x3f
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccJTMNZC.s 			page 28
+
+
+ 1314 003a 19       		.uleb128 0x19
+ 1315 003b 03       		.uleb128 0x3
+ 1316 003c 0E       		.uleb128 0xe
+ 1317 003d 3A       		.uleb128 0x3a
+ 1318 003e 0B       		.uleb128 0xb
+ 1319 003f 3B       		.uleb128 0x3b
+ 1320 0040 0B       		.uleb128 0xb
+ 1321 0041 49       		.uleb128 0x49
+ 1322 0042 13       		.uleb128 0x13
+ 1323 0043 11       		.uleb128 0x11
+ 1324 0044 01       		.uleb128 0x1
+ 1325 0045 12       		.uleb128 0x12
+ 1326 0046 06       		.uleb128 0x6
+ 1327 0047 40       		.uleb128 0x40
+ 1328 0048 18       		.uleb128 0x18
+ 1329 0049 9642     		.uleb128 0x2116
+ 1330 004b 19       		.uleb128 0x19
+ 1331 004c 01       		.uleb128 0x1
+ 1332 004d 13       		.uleb128 0x13
+ 1333 004e 00       		.byte	0
+ 1334 004f 00       		.byte	0
+ 1335 0050 06       		.uleb128 0x6
+ 1336 0051 34       		.uleb128 0x34
+ 1337 0052 00       		.byte	0
+ 1338 0053 03       		.uleb128 0x3
+ 1339 0054 0E       		.uleb128 0xe
+ 1340 0055 3A       		.uleb128 0x3a
+ 1341 0056 0B       		.uleb128 0xb
+ 1342 0057 3B       		.uleb128 0x3b
+ 1343 0058 0B       		.uleb128 0xb
+ 1344 0059 49       		.uleb128 0x49
+ 1345 005a 13       		.uleb128 0x13
+ 1346 005b 02       		.uleb128 0x2
+ 1347 005c 18       		.uleb128 0x18
+ 1348 005d 00       		.byte	0
+ 1349 005e 00       		.byte	0
+ 1350 005f 07       		.uleb128 0x7
+ 1351 0060 898201   		.uleb128 0x4109
+ 1352 0063 01       		.byte	0x1
+ 1353 0064 11       		.uleb128 0x11
+ 1354 0065 01       		.uleb128 0x1
+ 1355 0066 31       		.uleb128 0x31
+ 1356 0067 13       		.uleb128 0x13
+ 1357 0068 01       		.uleb128 0x1
+ 1358 0069 13       		.uleb128 0x13
+ 1359 006a 00       		.byte	0
+ 1360 006b 00       		.byte	0
+ 1361 006c 08       		.uleb128 0x8
+ 1362 006d 8A8201   		.uleb128 0x410a
+ 1363 0070 00       		.byte	0
+ 1364 0071 02       		.uleb128 0x2
+ 1365 0072 18       		.uleb128 0x18
+ 1366 0073 9142     		.uleb128 0x2111
+ 1367 0075 18       		.uleb128 0x18
+ 1368 0076 00       		.byte	0
+ 1369 0077 00       		.byte	0
+ 1370 0078 09       		.uleb128 0x9
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccJTMNZC.s 			page 29
+
+
+ 1371 0079 898201   		.uleb128 0x4109
+ 1372 007c 01       		.byte	0x1
+ 1373 007d 11       		.uleb128 0x11
+ 1374 007e 01       		.uleb128 0x1
+ 1375 007f 31       		.uleb128 0x31
+ 1376 0080 13       		.uleb128 0x13
+ 1377 0081 00       		.byte	0
+ 1378 0082 00       		.byte	0
+ 1379 0083 0A       		.uleb128 0xa
+ 1380 0084 2E       		.uleb128 0x2e
+ 1381 0085 01       		.byte	0x1
+ 1382 0086 3F       		.uleb128 0x3f
+ 1383 0087 19       		.uleb128 0x19
+ 1384 0088 03       		.uleb128 0x3
+ 1385 0089 0E       		.uleb128 0xe
+ 1386 008a 3A       		.uleb128 0x3a
+ 1387 008b 0B       		.uleb128 0xb
+ 1388 008c 3B       		.uleb128 0x3b
+ 1389 008d 0B       		.uleb128 0xb
+ 1390 008e 27       		.uleb128 0x27
+ 1391 008f 19       		.uleb128 0x19
+ 1392 0090 49       		.uleb128 0x49
+ 1393 0091 13       		.uleb128 0x13
+ 1394 0092 11       		.uleb128 0x11
+ 1395 0093 01       		.uleb128 0x1
+ 1396 0094 12       		.uleb128 0x12
+ 1397 0095 06       		.uleb128 0x6
+ 1398 0096 40       		.uleb128 0x40
+ 1399 0097 18       		.uleb128 0x18
+ 1400 0098 9742     		.uleb128 0x2117
+ 1401 009a 19       		.uleb128 0x19
+ 1402 009b 01       		.uleb128 0x1
+ 1403 009c 13       		.uleb128 0x13
+ 1404 009d 00       		.byte	0
+ 1405 009e 00       		.byte	0
+ 1406 009f 0B       		.uleb128 0xb
+ 1407 00a0 05       		.uleb128 0x5
+ 1408 00a1 00       		.byte	0
+ 1409 00a2 03       		.uleb128 0x3
+ 1410 00a3 0E       		.uleb128 0xe
+ 1411 00a4 3A       		.uleb128 0x3a
+ 1412 00a5 0B       		.uleb128 0xb
+ 1413 00a6 3B       		.uleb128 0x3b
+ 1414 00a7 0B       		.uleb128 0xb
+ 1415 00a8 49       		.uleb128 0x49
+ 1416 00a9 13       		.uleb128 0x13
+ 1417 00aa 02       		.uleb128 0x2
+ 1418 00ab 17       		.uleb128 0x17
+ 1419 00ac 00       		.byte	0
+ 1420 00ad 00       		.byte	0
+ 1421 00ae 0C       		.uleb128 0xc
+ 1422 00af 898201   		.uleb128 0x4109
+ 1423 00b2 00       		.byte	0
+ 1424 00b3 11       		.uleb128 0x11
+ 1425 00b4 01       		.uleb128 0x1
+ 1426 00b5 31       		.uleb128 0x31
+ 1427 00b6 13       		.uleb128 0x13
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccJTMNZC.s 			page 30
+
+
+ 1428 00b7 00       		.byte	0
+ 1429 00b8 00       		.byte	0
+ 1430 00b9 0D       		.uleb128 0xd
+ 1431 00ba 2E       		.uleb128 0x2e
+ 1432 00bb 01       		.byte	0x1
+ 1433 00bc 3F       		.uleb128 0x3f
+ 1434 00bd 19       		.uleb128 0x19
+ 1435 00be 03       		.uleb128 0x3
+ 1436 00bf 0E       		.uleb128 0xe
+ 1437 00c0 3A       		.uleb128 0x3a
+ 1438 00c1 0B       		.uleb128 0xb
+ 1439 00c2 3B       		.uleb128 0x3b
+ 1440 00c3 0B       		.uleb128 0xb
+ 1441 00c4 49       		.uleb128 0x49
+ 1442 00c5 13       		.uleb128 0x13
+ 1443 00c6 11       		.uleb128 0x11
+ 1444 00c7 01       		.uleb128 0x1
+ 1445 00c8 12       		.uleb128 0x12
+ 1446 00c9 06       		.uleb128 0x6
+ 1447 00ca 40       		.uleb128 0x40
+ 1448 00cb 18       		.uleb128 0x18
+ 1449 00cc 9742     		.uleb128 0x2117
+ 1450 00ce 19       		.uleb128 0x19
+ 1451 00cf 01       		.uleb128 0x1
+ 1452 00d0 13       		.uleb128 0x13
+ 1453 00d1 00       		.byte	0
+ 1454 00d2 00       		.byte	0
+ 1455 00d3 0E       		.uleb128 0xe
+ 1456 00d4 2E       		.uleb128 0x2e
+ 1457 00d5 01       		.byte	0x1
+ 1458 00d6 3F       		.uleb128 0x3f
+ 1459 00d7 19       		.uleb128 0x19
+ 1460 00d8 03       		.uleb128 0x3
+ 1461 00d9 0E       		.uleb128 0xe
+ 1462 00da 3A       		.uleb128 0x3a
+ 1463 00db 0B       		.uleb128 0xb
+ 1464 00dc 3B       		.uleb128 0x3b
+ 1465 00dd 0B       		.uleb128 0xb
+ 1466 00de 27       		.uleb128 0x27
+ 1467 00df 19       		.uleb128 0x19
+ 1468 00e0 49       		.uleb128 0x49
+ 1469 00e1 13       		.uleb128 0x13
+ 1470 00e2 11       		.uleb128 0x11
+ 1471 00e3 01       		.uleb128 0x1
+ 1472 00e4 12       		.uleb128 0x12
+ 1473 00e5 06       		.uleb128 0x6
+ 1474 00e6 40       		.uleb128 0x40
+ 1475 00e7 18       		.uleb128 0x18
+ 1476 00e8 9642     		.uleb128 0x2116
+ 1477 00ea 19       		.uleb128 0x19
+ 1478 00eb 01       		.uleb128 0x1
+ 1479 00ec 13       		.uleb128 0x13
+ 1480 00ed 00       		.byte	0
+ 1481 00ee 00       		.byte	0
+ 1482 00ef 0F       		.uleb128 0xf
+ 1483 00f0 34       		.uleb128 0x34
+ 1484 00f1 00       		.byte	0
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccJTMNZC.s 			page 31
+
+
+ 1485 00f2 03       		.uleb128 0x3
+ 1486 00f3 0E       		.uleb128 0xe
+ 1487 00f4 3A       		.uleb128 0x3a
+ 1488 00f5 0B       		.uleb128 0xb
+ 1489 00f6 3B       		.uleb128 0x3b
+ 1490 00f7 0B       		.uleb128 0xb
+ 1491 00f8 49       		.uleb128 0x49
+ 1492 00f9 13       		.uleb128 0x13
+ 1493 00fa 02       		.uleb128 0x2
+ 1494 00fb 17       		.uleb128 0x17
+ 1495 00fc 00       		.byte	0
+ 1496 00fd 00       		.byte	0
+ 1497 00fe 10       		.uleb128 0x10
+ 1498 00ff 05       		.uleb128 0x5
+ 1499 0100 00       		.byte	0
+ 1500 0101 03       		.uleb128 0x3
+ 1501 0102 08       		.uleb128 0x8
+ 1502 0103 3A       		.uleb128 0x3a
+ 1503 0104 0B       		.uleb128 0xb
+ 1504 0105 3B       		.uleb128 0x3b
+ 1505 0106 0B       		.uleb128 0xb
+ 1506 0107 49       		.uleb128 0x49
+ 1507 0108 13       		.uleb128 0x13
+ 1508 0109 02       		.uleb128 0x2
+ 1509 010a 17       		.uleb128 0x17
+ 1510 010b 00       		.byte	0
+ 1511 010c 00       		.byte	0
+ 1512 010d 11       		.uleb128 0x11
+ 1513 010e 34       		.uleb128 0x34
+ 1514 010f 00       		.byte	0
+ 1515 0110 03       		.uleb128 0x3
+ 1516 0111 08       		.uleb128 0x8
+ 1517 0112 3A       		.uleb128 0x3a
+ 1518 0113 0B       		.uleb128 0xb
+ 1519 0114 3B       		.uleb128 0x3b
+ 1520 0115 0B       		.uleb128 0xb
+ 1521 0116 49       		.uleb128 0x49
+ 1522 0117 13       		.uleb128 0x13
+ 1523 0118 02       		.uleb128 0x2
+ 1524 0119 17       		.uleb128 0x17
+ 1525 011a 00       		.byte	0
+ 1526 011b 00       		.byte	0
+ 1527 011c 12       		.uleb128 0x12
+ 1528 011d 34       		.uleb128 0x34
+ 1529 011e 00       		.byte	0
+ 1530 011f 03       		.uleb128 0x3
+ 1531 0120 0E       		.uleb128 0xe
+ 1532 0121 3A       		.uleb128 0x3a
+ 1533 0122 0B       		.uleb128 0xb
+ 1534 0123 3B       		.uleb128 0x3b
+ 1535 0124 0B       		.uleb128 0xb
+ 1536 0125 49       		.uleb128 0x49
+ 1537 0126 13       		.uleb128 0x13
+ 1538 0127 3F       		.uleb128 0x3f
+ 1539 0128 19       		.uleb128 0x19
+ 1540 0129 3C       		.uleb128 0x3c
+ 1541 012a 19       		.uleb128 0x19
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccJTMNZC.s 			page 32
+
+
+ 1542 012b 00       		.byte	0
+ 1543 012c 00       		.byte	0
+ 1544 012d 13       		.uleb128 0x13
+ 1545 012e 34       		.uleb128 0x34
+ 1546 012f 00       		.byte	0
+ 1547 0130 03       		.uleb128 0x3
+ 1548 0131 08       		.uleb128 0x8
+ 1549 0132 3A       		.uleb128 0x3a
+ 1550 0133 0B       		.uleb128 0xb
+ 1551 0134 3B       		.uleb128 0x3b
+ 1552 0135 0B       		.uleb128 0xb
+ 1553 0136 49       		.uleb128 0x49
+ 1554 0137 13       		.uleb128 0x13
+ 1555 0138 3F       		.uleb128 0x3f
+ 1556 0139 19       		.uleb128 0x19
+ 1557 013a 02       		.uleb128 0x2
+ 1558 013b 18       		.uleb128 0x18
+ 1559 013c 00       		.byte	0
+ 1560 013d 00       		.byte	0
+ 1561 013e 14       		.uleb128 0x14
+ 1562 013f 35       		.uleb128 0x35
+ 1563 0140 00       		.byte	0
+ 1564 0141 49       		.uleb128 0x49
+ 1565 0142 13       		.uleb128 0x13
+ 1566 0143 00       		.byte	0
+ 1567 0144 00       		.byte	0
+ 1568 0145 15       		.uleb128 0x15
+ 1569 0146 34       		.uleb128 0x34
+ 1570 0147 00       		.byte	0
+ 1571 0148 03       		.uleb128 0x3
+ 1572 0149 0E       		.uleb128 0xe
+ 1573 014a 3A       		.uleb128 0x3a
+ 1574 014b 0B       		.uleb128 0xb
+ 1575 014c 3B       		.uleb128 0x3b
+ 1576 014d 0B       		.uleb128 0xb
+ 1577 014e 49       		.uleb128 0x49
+ 1578 014f 13       		.uleb128 0x13
+ 1579 0150 3F       		.uleb128 0x3f
+ 1580 0151 19       		.uleb128 0x19
+ 1581 0152 02       		.uleb128 0x2
+ 1582 0153 18       		.uleb128 0x18
+ 1583 0154 00       		.byte	0
+ 1584 0155 00       		.byte	0
+ 1585 0156 16       		.uleb128 0x16
+ 1586 0157 2E       		.uleb128 0x2e
+ 1587 0158 01       		.byte	0x1
+ 1588 0159 3F       		.uleb128 0x3f
+ 1589 015a 19       		.uleb128 0x19
+ 1590 015b 03       		.uleb128 0x3
+ 1591 015c 0E       		.uleb128 0xe
+ 1592 015d 3A       		.uleb128 0x3a
+ 1593 015e 0B       		.uleb128 0xb
+ 1594 015f 3B       		.uleb128 0x3b
+ 1595 0160 0B       		.uleb128 0xb
+ 1596 0161 27       		.uleb128 0x27
+ 1597 0162 19       		.uleb128 0x19
+ 1598 0163 49       		.uleb128 0x49
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccJTMNZC.s 			page 33
+
+
+ 1599 0164 13       		.uleb128 0x13
+ 1600 0165 3C       		.uleb128 0x3c
+ 1601 0166 19       		.uleb128 0x19
+ 1602 0167 01       		.uleb128 0x1
+ 1603 0168 13       		.uleb128 0x13
+ 1604 0169 00       		.byte	0
+ 1605 016a 00       		.byte	0
+ 1606 016b 17       		.uleb128 0x17
+ 1607 016c 05       		.uleb128 0x5
+ 1608 016d 00       		.byte	0
+ 1609 016e 49       		.uleb128 0x49
+ 1610 016f 13       		.uleb128 0x13
+ 1611 0170 00       		.byte	0
+ 1612 0171 00       		.byte	0
+ 1613 0172 18       		.uleb128 0x18
+ 1614 0173 2E       		.uleb128 0x2e
+ 1615 0174 01       		.byte	0x1
+ 1616 0175 3F       		.uleb128 0x3f
+ 1617 0176 19       		.uleb128 0x19
+ 1618 0177 03       		.uleb128 0x3
+ 1619 0178 0E       		.uleb128 0xe
+ 1620 0179 3A       		.uleb128 0x3a
+ 1621 017a 0B       		.uleb128 0xb
+ 1622 017b 3B       		.uleb128 0x3b
+ 1623 017c 0B       		.uleb128 0xb
+ 1624 017d 27       		.uleb128 0x27
+ 1625 017e 19       		.uleb128 0x19
+ 1626 017f 3C       		.uleb128 0x3c
+ 1627 0180 19       		.uleb128 0x19
+ 1628 0181 01       		.uleb128 0x1
+ 1629 0182 13       		.uleb128 0x13
+ 1630 0183 00       		.byte	0
+ 1631 0184 00       		.byte	0
+ 1632 0185 19       		.uleb128 0x19
+ 1633 0186 2E       		.uleb128 0x2e
+ 1634 0187 00       		.byte	0
+ 1635 0188 3F       		.uleb128 0x3f
+ 1636 0189 19       		.uleb128 0x19
+ 1637 018a 03       		.uleb128 0x3
+ 1638 018b 0E       		.uleb128 0xe
+ 1639 018c 3A       		.uleb128 0x3a
+ 1640 018d 0B       		.uleb128 0xb
+ 1641 018e 3B       		.uleb128 0x3b
+ 1642 018f 0B       		.uleb128 0xb
+ 1643 0190 27       		.uleb128 0x27
+ 1644 0191 19       		.uleb128 0x19
+ 1645 0192 3C       		.uleb128 0x3c
+ 1646 0193 19       		.uleb128 0x19
+ 1647 0194 00       		.byte	0
+ 1648 0195 00       		.byte	0
+ 1649 0196 1A       		.uleb128 0x1a
+ 1650 0197 2E       		.uleb128 0x2e
+ 1651 0198 00       		.byte	0
+ 1652 0199 3F       		.uleb128 0x3f
+ 1653 019a 19       		.uleb128 0x19
+ 1654 019b 03       		.uleb128 0x3
+ 1655 019c 0E       		.uleb128 0xe
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccJTMNZC.s 			page 34
+
+
+ 1656 019d 3A       		.uleb128 0x3a
+ 1657 019e 0B       		.uleb128 0xb
+ 1658 019f 3B       		.uleb128 0x3b
+ 1659 01a0 0B       		.uleb128 0xb
+ 1660 01a1 27       		.uleb128 0x27
+ 1661 01a2 19       		.uleb128 0x19
+ 1662 01a3 49       		.uleb128 0x49
+ 1663 01a4 13       		.uleb128 0x13
+ 1664 01a5 3C       		.uleb128 0x3c
+ 1665 01a6 19       		.uleb128 0x19
+ 1666 01a7 00       		.byte	0
+ 1667 01a8 00       		.byte	0
+ 1668 01a9 1B       		.uleb128 0x1b
+ 1669 01aa 2E       		.uleb128 0x2e
+ 1670 01ab 01       		.byte	0x1
+ 1671 01ac 3F       		.uleb128 0x3f
+ 1672 01ad 19       		.uleb128 0x19
+ 1673 01ae 03       		.uleb128 0x3
+ 1674 01af 0E       		.uleb128 0xe
+ 1675 01b0 3A       		.uleb128 0x3a
+ 1676 01b1 0B       		.uleb128 0xb
+ 1677 01b2 3B       		.uleb128 0x3b
+ 1678 01b3 0B       		.uleb128 0xb
+ 1679 01b4 27       		.uleb128 0x27
+ 1680 01b5 19       		.uleb128 0x19
+ 1681 01b6 3C       		.uleb128 0x3c
+ 1682 01b7 19       		.uleb128 0x19
+ 1683 01b8 00       		.byte	0
+ 1684 01b9 00       		.byte	0
+ 1685 01ba 00       		.byte	0
+ 1686              		.section	.debug_loc,"",%progbits
+ 1687              	.Ldebug_loc0:
+ 1688              	.LLST0:
+ 1689 0000 00000000 		.4byte	.LVL8
+ 1690 0004 0A000000 		.4byte	.LVL9
+ 1691 0008 0100     		.2byte	0x1
+ 1692 000a 50       		.byte	0x50
+ 1693 000b 0A000000 		.4byte	.LVL9
+ 1694 000f 0D000000 		.4byte	.LVL10-1
+ 1695 0013 0300     		.2byte	0x3
+ 1696 0015 73       		.byte	0x73
+ 1697 0016 01       		.sleb128 1
+ 1698 0017 9F       		.byte	0x9f
+ 1699 0018 0D000000 		.4byte	.LVL10-1
+ 1700 001c 12000000 		.4byte	.LVL11
+ 1701 0020 0400     		.2byte	0x4
+ 1702 0022 F3       		.byte	0xf3
+ 1703 0023 01       		.uleb128 0x1
+ 1704 0024 50       		.byte	0x50
+ 1705 0025 9F       		.byte	0x9f
+ 1706 0026 12000000 		.4byte	.LVL11
+ 1707 002a 14000000 		.4byte	.LVL12
+ 1708 002e 0100     		.2byte	0x1
+ 1709 0030 50       		.byte	0x50
+ 1710 0031 14000000 		.4byte	.LVL12
+ 1711 0035 16000000 		.4byte	.LVL13
+ 1712 0039 0300     		.2byte	0x3
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccJTMNZC.s 			page 35
+
+
+ 1713 003b 73       		.byte	0x73
+ 1714 003c 01       		.sleb128 1
+ 1715 003d 9F       		.byte	0x9f
+ 1716 003e 16000000 		.4byte	.LVL13
+ 1717 0042 18000000 		.4byte	.LFE2
+ 1718 0046 0400     		.2byte	0x4
+ 1719 0048 F3       		.byte	0xf3
+ 1720 0049 01       		.uleb128 0x1
+ 1721 004a 50       		.byte	0x50
+ 1722 004b 9F       		.byte	0x9f
+ 1723 004c 00000000 		.4byte	0
+ 1724 0050 00000000 		.4byte	0
+ 1725              	.LLST1:
+ 1726 0054 00000000 		.4byte	.LVL14
+ 1727 0058 0D000000 		.4byte	.LVL15-1
+ 1728 005c 0100     		.2byte	0x1
+ 1729 005e 50       		.byte	0x50
+ 1730 005f 0D000000 		.4byte	.LVL15-1
+ 1731 0063 18000000 		.4byte	.LVL17
+ 1732 0067 0100     		.2byte	0x1
+ 1733 0069 54       		.byte	0x54
+ 1734 006a 18000000 		.4byte	.LVL17
+ 1735 006e 1A000000 		.4byte	.LVL18
+ 1736 0072 0100     		.2byte	0x1
+ 1737 0074 50       		.byte	0x50
+ 1738 0075 1A000000 		.4byte	.LVL18
+ 1739 0079 1C000000 		.4byte	.LVL19
+ 1740 007d 0100     		.2byte	0x1
+ 1741 007f 54       		.byte	0x54
+ 1742 0080 1C000000 		.4byte	.LVL19
+ 1743 0084 1E000000 		.4byte	.LFE3
+ 1744 0088 0400     		.2byte	0x4
+ 1745 008a F3       		.byte	0xf3
+ 1746 008b 01       		.uleb128 0x1
+ 1747 008c 50       		.byte	0x50
+ 1748 008d 9F       		.byte	0x9f
+ 1749 008e 00000000 		.4byte	0
+ 1750 0092 00000000 		.4byte	0
+ 1751              	.LLST2:
+ 1752 0096 00000000 		.4byte	.LVL22
+ 1753 009a 11000000 		.4byte	.LVL23-1
+ 1754 009e 0100     		.2byte	0x1
+ 1755 00a0 50       		.byte	0x50
+ 1756 00a1 11000000 		.4byte	.LVL23-1
+ 1757 00a5 80000000 		.4byte	.LVL41
+ 1758 00a9 0400     		.2byte	0x4
+ 1759 00ab F3       		.byte	0xf3
+ 1760 00ac 01       		.uleb128 0x1
+ 1761 00ad 50       		.byte	0x50
+ 1762 00ae 9F       		.byte	0x9f
+ 1763 00af 80000000 		.4byte	.LVL41
+ 1764 00b3 89000000 		.4byte	.LVL42-1
+ 1765 00b7 0100     		.2byte	0x1
+ 1766 00b9 50       		.byte	0x50
+ 1767 00ba 89000000 		.4byte	.LVL42-1
+ 1768 00be C2000000 		.4byte	.LVL53
+ 1769 00c2 0400     		.2byte	0x4
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccJTMNZC.s 			page 36
+
+
+ 1770 00c4 F3       		.byte	0xf3
+ 1771 00c5 01       		.uleb128 0x1
+ 1772 00c6 50       		.byte	0x50
+ 1773 00c7 9F       		.byte	0x9f
+ 1774 00c8 C2000000 		.4byte	.LVL53
+ 1775 00cc CD000000 		.4byte	.LVL54-1
+ 1776 00d0 0100     		.2byte	0x1
+ 1777 00d2 50       		.byte	0x50
+ 1778 00d3 CD000000 		.4byte	.LVL54-1
+ 1779 00d7 E4000000 		.4byte	.LVL60
+ 1780 00db 0400     		.2byte	0x4
+ 1781 00dd F3       		.byte	0xf3
+ 1782 00de 01       		.uleb128 0x1
+ 1783 00df 50       		.byte	0x50
+ 1784 00e0 9F       		.byte	0x9f
+ 1785 00e1 E4000000 		.4byte	.LVL60
+ 1786 00e5 EB000000 		.4byte	.LVL61-1
+ 1787 00e9 0100     		.2byte	0x1
+ 1788 00eb 50       		.byte	0x50
+ 1789 00ec EB000000 		.4byte	.LVL61-1
+ 1790 00f0 04010000 		.4byte	.LFE1
+ 1791 00f4 0400     		.2byte	0x4
+ 1792 00f6 F3       		.byte	0xf3
+ 1793 00f7 01       		.uleb128 0x1
+ 1794 00f8 50       		.byte	0x50
+ 1795 00f9 9F       		.byte	0x9f
+ 1796 00fa 00000000 		.4byte	0
+ 1797 00fe 00000000 		.4byte	0
+ 1798              	.LLST3:
+ 1799 0102 00000000 		.4byte	.LVL22
+ 1800 0106 11000000 		.4byte	.LVL23-1
+ 1801 010a 0100     		.2byte	0x1
+ 1802 010c 51       		.byte	0x51
+ 1803 010d 11000000 		.4byte	.LVL23-1
+ 1804 0111 80000000 		.4byte	.LVL41
+ 1805 0115 0400     		.2byte	0x4
+ 1806 0117 F3       		.byte	0xf3
+ 1807 0118 01       		.uleb128 0x1
+ 1808 0119 51       		.byte	0x51
+ 1809 011a 9F       		.byte	0x9f
+ 1810 011b 80000000 		.4byte	.LVL41
+ 1811 011f 89000000 		.4byte	.LVL42-1
+ 1812 0123 0100     		.2byte	0x1
+ 1813 0125 51       		.byte	0x51
+ 1814 0126 89000000 		.4byte	.LVL42-1
+ 1815 012a C2000000 		.4byte	.LVL53
+ 1816 012e 0400     		.2byte	0x4
+ 1817 0130 F3       		.byte	0xf3
+ 1818 0131 01       		.uleb128 0x1
+ 1819 0132 51       		.byte	0x51
+ 1820 0133 9F       		.byte	0x9f
+ 1821 0134 C2000000 		.4byte	.LVL53
+ 1822 0138 CD000000 		.4byte	.LVL54-1
+ 1823 013c 0100     		.2byte	0x1
+ 1824 013e 51       		.byte	0x51
+ 1825 013f CD000000 		.4byte	.LVL54-1
+ 1826 0143 E4000000 		.4byte	.LVL60
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccJTMNZC.s 			page 37
+
+
+ 1827 0147 0400     		.2byte	0x4
+ 1828 0149 F3       		.byte	0xf3
+ 1829 014a 01       		.uleb128 0x1
+ 1830 014b 51       		.byte	0x51
+ 1831 014c 9F       		.byte	0x9f
+ 1832 014d E4000000 		.4byte	.LVL60
+ 1833 0151 EB000000 		.4byte	.LVL61-1
+ 1834 0155 0100     		.2byte	0x1
+ 1835 0157 51       		.byte	0x51
+ 1836 0158 EB000000 		.4byte	.LVL61-1
+ 1837 015c 04010000 		.4byte	.LFE1
+ 1838 0160 0400     		.2byte	0x4
+ 1839 0162 F3       		.byte	0xf3
+ 1840 0163 01       		.uleb128 0x1
+ 1841 0164 51       		.byte	0x51
+ 1842 0165 9F       		.byte	0x9f
+ 1843 0166 00000000 		.4byte	0
+ 1844 016a 00000000 		.4byte	0
+ 1845              	.LLST4:
+ 1846 016e 14000000 		.4byte	.LVL24
+ 1847 0172 17000000 		.4byte	.LVL25-1
+ 1848 0176 0100     		.2byte	0x1
+ 1849 0178 50       		.byte	0x50
+ 1850 0179 17000000 		.4byte	.LVL25-1
+ 1851 017d 2A000000 		.4byte	.LVL30
+ 1852 0181 0100     		.2byte	0x1
+ 1853 0183 54       		.byte	0x54
+ 1854 0184 8C000000 		.4byte	.LVL43
+ 1855 0188 8F000000 		.4byte	.LVL44-1
+ 1856 018c 0100     		.2byte	0x1
+ 1857 018e 50       		.byte	0x50
+ 1858 018f 8F000000 		.4byte	.LVL44-1
+ 1859 0193 A0000000 		.4byte	.LVL47
+ 1860 0197 0100     		.2byte	0x1
+ 1861 0199 54       		.byte	0x54
+ 1862 019a D0000000 		.4byte	.LVL55
+ 1863 019e E4000000 		.4byte	.LVL60
+ 1864 01a2 0600     		.2byte	0x6
+ 1865 01a4 75       		.byte	0x75
+ 1866 01a5 00       		.sleb128 0
+ 1867 01a6 08       		.byte	0x8
+ 1868 01a7 FF       		.byte	0xff
+ 1869 01a8 1A       		.byte	0x1a
+ 1870 01a9 9F       		.byte	0x9f
+ 1871 01aa 00000000 		.4byte	0
+ 1872 01ae 00000000 		.4byte	0
+ 1873              	.LLST5:
+ 1874 01b2 1A000000 		.4byte	.LVL26
+ 1875 01b6 1C000000 		.4byte	.LVL27
+ 1876 01ba 0100     		.2byte	0x1
+ 1877 01bc 50       		.byte	0x50
+ 1878 01bd 1C000000 		.4byte	.LVL27
+ 1879 01c1 80000000 		.4byte	.LVL41
+ 1880 01c5 0100     		.2byte	0x1
+ 1881 01c7 57       		.byte	0x57
+ 1882 01c8 D6000000 		.4byte	.LVL57
+ 1883 01cc E4000000 		.4byte	.LVL60
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccJTMNZC.s 			page 38
+
+
+ 1884 01d0 0600     		.2byte	0x6
+ 1885 01d2 74       		.byte	0x74
+ 1886 01d3 00       		.sleb128 0
+ 1887 01d4 08       		.byte	0x8
+ 1888 01d5 FF       		.byte	0xff
+ 1889 01d6 1A       		.byte	0x1a
+ 1890 01d7 9F       		.byte	0x9f
+ 1891 01d8 00000000 		.4byte	0
+ 1892 01dc 00000000 		.4byte	0
+ 1893              	.LLST6:
+ 1894 01e0 46000000 		.4byte	.LVL33
+ 1895 01e4 80000000 		.4byte	.LVL41
+ 1896 01e8 0100     		.2byte	0x1
+ 1897 01ea 56       		.byte	0x56
+ 1898 01eb BA000000 		.4byte	.LVL50
+ 1899 01ef BC000000 		.4byte	.LVL51
+ 1900 01f3 0100     		.2byte	0x1
+ 1901 01f5 50       		.byte	0x50
+ 1902 01f6 00000000 		.4byte	0
+ 1903 01fa 00000000 		.4byte	0
+ 1904              	.LLST7:
+ 1905 01fe 72000000 		.4byte	.LVL38
+ 1906 0202 80000000 		.4byte	.LVL41
+ 1907 0206 0100     		.2byte	0x1
+ 1908 0208 54       		.byte	0x54
+ 1909 0209 00000000 		.4byte	0
+ 1910 020d 00000000 		.4byte	0
+ 1911              	.LLST8:
+ 1912 0211 00000000 		.4byte	.LVL62
+ 1913 0215 08000000 		.4byte	.LVL64
+ 1914 0219 0100     		.2byte	0x1
+ 1915 021b 50       		.byte	0x50
+ 1916 021c 08000000 		.4byte	.LVL64
+ 1917 0220 B8000000 		.4byte	.LVL98
+ 1918 0224 0100     		.2byte	0x1
+ 1919 0226 55       		.byte	0x55
+ 1920 0227 B8000000 		.4byte	.LVL98
+ 1921 022b C0000000 		.4byte	.LFE5
+ 1922 022f 0400     		.2byte	0x4
+ 1923 0231 F3       		.byte	0xf3
+ 1924 0232 01       		.uleb128 0x1
+ 1925 0233 50       		.byte	0x50
+ 1926 0234 9F       		.byte	0x9f
+ 1927 0235 00000000 		.4byte	0
+ 1928 0239 00000000 		.4byte	0
+ 1929              	.LLST9:
+ 1930 023d 04000000 		.4byte	.LVL63
+ 1931 0241 08000000 		.4byte	.LVL64
+ 1932 0245 0200     		.2byte	0x2
+ 1933 0247 30       		.byte	0x30
+ 1934 0248 9F       		.byte	0x9f
+ 1935 0249 08000000 		.4byte	.LVL64
+ 1936 024d B8000000 		.4byte	.LVL97
+ 1937 0251 0100     		.2byte	0x1
+ 1938 0253 54       		.byte	0x54
+ 1939 0254 00000000 		.4byte	0
+ 1940 0258 00000000 		.4byte	0
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccJTMNZC.s 			page 39
+
+
+ 1941              		.section	.debug_aranges,"",%progbits
+ 1942 0000 44000000 		.4byte	0x44
+ 1943 0004 0200     		.2byte	0x2
+ 1944 0006 00000000 		.4byte	.Ldebug_info0
+ 1945 000a 04       		.byte	0x4
+ 1946 000b 00       		.byte	0
+ 1947 000c 0000     		.2byte	0
+ 1948 000e 0000     		.2byte	0
+ 1949 0010 00000000 		.4byte	.LFB0
+ 1950 0014 54000000 		.4byte	.LFE0-.LFB0
+ 1951 0018 00000000 		.4byte	.LFB2
+ 1952 001c 18000000 		.4byte	.LFE2-.LFB2
+ 1953 0020 00000000 		.4byte	.LFB3
+ 1954 0024 1E000000 		.4byte	.LFE3-.LFB3
+ 1955 0028 00000000 		.4byte	.LFB4
+ 1956 002c 12000000 		.4byte	.LFE4-.LFB4
+ 1957 0030 00000000 		.4byte	.LFB1
+ 1958 0034 04010000 		.4byte	.LFE1-.LFB1
+ 1959 0038 00000000 		.4byte	.LFB5
+ 1960 003c C0000000 		.4byte	.LFE5-.LFB5
+ 1961 0040 00000000 		.4byte	0
+ 1962 0044 00000000 		.4byte	0
+ 1963              		.section	.debug_ranges,"",%progbits
+ 1964              	.Ldebug_ranges0:
+ 1965 0000 00000000 		.4byte	.LFB0
+ 1966 0004 54000000 		.4byte	.LFE0
+ 1967 0008 00000000 		.4byte	.LFB2
+ 1968 000c 18000000 		.4byte	.LFE2
+ 1969 0010 00000000 		.4byte	.LFB3
+ 1970 0014 1E000000 		.4byte	.LFE3
+ 1971 0018 00000000 		.4byte	.LFB4
+ 1972 001c 12000000 		.4byte	.LFE4
+ 1973 0020 00000000 		.4byte	.LFB1
+ 1974 0024 04010000 		.4byte	.LFE1
+ 1975 0028 00000000 		.4byte	.LFB5
+ 1976 002c C0000000 		.4byte	.LFE5
+ 1977 0030 00000000 		.4byte	0
+ 1978 0034 00000000 		.4byte	0
+ 1979              		.section	.debug_line,"",%progbits
+ 1980              	.Ldebug_line0:
+ 1981 0000 82010000 		.section	.debug_str,"MS",%progbits,1
+ 1981      02008F00 
+ 1981      00000201 
+ 1981      FB0E0D00 
+ 1981      01010101 
+ 1982              	.LASF32:
+ 1983 0000 4144435F 		.ascii	"ADC_GetResult16\000"
+ 1983      47657452 
+ 1983      6573756C 
+ 1983      74313600 
+ 1984              	.LASF36:
+ 1985 0010 50574D5F 		.ascii	"PWM_venstre_ReadCompare\000"
+ 1985      76656E73 
+ 1985      7472655F 
+ 1985      52656164 
+ 1985      436F6D70 
+ 1986              	.LASF33:
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccJTMNZC.s 			page 40
+
+
+ 1987 0028 4144435F 		.ascii	"ADC_CountsTo_mVolts\000"
+ 1987      436F756E 
+ 1987      7473546F 
+ 1987      5F6D566F 
+ 1987      6C747300 
+ 1988              	.LASF3:
+ 1989 003c 73686F72 		.ascii	"short unsigned int\000"
+ 1989      7420756E 
+ 1989      7369676E 
+ 1989      65642069 
+ 1989      6E7400
+ 1990              	.LASF31:
+ 1991 004f 565F7265 		.ascii	"V_reg\000"
+ 1991      6700
+ 1992              	.LASF29:
+ 1993 0055 64697265 		.ascii	"direction\000"
+ 1993      6374696F 
+ 1993      6E00
+ 1994              	.LASF22:
+ 1995 005f 64697374 		.ascii	"distance\000"
+ 1995      616E6365 
+ 1995      00
+ 1996              	.LASF20:
+ 1997 0068 73746F70 		.ascii	"stop\000"
+ 1997      00
+ 1998              	.LASF12:
+ 1999 006d 666C6F61 		.ascii	"float\000"
+ 1999      7400
+ 2000              	.LASF1:
+ 2001 0073 756E7369 		.ascii	"unsigned char\000"
+ 2001      676E6564 
+ 2001      20636861 
+ 2001      7200
+ 2002              	.LASF35:
+ 2003 0081 50574D5F 		.ascii	"PWM_venstre_WriteCompare\000"
+ 2003      76656E73 
+ 2003      7472655F 
+ 2003      57726974 
+ 2003      65436F6D 
+ 2004              	.LASF5:
+ 2005 009a 6C6F6E67 		.ascii	"long unsigned int\000"
+ 2005      20756E73 
+ 2005      69676E65 
+ 2005      6420696E 
+ 2005      7400
+ 2006              	.LASF9:
+ 2007 00ac 75696E74 		.ascii	"uint8\000"
+ 2007      3800
+ 2008              	.LASF37:
+ 2009 00b2 50574D5F 		.ascii	"PWM_hojre_ReadCompare\000"
+ 2009      686F6A72 
+ 2009      655F5265 
+ 2009      6164436F 
+ 2009      6D706172 
+ 2010              	.LASF28:
+ 2011 00c8 70776D53 		.ascii	"pwmSetVal_right\000"
+ 2011      65745661 
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccJTMNZC.s 			page 41
+
+
+ 2011      6C5F7269 
+ 2011      67687400 
+ 2012              	.LASF25:
+ 2013 00d8 70776D52 		.ascii	"pwmReadVal_left\000"
+ 2013      65616456 
+ 2013      616C5F6C 
+ 2013      65667400 
+ 2014              	.LASF13:
+ 2015 00e8 646F7562 		.ascii	"double\000"
+ 2015      6C6500
+ 2016              	.LASF21:
+ 2017 00ef 72656775 		.ascii	"regulateDistance\000"
+ 2017      6C617465 
+ 2017      44697374 
+ 2017      616E6365 
+ 2017      00
+ 2018              	.LASF23:
+ 2019 0100 73657444 		.ascii	"setDistance\000"
+ 2019      69737461 
+ 2019      6E636500 
+ 2020              	.LASF40:
+ 2021 010c 433A5C55 		.ascii	"C:\\Users\\PernilleLouise\\Documents\\Elektro\\4. s"
+ 2021      73657273 
+ 2021      5C506572 
+ 2021      6E696C6C 
+ 2021      654C6F75 
+ 2022 013a 656D6573 		.ascii	"emester\\E4PRJ\\Projekt\\Workspace01\\Design01.cyds"
+ 2022      7465725C 
+ 2022      45345052 
+ 2022      4A5C5072 
+ 2022      6F6A656B 
+ 2023 0169 6E00     		.ascii	"n\000"
+ 2024              	.LASF10:
+ 2025 016b 75696E74 		.ascii	"uint32\000"
+ 2025      333200
+ 2026              	.LASF16:
+ 2027 0172 73746172 		.ascii	"start_right\000"
+ 2027      745F7269 
+ 2027      67687400 
+ 2028              	.LASF8:
+ 2029 017e 756E7369 		.ascii	"unsigned int\000"
+ 2029      676E6564 
+ 2029      20696E74 
+ 2029      00
+ 2030              	.LASF7:
+ 2031 018b 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 2031      206C6F6E 
+ 2031      6720756E 
+ 2031      7369676E 
+ 2031      65642069 
+ 2032              	.LASF39:
+ 2033 01a2 2E5C7265 		.ascii	".\\regulering.c\000"
+ 2033      67756C65 
+ 2033      72696E67 
+ 2033      2E6300
+ 2034              	.LASF11:
+ 2035 01b1 696E7431 		.ascii	"int16\000"
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccJTMNZC.s 			page 42
+
+
+ 2035      3600
+ 2036              	.LASF41:
+ 2037 01b7 50574D5F 		.ascii	"PWM_venstre_Start\000"
+ 2037      76656E73 
+ 2037      7472655F 
+ 2037      53746172 
+ 2037      7400
+ 2038              	.LASF17:
+ 2039 01c9 73746172 		.ascii	"start_left\000"
+ 2039      745F6C65 
+ 2039      667400
+ 2040              	.LASF30:
+ 2041 01d4 64697374 		.ascii	"distanceFlag\000"
+ 2041      616E6365 
+ 2041      466C6167 
+ 2041      00
+ 2042              	.LASF24:
+ 2043 01e1 73706565 		.ascii	"speed\000"
+ 2043      6400
+ 2044              	.LASF15:
+ 2045 01e7 73697A65 		.ascii	"sizetype\000"
+ 2045      74797065 
+ 2045      00
+ 2046              	.LASF6:
+ 2047 01f0 6C6F6E67 		.ascii	"long long int\000"
+ 2047      206C6F6E 
+ 2047      6720696E 
+ 2047      7400
+ 2048              	.LASF14:
+ 2049 01fe 63686172 		.ascii	"char\000"
+ 2049      00
+ 2050              	.LASF38:
+ 2051 0203 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 2051      4320342E 
+ 2051      392E3320 
+ 2051      32303135 
+ 2051      30333033 
+ 2052 0236 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
+ 2052      20726576 
+ 2052      6973696F 
+ 2052      6E203232 
+ 2052      31323230 
+ 2053 0269 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 2053      66756E63 
+ 2053      74696F6E 
+ 2053      2D736563 
+ 2053      74696F6E 
+ 2054              	.LASF18:
+ 2055 0291 72656775 		.ascii	"regulering\000"
+ 2055      6C657269 
+ 2055      6E6700
+ 2056              	.LASF2:
+ 2057 029c 73686F72 		.ascii	"short int\000"
+ 2057      7420696E 
+ 2057      7400
+ 2058              	.LASF34:
+ 2059 02a6 50574D5F 		.ascii	"PWM_hojre_WriteCompare\000"
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccJTMNZC.s 			page 43
+
+
+ 2059      686F6A72 
+ 2059      655F5772 
+ 2059      69746543 
+ 2059      6F6D7061 
+ 2060              	.LASF19:
+ 2061 02bd 636F6E76 		.ascii	"convertVtoSpeed\000"
+ 2061      65727456 
+ 2061      746F5370 
+ 2061      65656400 
+ 2062              	.LASF4:
+ 2063 02cd 6C6F6E67 		.ascii	"long int\000"
+ 2063      20696E74 
+ 2063      00
+ 2064              	.LASF26:
+ 2065 02d6 70776D52 		.ascii	"pwmReadVal_right\000"
+ 2065      65616456 
+ 2065      616C5F72 
+ 2065      69676874 
+ 2065      00
+ 2066              	.LASF27:
+ 2067 02e7 70776D53 		.ascii	"pwmSetVal_left\000"
+ 2067      65745661 
+ 2067      6C5F6C65 
+ 2067      667400
+ 2068              	.LASF0:
+ 2069 02f6 7369676E 		.ascii	"signed char\000"
+ 2069      65642063 
+ 2069      68617200 
+ 2070              	.LASF42:
+ 2071 0302 43794465 		.ascii	"CyDelay\000"
+ 2071      6C617900 
+ 2072              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br
