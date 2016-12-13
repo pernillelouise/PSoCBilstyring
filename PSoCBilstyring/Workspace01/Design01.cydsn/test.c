@@ -34,6 +34,9 @@ char test5[] = "Hello from objekt hojre \n\r";
 char test6[] = "Hello from objekt ikke fundet \n\r"; 
 char test7[] = "Hello from start \n\r"; 
 char test8[] = "Hello from readObject \n\r"; 
+char val[20]; 
+char * p1; 
+
 
 int main()
 {
@@ -52,16 +55,15 @@ int main()
     initReceiveData();
     //DebugLEDBlue_Write(0u); 
     
-    for(;;)
+    
+    while(1)
     {
+        buffer = 0;
         receiveData(&buffer);
         
         volatile int distance;       
         distance = distanceToObject();
         
-        
-        
-        //uint8 refBuf = buffer;
         switch(buffer)
         {
             case MODE_FOLG_OBJEKT:
@@ -70,7 +72,7 @@ int main()
                 mode=MODE_FOLG_OBJEKT;
                 
                 UART_print_UartPutString(test2);
-                CyDelay(1000); 
+                
                
                 break;
             case MODE_FOLG_LYD:
@@ -78,10 +80,10 @@ int main()
                 mode = MODE_FOLG_LYD; 
                 
                 UART_print_UartPutString(test1);
-                CyDelay(1000); 
+                
                 break;
-        if (readObjData)
-        {
+       // if (readObjData)
+        //{
             PWM_hojre_Start();
             PWM_venstre_Start();
             case OBJEKT_LIGEUD :
@@ -89,35 +91,39 @@ int main()
                 //UART_print_UartPutString("Object lige ud");
                 
                 UART_print_UartPutString(test3);
-                CyDelay(1000); 
+                
                 regulateDistance(distance,setDistance);
                 
                 break;
             case OBJEKT_VENSTRE:
                 //Objetkretning venstre
                 UART_print_UartPutString(test4);
-                CyDelay(1000); 
+                
                 regulateDistance(distance,setDistance);
                                 
                 break;
             case OBJEKT_HOJRE:
                 //Objektretning hojre
                 UART_print_UartPutString(test5);
-                CyDelay(1000); 
+                
                 regulateDistance(distance,setDistance);
                 
                 break;
             case OBJEKT_IKKE_FUNDET:
                 //Objekt ikke fundet
                 UART_print_UartPutString(test6);
-                CyDelay(1000); 
+                
                 stop(); 
                 break;
-        }
+       // }
             case START:
                 UART_print_UartPutString(test7);
-                CyDelay(1000); 
+                
                 start=!start;
+                p1=val; 
+                sprintf(val, "%d",start);
+                UART_print_UartPutString(p1); 
+                
                 if (start)
                 {
                     if (mode == MODE_FOLG_LYD)
@@ -135,6 +141,7 @@ int main()
                 {
                     // stop car
                     stop(); 
+                    UART_print_UartPutString("Hello from else stop car");
                 }
                 break;
             default: 

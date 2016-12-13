@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccy2o0Ui.s 			page 1
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccAWoaLc.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccy2o0Ui.s 			page 1
   30              		.cfi_def_cfa_offset 8
   31              		.cfi_offset 4, -8
   32              		.cfi_offset 14, -4
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccy2o0Ui.s 			page 2
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccAWoaLc.s 			page 2
 
 
   26:.\distance.c  ****     //at 1MHz clock each count is 1 micro second 
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccy2o0Ui.s 			page 1
   74 003e 0022     		mov	r2, #0
   75 0040 0B4B     		ldr	r3, .L5
   76 0042 5A60     		str	r2, [r3, #4]
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccy2o0Ui.s 			page 3
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccAWoaLc.s 			page 3
 
 
   39:.\distance.c  ****         UART_print_UartPutString(test_string2);
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccy2o0Ui.s 			page 1
  116 0084 00000000 		.word	.LC4
  117 0088 04000000 		.word	.LC6
  118              		.cfi_endproc
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccy2o0Ui.s 			page 4
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccAWoaLc.s 			page 4
 
 
  119              	.LFE34:
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccy2o0Ui.s 			page 1
  156              		.loc 1 70 0
  157 001c 0120     		mov	r0, #1
  158 001e FFF7FEFF 		bl	Trig_Write
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccy2o0Ui.s 			page 5
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccAWoaLc.s 			page 5
 
 
  159              	.LVL12:
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccy2o0Ui.s 			page 1
  203 0010 48656C6C 		.ascii	"Hello World2\012\015\000"
  203      6F20576F 
  203      726C6432 
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccy2o0Ui.s 			page 6
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccAWoaLc.s 			page 6
 
 
  203      0A0D00
@@ -337,48 +337,48 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccy2o0Ui.s 			page 1
  235 0006 00000000 		.4byte	.Ldebug_abbrev0
  236 000a 04       		.byte	0x4
  237 000b 01       		.uleb128 0x1
- 238 000c CA010000 		.4byte	.LASF29
+ 238 000c D2010000 		.4byte	.LASF29
  239 0010 01       		.byte	0x1
  240 0011 0B000000 		.4byte	.LASF30
- 241 0015 E2000000 		.4byte	.LASF31
+ 241 0015 49000000 		.4byte	.LASF31
  242 0019 00000000 		.4byte	.Ldebug_ranges0+0
  243 001d 00000000 		.4byte	0
  244 0021 00000000 		.4byte	.Ldebug_line0
  245 0025 02       		.uleb128 0x2
  246 0026 01       		.byte	0x1
  247 0027 06       		.byte	0x6
- 248 0028 71020000 		.4byte	.LASF0
+ 248 0028 79020000 		.4byte	.LASF0
  249 002c 02       		.uleb128 0x2
  250 002d 01       		.byte	0x1
  251 002e 08       		.byte	0x8
- 252 002f 7A000000 		.4byte	.LASF1
+ 252 002f E1000000 		.4byte	.LASF1
  253 0033 02       		.uleb128 0x2
  254 0034 02       		.byte	0x2
  255 0035 05       		.byte	0x5
- 256 0036 58020000 		.4byte	.LASF2
+ 256 0036 60020000 		.4byte	.LASF2
  257 003a 02       		.uleb128 0x2
  258 003b 02       		.byte	0x2
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccy2o0Ui.s 			page 7
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccAWoaLc.s 			page 7
 
 
  259 003c 07       		.byte	0x7
- 260 003d A0000000 		.4byte	.LASF3
+ 260 003d 07010000 		.4byte	.LASF3
  261 0041 02       		.uleb128 0x2
  262 0042 04       		.byte	0x4
  263 0043 05       		.byte	0x5
- 264 0044 68020000 		.4byte	.LASF4
+ 264 0044 70020000 		.4byte	.LASF4
  265 0048 02       		.uleb128 0x2
  266 0049 04       		.byte	0x4
  267 004a 07       		.byte	0x7
- 268 004b 8E000000 		.4byte	.LASF5
+ 268 004b F5000000 		.4byte	.LASF5
  269 004f 02       		.uleb128 0x2
  270 0050 08       		.byte	0x8
  271 0051 05       		.byte	0x5
- 272 0052 A5010000 		.4byte	.LASF6
+ 272 0052 AD010000 		.4byte	.LASF6
  273 0056 02       		.uleb128 0x2
  274 0057 08       		.byte	0x8
  275 0058 07       		.byte	0x7
- 276 0059 6B010000 		.4byte	.LASF7
+ 276 0059 73010000 		.4byte	.LASF7
  277 005d 03       		.uleb128 0x3
  278 005e 04       		.byte	0x4
  279 005f 05       		.byte	0x5
@@ -386,44 +386,44 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccy2o0Ui.s 			page 1
  281 0064 02       		.uleb128 0x2
  282 0065 04       		.byte	0x4
  283 0066 07       		.byte	0x7
- 284 0067 5E010000 		.4byte	.LASF8
+ 284 0067 66010000 		.4byte	.LASF8
  285 006b 04       		.uleb128 0x4
- 286 006c 62020000 		.4byte	.LASF9
+ 286 006c 6A020000 		.4byte	.LASF9
  287 0070 02       		.byte	0x2
  288 0071 3801     		.2byte	0x138
  289 0073 2C000000 		.4byte	0x2c
  290 0077 04       		.uleb128 0x4
- 291 0078 DB000000 		.4byte	.LASF10
+ 291 0078 42010000 		.4byte	.LASF10
  292 007c 02       		.byte	0x2
  293 007d 3901     		.2byte	0x139
  294 007f 3A000000 		.4byte	0x3a
  295 0083 04       		.uleb128 0x4
- 296 0084 4B010000 		.4byte	.LASF11
+ 296 0084 53010000 		.4byte	.LASF11
  297 0088 02       		.byte	0x2
  298 0089 3A01     		.2byte	0x13a
  299 008b 48000000 		.4byte	0x48
  300 008f 02       		.uleb128 0x2
  301 0090 04       		.byte	0x4
  302 0091 04       		.byte	0x4
- 303 0092 74000000 		.4byte	.LASF12
+ 303 0092 DB000000 		.4byte	.LASF12
  304 0096 02       		.uleb128 0x2
  305 0097 08       		.byte	0x8
  306 0098 04       		.byte	0x4
- 307 0099 D4000000 		.4byte	.LASF13
+ 307 0099 3B010000 		.4byte	.LASF13
  308 009d 04       		.uleb128 0x4
- 309 009e 88000000 		.4byte	.LASF14
+ 309 009e EF000000 		.4byte	.LASF14
  310 00a2 02       		.byte	0x2
  311 00a3 4901     		.2byte	0x149
  312 00a5 A9000000 		.4byte	0xa9
  313 00a9 02       		.uleb128 0x2
  314 00aa 01       		.byte	0x1
  315 00ab 08       		.byte	0x8
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccy2o0Ui.s 			page 8
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccAWoaLc.s 			page 8
 
 
- 316 00ac B3010000 		.4byte	.LASF15
+ 316 00ac BB010000 		.4byte	.LASF15
  317 00b0 04       		.uleb128 0x4
- 318 00b1 82010000 		.4byte	.LASF16
+ 318 00b1 8A010000 		.4byte	.LASF16
  319 00b5 02       		.byte	0x2
  320 00b6 F401     		.2byte	0x1f4
  321 00b8 BC000000 		.4byte	0xbc
@@ -434,7 +434,7 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccy2o0Ui.s 			page 1
  326 00c3 02       		.uleb128 0x2
  327 00c4 04       		.byte	0x4
  328 00c5 07       		.byte	0x7
- 329 00c6 9C010000 		.4byte	.LASF17
+ 329 00c6 A4010000 		.4byte	.LASF17
  330 00ca 05       		.uleb128 0x5
  331 00cb 04       		.byte	0x4
  332 00cc A9000000 		.4byte	0xa9
@@ -444,7 +444,7 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccy2o0Ui.s 			page 1
  336 00d6 07       		.uleb128 0x7
  337 00d7 A9000000 		.4byte	0xa9
  338 00db 08       		.uleb128 0x8
- 339 00dc B8010000 		.4byte	.LASF18
+ 339 00dc C0010000 		.4byte	.LASF18
  340 00e0 01       		.byte	0x1
  341 00e1 18       		.byte	0x18
  342 00e2 00000000 		.4byte	.LFB34
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccy2o0Ui.s 			page 1
  370 0122 00       		.byte	0
  371 0123 09       		.uleb128 0x9
  372 0124 4C000000 		.4byte	.LVL4
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccy2o0Ui.s 			page 9
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccAWoaLc.s 			page 9
 
 
  373 0128 BA020000 		.4byte	0x2ba
@@ -533,12 +533,12 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccy2o0Ui.s 			page 1
  422 0189 00       		.byte	0
  423 018a 00       		.byte	0
  424 018b 0D       		.uleb128 0xd
- 425 018c 63000000 		.4byte	.LASF19
+ 425 018c CA000000 		.4byte	.LASF19
  426 0190 01       		.byte	0x1
  427 0191 37       		.byte	0x37
  428 0192 5D000000 		.4byte	0x5d
  429 0196 00000000 		.4byte	.LFB35
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccy2o0Ui.s 			page 10
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccAWoaLc.s 			page 10
 
 
  430 019a 48000000 		.4byte	.LFE35-.LFB35
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccy2o0Ui.s 			page 1
  484 0209 50       		.byte	0x50
  485 020a 01       		.uleb128 0x1
  486 020b 30       		.byte	0x30
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccy2o0Ui.s 			page 11
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccAWoaLc.s 			page 11
 
 
  487 020c 00       		.byte	0
@@ -620,7 +620,7 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccy2o0Ui.s 			page 1
  503 0229 03       		.byte	0x3
  504 022a 04000000 		.4byte	dis
  505 022e 0F       		.uleb128 0xf
- 506 022f 8F010000 		.4byte	.LASF20
+ 506 022f 97010000 		.4byte	.LASF20
  507 0233 03       		.byte	0x3
  508 0234 02       		.byte	0x2
  509 0235 5D000000 		.4byte	0x5d
@@ -655,10 +655,10 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccy2o0Ui.s 			page 1
  538 0278 0E       		.byte	0xe
  539 0279 00       		.byte	0
  540 027a 12       		.uleb128 0x12
- 541 027b 49000000 		.4byte	.LASF22
+ 541 027b B0000000 		.4byte	.LASF22
  542 027f 01       		.byte	0x1
  543 0280 15       		.byte	0x15
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccy2o0Ui.s 			page 12
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccAWoaLc.s 			page 12
 
 
  544 0281 6A020000 		.4byte	0x26a
@@ -666,7 +666,7 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccy2o0Ui.s 			page 1
  546 0286 03       		.byte	0x3
  547 0287 00000000 		.4byte	test_string1
  548 028b 12       		.uleb128 0x12
- 549 028c 56000000 		.4byte	.LASF23
+ 549 028c BD000000 		.4byte	.LASF23
  550 0290 01       		.byte	0x1
  551 0291 16       		.byte	0x16
  552 0292 6A020000 		.4byte	0x26a
@@ -674,7 +674,7 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccy2o0Ui.s 			page 1
  554 0297 03       		.byte	0x3
  555 0298 00000000 		.4byte	test_string2
  556 029c 14       		.uleb128 0x14
- 557 029d B3000000 		.4byte	.LASF24
+ 557 029d 1A010000 		.4byte	.LASF24
  558 02a1 04       		.byte	0x4
  559 02a2 4701     		.2byte	0x147
  560 02a4 AE020000 		.4byte	0x2ae
@@ -700,7 +700,7 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccy2o0Ui.s 			page 1
  580 02d2 07       		.uleb128 0x7
  581 02d3 9D000000 		.4byte	0x9d
  582 02d7 17       		.uleb128 0x17
- 583 02d8 7D020000 		.4byte	.LASF33
+ 583 02d8 85020000 		.4byte	.LASF33
  584 02dc 09       		.byte	0x9
  585 02dd DE       		.byte	0xde
  586 02de 5D000000 		.4byte	0x5d
@@ -712,22 +712,22 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccy2o0Ui.s 			page 1
  592 02f0 18       		.uleb128 0x18
  593 02f1 00       		.byte	0
  594 02f2 19       		.uleb128 0x19
- 595 02f3 85020000 		.4byte	.LASF26
+ 595 02f3 8D020000 		.4byte	.LASF26
  596 02f7 06       		.byte	0x6
  597 02f8 5A       		.byte	0x5a
  598 02f9 03030000 		.4byte	0x303
  599 02fd 15       		.uleb128 0x15
  600 02fe 83000000 		.4byte	0x83
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccy2o0Ui.s 			page 13
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccAWoaLc.s 			page 13
 
 
  601 0302 00       		.byte	0
  602 0303 1A       		.uleb128 0x1a
- 603 0304 52010000 		.4byte	.LASF34
+ 603 0304 5A010000 		.4byte	.LASF34
  604 0308 04       		.byte	0x4
  605 0309 3201     		.2byte	0x132
  606 030b 19       		.uleb128 0x19
- 607 030c C8000000 		.4byte	.LASF27
+ 607 030c 2F010000 		.4byte	.LASF27
  608 0310 07       		.byte	0x7
  609 0311 18       		.byte	0x18
  610 0312 1C030000 		.4byte	0x31c
@@ -743,7 +743,7 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccy2o0Ui.s 			page 1
  620 0328 6B000000 		.4byte	0x6b
  621 032c 00       		.byte	0
  622 032d 1B       		.uleb128 0x1b
- 623 032e 41010000 		.4byte	.LASF35
+ 623 032e 49010000 		.4byte	.LASF35
  624 0332 06       		.byte	0x6
  625 0333 5B       		.byte	0x5b
  626 0334 15       		.uleb128 0x15
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccy2o0Ui.s 			page 1
  655 0017 0B       		.uleb128 0xb
  656 0018 3E       		.uleb128 0x3e
  657 0019 0B       		.uleb128 0xb
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccy2o0Ui.s 			page 14
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccAWoaLc.s 			page 14
 
 
  658 001a 03       		.uleb128 0x3
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccy2o0Ui.s 			page 1
  712 0050 3F       		.uleb128 0x3f
  713 0051 19       		.uleb128 0x19
  714 0052 03       		.uleb128 0x3
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccy2o0Ui.s 			page 15
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccAWoaLc.s 			page 15
 
 
  715 0053 0E       		.uleb128 0xe
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccy2o0Ui.s 			page 1
  769 0093 13       		.uleb128 0x13
  770 0094 00       		.byte	0
  771 0095 00       		.byte	0
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccy2o0Ui.s 			page 16
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccAWoaLc.s 			page 16
 
 
  772 0096 0D       		.uleb128 0xd
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccy2o0Ui.s 			page 1
  826 00cd 19       		.uleb128 0x19
  827 00ce 00       		.byte	0
  828 00cf 00       		.byte	0
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccy2o0Ui.s 			page 17
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccAWoaLc.s 			page 17
 
 
  829 00d0 10       		.uleb128 0x10
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccy2o0Ui.s 			page 1
  883 0106 01       		.byte	0x1
  884 0107 3F       		.uleb128 0x3f
  885 0108 19       		.uleb128 0x19
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccy2o0Ui.s 			page 18
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccAWoaLc.s 			page 18
 
 
  886 0109 03       		.uleb128 0x3
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccy2o0Ui.s 			page 1
  940 013f 13       		.uleb128 0x13
  941 0140 3C       		.uleb128 0x3c
  942 0141 19       		.uleb128 0x19
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccy2o0Ui.s 			page 19
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccAWoaLc.s 			page 19
 
 
  943 0142 01       		.uleb128 0x1
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccy2o0Ui.s 			page 1
  997 0178 3B       		.uleb128 0x3b
  998 0179 0B       		.uleb128 0xb
  999 017a 27       		.uleb128 0x27
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccy2o0Ui.s 			page 20
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccAWoaLc.s 			page 20
 
 
  1000 017b 19       		.uleb128 0x19
@@ -1198,169 +1198,171 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccy2o0Ui.s 			page 1
  1040 0037 54696D65 		.ascii	"Timer_ReadCounter\000"
  1040      725F5265 
  1040      6164436F 
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccy2o0Ui.s 			page 21
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccAWoaLc.s 			page 21
 
 
  1040      756E7465 
  1040      7200
- 1041              	.LASF22:
- 1042 0049 74657374 		.ascii	"test_string1\000"
- 1042      5F737472 
- 1042      696E6731 
- 1042      00
- 1043              	.LASF23:
- 1044 0056 74657374 		.ascii	"test_string2\000"
- 1044      5F737472 
- 1044      696E6732 
- 1044      00
- 1045              	.LASF19:
- 1046 0063 64697374 		.ascii	"distanceToObject\000"
- 1046      616E6365 
- 1046      546F4F62 
- 1046      6A656374 
+ 1041              	.LASF31:
+ 1042 0049 433A5C55 		.ascii	"C:\\Users\\PernilleLouise\\Documents\\Elektro\\4. s"
+ 1042      73657273 
+ 1042      5C506572 
+ 1042      6E696C6C 
+ 1042      654C6F75 
+ 1043 0077 656D6573 		.ascii	"emester\\E4PRJ4\\PSoCBilstyring\\Workspace01\\Desig"
+ 1043      7465725C 
+ 1043      45345052 
+ 1043      4A345C50 
+ 1043      536F4342 
+ 1044 00a6 6E30312E 		.ascii	"n01.cydsn\000"
+ 1044      63796473 
+ 1044      6E00
+ 1045              	.LASF22:
+ 1046 00b0 74657374 		.ascii	"test_string1\000"
+ 1046      5F737472 
+ 1046      696E6731 
  1046      00
- 1047              	.LASF12:
- 1048 0074 666C6F61 		.ascii	"float\000"
- 1048      7400
- 1049              	.LASF1:
- 1050 007a 756E7369 		.ascii	"unsigned char\000"
- 1050      676E6564 
- 1050      20636861 
- 1050      7200
- 1051              	.LASF14:
- 1052 0088 63686172 		.ascii	"char8\000"
- 1052      3800
- 1053              	.LASF5:
- 1054 008e 6C6F6E67 		.ascii	"long unsigned int\000"
- 1054      20756E73 
- 1054      69676E65 
- 1054      6420696E 
- 1054      7400
- 1055              	.LASF3:
- 1056 00a0 73686F72 		.ascii	"short unsigned int\000"
- 1056      7420756E 
- 1056      7369676E 
- 1056      65642069 
- 1056      6E7400
- 1057              	.LASF24:
- 1058 00b3 54696D65 		.ascii	"Timer_ClearInterrupt\000"
- 1058      725F436C 
- 1058      65617249 
- 1058      6E746572 
- 1058      72757074 
- 1059              	.LASF27:
- 1060 00c8 4953525F 		.ascii	"ISR_StartEx\000"
- 1060      53746172 
- 1060      74457800 
- 1061              	.LASF13:
- 1062 00d4 646F7562 		.ascii	"double\000"
- 1062      6C6500
- 1063              	.LASF10:
- 1064 00db 75696E74 		.ascii	"uint16\000"
- 1064      313600
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccy2o0Ui.s 			page 22
+ 1047              	.LASF23:
+ 1048 00bd 74657374 		.ascii	"test_string2\000"
+ 1048      5F737472 
+ 1048      696E6732 
+ 1048      00
+ 1049              	.LASF19:
+ 1050 00ca 64697374 		.ascii	"distanceToObject\000"
+ 1050      616E6365 
+ 1050      546F4F62 
+ 1050      6A656374 
+ 1050      00
+ 1051              	.LASF12:
+ 1052 00db 666C6F61 		.ascii	"float\000"
+ 1052      7400
+ 1053              	.LASF1:
+ 1054 00e1 756E7369 		.ascii	"unsigned char\000"
+ 1054      676E6564 
+ 1054      20636861 
+ 1054      7200
+ 1055              	.LASF14:
+ 1056 00ef 63686172 		.ascii	"char8\000"
+ 1056      3800
+ 1057              	.LASF5:
+ 1058 00f5 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1058      20756E73 
+ 1058      69676E65 
+ 1058      6420696E 
+ 1058      7400
+ 1059              	.LASF3:
+ 1060 0107 73686F72 		.ascii	"short unsigned int\000"
+ 1060      7420756E 
+ 1060      7369676E 
+ 1060      65642069 
+ 1060      6E7400
+ 1061              	.LASF24:
+ 1062 011a 54696D65 		.ascii	"Timer_ClearInterrupt\000"
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccAWoaLc.s 			page 22
 
 
- 1065              	.LASF31:
- 1066 00e2 433A5C55 		.ascii	"C:\\Users\\PernilleLouise\\Documents\\Elektro\\4. s"
- 1066      73657273 
- 1066      5C506572 
- 1066      6E696C6C 
- 1066      654C6F75 
- 1067 0110 656D6573 		.ascii	"emester\\E4PRJ\\Projekt\\Workspace01\\Design01.cyds"
- 1067      7465725C 
- 1067      45345052 
- 1067      4A5C5072 
- 1067      6F6A656B 
- 1068 013f 6E00     		.ascii	"n\000"
+ 1062      725F436C 
+ 1062      65617249 
+ 1062      6E746572 
+ 1062      72757074 
+ 1063              	.LASF27:
+ 1064 012f 4953525F 		.ascii	"ISR_StartEx\000"
+ 1064      53746172 
+ 1064      74457800 
+ 1065              	.LASF13:
+ 1066 013b 646F7562 		.ascii	"double\000"
+ 1066      6C6500
+ 1067              	.LASF10:
+ 1068 0142 75696E74 		.ascii	"uint16\000"
+ 1068      313600
  1069              	.LASF35:
- 1070 0141 43794465 		.ascii	"CyDelayUs\000"
+ 1070 0149 43794465 		.ascii	"CyDelayUs\000"
  1070      6C617955 
  1070      7300
  1071              	.LASF11:
- 1072 014b 75696E74 		.ascii	"uint32\000"
+ 1072 0153 75696E74 		.ascii	"uint32\000"
  1072      333200
  1073              	.LASF34:
- 1074 0152 54696D65 		.ascii	"Timer_Start\000"
+ 1074 015a 54696D65 		.ascii	"Timer_Start\000"
  1074      725F5374 
  1074      61727400 
  1075              	.LASF8:
- 1076 015e 756E7369 		.ascii	"unsigned int\000"
+ 1076 0166 756E7369 		.ascii	"unsigned int\000"
  1076      676E6564 
  1076      20696E74 
  1076      00
  1077              	.LASF7:
- 1078 016b 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1078 0173 6C6F6E67 		.ascii	"long long unsigned int\000"
  1078      206C6F6E 
  1078      6720756E 
  1078      7369676E 
  1078      65642069 
  1079              	.LASF16:
- 1080 0182 63796973 		.ascii	"cyisraddress\000"
+ 1080 018a 63796973 		.ascii	"cyisraddress\000"
  1080      72616464 
  1080      72657373 
  1080      00
  1081              	.LASF20:
- 1082 018f 64697374 		.ascii	"distanceFlag\000"
+ 1082 0197 64697374 		.ascii	"distanceFlag\000"
  1082      616E6365 
  1082      466C6167 
  1082      00
  1083              	.LASF17:
- 1084 019c 73697A65 		.ascii	"sizetype\000"
+ 1084 01a4 73697A65 		.ascii	"sizetype\000"
  1084      74797065 
  1084      00
  1085              	.LASF6:
- 1086 01a5 6C6F6E67 		.ascii	"long long int\000"
+ 1086 01ad 6C6F6E67 		.ascii	"long long int\000"
  1086      206C6F6E 
  1086      6720696E 
  1086      7400
  1087              	.LASF15:
- 1088 01b3 63686172 		.ascii	"char\000"
+ 1088 01bb 63686172 		.ascii	"char\000"
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccAWoaLc.s 			page 23
+
+
  1088      00
  1089              	.LASF18:
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccy2o0Ui.s 			page 23
-
-
- 1090 01b8 54696D65 		.ascii	"Timer_ISR_handler\000"
+ 1090 01c0 54696D65 		.ascii	"Timer_ISR_handler\000"
  1090      725F4953 
  1090      525F6861 
  1090      6E646C65 
  1090      7200
  1091              	.LASF29:
- 1092 01ca 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 1092 01d2 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
  1092      4320342E 
  1092      392E3320 
  1092      32303135 
  1092      30333033 
- 1093 01fd 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
+ 1093 0205 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
  1093      20726576 
  1093      6973696F 
  1093      6E203232 
  1093      31323230 
- 1094 0230 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1094 0238 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
  1094      66756E63 
  1094      74696F6E 
  1094      2D736563 
  1094      74696F6E 
  1095              	.LASF2:
- 1096 0258 73686F72 		.ascii	"short int\000"
+ 1096 0260 73686F72 		.ascii	"short int\000"
  1096      7420696E 
  1096      7400
  1097              	.LASF9:
- 1098 0262 75696E74 		.ascii	"uint8\000"
+ 1098 026a 75696E74 		.ascii	"uint8\000"
  1098      3800
  1099              	.LASF4:
- 1100 0268 6C6F6E67 		.ascii	"long int\000"
+ 1100 0270 6C6F6E67 		.ascii	"long int\000"
  1100      20696E74 
  1100      00
  1101              	.LASF0:
- 1102 0271 7369676E 		.ascii	"signed char\000"
+ 1102 0279 7369676E 		.ascii	"signed char\000"
  1102      65642063 
  1102      68617200 
  1103              	.LASF33:
- 1104 027d 73707269 		.ascii	"sprintf\000"
+ 1104 0285 73707269 		.ascii	"sprintf\000"
  1104      6E746600 
  1105              	.LASF26:
- 1106 0285 43794465 		.ascii	"CyDelay\000"
+ 1106 028d 43794465 		.ascii	"CyDelay\000"
  1106      6C617900 
  1107              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

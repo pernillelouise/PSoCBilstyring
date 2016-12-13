@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\cccsFTbQ.s 			page 1
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccivKCED.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -58,1862 +58,1858 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\cccsFTbQ.s 			page 1
   30:.\test.c      **** char test2[] = "Hello from folg objekt \n\r"; 
   31:.\test.c      **** char test3[] = "Hello from objekt ligeud \n\r"; 
   32:.\test.c      **** char test4[] = "Hello from objekt venstre \n\r"; 
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\cccsFTbQ.s 			page 2
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccivKCED.s 			page 2
 
 
   33:.\test.c      **** char test5[] = "Hello from objekt hojre \n\r"; 
   34:.\test.c      **** char test6[] = "Hello from objekt ikke fundet \n\r"; 
   35:.\test.c      **** char test7[] = "Hello from start \n\r"; 
   36:.\test.c      **** char test8[] = "Hello from readObject \n\r"; 
-  37:.\test.c      **** 
-  38:.\test.c      **** int main()
-  39:.\test.c      **** {
-  26              		.loc 1 39 0
+  37:.\test.c      **** char val[20]; 
+  38:.\test.c      **** char * p1; 
+  39:.\test.c      **** 
+  40:.\test.c      **** 
+  41:.\test.c      **** int main()
+  42:.\test.c      **** {
+  26              		.loc 1 42 0
   27              		.cfi_startproc
-  28 0000 10B5     		push	{r4, lr}
-  29              		.cfi_def_cfa_offset 8
-  30              		.cfi_offset 4, -8
-  31              		.cfi_offset 14, -4
-  32 0002 82B0     		sub	sp, sp, #8
-  33              		.cfi_def_cfa_offset 16
-  40:.\test.c      ****     CyGlobalIntEnable; /* Enable global interrupts. */
-  34              		.loc 1 40 0
-  35              	@ 40 ".\test.c" 1
-  36 0004 62B6     		CPSIE   i
-  37              	@ 0 "" 2
-  41:.\test.c      ****     I2C_1_Start();
-  38              		.loc 1 41 0
-  39              		.code	16
-  40 0006 FFF7FEFF 		bl	I2C_1_Start
-  41              	.LVL0:
-  42:.\test.c      ****     
-  43:.\test.c      ****        // ADC_IRQ_Enable();
-  44:.\test.c      ****     ADC_Start();
-  42              		.loc 1 44 0
-  43 000a FFF7FEFF 		bl	ADC_Start
-  44              	.LVL1:
-  45:.\test.c      ****     ADC_StartConvert();
-  45              		.loc 1 45 0
-  46 000e FFF7FEFF 		bl	ADC_StartConvert
-  47              	.LVL2:
-  46:.\test.c      ****     UART_print_Start(); 
-  48              		.loc 1 46 0
-  49 0012 FFF7FEFF 		bl	UART_print_Start
-  50              	.LVL3:
-  47:.\test.c      **** 
-  48:.\test.c      **** //    PWM_venstre_WriteCompare(127);
-  49:.\test.c      **** //    PWM_hojre_WriteCompare(127);
+  28 0000 30B5     		push	{r4, r5, lr}
+  29              		.cfi_def_cfa_offset 12
+  30              		.cfi_offset 4, -12
+  31              		.cfi_offset 5, -8
+  32              		.cfi_offset 14, -4
+  33 0002 83B0     		sub	sp, sp, #12
+  34              		.cfi_def_cfa_offset 24
+  43:.\test.c      ****     CyGlobalIntEnable; /* Enable global interrupts. */
+  35              		.loc 1 43 0
+  36              	@ 43 ".\test.c" 1
+  37 0004 62B6     		CPSIE   i
+  38              	@ 0 "" 2
+  44:.\test.c      ****     I2C_1_Start();
+  39              		.loc 1 44 0
+  40              		.code	16
+  41 0006 FFF7FEFF 		bl	I2C_1_Start
+  42              	.LVL0:
+  45:.\test.c      ****     
+  46:.\test.c      ****        // ADC_IRQ_Enable();
+  47:.\test.c      ****     ADC_Start();
+  43              		.loc 1 47 0
+  44 000a FFF7FEFF 		bl	ADC_Start
+  45              	.LVL1:
+  48:.\test.c      ****     ADC_StartConvert();
+  46              		.loc 1 48 0
+  47 000e FFF7FEFF 		bl	ADC_StartConvert
+  48              	.LVL2:
+  49:.\test.c      ****     UART_print_Start(); 
+  49              		.loc 1 49 0
+  50 0012 FFF7FEFF 		bl	UART_print_Start
+  51              	.LVL3:
   50:.\test.c      **** 
-  51:.\test.c      ****  // Init the slave buffers
-  52:.\test.c      ****     initReceiveData();
-  51              		.loc 1 52 0
-  52 0016 FFF7FEFF 		bl	initReceiveData
-  53              	.LVL4:
-  54              	.L3:
-  55              	.LBB2:
-  53:.\test.c      ****     //DebugLEDBlue_Write(0u); 
-  54:.\test.c      ****     
-  55:.\test.c      ****     for(;;)
-  56:.\test.c      ****     {
-  57:.\test.c      ****         receiveData(&buffer);
-  56              		.loc 1 57 0
-  57 001a 3B4C     		ldr	r4, .L14
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\cccsFTbQ.s 			page 3
+  51:.\test.c      **** //    PWM_venstre_WriteCompare(127);
+  52:.\test.c      **** //    PWM_hojre_WriteCompare(127);
+  53:.\test.c      **** 
+  54:.\test.c      ****  // Init the slave buffers
+  55:.\test.c      ****     initReceiveData();
+  52              		.loc 1 55 0
+  53 0016 FFF7FEFF 		bl	initReceiveData
+  54              	.LVL4:
+  55              	.L3:
+  56              	.LBB2:
+  56:.\test.c      ****     //DebugLEDBlue_Write(0u); 
+  57:.\test.c      ****     
+  58:.\test.c      ****     
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccivKCED.s 			page 3
 
 
-  58 001c 201C     		mov	r0, r4
-  59 001e FFF7FEFF 		bl	receiveData
-  60              	.LVL5:
-  58:.\test.c      ****         
-  59:.\test.c      ****         volatile int distance;       
-  60:.\test.c      ****         distance = distanceToObject();
-  61              		.loc 1 60 0
-  62 0022 FFF7FEFF 		bl	distanceToObject
-  63              	.LVL6:
-  64 0026 0190     		str	r0, [sp, #4]
-  61:.\test.c      ****         
-  62:.\test.c      ****         
+  59:.\test.c      ****     while(1)
+  60:.\test.c      ****     {
+  61:.\test.c      ****         buffer = 0;
+  57              		.loc 1 61 0
+  58 001a 364C     		ldr	r4, .L14
+  59 001c 0023     		mov	r3, #0
+  60 001e 2370     		strb	r3, [r4]
+  62:.\test.c      ****         receiveData(&buffer);
+  61              		.loc 1 62 0
+  62 0020 201C     		mov	r0, r4
+  63 0022 FFF7FEFF 		bl	receiveData
+  64              	.LVL5:
   63:.\test.c      ****         
-  64:.\test.c      ****         //uint8 refBuf = buffer;
-  65:.\test.c      ****         switch(buffer)
+  64:.\test.c      ****         volatile int distance;       
+  65:.\test.c      ****         distance = distanceToObject();
   65              		.loc 1 65 0
-  66 0028 2378     		ldrb	r3, [r4]
-  67 002a 3E33     		add	r3, r3, #62
-  68 002c DAB2     		uxtb	r2, r3
-  69 002e 392A     		cmp	r2, #57
-  70 0030 F3D8     		bhi	.L3
-  71 0032 9300     		lsl	r3, r2, #2
-  72 0034 354A     		ldr	r2, .L14+4
-  73 0036 D358     		ldr	r3, [r2, r3]
-  74 0038 9F46     		mov	pc, r3
-  75              		.section	.rodata
-  76              		.align	2
-  77              	.L5:
-  78 0000 9C000000 		.word	.L4
-  79 0004 B6000000 		.word	.L6
-  80 0008 CC000000 		.word	.L7
-  81 000c 1A000000 		.word	.L3
-  82 0010 1A000000 		.word	.L3
-  83 0014 1A000000 		.word	.L3
-  84 0018 1A000000 		.word	.L3
-  85 001c 1A000000 		.word	.L3
-  86 0020 1A000000 		.word	.L3
-  87 0024 1A000000 		.word	.L3
-  88 0028 1A000000 		.word	.L3
-  89 002c 1A000000 		.word	.L3
-  90 0030 1A000000 		.word	.L3
-  91 0034 1A000000 		.word	.L3
-  92 0038 1A000000 		.word	.L3
-  93 003c 1A000000 		.word	.L3
-  94 0040 1A000000 		.word	.L3
-  95 0044 1A000000 		.word	.L3
-  96 0048 1A000000 		.word	.L3
-  97 004c 1A000000 		.word	.L3
-  98 0050 1A000000 		.word	.L3
-  99 0054 1A000000 		.word	.L3
- 100 0058 1A000000 		.word	.L3
- 101 005c 1A000000 		.word	.L3
- 102 0060 1A000000 		.word	.L3
- 103 0064 1A000000 		.word	.L3
- 104 0068 1A000000 		.word	.L3
- 105 006c 1A000000 		.word	.L3
- 106 0070 1A000000 		.word	.L3
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\cccsFTbQ.s 			page 4
+  66 0026 FFF7FEFF 		bl	distanceToObject
+  67              	.LVL6:
+  68 002a 0190     		str	r0, [sp, #4]
+  66:.\test.c      ****         
+  67:.\test.c      ****         switch(buffer)
+  69              		.loc 1 67 0
+  70 002c 2378     		ldrb	r3, [r4]
+  71 002e 3E33     		add	r3, r3, #62
+  72 0030 DAB2     		uxtb	r2, r3
+  73 0032 392A     		cmp	r2, #57
+  74 0034 F1D8     		bhi	.L3
+  75 0036 9300     		lsl	r3, r2, #2
+  76 0038 2F4A     		ldr	r2, .L14+4
+  77 003a D358     		ldr	r3, [r2, r3]
+  78 003c 9F46     		mov	pc, r3
+  79              		.section	.rodata
+  80              		.align	2
+  81              	.L5:
+  82 0000 80000000 		.word	.L4
+  83 0004 92000000 		.word	.L6
+  84 0008 A0000000 		.word	.L7
+  85 000c 1A000000 		.word	.L3
+  86 0010 1A000000 		.word	.L3
+  87 0014 1A000000 		.word	.L3
+  88 0018 1A000000 		.word	.L3
+  89 001c 1A000000 		.word	.L3
+  90 0020 1A000000 		.word	.L3
+  91 0024 1A000000 		.word	.L3
+  92 0028 1A000000 		.word	.L3
+  93 002c 1A000000 		.word	.L3
+  94 0030 1A000000 		.word	.L3
+  95 0034 1A000000 		.word	.L3
+  96 0038 1A000000 		.word	.L3
+  97 003c 1A000000 		.word	.L3
+  98 0040 1A000000 		.word	.L3
+  99 0044 1A000000 		.word	.L3
+ 100 0048 1A000000 		.word	.L3
+ 101 004c 1A000000 		.word	.L3
+ 102 0050 1A000000 		.word	.L3
+ 103 0054 1A000000 		.word	.L3
+ 104 0058 1A000000 		.word	.L3
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccivKCED.s 			page 4
 
 
- 107 0074 1A000000 		.word	.L3
- 108 0078 1A000000 		.word	.L3
- 109 007c 3A000000 		.word	.L8
- 110 0080 50000000 		.word	.L9
- 111 0084 1A000000 		.word	.L3
- 112 0088 1A000000 		.word	.L3
- 113 008c 1A000000 		.word	.L3
- 114 0090 1A000000 		.word	.L3
- 115 0094 1A000000 		.word	.L3
- 116 0098 1A000000 		.word	.L3
- 117 009c 1A000000 		.word	.L3
- 118 00a0 1A000000 		.word	.L3
- 119 00a4 1A000000 		.word	.L3
- 120 00a8 1A000000 		.word	.L3
- 121 00ac 1A000000 		.word	.L3
- 122 00b0 1A000000 		.word	.L3
- 123 00b4 1A000000 		.word	.L3
- 124 00b8 1A000000 		.word	.L3
- 125 00bc 1A000000 		.word	.L3
- 126 00c0 1A000000 		.word	.L3
- 127 00c4 1A000000 		.word	.L3
- 128 00c8 1A000000 		.word	.L3
- 129 00cc 1A000000 		.word	.L3
- 130 00d0 1A000000 		.word	.L3
- 131 00d4 1A000000 		.word	.L3
- 132 00d8 1A000000 		.word	.L3
- 133 00dc 1A000000 		.word	.L3
- 134 00e0 82000000 		.word	.L10
- 135 00e4 68000000 		.word	.L11
- 136              		.section	.text.main
- 137              	.L8:
-  66:.\test.c      ****         {
-  67:.\test.c      ****             case MODE_FOLG_OBJEKT:
-  68:.\test.c      ****                 //Mode folg objekt
-  69:.\test.c      ****                 
-  70:.\test.c      ****                 mode=MODE_FOLG_OBJEKT;
- 138              		.loc 1 70 0
- 139 003a E122     		mov	r2, #225
- 140 003c 324B     		ldr	r3, .L14
- 141 003e 5A60     		str	r2, [r3, #4]
+ 105 005c 1A000000 		.word	.L3
+ 106 0060 1A000000 		.word	.L3
+ 107 0064 1A000000 		.word	.L3
+ 108 0068 1A000000 		.word	.L3
+ 109 006c 1A000000 		.word	.L3
+ 110 0070 1A000000 		.word	.L3
+ 111 0074 1A000000 		.word	.L3
+ 112 0078 1A000000 		.word	.L3
+ 113 007c 3E000000 		.word	.L8
+ 114 0080 4C000000 		.word	.L9
+ 115 0084 1A000000 		.word	.L3
+ 116 0088 1A000000 		.word	.L3
+ 117 008c 1A000000 		.word	.L3
+ 118 0090 1A000000 		.word	.L3
+ 119 0094 1A000000 		.word	.L3
+ 120 0098 1A000000 		.word	.L3
+ 121 009c 1A000000 		.word	.L3
+ 122 00a0 1A000000 		.word	.L3
+ 123 00a4 1A000000 		.word	.L3
+ 124 00a8 1A000000 		.word	.L3
+ 125 00ac 1A000000 		.word	.L3
+ 126 00b0 1A000000 		.word	.L3
+ 127 00b4 1A000000 		.word	.L3
+ 128 00b8 1A000000 		.word	.L3
+ 129 00bc 1A000000 		.word	.L3
+ 130 00c0 1A000000 		.word	.L3
+ 131 00c4 1A000000 		.word	.L3
+ 132 00c8 1A000000 		.word	.L3
+ 133 00cc 1A000000 		.word	.L3
+ 134 00d0 1A000000 		.word	.L3
+ 135 00d4 1A000000 		.word	.L3
+ 136 00d8 1A000000 		.word	.L3
+ 137 00dc 1A000000 		.word	.L3
+ 138 00e0 6E000000 		.word	.L10
+ 139 00e4 5C000000 		.word	.L11
+ 140              		.section	.text.main
+ 141              	.L8:
+  68:.\test.c      ****         {
+  69:.\test.c      ****             case MODE_FOLG_OBJEKT:
+  70:.\test.c      ****                 //Mode folg objekt
   71:.\test.c      ****                 
-  72:.\test.c      ****                 UART_print_UartPutString(test2);
+  72:.\test.c      ****                 mode=MODE_FOLG_OBJEKT;
  142              		.loc 1 72 0
- 143 0040 3348     		ldr	r0, .L14+8
- 144 0042 FFF7FEFF 		bl	UART_print_UartPutString
- 145              	.LVL7:
-  73:.\test.c      ****                 CyDelay(1000); 
- 146              		.loc 1 73 0
- 147 0046 FA20     		mov	r0, #250
- 148 0048 8000     		lsl	r0, r0, #2
- 149 004a FFF7FEFF 		bl	CyDelay
- 150              	.LVL8:
-  74:.\test.c      ****                
-  75:.\test.c      ****                 break;
- 151              		.loc 1 75 0
- 152 004e E4E7     		b	.L3
- 153              	.L9:
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\cccsFTbQ.s 			page 5
+ 143 003e E122     		mov	r2, #225
+ 144 0040 2C4B     		ldr	r3, .L14
+ 145 0042 5A60     		str	r2, [r3, #4]
+  73:.\test.c      ****                 
+  74:.\test.c      ****                 UART_print_UartPutString(test2);
+ 146              		.loc 1 74 0
+ 147 0044 2D48     		ldr	r0, .L14+8
+ 148 0046 FFF7FEFF 		bl	UART_print_UartPutString
+ 149              	.LVL7:
+  75:.\test.c      ****                 
+  76:.\test.c      ****                
+  77:.\test.c      ****                 break;
+ 150              		.loc 1 77 0
+ 151 004a E6E7     		b	.L3
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccivKCED.s 			page 5
 
 
-  76:.\test.c      ****             case MODE_FOLG_LYD:
-  77:.\test.c      ****                 //Mode folg lyd
-  78:.\test.c      ****                 mode = MODE_FOLG_LYD; 
- 154              		.loc 1 78 0
- 155 0050 E222     		mov	r2, #226
- 156 0052 2D4B     		ldr	r3, .L14
- 157 0054 5A60     		str	r2, [r3, #4]
-  79:.\test.c      ****                 
-  80:.\test.c      ****                 UART_print_UartPutString(test1);
- 158              		.loc 1 80 0
- 159 0056 2E48     		ldr	r0, .L14+8
- 160 0058 1C30     		add	r0, r0, #28
- 161 005a FFF7FEFF 		bl	UART_print_UartPutString
- 162              	.LVL9:
-  81:.\test.c      ****                 CyDelay(1000); 
- 163              		.loc 1 81 0
- 164 005e FA20     		mov	r0, #250
- 165 0060 8000     		lsl	r0, r0, #2
- 166 0062 FFF7FEFF 		bl	CyDelay
- 167              	.LVL10:
-  82:.\test.c      ****                 break;
- 168              		.loc 1 82 0
- 169 0066 D8E7     		b	.L3
- 170              	.L11:
-  83:.\test.c      ****         if (readObjData)
-  84:.\test.c      ****         {
-  85:.\test.c      ****             PWM_hojre_Start();
-  86:.\test.c      ****             PWM_venstre_Start();
-  87:.\test.c      ****             case OBJEKT_LIGEUD :
-  88:.\test.c      ****                 // Objektretning ligeud
-  89:.\test.c      ****                 //UART_print_UartPutString("Object lige ud");
-  90:.\test.c      ****                 
-  91:.\test.c      ****                 UART_print_UartPutString(test3);
- 171              		.loc 1 91 0
- 172 0068 2948     		ldr	r0, .L14+8
- 173 006a 3430     		add	r0, r0, #52
- 174 006c FFF7FEFF 		bl	UART_print_UartPutString
- 175              	.LVL11:
-  92:.\test.c      ****                 CyDelay(1000); 
- 176              		.loc 1 92 0
- 177 0070 FA20     		mov	r0, #250
- 178 0072 8000     		lsl	r0, r0, #2
- 179 0074 FFF7FEFF 		bl	CyDelay
- 180              	.LVL12:
-  93:.\test.c      ****                 regulateDistance(distance,setDistance);
- 181              		.loc 1 93 0
- 182 0078 0198     		ldr	r0, [sp, #4]
- 183 007a 3221     		mov	r1, #50
- 184 007c FFF7FEFF 		bl	regulateDistance
- 185              	.LVL13:
+ 152              	.L9:
+  78:.\test.c      ****             case MODE_FOLG_LYD:
+  79:.\test.c      ****                 //Mode folg lyd
+  80:.\test.c      ****                 mode = MODE_FOLG_LYD; 
+ 153              		.loc 1 80 0
+ 154 004c E222     		mov	r2, #226
+ 155 004e 294B     		ldr	r3, .L14
+ 156 0050 5A60     		str	r2, [r3, #4]
+  81:.\test.c      ****                 
+  82:.\test.c      ****                 UART_print_UartPutString(test1);
+ 157              		.loc 1 82 0
+ 158 0052 2A48     		ldr	r0, .L14+8
+ 159 0054 1C30     		add	r0, r0, #28
+ 160 0056 FFF7FEFF 		bl	UART_print_UartPutString
+ 161              	.LVL8:
+  83:.\test.c      ****                 
+  84:.\test.c      ****                 break;
+ 162              		.loc 1 84 0
+ 163 005a DEE7     		b	.L3
+ 164              	.L11:
+  85:.\test.c      ****        // if (readObjData)
+  86:.\test.c      ****         //{
+  87:.\test.c      ****             PWM_hojre_Start();
+  88:.\test.c      ****             PWM_venstre_Start();
+  89:.\test.c      ****             case OBJEKT_LIGEUD :
+  90:.\test.c      ****                 // Objektretning ligeud
+  91:.\test.c      ****                 //UART_print_UartPutString("Object lige ud");
+  92:.\test.c      ****                 
+  93:.\test.c      ****                 UART_print_UartPutString(test3);
+ 165              		.loc 1 93 0
+ 166 005c 2748     		ldr	r0, .L14+8
+ 167 005e 3430     		add	r0, r0, #52
+ 168 0060 FFF7FEFF 		bl	UART_print_UartPutString
+ 169              	.LVL9:
   94:.\test.c      ****                 
-  95:.\test.c      ****                 break;
- 186              		.loc 1 95 0
- 187 0080 CBE7     		b	.L3
- 188              	.L10:
-  96:.\test.c      ****             case OBJEKT_VENSTRE:
-  97:.\test.c      ****                 //Objetkretning venstre
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\cccsFTbQ.s 			page 6
+  95:.\test.c      ****                 regulateDistance(distance,setDistance);
+ 170              		.loc 1 95 0
+ 171 0064 0198     		ldr	r0, [sp, #4]
+ 172 0066 3221     		mov	r1, #50
+ 173 0068 FFF7FEFF 		bl	regulateDistance
+ 174              	.LVL10:
+  96:.\test.c      ****                 
+  97:.\test.c      ****                 break;
+ 175              		.loc 1 97 0
+ 176 006c D5E7     		b	.L3
+ 177              	.L10:
+  98:.\test.c      ****             case OBJEKT_VENSTRE:
+  99:.\test.c      ****                 //Objetkretning venstre
+ 100:.\test.c      ****                 UART_print_UartPutString(test4);
+ 178              		.loc 1 100 0
+ 179 006e 2348     		ldr	r0, .L14+8
+ 180 0070 5030     		add	r0, r0, #80
+ 181 0072 FFF7FEFF 		bl	UART_print_UartPutString
+ 182              	.LVL11:
+ 101:.\test.c      ****                 
+ 102:.\test.c      ****                 regulateDistance(distance,setDistance);
+ 183              		.loc 1 102 0
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccivKCED.s 			page 6
 
 
-  98:.\test.c      ****                 UART_print_UartPutString(test4);
- 189              		.loc 1 98 0
- 190 0082 2348     		ldr	r0, .L14+8
- 191 0084 5030     		add	r0, r0, #80
- 192 0086 FFF7FEFF 		bl	UART_print_UartPutString
- 193              	.LVL14:
-  99:.\test.c      ****                 CyDelay(1000); 
- 194              		.loc 1 99 0
- 195 008a FA20     		mov	r0, #250
- 196 008c 8000     		lsl	r0, r0, #2
- 197 008e FFF7FEFF 		bl	CyDelay
- 198              	.LVL15:
- 100:.\test.c      ****                 regulateDistance(distance,setDistance);
- 199              		.loc 1 100 0
- 200 0092 0198     		ldr	r0, [sp, #4]
- 201 0094 3221     		mov	r1, #50
- 202 0096 FFF7FEFF 		bl	regulateDistance
- 203              	.LVL16:
- 101:.\test.c      ****                                 
- 102:.\test.c      ****                 break;
- 204              		.loc 1 102 0
- 205 009a BEE7     		b	.L3
- 206              	.L4:
- 103:.\test.c      ****             case OBJEKT_HOJRE:
- 104:.\test.c      ****                 //Objektretning hojre
- 105:.\test.c      ****                 UART_print_UartPutString(test5);
- 207              		.loc 1 105 0
- 208 009c 1C48     		ldr	r0, .L14+8
- 209 009e 7030     		add	r0, r0, #112
- 210 00a0 FFF7FEFF 		bl	UART_print_UartPutString
- 211              	.LVL17:
- 106:.\test.c      ****                 CyDelay(1000); 
- 212              		.loc 1 106 0
- 213 00a4 FA20     		mov	r0, #250
- 214 00a6 8000     		lsl	r0, r0, #2
- 215 00a8 FFF7FEFF 		bl	CyDelay
- 216              	.LVL18:
- 107:.\test.c      ****                 regulateDistance(distance,setDistance);
- 217              		.loc 1 107 0
- 218 00ac 0198     		ldr	r0, [sp, #4]
- 219 00ae 3221     		mov	r1, #50
- 220 00b0 FFF7FEFF 		bl	regulateDistance
- 221              	.LVL19:
+ 184 0076 0198     		ldr	r0, [sp, #4]
+ 185 0078 3221     		mov	r1, #50
+ 186 007a FFF7FEFF 		bl	regulateDistance
+ 187              	.LVL12:
+ 103:.\test.c      ****                                 
+ 104:.\test.c      ****                 break;
+ 188              		.loc 1 104 0
+ 189 007e CCE7     		b	.L3
+ 190              	.L4:
+ 105:.\test.c      ****             case OBJEKT_HOJRE:
+ 106:.\test.c      ****                 //Objektretning hojre
+ 107:.\test.c      ****                 UART_print_UartPutString(test5);
+ 191              		.loc 1 107 0
+ 192 0080 1E48     		ldr	r0, .L14+8
+ 193 0082 7030     		add	r0, r0, #112
+ 194 0084 FFF7FEFF 		bl	UART_print_UartPutString
+ 195              	.LVL13:
  108:.\test.c      ****                 
- 109:.\test.c      ****                 break;
- 222              		.loc 1 109 0
- 223 00b4 B1E7     		b	.L3
- 224              	.L6:
- 110:.\test.c      ****             case OBJEKT_IKKE_FUNDET:
- 111:.\test.c      ****                 //Objekt ikke fundet
- 112:.\test.c      ****                 UART_print_UartPutString(test6);
- 225              		.loc 1 112 0
- 226 00b6 1748     		ldr	r0, .L14+12
- 227 00b8 0C30     		add	r0, r0, #12
- 228 00ba FFF7FEFF 		bl	UART_print_UartPutString
- 229              	.LVL20:
- 113:.\test.c      ****                 CyDelay(1000); 
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\cccsFTbQ.s 			page 7
+ 109:.\test.c      ****                 regulateDistance(distance,setDistance);
+ 196              		.loc 1 109 0
+ 197 0088 0198     		ldr	r0, [sp, #4]
+ 198 008a 3221     		mov	r1, #50
+ 199 008c FFF7FEFF 		bl	regulateDistance
+ 200              	.LVL14:
+ 110:.\test.c      ****                 
+ 111:.\test.c      ****                 break;
+ 201              		.loc 1 111 0
+ 202 0090 C3E7     		b	.L3
+ 203              	.L6:
+ 112:.\test.c      ****             case OBJEKT_IKKE_FUNDET:
+ 113:.\test.c      ****                 //Objekt ikke fundet
+ 114:.\test.c      ****                 UART_print_UartPutString(test6);
+ 204              		.loc 1 114 0
+ 205 0092 1B48     		ldr	r0, .L14+12
+ 206 0094 0C30     		add	r0, r0, #12
+ 207 0096 FFF7FEFF 		bl	UART_print_UartPutString
+ 208              	.LVL15:
+ 115:.\test.c      ****                 
+ 116:.\test.c      ****                 stop(); 
+ 209              		.loc 1 116 0
+ 210 009a FFF7FEFF 		bl	stop
+ 211              	.LVL16:
+ 117:.\test.c      ****                 break;
+ 212              		.loc 1 117 0
+ 213 009e BCE7     		b	.L3
+ 214              	.L7:
+ 118:.\test.c      ****        // }
+ 119:.\test.c      ****             case START:
+ 120:.\test.c      ****                 UART_print_UartPutString(test7);
+ 215              		.loc 1 120 0
+ 216 00a0 1748     		ldr	r0, .L14+12
+ 217 00a2 3030     		add	r0, r0, #48
+ 218 00a4 FFF7FEFF 		bl	UART_print_UartPutString
+ 219              	.LVL17:
+ 121:.\test.c      ****                 
+ 122:.\test.c      ****                 start=!start;
+ 220              		.loc 1 122 0
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccivKCED.s 			page 7
 
 
- 230              		.loc 1 113 0
- 231 00be FA20     		mov	r0, #250
- 232 00c0 8000     		lsl	r0, r0, #2
- 233 00c2 FFF7FEFF 		bl	CyDelay
- 234              	.LVL21:
- 114:.\test.c      ****                 stop(); 
- 235              		.loc 1 114 0
- 236 00c6 FFF7FEFF 		bl	stop
- 237              	.LVL22:
- 115:.\test.c      ****                 break;
- 238              		.loc 1 115 0
- 239 00ca A6E7     		b	.L3
- 240              	.L7:
- 116:.\test.c      ****         }
- 117:.\test.c      ****             case START:
- 118:.\test.c      ****                 UART_print_UartPutString(test7);
- 241              		.loc 1 118 0
- 242 00cc 1148     		ldr	r0, .L14+12
- 243 00ce 3030     		add	r0, r0, #48
- 244 00d0 FFF7FEFF 		bl	UART_print_UartPutString
- 245              	.LVL23:
- 119:.\test.c      ****                 CyDelay(1000); 
- 246              		.loc 1 119 0
- 247 00d4 FA20     		mov	r0, #250
- 248 00d6 8000     		lsl	r0, r0, #2
- 249 00d8 FFF7FEFF 		bl	CyDelay
- 250              	.LVL24:
- 120:.\test.c      ****                 start=!start;
- 251              		.loc 1 120 0
- 252 00dc 0A4A     		ldr	r2, .L14
- 253 00de 117A     		ldrb	r1, [r2, #8]
- 254 00e0 0123     		mov	r3, #1
- 255 00e2 4B40     		eor	r3, r1
- 256 00e4 1372     		strb	r3, [r2, #8]
- 121:.\test.c      ****                 if (start)
- 257              		.loc 1 121 0
- 258 00e6 0CD0     		beq	.L13
- 122:.\test.c      ****                 {
- 123:.\test.c      ****                     if (mode == MODE_FOLG_LYD)
- 259              		.loc 1 123 0
- 260 00e8 5368     		ldr	r3, [r2, #4]
- 261 00ea E22B     		cmp	r3, #226
- 262 00ec 95D0     		beq	.L3
- 124:.\test.c      ****                     {
- 125:.\test.c      ****                         // follow sound
- 126:.\test.c      ****                     }
- 127:.\test.c      ****                     else if (mode == MODE_FOLG_OBJEKT)
- 263              		.loc 1 127 0
- 264 00ee E12B     		cmp	r3, #225
- 265 00f0 93D1     		bne	.L3
- 128:.\test.c      ****                     {
- 129:.\test.c      ****                         // read data
- 130:.\test.c      ****                         readObjData = true;
- 266              		.loc 1 130 0
- 267 00f2 0122     		mov	r2, #1
- 268 00f4 044B     		ldr	r3, .L14
- 269 00f6 5A72     		strb	r2, [r3, #9]
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\cccsFTbQ.s 			page 8
-
-
- 131:.\test.c      ****                         UART_print_UartPutString(test8);
- 270              		.loc 1 131 0
- 271 00f8 0648     		ldr	r0, .L14+12
- 272 00fa 4430     		add	r0, r0, #68
- 273 00fc FFF7FEFF 		bl	UART_print_UartPutString
- 274              	.LVL25:
- 275 0100 8BE7     		b	.L3
- 276              	.L13:
+ 221 00a8 124C     		ldr	r4, .L14
+ 222 00aa 227A     		ldrb	r2, [r4, #8]
+ 223 00ac 0123     		mov	r3, #1
+ 224 00ae 5A40     		eor	r2, r3
+ 225 00b0 2272     		strb	r2, [r4, #8]
+ 123:.\test.c      ****                 p1=val; 
+ 226              		.loc 1 123 0
+ 227 00b2 144D     		ldr	r5, .L14+16
+ 228 00b4 1448     		ldr	r0, .L14+20
+ 229 00b6 2860     		str	r0, [r5]
+ 124:.\test.c      ****                 sprintf(val, "%d",start);
+ 230              		.loc 1 124 0
+ 231 00b8 1449     		ldr	r1, .L14+24
+ 232 00ba FFF7FEFF 		bl	sprintf
+ 233              	.LVL18:
+ 125:.\test.c      ****                 UART_print_UartPutString(p1); 
+ 234              		.loc 1 125 0
+ 235 00be 2868     		ldr	r0, [r5]
+ 236 00c0 FFF7FEFF 		bl	UART_print_UartPutString
+ 237              	.LVL19:
+ 126:.\test.c      ****                 
+ 127:.\test.c      ****                 if (start)
+ 238              		.loc 1 127 0
+ 239 00c4 237A     		ldrb	r3, [r4, #8]
+ 240 00c6 002B     		cmp	r3, #0
+ 241 00c8 0DD0     		beq	.L13
+ 128:.\test.c      ****                 {
+ 129:.\test.c      ****                     if (mode == MODE_FOLG_LYD)
+ 242              		.loc 1 129 0
+ 243 00ca 0A4B     		ldr	r3, .L14
+ 244 00cc 5B68     		ldr	r3, [r3, #4]
+ 245 00ce E22B     		cmp	r3, #226
+ 246 00d0 A3D0     		beq	.L3
+ 130:.\test.c      ****                     {
+ 131:.\test.c      ****                         // follow sound
  132:.\test.c      ****                     }
- 133:.\test.c      ****                 }
- 134:.\test.c      ****                 else 
- 135:.\test.c      ****                 {
- 136:.\test.c      ****                     // stop car
- 137:.\test.c      ****                     stop(); 
- 277              		.loc 1 137 0
- 278 0102 FFF7FEFF 		bl	stop
- 279              	.LVL26:
- 280 0106 88E7     		b	.L3
- 281              	.L15:
- 282              		.align	2
- 283              	.L14:
- 284 0108 00000000 		.word	.LANCHOR0
- 285 010c 00000000 		.word	.L5
- 286 0110 00000000 		.word	.LANCHOR1
- 287 0114 80000000 		.word	.LANCHOR2
- 288              	.LBE2:
- 289              		.cfi_endproc
- 290              	.LFE34:
- 291              		.size	main, .-main
- 292              		.global	test8
- 293              		.global	test7
- 294              		.global	test6
- 295              		.global	test5
- 296              		.global	test4
- 297              		.global	test3
- 298              		.global	test2
- 299              		.global	test1
- 300              		.global	distanceFlag
- 301              		.global	setDistance
- 302              		.comm	Volt,4,4
- 303              		.comm	V,2,2
- 304              		.comm	dataRdy,1,1
- 305              		.comm	result,2,2
- 306              		.global	start
- 307              		.global	mode
- 308              		.global	readObjData
- 309              		.global	i
- 310              		.global	buffer
- 311              		.comm	wrbuf,4,4
- 312              		.section	.rodata
+ 133:.\test.c      ****                     else if (mode == MODE_FOLG_OBJEKT)
+ 247              		.loc 1 133 0
+ 248 00d2 E12B     		cmp	r3, #225
+ 249 00d4 A1D1     		bne	.L3
+ 134:.\test.c      ****                     {
+ 135:.\test.c      ****                         // read data
+ 136:.\test.c      ****                         readObjData = true;
+ 250              		.loc 1 136 0
+ 251 00d6 0122     		mov	r2, #1
+ 252 00d8 064B     		ldr	r3, .L14
+ 253 00da 5A72     		strb	r2, [r3, #9]
+ 137:.\test.c      ****                         UART_print_UartPutString(test8);
+ 254              		.loc 1 137 0
+ 255 00dc 0848     		ldr	r0, .L14+12
+ 256 00de 4430     		add	r0, r0, #68
+ 257 00e0 FFF7FEFF 		bl	UART_print_UartPutString
+ 258              	.LVL20:
+ 259 00e4 99E7     		b	.L3
+ 260              	.L13:
+ 138:.\test.c      ****                     }
+ 139:.\test.c      ****                 }
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccivKCED.s 			page 8
+
+
+ 140:.\test.c      ****                 else 
+ 141:.\test.c      ****                 {
+ 142:.\test.c      ****                     // stop car
+ 143:.\test.c      ****                     stop(); 
+ 261              		.loc 1 143 0
+ 262 00e6 FFF7FEFF 		bl	stop
+ 263              	.LVL21:
+ 144:.\test.c      ****                     UART_print_UartPutString("Hello from else stop car");
+ 264              		.loc 1 144 0
+ 265 00ea 0948     		ldr	r0, .L14+28
+ 266 00ec FFF7FEFF 		bl	UART_print_UartPutString
+ 267              	.LVL22:
+ 268 00f0 93E7     		b	.L3
+ 269              	.L15:
+ 270 00f2 C046     		.align	2
+ 271              	.L14:
+ 272 00f4 00000000 		.word	.LANCHOR0
+ 273 00f8 00000000 		.word	.L5
+ 274 00fc 00000000 		.word	.LANCHOR1
+ 275 0100 80000000 		.word	.LANCHOR2
+ 276 0104 00000000 		.word	p1
+ 277 0108 00000000 		.word	val
+ 278 010c 00000000 		.word	.LC6
+ 279 0110 04000000 		.word	.LC8
+ 280              	.LBE2:
+ 281              		.cfi_endproc
+ 282              	.LFE34:
+ 283              		.size	main, .-main
+ 284              		.comm	p1,4,4
+ 285              		.comm	val,20,4
+ 286              		.global	test8
+ 287              		.global	test7
+ 288              		.global	test6
+ 289              		.global	test5
+ 290              		.global	test4
+ 291              		.global	test3
+ 292              		.global	test2
+ 293              		.global	test1
+ 294              		.global	distanceFlag
+ 295              		.global	setDistance
+ 296              		.comm	Volt,4,4
+ 297              		.comm	V,2,2
+ 298              		.comm	dataRdy,1,1
+ 299              		.comm	result,2,2
+ 300              		.global	start
+ 301              		.global	mode
+ 302              		.global	readObjData
+ 303              		.global	i
+ 304              		.global	buffer
+ 305              		.comm	wrbuf,4,4
+ 306              		.section	.rodata
+ 307              		.align	2
+ 308              		.type	setDistance, %object
+ 309              		.size	setDistance, 4
+ 310              	setDistance:
+ 311 00e8 32000000 		.word	50
+ 312              		.data
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccivKCED.s 			page 9
+
+
  313              		.align	2
- 314              		.type	setDistance, %object
- 315              		.size	setDistance, 4
- 316              	setDistance:
- 317 00e8 32000000 		.word	50
- 318              		.data
- 319              		.align	2
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\cccsFTbQ.s 			page 9
+ 314              		.set	.LANCHOR1,. + 0
+ 315              		.set	.LANCHOR2,. + 128
+ 316              		.type	test2, %object
+ 317              		.size	test2, 26
+ 318              	test2:
+ 319 0000 48656C6C 		.ascii	"Hello from folg objekt \012\015\000"
+ 319      6F206672 
+ 319      6F6D2066 
+ 319      6F6C6720 
+ 319      6F626A65 
+ 320 001a 0000     		.space	2
+ 321              		.type	test1, %object
+ 322              		.size	test1, 23
+ 323              	test1:
+ 324 001c 48656C6C 		.ascii	"Hello from folg lyd \012\015\000"
+ 324      6F206672 
+ 324      6F6D2066 
+ 324      6F6C6720 
+ 324      6C796420 
+ 325 0033 00       		.space	1
+ 326              		.type	test3, %object
+ 327              		.size	test3, 28
+ 328              	test3:
+ 329 0034 48656C6C 		.ascii	"Hello from objekt ligeud \012\015\000"
+ 329      6F206672 
+ 329      6F6D206F 
+ 329      626A656B 
+ 329      74206C69 
+ 330              		.type	test4, %object
+ 331              		.size	test4, 29
+ 332              	test4:
+ 333 0050 48656C6C 		.ascii	"Hello from objekt venstre \012\015\000"
+ 333      6F206672 
+ 333      6F6D206F 
+ 333      626A656B 
+ 333      74207665 
+ 334 006d 000000   		.space	3
+ 335              		.type	test5, %object
+ 336              		.size	test5, 27
+ 337              	test5:
+ 338 0070 48656C6C 		.ascii	"Hello from objekt hojre \012\015\000"
+ 338      6F206672 
+ 338      6F6D206F 
+ 338      626A656B 
+ 338      7420686F 
+ 339 008b 00       		.space	1
+ 340              		.type	test6, %object
+ 341              		.size	test6, 33
+ 342              	test6:
+ 343 008c 48656C6C 		.ascii	"Hello from objekt ikke fundet \012\015\000"
+ 343      6F206672 
+ 343      6F6D206F 
+ 343      626A656B 
+ 343      7420696B 
+ 344 00ad 000000   		.space	3
+ 345              		.type	test7, %object
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccivKCED.s 			page 10
 
 
- 320              		.set	.LANCHOR1,. + 0
- 321              		.set	.LANCHOR2,. + 128
- 322              		.type	test2, %object
- 323              		.size	test2, 26
- 324              	test2:
- 325 0000 48656C6C 		.ascii	"Hello from folg objekt \012\015\000"
- 325      6F206672 
- 325      6F6D2066 
- 325      6F6C6720 
- 325      6F626A65 
- 326 001a 0000     		.space	2
- 327              		.type	test1, %object
- 328              		.size	test1, 23
- 329              	test1:
- 330 001c 48656C6C 		.ascii	"Hello from folg lyd \012\015\000"
- 330      6F206672 
- 330      6F6D2066 
- 330      6F6C6720 
- 330      6C796420 
- 331 0033 00       		.space	1
- 332              		.type	test3, %object
- 333              		.size	test3, 28
- 334              	test3:
- 335 0034 48656C6C 		.ascii	"Hello from objekt ligeud \012\015\000"
- 335      6F206672 
- 335      6F6D206F 
- 335      626A656B 
- 335      74206C69 
- 336              		.type	test4, %object
- 337              		.size	test4, 29
- 338              	test4:
- 339 0050 48656C6C 		.ascii	"Hello from objekt venstre \012\015\000"
- 339      6F206672 
- 339      6F6D206F 
- 339      626A656B 
- 339      74207665 
- 340 006d 000000   		.space	3
- 341              		.type	test5, %object
- 342              		.size	test5, 27
- 343              	test5:
- 344 0070 48656C6C 		.ascii	"Hello from objekt hojre \012\015\000"
- 344      6F206672 
- 344      6F6D206F 
- 344      626A656B 
- 344      7420686F 
- 345 008b 00       		.space	1
- 346              		.type	test6, %object
- 347              		.size	test6, 33
- 348              	test6:
- 349 008c 48656C6C 		.ascii	"Hello from objekt ikke fundet \012\015\000"
- 349      6F206672 
- 349      6F6D206F 
- 349      626A656B 
- 349      7420696B 
- 350 00ad 000000   		.space	3
- 351              		.type	test7, %object
- 352              		.size	test7, 20
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\cccsFTbQ.s 			page 10
+ 346              		.size	test7, 20
+ 347              	test7:
+ 348 00b0 48656C6C 		.ascii	"Hello from start \012\015\000"
+ 348      6F206672 
+ 348      6F6D2073 
+ 348      74617274 
+ 348      200A0D00 
+ 349              		.type	test8, %object
+ 350              		.size	test8, 25
+ 351              	test8:
+ 352 00c4 48656C6C 		.ascii	"Hello from readObject \012\015\000"
+ 352      6F206672 
+ 352      6F6D2072 
+ 352      6561644F 
+ 352      626A6563 
+ 353 00dd 000000   		.space	3
+ 354              		.type	distanceFlag, %object
+ 355              		.size	distanceFlag, 4
+ 356              	distanceFlag:
+ 357 00e0 01000000 		.word	1
+ 358              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 359              		.align	2
+ 360              	.LC6:
+ 361 0000 256400   		.ascii	"%d\000"
+ 362 0003 00       		.space	1
+ 363              	.LC8:
+ 364 0004 48656C6C 		.ascii	"Hello from else stop car\000"
+ 364      6F206672 
+ 364      6F6D2065 
+ 364      6C736520 
+ 364      73746F70 
+ 365 001d 000000   		.bss
+ 366              		.align	2
+ 367              		.set	.LANCHOR0,. + 0
+ 368              		.type	buffer, %object
+ 369              		.size	buffer, 1
+ 370              	buffer:
+ 371 0000 00       		.space	1
+ 372 0001 000000   		.space	3
+ 373              		.type	mode, %object
+ 374              		.size	mode, 4
+ 375              	mode:
+ 376 0004 00000000 		.space	4
+ 377              		.type	start, %object
+ 378              		.size	start, 1
+ 379              	start:
+ 380 0008 00       		.space	1
+ 381              		.type	readObjData, %object
+ 382              		.size	readObjData, 1
+ 383              	readObjData:
+ 384 0009 00       		.space	1
+ 385 000a 0000     		.space	2
+ 386              		.type	i, %object
+ 387              		.size	i, 4
+ 388              	i:
+ 389 000c 00000000 		.space	4
+ 390              		.text
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccivKCED.s 			page 11
 
 
- 353              	test7:
- 354 00b0 48656C6C 		.ascii	"Hello from start \012\015\000"
- 354      6F206672 
- 354      6F6D2073 
- 354      74617274 
- 354      200A0D00 
- 355              		.type	test8, %object
- 356              		.size	test8, 25
- 357              	test8:
- 358 00c4 48656C6C 		.ascii	"Hello from readObject \012\015\000"
- 358      6F206672 
- 358      6F6D2072 
- 358      6561644F 
- 358      626A6563 
- 359 00dd 000000   		.space	3
- 360              		.type	distanceFlag, %object
- 361              		.size	distanceFlag, 4
- 362              	distanceFlag:
- 363 00e0 01000000 		.word	1
- 364              		.bss
- 365              		.align	2
- 366              		.set	.LANCHOR0,. + 0
- 367              		.type	buffer, %object
- 368              		.size	buffer, 1
- 369              	buffer:
- 370 0000 00       		.space	1
- 371 0001 000000   		.space	3
- 372              		.type	mode, %object
- 373              		.size	mode, 4
- 374              	mode:
- 375 0004 00000000 		.space	4
- 376              		.type	start, %object
- 377              		.size	start, 1
- 378              	start:
- 379 0008 00       		.space	1
- 380              		.type	readObjData, %object
- 381              		.size	readObjData, 1
- 382              	readObjData:
- 383 0009 00       		.space	1
- 384 000a 0000     		.space	2
- 385              		.type	i, %object
- 386              		.size	i, 4
- 387              	i:
- 388 000c 00000000 		.space	4
- 389              		.text
- 390              	.Letext0:
- 391              		.file 2 "Generated_Source\\PSoC4/cytypes.h"
- 392              		.file 3 ".\\I2Cslave.h"
- 393              		.file 4 ".\\distance.h"
- 394              		.file 5 "Generated_Source\\PSoC4/UART_print_SPI_UART.h"
- 395              		.file 6 "Generated_Source\\PSoC4/CyLib.h"
- 396              		.file 7 ".\\regulering.h"
- 397              		.file 8 "Generated_Source\\PSoC4/I2C_1.h"
- 398              		.file 9 "Generated_Source\\PSoC4/ADC.h"
- 399              		.file 10 "Generated_Source\\PSoC4/UART_print.h"
- 400              		.section	.debug_info,"",%progbits
- 401              	.Ldebug_info0:
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\cccsFTbQ.s 			page 11
+ 391              	.Letext0:
+ 392              		.file 2 "Generated_Source\\PSoC4/cytypes.h"
+ 393              		.file 3 ".\\I2Cslave.h"
+ 394              		.file 4 ".\\distance.h"
+ 395              		.file 5 "Generated_Source\\PSoC4/UART_print_SPI_UART.h"
+ 396              		.file 6 ".\\regulering.h"
+ 397              		.file 7 "c:\\program files (x86)\\cypress\\psoc creator\\3.3\\psoc creator\\import\\gnu\\arm\\4.9.
+ 398              		.file 8 "Generated_Source\\PSoC4/I2C_1.h"
+ 399              		.file 9 "Generated_Source\\PSoC4/ADC.h"
+ 400              		.file 10 "Generated_Source\\PSoC4/UART_print.h"
+ 401              		.section	.debug_info,"",%progbits
+ 402              	.Ldebug_info0:
+ 403 0000 53050000 		.4byte	0x553
+ 404 0004 0400     		.2byte	0x4
+ 405 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 406 000a 04       		.byte	0x4
+ 407 000b 01       		.uleb128 0x1
+ 408 000c F9010000 		.4byte	.LASF46
+ 409 0010 01       		.byte	0x1
+ 410 0011 B9020000 		.4byte	.LASF47
+ 411 0015 42000000 		.4byte	.LASF48
+ 412 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 413 001d 00000000 		.4byte	0
+ 414 0021 00000000 		.4byte	.Ldebug_line0
+ 415 0025 02       		.uleb128 0x2
+ 416 0026 01       		.byte	0x1
+ 417 0027 06       		.byte	0x6
+ 418 0028 0C000000 		.4byte	.LASF0
+ 419 002c 02       		.uleb128 0x2
+ 420 002d 01       		.byte	0x1
+ 421 002e 08       		.byte	0x8
+ 422 002f DA000000 		.4byte	.LASF1
+ 423 0033 02       		.uleb128 0x2
+ 424 0034 02       		.byte	0x2
+ 425 0035 05       		.byte	0x5
+ 426 0036 93020000 		.4byte	.LASF2
+ 427 003a 02       		.uleb128 0x2
+ 428 003b 02       		.byte	0x2
+ 429 003c 07       		.byte	0x7
+ 430 003d 17010000 		.4byte	.LASF3
+ 431 0041 02       		.uleb128 0x2
+ 432 0042 04       		.byte	0x4
+ 433 0043 05       		.byte	0x5
+ 434 0044 B0020000 		.4byte	.LASF4
+ 435 0048 02       		.uleb128 0x2
+ 436 0049 04       		.byte	0x4
+ 437 004a 07       		.byte	0x7
+ 438 004b 05010000 		.4byte	.LASF5
+ 439 004f 02       		.uleb128 0x2
+ 440 0050 08       		.byte	0x8
+ 441 0051 05       		.byte	0x5
+ 442 0052 DA010000 		.4byte	.LASF6
+ 443 0056 02       		.uleb128 0x2
+ 444 0057 08       		.byte	0x8
+ 445 0058 07       		.byte	0x7
+ 446 0059 7F010000 		.4byte	.LASF7
+ 447 005d 03       		.uleb128 0x3
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccivKCED.s 			page 12
 
 
- 402 0000 7A050000 		.4byte	0x57a
- 403 0004 0400     		.2byte	0x4
- 404 0006 00000000 		.4byte	.Ldebug_abbrev0
- 405 000a 04       		.byte	0x4
- 406 000b 01       		.uleb128 0x1
- 407 000c F8010000 		.4byte	.LASF46
- 408 0010 01       		.byte	0x1
- 409 0011 B8020000 		.4byte	.LASF47
- 410 0015 EC000000 		.4byte	.LASF48
- 411 0019 00000000 		.4byte	.Ldebug_ranges0+0
- 412 001d 00000000 		.4byte	0
- 413 0021 00000000 		.4byte	.Ldebug_line0
- 414 0025 02       		.uleb128 0x2
- 415 0026 01       		.byte	0x1
- 416 0027 06       		.byte	0x6
- 417 0028 0C000000 		.4byte	.LASF0
- 418 002c 02       		.uleb128 0x2
- 419 002d 01       		.byte	0x1
- 420 002e 08       		.byte	0x8
- 421 002f 73000000 		.4byte	.LASF1
- 422 0033 02       		.uleb128 0x2
- 423 0034 02       		.byte	0x2
- 424 0035 05       		.byte	0x5
- 425 0036 92020000 		.4byte	.LASF2
- 426 003a 02       		.uleb128 0x2
- 427 003b 02       		.byte	0x2
- 428 003c 07       		.byte	0x7
- 429 003d B0000000 		.4byte	.LASF3
- 430 0041 02       		.uleb128 0x2
- 431 0042 04       		.byte	0x4
- 432 0043 05       		.byte	0x5
- 433 0044 AF020000 		.4byte	.LASF4
- 434 0048 02       		.uleb128 0x2
- 435 0049 04       		.byte	0x4
- 436 004a 07       		.byte	0x7
- 437 004b 9E000000 		.4byte	.LASF5
- 438 004f 02       		.uleb128 0x2
- 439 0050 08       		.byte	0x8
- 440 0051 05       		.byte	0x5
- 441 0052 D9010000 		.4byte	.LASF6
- 442 0056 02       		.uleb128 0x2
- 443 0057 08       		.byte	0x8
- 444 0058 07       		.byte	0x7
- 445 0059 7E010000 		.4byte	.LASF7
- 446 005d 03       		.uleb128 0x3
- 447 005e 04       		.byte	0x4
- 448 005f 05       		.byte	0x5
- 449 0060 696E7400 		.ascii	"int\000"
- 450 0064 02       		.uleb128 0x2
- 451 0065 04       		.byte	0x4
- 452 0066 07       		.byte	0x7
- 453 0067 71010000 		.4byte	.LASF8
- 454 006b 04       		.uleb128 0x4
- 455 006c 1D000000 		.4byte	.LASF9
- 456 0070 02       		.byte	0x2
- 457 0071 3801     		.2byte	0x138
- 458 0073 2C000000 		.4byte	0x2c
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\cccsFTbQ.s 			page 12
+ 448 005e 04       		.byte	0x4
+ 449 005f 05       		.byte	0x5
+ 450 0060 696E7400 		.ascii	"int\000"
+ 451 0064 02       		.uleb128 0x2
+ 452 0065 04       		.byte	0x4
+ 453 0066 07       		.byte	0x7
+ 454 0067 72010000 		.4byte	.LASF8
+ 455 006b 04       		.uleb128 0x4
+ 456 006c 1D000000 		.4byte	.LASF9
+ 457 0070 02       		.byte	0x2
+ 458 0071 3801     		.2byte	0x138
+ 459 0073 2C000000 		.4byte	0x2c
+ 460 0077 04       		.uleb128 0x4
+ 461 0078 FF000000 		.4byte	.LASF10
+ 462 007c 02       		.byte	0x2
+ 463 007d 3C01     		.2byte	0x13c
+ 464 007f 33000000 		.4byte	0x33
+ 465 0083 04       		.uleb128 0x4
+ 466 0084 5E010000 		.4byte	.LASF11
+ 467 0088 02       		.byte	0x2
+ 468 0089 3E01     		.2byte	0x13e
+ 469 008b 8F000000 		.4byte	0x8f
+ 470 008f 02       		.uleb128 0x2
+ 471 0090 04       		.byte	0x4
+ 472 0091 04       		.byte	0x4
+ 473 0092 C3000000 		.4byte	.LASF12
+ 474 0096 02       		.uleb128 0x2
+ 475 0097 08       		.byte	0x8
+ 476 0098 04       		.byte	0x4
+ 477 0099 2F010000 		.4byte	.LASF13
+ 478 009d 04       		.uleb128 0x4
+ 479 009e F9000000 		.4byte	.LASF14
+ 480 00a2 02       		.byte	0x2
+ 481 00a3 4901     		.2byte	0x149
+ 482 00a5 A9000000 		.4byte	0xa9
+ 483 00a9 02       		.uleb128 0x2
+ 484 00aa 01       		.byte	0x1
+ 485 00ab 08       		.byte	0x8
+ 486 00ac F4010000 		.4byte	.LASF15
+ 487 00b0 02       		.uleb128 0x2
+ 488 00b1 04       		.byte	0x4
+ 489 00b2 07       		.byte	0x7
+ 490 00b3 C1010000 		.4byte	.LASF16
+ 491 00b7 05       		.uleb128 0x5
+ 492 00b8 04       		.byte	0x4
+ 493 00b9 A9000000 		.4byte	0xa9
+ 494 00bd 05       		.uleb128 0x5
+ 495 00be 04       		.byte	0x4
+ 496 00bf C3000000 		.4byte	0xc3
+ 497 00c3 06       		.uleb128 0x6
+ 498 00c4 A9000000 		.4byte	0xa9
+ 499 00c8 07       		.uleb128 0x7
+ 500 00c9 A9000000 		.4byte	0xa9
+ 501 00cd D8000000 		.4byte	0xd8
+ 502 00d1 08       		.uleb128 0x8
+ 503 00d2 B0000000 		.4byte	0xb0
+ 504 00d6 19       		.byte	0x19
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccivKCED.s 			page 13
 
 
- 459 0077 04       		.uleb128 0x4
- 460 0078 5F010000 		.4byte	.LASF10
- 461 007c 02       		.byte	0x2
- 462 007d 3A01     		.2byte	0x13a
- 463 007f 48000000 		.4byte	0x48
- 464 0083 04       		.uleb128 0x4
- 465 0084 98000000 		.4byte	.LASF11
- 466 0088 02       		.byte	0x2
- 467 0089 3C01     		.2byte	0x13c
- 468 008b 33000000 		.4byte	0x33
- 469 008f 04       		.uleb128 0x4
- 470 0090 51010000 		.4byte	.LASF12
- 471 0094 02       		.byte	0x2
- 472 0095 3E01     		.2byte	0x13e
- 473 0097 9B000000 		.4byte	0x9b
- 474 009b 02       		.uleb128 0x2
- 475 009c 04       		.byte	0x4
- 476 009d 04       		.byte	0x4
- 477 009e 5C000000 		.4byte	.LASF13
- 478 00a2 02       		.uleb128 0x2
- 479 00a3 08       		.byte	0x8
- 480 00a4 04       		.byte	0x4
- 481 00a5 C8000000 		.4byte	.LASF14
- 482 00a9 04       		.uleb128 0x4
- 483 00aa 92000000 		.4byte	.LASF15
- 484 00ae 02       		.byte	0x2
- 485 00af 4901     		.2byte	0x149
- 486 00b1 B5000000 		.4byte	0xb5
- 487 00b5 02       		.uleb128 0x2
- 488 00b6 01       		.byte	0x1
- 489 00b7 08       		.byte	0x8
- 490 00b8 F3010000 		.4byte	.LASF16
- 491 00bc 02       		.uleb128 0x2
- 492 00bd 04       		.byte	0x4
- 493 00be 07       		.byte	0x7
- 494 00bf C0010000 		.4byte	.LASF17
- 495 00c3 05       		.uleb128 0x5
- 496 00c4 B5000000 		.4byte	0xb5
- 497 00c8 D3000000 		.4byte	0xd3
- 498 00cc 06       		.uleb128 0x6
- 499 00cd BC000000 		.4byte	0xbc
- 500 00d1 19       		.byte	0x19
- 501 00d2 00       		.byte	0
- 502 00d3 05       		.uleb128 0x5
- 503 00d4 B5000000 		.4byte	0xb5
- 504 00d8 E3000000 		.4byte	0xe3
- 505 00dc 06       		.uleb128 0x6
- 506 00dd BC000000 		.4byte	0xbc
- 507 00e1 18       		.byte	0x18
- 508 00e2 00       		.byte	0
- 509 00e3 07       		.uleb128 0x7
- 510 00e4 04       		.byte	0x4
- 511 00e5 6B000000 		.4byte	0x6b
- 512 00e9 08       		.uleb128 0x8
- 513 00ea 66010000 		.4byte	.LASF49
- 514 00ee 01       		.byte	0x1
- 515 00ef 26       		.byte	0x26
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\cccsFTbQ.s 			page 13
+ 505 00d7 00       		.byte	0
+ 506 00d8 07       		.uleb128 0x7
+ 507 00d9 A9000000 		.4byte	0xa9
+ 508 00dd E8000000 		.4byte	0xe8
+ 509 00e1 08       		.uleb128 0x8
+ 510 00e2 B0000000 		.4byte	0xb0
+ 511 00e6 18       		.byte	0x18
+ 512 00e7 00       		.byte	0
+ 513 00e8 05       		.uleb128 0x5
+ 514 00e9 04       		.byte	0x4
+ 515 00ea 6B000000 		.4byte	0x6b
+ 516 00ee 09       		.uleb128 0x9
+ 517 00ef 53010000 		.4byte	.LASF49
+ 518 00f3 01       		.byte	0x1
+ 519 00f4 29       		.byte	0x29
+ 520 00f5 5D000000 		.4byte	0x5d
+ 521 00f9 00000000 		.4byte	.LFB34
+ 522 00fd 14010000 		.4byte	.LFE34-.LFB34
+ 523 0101 01       		.uleb128 0x1
+ 524 0102 9C       		.byte	0x9c
+ 525 0103 B0020000 		.4byte	0x2b0
+ 526 0107 0A       		.uleb128 0xa
+ 527 0108 1A000000 		.4byte	.LBB2
+ 528 010c FA000000 		.4byte	.LBE2-.LBB2
+ 529 0110 82020000 		.4byte	0x282
+ 530 0114 0B       		.uleb128 0xb
+ 531 0115 BA000000 		.4byte	.LASF50
+ 532 0119 01       		.byte	0x1
+ 533 011a 40       		.byte	0x40
+ 534 011b B0020000 		.4byte	0x2b0
+ 535 011f 02       		.uleb128 0x2
+ 536 0120 91       		.byte	0x91
+ 537 0121 6C       		.sleb128 -20
+ 538 0122 0C       		.uleb128 0xc
+ 539 0123 26000000 		.4byte	.LVL5
+ 540 0127 AC040000 		.4byte	0x4ac
+ 541 012b 36010000 		.4byte	0x136
+ 542 012f 0D       		.uleb128 0xd
+ 543 0130 01       		.uleb128 0x1
+ 544 0131 50       		.byte	0x50
+ 545 0132 02       		.uleb128 0x2
+ 546 0133 74       		.byte	0x74
+ 547 0134 00       		.sleb128 0
+ 548 0135 00       		.byte	0
+ 549 0136 0E       		.uleb128 0xe
+ 550 0137 2A000000 		.4byte	.LVL6
+ 551 013b BD040000 		.4byte	0x4bd
+ 552 013f 0C       		.uleb128 0xc
+ 553 0140 4A000000 		.4byte	.LVL7
+ 554 0144 CE040000 		.4byte	0x4ce
+ 555 0148 56010000 		.4byte	0x156
+ 556 014c 0D       		.uleb128 0xd
+ 557 014d 01       		.uleb128 0x1
+ 558 014e 50       		.byte	0x50
+ 559 014f 05       		.uleb128 0x5
+ 560 0150 03       		.byte	0x3
+ 561 0151 00000000 		.4byte	.LANCHOR1
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccivKCED.s 			page 14
 
 
- 516 00f0 5D000000 		.4byte	0x5d
- 517 00f4 00000000 		.4byte	.LFB34
- 518 00f8 18010000 		.4byte	.LFE34-.LFB34
- 519 00fc 01       		.uleb128 0x1
- 520 00fd 9C       		.byte	0x9c
- 521 00fe 02030000 		.4byte	0x302
- 522 0102 09       		.uleb128 0x9
- 523 0103 1A000000 		.4byte	.LBB2
- 524 0107 FE000000 		.4byte	.LBE2-.LBB2
- 525 010b D4020000 		.4byte	0x2d4
- 526 010f 0A       		.uleb128 0xa
- 527 0110 53000000 		.4byte	.LASF50
- 528 0114 01       		.byte	0x1
- 529 0115 3B       		.byte	0x3b
- 530 0116 02030000 		.4byte	0x302
- 531 011a 02       		.uleb128 0x2
- 532 011b 91       		.byte	0x91
- 533 011c 74       		.sleb128 -12
- 534 011d 0B       		.uleb128 0xb
- 535 011e 22000000 		.4byte	.LVL5
- 536 0122 DD040000 		.4byte	0x4dd
- 537 0126 31010000 		.4byte	0x131
- 538 012a 0C       		.uleb128 0xc
- 539 012b 01       		.uleb128 0x1
- 540 012c 50       		.byte	0x50
- 541 012d 02       		.uleb128 0x2
- 542 012e 74       		.byte	0x74
- 543 012f 00       		.sleb128 0
- 544 0130 00       		.byte	0
- 545 0131 0D       		.uleb128 0xd
- 546 0132 26000000 		.4byte	.LVL6
- 547 0136 EE040000 		.4byte	0x4ee
- 548 013a 0B       		.uleb128 0xb
- 549 013b 46000000 		.4byte	.LVL7
- 550 013f FF040000 		.4byte	0x4ff
- 551 0143 51010000 		.4byte	0x151
- 552 0147 0C       		.uleb128 0xc
- 553 0148 01       		.uleb128 0x1
- 554 0149 50       		.byte	0x50
- 555 014a 05       		.uleb128 0x5
- 556 014b 03       		.byte	0x3
- 557 014c 00000000 		.4byte	.LANCHOR1
- 558 0150 00       		.byte	0
- 559 0151 0B       		.uleb128 0xb
- 560 0152 4E000000 		.4byte	.LVL8
- 561 0156 1C050000 		.4byte	0x51c
- 562 015a 66010000 		.4byte	0x166
- 563 015e 0C       		.uleb128 0xc
- 564 015f 01       		.uleb128 0x1
- 565 0160 50       		.byte	0x50
- 566 0161 03       		.uleb128 0x3
- 567 0162 0A       		.byte	0xa
- 568 0163 E803     		.2byte	0x3e8
- 569 0165 00       		.byte	0
- 570 0166 0B       		.uleb128 0xb
- 571 0167 5E000000 		.4byte	.LVL9
- 572 016b FF040000 		.4byte	0x4ff
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\cccsFTbQ.s 			page 14
+ 562 0155 00       		.byte	0
+ 563 0156 0C       		.uleb128 0xc
+ 564 0157 5A000000 		.4byte	.LVL8
+ 565 015b CE040000 		.4byte	0x4ce
+ 566 015f 6D010000 		.4byte	0x16d
+ 567 0163 0D       		.uleb128 0xd
+ 568 0164 01       		.uleb128 0x1
+ 569 0165 50       		.byte	0x50
+ 570 0166 05       		.uleb128 0x5
+ 571 0167 03       		.byte	0x3
+ 572 0168 1C000000 		.4byte	.LANCHOR1+28
+ 573 016c 00       		.byte	0
+ 574 016d 0C       		.uleb128 0xc
+ 575 016e 64000000 		.4byte	.LVL9
+ 576 0172 CE040000 		.4byte	0x4ce
+ 577 0176 84010000 		.4byte	0x184
+ 578 017a 0D       		.uleb128 0xd
+ 579 017b 01       		.uleb128 0x1
+ 580 017c 50       		.byte	0x50
+ 581 017d 05       		.uleb128 0x5
+ 582 017e 03       		.byte	0x3
+ 583 017f 34000000 		.4byte	.LANCHOR1+52
+ 584 0183 00       		.byte	0
+ 585 0184 0C       		.uleb128 0xc
+ 586 0185 6C000000 		.4byte	.LVL10
+ 587 0189 EB040000 		.4byte	0x4eb
+ 588 018d 98010000 		.4byte	0x198
+ 589 0191 0D       		.uleb128 0xd
+ 590 0192 01       		.uleb128 0x1
+ 591 0193 51       		.byte	0x51
+ 592 0194 02       		.uleb128 0x2
+ 593 0195 08       		.byte	0x8
+ 594 0196 32       		.byte	0x32
+ 595 0197 00       		.byte	0
+ 596 0198 0C       		.uleb128 0xc
+ 597 0199 76000000 		.4byte	.LVL11
+ 598 019d CE040000 		.4byte	0x4ce
+ 599 01a1 AF010000 		.4byte	0x1af
+ 600 01a5 0D       		.uleb128 0xd
+ 601 01a6 01       		.uleb128 0x1
+ 602 01a7 50       		.byte	0x50
+ 603 01a8 05       		.uleb128 0x5
+ 604 01a9 03       		.byte	0x3
+ 605 01aa 50000000 		.4byte	.LANCHOR1+80
+ 606 01ae 00       		.byte	0
+ 607 01af 0C       		.uleb128 0xc
+ 608 01b0 7E000000 		.4byte	.LVL12
+ 609 01b4 EB040000 		.4byte	0x4eb
+ 610 01b8 C3010000 		.4byte	0x1c3
+ 611 01bc 0D       		.uleb128 0xd
+ 612 01bd 01       		.uleb128 0x1
+ 613 01be 51       		.byte	0x51
+ 614 01bf 02       		.uleb128 0x2
+ 615 01c0 08       		.byte	0x8
+ 616 01c1 32       		.byte	0x32
+ 617 01c2 00       		.byte	0
+ 618 01c3 0C       		.uleb128 0xc
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccivKCED.s 			page 15
 
 
- 573 016f 7D010000 		.4byte	0x17d
- 574 0173 0C       		.uleb128 0xc
- 575 0174 01       		.uleb128 0x1
- 576 0175 50       		.byte	0x50
- 577 0176 05       		.uleb128 0x5
- 578 0177 03       		.byte	0x3
- 579 0178 1C000000 		.4byte	.LANCHOR1+28
- 580 017c 00       		.byte	0
- 581 017d 0B       		.uleb128 0xb
- 582 017e 66000000 		.4byte	.LVL10
- 583 0182 1C050000 		.4byte	0x51c
- 584 0186 92010000 		.4byte	0x192
- 585 018a 0C       		.uleb128 0xc
- 586 018b 01       		.uleb128 0x1
- 587 018c 50       		.byte	0x50
- 588 018d 03       		.uleb128 0x3
- 589 018e 0A       		.byte	0xa
- 590 018f E803     		.2byte	0x3e8
- 591 0191 00       		.byte	0
- 592 0192 0B       		.uleb128 0xb
- 593 0193 70000000 		.4byte	.LVL11
- 594 0197 FF040000 		.4byte	0x4ff
- 595 019b A9010000 		.4byte	0x1a9
- 596 019f 0C       		.uleb128 0xc
- 597 01a0 01       		.uleb128 0x1
- 598 01a1 50       		.byte	0x50
- 599 01a2 05       		.uleb128 0x5
- 600 01a3 03       		.byte	0x3
- 601 01a4 34000000 		.4byte	.LANCHOR1+52
- 602 01a8 00       		.byte	0
- 603 01a9 0B       		.uleb128 0xb
- 604 01aa 78000000 		.4byte	.LVL12
- 605 01ae 1C050000 		.4byte	0x51c
- 606 01b2 BE010000 		.4byte	0x1be
- 607 01b6 0C       		.uleb128 0xc
- 608 01b7 01       		.uleb128 0x1
- 609 01b8 50       		.byte	0x50
- 610 01b9 03       		.uleb128 0x3
- 611 01ba 0A       		.byte	0xa
- 612 01bb E803     		.2byte	0x3e8
- 613 01bd 00       		.byte	0
- 614 01be 0B       		.uleb128 0xb
- 615 01bf 80000000 		.4byte	.LVL13
- 616 01c3 2D050000 		.4byte	0x52d
- 617 01c7 D2010000 		.4byte	0x1d2
- 618 01cb 0C       		.uleb128 0xc
- 619 01cc 01       		.uleb128 0x1
- 620 01cd 51       		.byte	0x51
- 621 01ce 02       		.uleb128 0x2
- 622 01cf 08       		.byte	0x8
- 623 01d0 32       		.byte	0x32
- 624 01d1 00       		.byte	0
- 625 01d2 0B       		.uleb128 0xb
- 626 01d3 8A000000 		.4byte	.LVL14
- 627 01d7 FF040000 		.4byte	0x4ff
- 628 01db E9010000 		.4byte	0x1e9
- 629 01df 0C       		.uleb128 0xc
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\cccsFTbQ.s 			page 15
+ 619 01c4 88000000 		.4byte	.LVL13
+ 620 01c8 CE040000 		.4byte	0x4ce
+ 621 01cc DA010000 		.4byte	0x1da
+ 622 01d0 0D       		.uleb128 0xd
+ 623 01d1 01       		.uleb128 0x1
+ 624 01d2 50       		.byte	0x50
+ 625 01d3 05       		.uleb128 0x5
+ 626 01d4 03       		.byte	0x3
+ 627 01d5 70000000 		.4byte	.LANCHOR1+112
+ 628 01d9 00       		.byte	0
+ 629 01da 0C       		.uleb128 0xc
+ 630 01db 90000000 		.4byte	.LVL14
+ 631 01df EB040000 		.4byte	0x4eb
+ 632 01e3 EE010000 		.4byte	0x1ee
+ 633 01e7 0D       		.uleb128 0xd
+ 634 01e8 01       		.uleb128 0x1
+ 635 01e9 51       		.byte	0x51
+ 636 01ea 02       		.uleb128 0x2
+ 637 01eb 08       		.byte	0x8
+ 638 01ec 32       		.byte	0x32
+ 639 01ed 00       		.byte	0
+ 640 01ee 0C       		.uleb128 0xc
+ 641 01ef 9A000000 		.4byte	.LVL15
+ 642 01f3 CE040000 		.4byte	0x4ce
+ 643 01f7 05020000 		.4byte	0x205
+ 644 01fb 0D       		.uleb128 0xd
+ 645 01fc 01       		.uleb128 0x1
+ 646 01fd 50       		.byte	0x50
+ 647 01fe 05       		.uleb128 0x5
+ 648 01ff 03       		.byte	0x3
+ 649 0200 8C000000 		.4byte	.LANCHOR2+12
+ 650 0204 00       		.byte	0
+ 651 0205 0E       		.uleb128 0xe
+ 652 0206 9E000000 		.4byte	.LVL16
+ 653 020a 05050000 		.4byte	0x505
+ 654 020e 0C       		.uleb128 0xc
+ 655 020f A8000000 		.4byte	.LVL17
+ 656 0213 CE040000 		.4byte	0x4ce
+ 657 0217 25020000 		.4byte	0x225
+ 658 021b 0D       		.uleb128 0xd
+ 659 021c 01       		.uleb128 0x1
+ 660 021d 50       		.byte	0x50
+ 661 021e 05       		.uleb128 0x5
+ 662 021f 03       		.byte	0x3
+ 663 0220 B0000000 		.4byte	.LANCHOR2+48
+ 664 0224 00       		.byte	0
+ 665 0225 0C       		.uleb128 0xc
+ 666 0226 BE000000 		.4byte	.LVL18
+ 667 022a 16050000 		.4byte	0x516
+ 668 022e 45020000 		.4byte	0x245
+ 669 0232 0D       		.uleb128 0xd
+ 670 0233 01       		.uleb128 0x1
+ 671 0234 51       		.byte	0x51
+ 672 0235 05       		.uleb128 0x5
+ 673 0236 03       		.byte	0x3
+ 674 0237 00000000 		.4byte	.LC6
+ 675 023b 0D       		.uleb128 0xd
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccivKCED.s 			page 16
 
 
- 630 01e0 01       		.uleb128 0x1
- 631 01e1 50       		.byte	0x50
- 632 01e2 05       		.uleb128 0x5
- 633 01e3 03       		.byte	0x3
- 634 01e4 50000000 		.4byte	.LANCHOR1+80
- 635 01e8 00       		.byte	0
- 636 01e9 0B       		.uleb128 0xb
- 637 01ea 92000000 		.4byte	.LVL15
- 638 01ee 1C050000 		.4byte	0x51c
- 639 01f2 FE010000 		.4byte	0x1fe
- 640 01f6 0C       		.uleb128 0xc
- 641 01f7 01       		.uleb128 0x1
- 642 01f8 50       		.byte	0x50
- 643 01f9 03       		.uleb128 0x3
- 644 01fa 0A       		.byte	0xa
- 645 01fb E803     		.2byte	0x3e8
- 646 01fd 00       		.byte	0
- 647 01fe 0B       		.uleb128 0xb
- 648 01ff 9A000000 		.4byte	.LVL16
- 649 0203 2D050000 		.4byte	0x52d
- 650 0207 12020000 		.4byte	0x212
- 651 020b 0C       		.uleb128 0xc
- 652 020c 01       		.uleb128 0x1
- 653 020d 51       		.byte	0x51
- 654 020e 02       		.uleb128 0x2
- 655 020f 08       		.byte	0x8
- 656 0210 32       		.byte	0x32
- 657 0211 00       		.byte	0
- 658 0212 0B       		.uleb128 0xb
- 659 0213 A4000000 		.4byte	.LVL17
- 660 0217 FF040000 		.4byte	0x4ff
- 661 021b 29020000 		.4byte	0x229
- 662 021f 0C       		.uleb128 0xc
- 663 0220 01       		.uleb128 0x1
- 664 0221 50       		.byte	0x50
- 665 0222 05       		.uleb128 0x5
- 666 0223 03       		.byte	0x3
- 667 0224 70000000 		.4byte	.LANCHOR1+112
- 668 0228 00       		.byte	0
- 669 0229 0B       		.uleb128 0xb
- 670 022a AC000000 		.4byte	.LVL18
- 671 022e 1C050000 		.4byte	0x51c
- 672 0232 3E020000 		.4byte	0x23e
- 673 0236 0C       		.uleb128 0xc
- 674 0237 01       		.uleb128 0x1
- 675 0238 50       		.byte	0x50
- 676 0239 03       		.uleb128 0x3
- 677 023a 0A       		.byte	0xa
- 678 023b E803     		.2byte	0x3e8
- 679 023d 00       		.byte	0
- 680 023e 0B       		.uleb128 0xb
- 681 023f B4000000 		.4byte	.LVL19
- 682 0243 2D050000 		.4byte	0x52d
- 683 0247 52020000 		.4byte	0x252
- 684 024b 0C       		.uleb128 0xc
- 685 024c 01       		.uleb128 0x1
- 686 024d 51       		.byte	0x51
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\cccsFTbQ.s 			page 16
+ 676 023c 01       		.uleb128 0x1
+ 677 023d 50       		.byte	0x50
+ 678 023e 05       		.uleb128 0x5
+ 679 023f 03       		.byte	0x3
+ 680 0240 00000000 		.4byte	val
+ 681 0244 00       		.byte	0
+ 682 0245 0E       		.uleb128 0xe
+ 683 0246 C4000000 		.4byte	.LVL19
+ 684 024a CE040000 		.4byte	0x4ce
+ 685 024e 0C       		.uleb128 0xc
+ 686 024f E4000000 		.4byte	.LVL20
+ 687 0253 CE040000 		.4byte	0x4ce
+ 688 0257 65020000 		.4byte	0x265
+ 689 025b 0D       		.uleb128 0xd
+ 690 025c 01       		.uleb128 0x1
+ 691 025d 50       		.byte	0x50
+ 692 025e 05       		.uleb128 0x5
+ 693 025f 03       		.byte	0x3
+ 694 0260 C4000000 		.4byte	.LANCHOR2+68
+ 695 0264 00       		.byte	0
+ 696 0265 0E       		.uleb128 0xe
+ 697 0266 EA000000 		.4byte	.LVL21
+ 698 026a 05050000 		.4byte	0x505
+ 699 026e 0F       		.uleb128 0xf
+ 700 026f F0000000 		.4byte	.LVL22
+ 701 0273 CE040000 		.4byte	0x4ce
+ 702 0277 0D       		.uleb128 0xd
+ 703 0278 01       		.uleb128 0x1
+ 704 0279 50       		.byte	0x50
+ 705 027a 05       		.uleb128 0x5
+ 706 027b 03       		.byte	0x3
+ 707 027c 04000000 		.4byte	.LC8
+ 708 0280 00       		.byte	0
+ 709 0281 00       		.byte	0
+ 710 0282 0E       		.uleb128 0xe
+ 711 0283 0A000000 		.4byte	.LVL0
+ 712 0287 31050000 		.4byte	0x531
+ 713 028b 0E       		.uleb128 0xe
+ 714 028c 0E000000 		.4byte	.LVL1
+ 715 0290 38050000 		.4byte	0x538
+ 716 0294 0E       		.uleb128 0xe
+ 717 0295 12000000 		.4byte	.LVL2
+ 718 0299 3F050000 		.4byte	0x53f
+ 719 029d 0E       		.uleb128 0xe
+ 720 029e 16000000 		.4byte	.LVL3
+ 721 02a2 46050000 		.4byte	0x546
+ 722 02a6 0E       		.uleb128 0xe
+ 723 02a7 1A000000 		.4byte	.LVL4
+ 724 02ab 4D050000 		.4byte	0x54d
+ 725 02af 00       		.byte	0
+ 726 02b0 10       		.uleb128 0x10
+ 727 02b1 5D000000 		.4byte	0x5d
+ 728 02b5 07       		.uleb128 0x7
+ 729 02b6 6B000000 		.4byte	0x6b
+ 730 02ba C5020000 		.4byte	0x2c5
+ 731 02be 08       		.uleb128 0x8
+ 732 02bf B0000000 		.4byte	0xb0
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccivKCED.s 			page 17
 
 
- 687 024e 02       		.uleb128 0x2
- 688 024f 08       		.byte	0x8
- 689 0250 32       		.byte	0x32
- 690 0251 00       		.byte	0
- 691 0252 0B       		.uleb128 0xb
- 692 0253 BE000000 		.4byte	.LVL20
- 693 0257 FF040000 		.4byte	0x4ff
- 694 025b 69020000 		.4byte	0x269
- 695 025f 0C       		.uleb128 0xc
- 696 0260 01       		.uleb128 0x1
- 697 0261 50       		.byte	0x50
- 698 0262 05       		.uleb128 0x5
- 699 0263 03       		.byte	0x3
- 700 0264 8C000000 		.4byte	.LANCHOR2+12
- 701 0268 00       		.byte	0
- 702 0269 0B       		.uleb128 0xb
- 703 026a C6000000 		.4byte	.LVL21
- 704 026e 1C050000 		.4byte	0x51c
- 705 0272 7E020000 		.4byte	0x27e
- 706 0276 0C       		.uleb128 0xc
- 707 0277 01       		.uleb128 0x1
- 708 0278 50       		.byte	0x50
- 709 0279 03       		.uleb128 0x3
- 710 027a 0A       		.byte	0xa
- 711 027b E803     		.2byte	0x3e8
- 712 027d 00       		.byte	0
- 713 027e 0D       		.uleb128 0xd
- 714 027f CA000000 		.4byte	.LVL22
- 715 0283 47050000 		.4byte	0x547
- 716 0287 0B       		.uleb128 0xb
- 717 0288 D4000000 		.4byte	.LVL23
- 718 028c FF040000 		.4byte	0x4ff
- 719 0290 9E020000 		.4byte	0x29e
- 720 0294 0C       		.uleb128 0xc
- 721 0295 01       		.uleb128 0x1
- 722 0296 50       		.byte	0x50
- 723 0297 05       		.uleb128 0x5
- 724 0298 03       		.byte	0x3
- 725 0299 B0000000 		.4byte	.LANCHOR2+48
- 726 029d 00       		.byte	0
- 727 029e 0B       		.uleb128 0xb
- 728 029f DC000000 		.4byte	.LVL24
- 729 02a3 1C050000 		.4byte	0x51c
- 730 02a7 B3020000 		.4byte	0x2b3
- 731 02ab 0C       		.uleb128 0xc
- 732 02ac 01       		.uleb128 0x1
- 733 02ad 50       		.byte	0x50
- 734 02ae 03       		.uleb128 0x3
- 735 02af 0A       		.byte	0xa
- 736 02b0 E803     		.2byte	0x3e8
- 737 02b2 00       		.byte	0
- 738 02b3 0B       		.uleb128 0xb
- 739 02b4 00010000 		.4byte	.LVL25
- 740 02b8 FF040000 		.4byte	0x4ff
- 741 02bc CA020000 		.4byte	0x2ca
- 742 02c0 0C       		.uleb128 0xc
- 743 02c1 01       		.uleb128 0x1
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\cccsFTbQ.s 			page 17
+ 733 02c3 03       		.byte	0x3
+ 734 02c4 00       		.byte	0
+ 735 02c5 11       		.uleb128 0x11
+ 736 02c6 58010000 		.4byte	.LASF17
+ 737 02ca 03       		.byte	0x3
+ 738 02cb 13       		.byte	0x13
+ 739 02cc B5020000 		.4byte	0x2b5
+ 740 02d0 05       		.uleb128 0x5
+ 741 02d1 03       		.byte	0x3
+ 742 02d2 00000000 		.4byte	wrbuf
+ 743 02d6 11       		.uleb128 0x11
+ 744 02d7 B4010000 		.4byte	.LASF18
+ 745 02db 01       		.byte	0x1
+ 746 02dc 1B       		.byte	0x1b
+ 747 02dd 5D000000 		.4byte	0x5d
+ 748 02e1 05       		.uleb128 0x5
+ 749 02e2 03       		.byte	0x3
+ 750 02e3 00000000 		.4byte	distanceFlag
+ 751 02e7 11       		.uleb128 0x11
+ 752 02e8 9D020000 		.4byte	.LASF19
+ 753 02ec 01       		.byte	0x1
+ 754 02ed 11       		.byte	0x11
+ 755 02ee 6B000000 		.4byte	0x6b
+ 756 02f2 05       		.uleb128 0x5
+ 757 02f3 03       		.byte	0x3
+ 758 02f4 00000000 		.4byte	buffer
+ 759 02f8 12       		.uleb128 0x12
+ 760 02f9 6900     		.ascii	"i\000"
+ 761 02fb 01       		.byte	0x1
+ 762 02fc 12       		.byte	0x12
+ 763 02fd 5D000000 		.4byte	0x5d
+ 764 0301 05       		.uleb128 0x5
+ 765 0302 03       		.byte	0x3
+ 766 0303 00000000 		.4byte	i
+ 767 0307 11       		.uleb128 0x11
+ 768 0308 E8010000 		.4byte	.LASF20
+ 769 030c 01       		.byte	0x1
+ 770 030d 13       		.byte	0x13
+ 771 030e 18030000 		.4byte	0x318
+ 772 0312 05       		.uleb128 0x5
+ 773 0313 03       		.byte	0x3
+ 774 0314 00000000 		.4byte	readObjData
+ 775 0318 02       		.uleb128 0x2
+ 776 0319 01       		.byte	0x1
+ 777 031a 02       		.byte	0x2
+ 778 031b C2020000 		.4byte	.LASF21
+ 779 031f 11       		.uleb128 0x11
+ 780 0320 9D010000 		.4byte	.LASF22
+ 781 0324 01       		.byte	0x1
+ 782 0325 14       		.byte	0x14
+ 783 0326 5D000000 		.4byte	0x5d
+ 784 032a 05       		.uleb128 0x5
+ 785 032b 03       		.byte	0x3
+ 786 032c 00000000 		.4byte	mode
+ 787 0330 11       		.uleb128 0x11
+ 788 0331 3C000000 		.4byte	.LASF23
+ 789 0335 01       		.byte	0x1
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccivKCED.s 			page 18
 
 
- 744 02c2 50       		.byte	0x50
- 745 02c3 05       		.uleb128 0x5
- 746 02c4 03       		.byte	0x3
- 747 02c5 C4000000 		.4byte	.LANCHOR2+68
- 748 02c9 00       		.byte	0
- 749 02ca 0D       		.uleb128 0xd
- 750 02cb 06010000 		.4byte	.LVL26
- 751 02cf 47050000 		.4byte	0x547
- 752 02d3 00       		.byte	0
- 753 02d4 0D       		.uleb128 0xd
- 754 02d5 0A000000 		.4byte	.LVL0
- 755 02d9 58050000 		.4byte	0x558
- 756 02dd 0D       		.uleb128 0xd
- 757 02de 0E000000 		.4byte	.LVL1
- 758 02e2 5F050000 		.4byte	0x55f
- 759 02e6 0D       		.uleb128 0xd
- 760 02e7 12000000 		.4byte	.LVL2
- 761 02eb 66050000 		.4byte	0x566
- 762 02ef 0D       		.uleb128 0xd
- 763 02f0 16000000 		.4byte	.LVL3
- 764 02f4 6D050000 		.4byte	0x56d
- 765 02f8 0D       		.uleb128 0xd
- 766 02f9 1A000000 		.4byte	.LVL4
- 767 02fd 74050000 		.4byte	0x574
- 768 0301 00       		.byte	0
- 769 0302 0E       		.uleb128 0xe
- 770 0303 5D000000 		.4byte	0x5d
- 771 0307 05       		.uleb128 0x5
- 772 0308 6B000000 		.4byte	0x6b
- 773 030c 17030000 		.4byte	0x317
- 774 0310 06       		.uleb128 0x6
- 775 0311 BC000000 		.4byte	0xbc
- 776 0315 03       		.byte	0x3
- 777 0316 00       		.byte	0
- 778 0317 0F       		.uleb128 0xf
- 779 0318 4B010000 		.4byte	.LASF18
- 780 031c 03       		.byte	0x3
- 781 031d 13       		.byte	0x13
- 782 031e 07030000 		.4byte	0x307
- 783 0322 05       		.uleb128 0x5
- 784 0323 03       		.byte	0x3
- 785 0324 00000000 		.4byte	wrbuf
- 786 0328 0F       		.uleb128 0xf
- 787 0329 B3010000 		.4byte	.LASF19
- 788 032d 01       		.byte	0x1
- 789 032e 1B       		.byte	0x1b
- 790 032f 5D000000 		.4byte	0x5d
- 791 0333 05       		.uleb128 0x5
- 792 0334 03       		.byte	0x3
- 793 0335 00000000 		.4byte	distanceFlag
- 794 0339 0F       		.uleb128 0xf
- 795 033a 9C020000 		.4byte	.LASF20
- 796 033e 01       		.byte	0x1
- 797 033f 11       		.byte	0x11
- 798 0340 6B000000 		.4byte	0x6b
- 799 0344 05       		.uleb128 0x5
- 800 0345 03       		.byte	0x3
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\cccsFTbQ.s 			page 18
+ 790 0336 15       		.byte	0x15
+ 791 0337 18030000 		.4byte	0x318
+ 792 033b 05       		.uleb128 0x5
+ 793 033c 03       		.byte	0x3
+ 794 033d 00000000 		.4byte	start
+ 795 0341 11       		.uleb128 0x11
+ 796 0342 96010000 		.4byte	.LASF24
+ 797 0346 01       		.byte	0x1
+ 798 0347 16       		.byte	0x16
+ 799 0348 77000000 		.4byte	0x77
+ 800 034c 05       		.uleb128 0x5
+ 801 034d 03       		.byte	0x3
+ 802 034e 00000000 		.4byte	result
+ 803 0352 11       		.uleb128 0x11
+ 804 0353 AC010000 		.4byte	.LASF25
+ 805 0357 01       		.byte	0x1
+ 806 0358 17       		.byte	0x17
+ 807 0359 6B000000 		.4byte	0x6b
+ 808 035d 05       		.uleb128 0x5
+ 809 035e 03       		.byte	0x3
+ 810 035f 00000000 		.4byte	dataRdy
+ 811 0363 12       		.uleb128 0x12
+ 812 0364 5600     		.ascii	"V\000"
+ 813 0366 01       		.byte	0x1
+ 814 0367 18       		.byte	0x18
+ 815 0368 72030000 		.4byte	0x372
+ 816 036c 05       		.uleb128 0x5
+ 817 036d 03       		.byte	0x3
+ 818 036e 00000000 		.4byte	V
+ 819 0372 10       		.uleb128 0x10
+ 820 0373 77000000 		.4byte	0x77
+ 821 0377 11       		.uleb128 0x11
+ 822 0378 18000000 		.4byte	.LASF26
+ 823 037c 01       		.byte	0x1
+ 824 037d 19       		.byte	0x19
+ 825 037e 88030000 		.4byte	0x388
+ 826 0382 05       		.uleb128 0x5
+ 827 0383 03       		.byte	0x3
+ 828 0384 00000000 		.4byte	Volt
+ 829 0388 10       		.uleb128 0x10
+ 830 0389 83000000 		.4byte	0x83
+ 831 038d 11       		.uleb128 0x11
+ 832 038e 47010000 		.4byte	.LASF27
+ 833 0392 01       		.byte	0x1
+ 834 0393 1A       		.byte	0x1a
+ 835 0394 9E030000 		.4byte	0x39e
+ 836 0398 05       		.uleb128 0x5
+ 837 0399 03       		.byte	0x3
+ 838 039a 00000000 		.4byte	setDistance
+ 839 039e 06       		.uleb128 0x6
+ 840 039f 5D000000 		.4byte	0x5d
+ 841 03a3 07       		.uleb128 0x7
+ 842 03a4 A9000000 		.4byte	0xa9
+ 843 03a8 B3030000 		.4byte	0x3b3
+ 844 03ac 08       		.uleb128 0x8
+ 845 03ad B0000000 		.4byte	0xb0
+ 846 03b1 16       		.byte	0x16
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccivKCED.s 			page 19
 
 
- 801 0346 00000000 		.4byte	buffer
- 802 034a 10       		.uleb128 0x10
- 803 034b 6900     		.ascii	"i\000"
- 804 034d 01       		.byte	0x1
- 805 034e 12       		.byte	0x12
- 806 034f 5D000000 		.4byte	0x5d
- 807 0353 05       		.uleb128 0x5
- 808 0354 03       		.byte	0x3
- 809 0355 00000000 		.4byte	i
- 810 0359 0F       		.uleb128 0xf
- 811 035a E7010000 		.4byte	.LASF21
- 812 035e 01       		.byte	0x1
- 813 035f 13       		.byte	0x13
- 814 0360 6A030000 		.4byte	0x36a
- 815 0364 05       		.uleb128 0x5
- 816 0365 03       		.byte	0x3
- 817 0366 00000000 		.4byte	readObjData
- 818 036a 02       		.uleb128 0x2
- 819 036b 01       		.byte	0x1
- 820 036c 02       		.byte	0x2
- 821 036d C1020000 		.4byte	.LASF22
- 822 0371 0F       		.uleb128 0xf
- 823 0372 9C010000 		.4byte	.LASF23
- 824 0376 01       		.byte	0x1
- 825 0377 14       		.byte	0x14
- 826 0378 5D000000 		.4byte	0x5d
- 827 037c 05       		.uleb128 0x5
- 828 037d 03       		.byte	0x3
- 829 037e 00000000 		.4byte	mode
- 830 0382 0F       		.uleb128 0xf
- 831 0383 3C000000 		.4byte	.LASF24
- 832 0387 01       		.byte	0x1
- 833 0388 15       		.byte	0x15
- 834 0389 6A030000 		.4byte	0x36a
- 835 038d 05       		.uleb128 0x5
- 836 038e 03       		.byte	0x3
- 837 038f 00000000 		.4byte	start
- 838 0393 0F       		.uleb128 0xf
- 839 0394 95010000 		.4byte	.LASF25
- 840 0398 01       		.byte	0x1
- 841 0399 16       		.byte	0x16
- 842 039a 83000000 		.4byte	0x83
- 843 039e 05       		.uleb128 0x5
- 844 039f 03       		.byte	0x3
- 845 03a0 00000000 		.4byte	result
- 846 03a4 0F       		.uleb128 0xf
- 847 03a5 AB010000 		.4byte	.LASF26
- 848 03a9 01       		.byte	0x1
- 849 03aa 17       		.byte	0x17
- 850 03ab 6B000000 		.4byte	0x6b
- 851 03af 05       		.uleb128 0x5
- 852 03b0 03       		.byte	0x3
- 853 03b1 00000000 		.4byte	dataRdy
- 854 03b5 10       		.uleb128 0x10
- 855 03b6 5600     		.ascii	"V\000"
- 856 03b8 01       		.byte	0x1
- 857 03b9 18       		.byte	0x18
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\cccsFTbQ.s 			page 19
+ 847 03b2 00       		.byte	0
+ 848 03b3 11       		.uleb128 0x11
+ 849 03b4 66010000 		.4byte	.LASF28
+ 850 03b8 01       		.byte	0x1
+ 851 03b9 1D       		.byte	0x1d
+ 852 03ba A3030000 		.4byte	0x3a3
+ 853 03be 05       		.uleb128 0x5
+ 854 03bf 03       		.byte	0x3
+ 855 03c0 00000000 		.4byte	test1
+ 856 03c4 11       		.uleb128 0x11
+ 857 03c5 6C010000 		.4byte	.LASF29
+ 858 03c9 01       		.byte	0x1
+ 859 03ca 1E       		.byte	0x1e
+ 860 03cb C8000000 		.4byte	0xc8
+ 861 03cf 05       		.uleb128 0x5
+ 862 03d0 03       		.byte	0x3
+ 863 03d1 00000000 		.4byte	test2
+ 864 03d5 07       		.uleb128 0x7
+ 865 03d6 A9000000 		.4byte	0xa9
+ 866 03da E5030000 		.4byte	0x3e5
+ 867 03de 08       		.uleb128 0x8
+ 868 03df B0000000 		.4byte	0xb0
+ 869 03e3 1B       		.byte	0x1b
+ 870 03e4 00       		.byte	0
+ 871 03e5 11       		.uleb128 0x11
+ 872 03e6 D0020000 		.4byte	.LASF30
+ 873 03ea 01       		.byte	0x1
+ 874 03eb 1F       		.byte	0x1f
+ 875 03ec D5030000 		.4byte	0x3d5
+ 876 03f0 05       		.uleb128 0x5
+ 877 03f1 03       		.byte	0x3
+ 878 03f2 00000000 		.4byte	test3
+ 879 03f6 07       		.uleb128 0x7
+ 880 03f7 A9000000 		.4byte	0xa9
+ 881 03fb 06040000 		.4byte	0x406
+ 882 03ff 08       		.uleb128 0x8
+ 883 0400 B0000000 		.4byte	0xb0
+ 884 0404 1C       		.byte	0x1c
+ 885 0405 00       		.byte	0
+ 886 0406 11       		.uleb128 0x11
+ 887 0407 D6020000 		.4byte	.LASF31
+ 888 040b 01       		.byte	0x1
+ 889 040c 20       		.byte	0x20
+ 890 040d F6030000 		.4byte	0x3f6
+ 891 0411 05       		.uleb128 0x5
+ 892 0412 03       		.byte	0x3
+ 893 0413 00000000 		.4byte	test4
+ 894 0417 07       		.uleb128 0x7
+ 895 0418 A9000000 		.4byte	0xa9
+ 896 041c 27040000 		.4byte	0x427
+ 897 0420 08       		.uleb128 0x8
+ 898 0421 B0000000 		.4byte	0xb0
+ 899 0425 1A       		.byte	0x1a
+ 900 0426 00       		.byte	0
+ 901 0427 11       		.uleb128 0x11
+ 902 0428 DC020000 		.4byte	.LASF32
+ 903 042c 01       		.byte	0x1
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccivKCED.s 			page 20
 
 
- 858 03ba C4030000 		.4byte	0x3c4
- 859 03be 05       		.uleb128 0x5
- 860 03bf 03       		.byte	0x3
- 861 03c0 00000000 		.4byte	V
- 862 03c4 0E       		.uleb128 0xe
- 863 03c5 83000000 		.4byte	0x83
- 864 03c9 0F       		.uleb128 0xf
- 865 03ca 18000000 		.4byte	.LASF27
- 866 03ce 01       		.byte	0x1
- 867 03cf 19       		.byte	0x19
- 868 03d0 DA030000 		.4byte	0x3da
- 869 03d4 05       		.uleb128 0x5
- 870 03d5 03       		.byte	0x3
- 871 03d6 00000000 		.4byte	Volt
- 872 03da 0E       		.uleb128 0xe
- 873 03db 8F000000 		.4byte	0x8f
- 874 03df 0F       		.uleb128 0xf
- 875 03e0 E0000000 		.4byte	.LASF28
- 876 03e4 01       		.byte	0x1
- 877 03e5 1A       		.byte	0x1a
- 878 03e6 F0030000 		.4byte	0x3f0
- 879 03ea 05       		.uleb128 0x5
- 880 03eb 03       		.byte	0x3
- 881 03ec 00000000 		.4byte	setDistance
- 882 03f0 11       		.uleb128 0x11
- 883 03f1 5D000000 		.4byte	0x5d
- 884 03f5 05       		.uleb128 0x5
- 885 03f6 B5000000 		.4byte	0xb5
- 886 03fa 05040000 		.4byte	0x405
- 887 03fe 06       		.uleb128 0x6
- 888 03ff BC000000 		.4byte	0xbc
- 889 0403 16       		.byte	0x16
- 890 0404 00       		.byte	0
- 891 0405 0F       		.uleb128 0xf
- 892 0406 59010000 		.4byte	.LASF29
- 893 040a 01       		.byte	0x1
- 894 040b 1D       		.byte	0x1d
- 895 040c F5030000 		.4byte	0x3f5
- 896 0410 05       		.uleb128 0x5
- 897 0411 03       		.byte	0x3
- 898 0412 00000000 		.4byte	test1
- 899 0416 0F       		.uleb128 0xf
- 900 0417 C7020000 		.4byte	.LASF30
- 901 041b 01       		.byte	0x1
- 902 041c 1E       		.byte	0x1e
- 903 041d C3000000 		.4byte	0xc3
- 904 0421 05       		.uleb128 0x5
- 905 0422 03       		.byte	0x3
- 906 0423 00000000 		.4byte	test2
- 907 0427 05       		.uleb128 0x5
- 908 0428 B5000000 		.4byte	0xb5
- 909 042c 37040000 		.4byte	0x437
- 910 0430 06       		.uleb128 0x6
- 911 0431 BC000000 		.4byte	0xbc
- 912 0435 1B       		.byte	0x1b
- 913 0436 00       		.byte	0
- 914 0437 0F       		.uleb128 0xf
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\cccsFTbQ.s 			page 20
+ 904 042d 21       		.byte	0x21
+ 905 042e 17040000 		.4byte	0x417
+ 906 0432 05       		.uleb128 0x5
+ 907 0433 03       		.byte	0x3
+ 908 0434 00000000 		.4byte	test5
+ 909 0438 07       		.uleb128 0x7
+ 910 0439 A9000000 		.4byte	0xa9
+ 911 043d 48040000 		.4byte	0x448
+ 912 0441 08       		.uleb128 0x8
+ 913 0442 B0000000 		.4byte	0xb0
+ 914 0446 20       		.byte	0x20
+ 915 0447 00       		.byte	0
+ 916 0448 11       		.uleb128 0x11
+ 917 0449 E2020000 		.4byte	.LASF33
+ 918 044d 01       		.byte	0x1
+ 919 044e 22       		.byte	0x22
+ 920 044f 38040000 		.4byte	0x438
+ 921 0453 05       		.uleb128 0x5
+ 922 0454 03       		.byte	0x3
+ 923 0455 00000000 		.4byte	test6
+ 924 0459 07       		.uleb128 0x7
+ 925 045a A9000000 		.4byte	0xa9
+ 926 045e 69040000 		.4byte	0x469
+ 927 0462 08       		.uleb128 0x8
+ 928 0463 B0000000 		.4byte	0xb0
+ 929 0467 13       		.byte	0x13
+ 930 0468 00       		.byte	0
+ 931 0469 11       		.uleb128 0x11
+ 932 046a 00000000 		.4byte	.LASF34
+ 933 046e 01       		.byte	0x1
+ 934 046f 23       		.byte	0x23
+ 935 0470 59040000 		.4byte	0x459
+ 936 0474 05       		.uleb128 0x5
+ 937 0475 03       		.byte	0x3
+ 938 0476 00000000 		.4byte	test7
+ 939 047a 11       		.uleb128 0x11
+ 940 047b 06000000 		.4byte	.LASF35
+ 941 047f 01       		.byte	0x1
+ 942 0480 24       		.byte	0x24
+ 943 0481 D8000000 		.4byte	0xd8
+ 944 0485 05       		.uleb128 0x5
+ 945 0486 03       		.byte	0x3
+ 946 0487 00000000 		.4byte	test8
+ 947 048b 12       		.uleb128 0x12
+ 948 048c 76616C00 		.ascii	"val\000"
+ 949 0490 01       		.byte	0x1
+ 950 0491 25       		.byte	0x25
+ 951 0492 59040000 		.4byte	0x459
+ 952 0496 05       		.uleb128 0x5
+ 953 0497 03       		.byte	0x3
+ 954 0498 00000000 		.4byte	val
+ 955 049c 12       		.uleb128 0x12
+ 956 049d 703100   		.ascii	"p1\000"
+ 957 04a0 01       		.byte	0x1
+ 958 04a1 26       		.byte	0x26
+ 959 04a2 B7000000 		.4byte	0xb7
+ 960 04a6 05       		.uleb128 0x5
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccivKCED.s 			page 21
 
 
- 915 0438 6B010000 		.4byte	.LASF31
- 916 043c 01       		.byte	0x1
- 917 043d 1F       		.byte	0x1f
- 918 043e 27040000 		.4byte	0x427
- 919 0442 05       		.uleb128 0x5
- 920 0443 03       		.byte	0x3
- 921 0444 00000000 		.4byte	test3
- 922 0448 05       		.uleb128 0x5
- 923 0449 B5000000 		.4byte	0xb5
- 924 044d 58040000 		.4byte	0x458
- 925 0451 06       		.uleb128 0x6
- 926 0452 BC000000 		.4byte	0xbc
- 927 0456 1C       		.byte	0x1c
- 928 0457 00       		.byte	0
- 929 0458 0F       		.uleb128 0xf
- 930 0459 D5020000 		.4byte	.LASF32
- 931 045d 01       		.byte	0x1
- 932 045e 20       		.byte	0x20
- 933 045f 48040000 		.4byte	0x448
- 934 0463 05       		.uleb128 0x5
- 935 0464 03       		.byte	0x3
- 936 0465 00000000 		.4byte	test4
- 937 0469 05       		.uleb128 0x5
- 938 046a B5000000 		.4byte	0xb5
- 939 046e 79040000 		.4byte	0x479
- 940 0472 06       		.uleb128 0x6
- 941 0473 BC000000 		.4byte	0xbc
- 942 0477 1A       		.byte	0x1a
- 943 0478 00       		.byte	0
- 944 0479 0F       		.uleb128 0xf
- 945 047a DB020000 		.4byte	.LASF33
- 946 047e 01       		.byte	0x1
- 947 047f 21       		.byte	0x21
- 948 0480 69040000 		.4byte	0x469
- 949 0484 05       		.uleb128 0x5
- 950 0485 03       		.byte	0x3
- 951 0486 00000000 		.4byte	test5
- 952 048a 05       		.uleb128 0x5
- 953 048b B5000000 		.4byte	0xb5
- 954 048f 9A040000 		.4byte	0x49a
- 955 0493 06       		.uleb128 0x6
- 956 0494 BC000000 		.4byte	0xbc
- 957 0498 20       		.byte	0x20
- 958 0499 00       		.byte	0
- 959 049a 0F       		.uleb128 0xf
- 960 049b E1020000 		.4byte	.LASF34
- 961 049f 01       		.byte	0x1
- 962 04a0 22       		.byte	0x22
- 963 04a1 8A040000 		.4byte	0x48a
- 964 04a5 05       		.uleb128 0x5
- 965 04a6 03       		.byte	0x3
- 966 04a7 00000000 		.4byte	test6
- 967 04ab 05       		.uleb128 0x5
- 968 04ac B5000000 		.4byte	0xb5
- 969 04b0 BB040000 		.4byte	0x4bb
- 970 04b4 06       		.uleb128 0x6
- 971 04b5 BC000000 		.4byte	0xbc
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\cccsFTbQ.s 			page 21
+ 961 04a7 03       		.byte	0x3
+ 962 04a8 00000000 		.4byte	p1
+ 963 04ac 13       		.uleb128 0x13
+ 964 04ad A4020000 		.4byte	.LASF36
+ 965 04b1 03       		.byte	0x3
+ 966 04b2 11       		.byte	0x11
+ 967 04b3 BD040000 		.4byte	0x4bd
+ 968 04b7 14       		.uleb128 0x14
+ 969 04b8 E8000000 		.4byte	0xe8
+ 970 04bc 00       		.byte	0
+ 971 04bd 15       		.uleb128 0x15
+ 972 04be A9000000 		.4byte	.LASF37
+ 973 04c2 04       		.byte	0x4
+ 974 04c3 0F       		.byte	0xf
+ 975 04c4 5D000000 		.4byte	0x5d
+ 976 04c8 CE040000 		.4byte	0x4ce
+ 977 04cc 16       		.uleb128 0x16
+ 978 04cd 00       		.byte	0
+ 979 04ce 17       		.uleb128 0x17
+ 980 04cf 23000000 		.4byte	.LASF38
+ 981 04d3 05       		.byte	0x5
+ 982 04d4 7701     		.2byte	0x177
+ 983 04d6 E0040000 		.4byte	0x4e0
+ 984 04da 14       		.uleb128 0x14
+ 985 04db E0040000 		.4byte	0x4e0
+ 986 04df 00       		.byte	0
+ 987 04e0 05       		.uleb128 0x5
+ 988 04e1 04       		.byte	0x4
+ 989 04e2 E6040000 		.4byte	0x4e6
+ 990 04e6 06       		.uleb128 0x6
+ 991 04e7 9D000000 		.4byte	0x9d
+ 992 04eb 18       		.uleb128 0x18
+ 993 04ec 36010000 		.4byte	.LASF40
+ 994 04f0 06       		.byte	0x6
+ 995 04f1 0A       		.byte	0xa
+ 996 04f2 5D000000 		.4byte	0x5d
+ 997 04f6 05050000 		.4byte	0x505
+ 998 04fa 14       		.uleb128 0x14
+ 999 04fb 5D000000 		.4byte	0x5d
+ 1000 04ff 14       		.uleb128 0x14
+ 1001 0500 5D000000 		.4byte	0x5d
+ 1002 0504 00       		.byte	0
+ 1003 0505 15       		.uleb128 0x15
+ 1004 0506 2A010000 		.4byte	.LASF39
+ 1005 050a 06       		.byte	0x6
+ 1006 050b 06       		.byte	0x6
+ 1007 050c 5D000000 		.4byte	0x5d
+ 1008 0510 16050000 		.4byte	0x516
+ 1009 0514 16       		.uleb128 0x16
+ 1010 0515 00       		.byte	0
+ 1011 0516 18       		.uleb128 0x18
+ 1012 0517 C8020000 		.4byte	.LASF41
+ 1013 051b 07       		.byte	0x7
+ 1014 051c DE       		.byte	0xde
+ 1015 051d 5D000000 		.4byte	0x5d
+ 1016 0521 31050000 		.4byte	0x531
+ 1017 0525 14       		.uleb128 0x14
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccivKCED.s 			page 22
 
 
- 972 04b9 13       		.byte	0x13
- 973 04ba 00       		.byte	0
- 974 04bb 0F       		.uleb128 0xf
- 975 04bc 00000000 		.4byte	.LASF35
- 976 04c0 01       		.byte	0x1
- 977 04c1 23       		.byte	0x23
- 978 04c2 AB040000 		.4byte	0x4ab
- 979 04c6 05       		.uleb128 0x5
- 980 04c7 03       		.byte	0x3
- 981 04c8 00000000 		.4byte	test7
- 982 04cc 0F       		.uleb128 0xf
- 983 04cd 06000000 		.4byte	.LASF36
- 984 04d1 01       		.byte	0x1
- 985 04d2 24       		.byte	0x24
- 986 04d3 D3000000 		.4byte	0xd3
- 987 04d7 05       		.uleb128 0x5
- 988 04d8 03       		.byte	0x3
- 989 04d9 00000000 		.4byte	test8
- 990 04dd 12       		.uleb128 0x12
- 991 04de A3020000 		.4byte	.LASF37
- 992 04e2 03       		.byte	0x3
- 993 04e3 11       		.byte	0x11
- 994 04e4 EE040000 		.4byte	0x4ee
- 995 04e8 13       		.uleb128 0x13
- 996 04e9 E3000000 		.4byte	0xe3
- 997 04ed 00       		.byte	0
- 998 04ee 14       		.uleb128 0x14
- 999 04ef 42000000 		.4byte	.LASF38
- 1000 04f3 04       		.byte	0x4
- 1001 04f4 0F       		.byte	0xf
- 1002 04f5 5D000000 		.4byte	0x5d
- 1003 04f9 FF040000 		.4byte	0x4ff
- 1004 04fd 15       		.uleb128 0x15
- 1005 04fe 00       		.byte	0
- 1006 04ff 16       		.uleb128 0x16
- 1007 0500 23000000 		.4byte	.LASF39
- 1008 0504 05       		.byte	0x5
- 1009 0505 7701     		.2byte	0x177
- 1010 0507 11050000 		.4byte	0x511
- 1011 050b 13       		.uleb128 0x13
- 1012 050c 11050000 		.4byte	0x511
- 1013 0510 00       		.byte	0
- 1014 0511 07       		.uleb128 0x7
- 1015 0512 04       		.byte	0x4
- 1016 0513 17050000 		.4byte	0x517
- 1017 0517 11       		.uleb128 0x11
- 1018 0518 A9000000 		.4byte	0xa9
- 1019 051c 12       		.uleb128 0x12
- 1020 051d CD020000 		.4byte	.LASF40
- 1021 0521 06       		.byte	0x6
- 1022 0522 5A       		.byte	0x5a
- 1023 0523 2D050000 		.4byte	0x52d
- 1024 0527 13       		.uleb128 0x13
- 1025 0528 77000000 		.4byte	0x77
- 1026 052c 00       		.byte	0
- 1027 052d 17       		.uleb128 0x17
- 1028 052e CF000000 		.4byte	.LASF51
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\cccsFTbQ.s 			page 22
+ 1018 0526 B7000000 		.4byte	0xb7
+ 1019 052a 14       		.uleb128 0x14
+ 1020 052b BD000000 		.4byte	0xbd
+ 1021 052f 16       		.uleb128 0x16
+ 1022 0530 00       		.byte	0
+ 1023 0531 19       		.uleb128 0x19
+ 1024 0532 87020000 		.4byte	.LASF42
+ 1025 0536 08       		.byte	0x8
+ 1026 0537 68       		.byte	0x68
+ 1027 0538 19       		.uleb128 0x19
+ 1028 0539 A2010000 		.4byte	.LASF43
+ 1029 053d 09       		.byte	0x9
+ 1030 053e 98       		.byte	0x98
+ 1031 053f 19       		.uleb128 0x19
+ 1032 0540 E8000000 		.4byte	.LASF44
+ 1033 0544 09       		.byte	0x9
+ 1034 0545 9C       		.byte	0x9c
+ 1035 0546 19       		.uleb128 0x19
+ 1036 0547 C9000000 		.4byte	.LASF45
+ 1037 054b 0A       		.byte	0xa
+ 1038 054c 68       		.byte	0x68
+ 1039 054d 1A       		.uleb128 0x1a
+ 1040 054e CA010000 		.4byte	.LASF51
+ 1041 0552 03       		.byte	0x3
+ 1042 0553 0A       		.byte	0xa
+ 1043 0554 16       		.uleb128 0x16
+ 1044 0555 00       		.byte	0
+ 1045 0556 00       		.byte	0
+ 1046              		.section	.debug_abbrev,"",%progbits
+ 1047              	.Ldebug_abbrev0:
+ 1048 0000 01       		.uleb128 0x1
+ 1049 0001 11       		.uleb128 0x11
+ 1050 0002 01       		.byte	0x1
+ 1051 0003 25       		.uleb128 0x25
+ 1052 0004 0E       		.uleb128 0xe
+ 1053 0005 13       		.uleb128 0x13
+ 1054 0006 0B       		.uleb128 0xb
+ 1055 0007 03       		.uleb128 0x3
+ 1056 0008 0E       		.uleb128 0xe
+ 1057 0009 1B       		.uleb128 0x1b
+ 1058 000a 0E       		.uleb128 0xe
+ 1059 000b 55       		.uleb128 0x55
+ 1060 000c 17       		.uleb128 0x17
+ 1061 000d 11       		.uleb128 0x11
+ 1062 000e 01       		.uleb128 0x1
+ 1063 000f 10       		.uleb128 0x10
+ 1064 0010 17       		.uleb128 0x17
+ 1065 0011 00       		.byte	0
+ 1066 0012 00       		.byte	0
+ 1067 0013 02       		.uleb128 0x2
+ 1068 0014 24       		.uleb128 0x24
+ 1069 0015 00       		.byte	0
+ 1070 0016 0B       		.uleb128 0xb
+ 1071 0017 0B       		.uleb128 0xb
+ 1072 0018 3E       		.uleb128 0x3e
+ 1073 0019 0B       		.uleb128 0xb
+ 1074 001a 03       		.uleb128 0x3
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccivKCED.s 			page 23
 
 
- 1029 0532 07       		.byte	0x7
- 1030 0533 0A       		.byte	0xa
- 1031 0534 5D000000 		.4byte	0x5d
- 1032 0538 47050000 		.4byte	0x547
- 1033 053c 13       		.uleb128 0x13
- 1034 053d 5D000000 		.4byte	0x5d
- 1035 0541 13       		.uleb128 0x13
- 1036 0542 5D000000 		.4byte	0x5d
- 1037 0546 00       		.byte	0
- 1038 0547 14       		.uleb128 0x14
- 1039 0548 C3000000 		.4byte	.LASF41
- 1040 054c 07       		.byte	0x7
- 1041 054d 06       		.byte	0x6
- 1042 054e 5D000000 		.4byte	0x5d
- 1043 0552 58050000 		.4byte	0x558
- 1044 0556 15       		.uleb128 0x15
- 1045 0557 00       		.byte	0
- 1046 0558 18       		.uleb128 0x18
- 1047 0559 86020000 		.4byte	.LASF42
- 1048 055d 08       		.byte	0x8
- 1049 055e 68       		.byte	0x68
- 1050 055f 18       		.uleb128 0x18
- 1051 0560 A1010000 		.4byte	.LASF43
- 1052 0564 09       		.byte	0x9
- 1053 0565 98       		.byte	0x98
- 1054 0566 18       		.uleb128 0x18
- 1055 0567 81000000 		.4byte	.LASF44
- 1056 056b 09       		.byte	0x9
- 1057 056c 9C       		.byte	0x9c
- 1058 056d 18       		.uleb128 0x18
- 1059 056e 62000000 		.4byte	.LASF45
- 1060 0572 0A       		.byte	0xa
- 1061 0573 68       		.byte	0x68
- 1062 0574 19       		.uleb128 0x19
- 1063 0575 C9010000 		.4byte	.LASF52
- 1064 0579 03       		.byte	0x3
- 1065 057a 0A       		.byte	0xa
- 1066 057b 15       		.uleb128 0x15
- 1067 057c 00       		.byte	0
- 1068 057d 00       		.byte	0
- 1069              		.section	.debug_abbrev,"",%progbits
- 1070              	.Ldebug_abbrev0:
- 1071 0000 01       		.uleb128 0x1
- 1072 0001 11       		.uleb128 0x11
- 1073 0002 01       		.byte	0x1
- 1074 0003 25       		.uleb128 0x25
- 1075 0004 0E       		.uleb128 0xe
- 1076 0005 13       		.uleb128 0x13
- 1077 0006 0B       		.uleb128 0xb
- 1078 0007 03       		.uleb128 0x3
- 1079 0008 0E       		.uleb128 0xe
- 1080 0009 1B       		.uleb128 0x1b
- 1081 000a 0E       		.uleb128 0xe
- 1082 000b 55       		.uleb128 0x55
- 1083 000c 17       		.uleb128 0x17
- 1084 000d 11       		.uleb128 0x11
- 1085 000e 01       		.uleb128 0x1
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\cccsFTbQ.s 			page 23
+ 1075 001b 0E       		.uleb128 0xe
+ 1076 001c 00       		.byte	0
+ 1077 001d 00       		.byte	0
+ 1078 001e 03       		.uleb128 0x3
+ 1079 001f 24       		.uleb128 0x24
+ 1080 0020 00       		.byte	0
+ 1081 0021 0B       		.uleb128 0xb
+ 1082 0022 0B       		.uleb128 0xb
+ 1083 0023 3E       		.uleb128 0x3e
+ 1084 0024 0B       		.uleb128 0xb
+ 1085 0025 03       		.uleb128 0x3
+ 1086 0026 08       		.uleb128 0x8
+ 1087 0027 00       		.byte	0
+ 1088 0028 00       		.byte	0
+ 1089 0029 04       		.uleb128 0x4
+ 1090 002a 16       		.uleb128 0x16
+ 1091 002b 00       		.byte	0
+ 1092 002c 03       		.uleb128 0x3
+ 1093 002d 0E       		.uleb128 0xe
+ 1094 002e 3A       		.uleb128 0x3a
+ 1095 002f 0B       		.uleb128 0xb
+ 1096 0030 3B       		.uleb128 0x3b
+ 1097 0031 05       		.uleb128 0x5
+ 1098 0032 49       		.uleb128 0x49
+ 1099 0033 13       		.uleb128 0x13
+ 1100 0034 00       		.byte	0
+ 1101 0035 00       		.byte	0
+ 1102 0036 05       		.uleb128 0x5
+ 1103 0037 0F       		.uleb128 0xf
+ 1104 0038 00       		.byte	0
+ 1105 0039 0B       		.uleb128 0xb
+ 1106 003a 0B       		.uleb128 0xb
+ 1107 003b 49       		.uleb128 0x49
+ 1108 003c 13       		.uleb128 0x13
+ 1109 003d 00       		.byte	0
+ 1110 003e 00       		.byte	0
+ 1111 003f 06       		.uleb128 0x6
+ 1112 0040 26       		.uleb128 0x26
+ 1113 0041 00       		.byte	0
+ 1114 0042 49       		.uleb128 0x49
+ 1115 0043 13       		.uleb128 0x13
+ 1116 0044 00       		.byte	0
+ 1117 0045 00       		.byte	0
+ 1118 0046 07       		.uleb128 0x7
+ 1119 0047 01       		.uleb128 0x1
+ 1120 0048 01       		.byte	0x1
+ 1121 0049 49       		.uleb128 0x49
+ 1122 004a 13       		.uleb128 0x13
+ 1123 004b 01       		.uleb128 0x1
+ 1124 004c 13       		.uleb128 0x13
+ 1125 004d 00       		.byte	0
+ 1126 004e 00       		.byte	0
+ 1127 004f 08       		.uleb128 0x8
+ 1128 0050 21       		.uleb128 0x21
+ 1129 0051 00       		.byte	0
+ 1130 0052 49       		.uleb128 0x49
+ 1131 0053 13       		.uleb128 0x13
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccivKCED.s 			page 24
 
 
- 1086 000f 10       		.uleb128 0x10
- 1087 0010 17       		.uleb128 0x17
- 1088 0011 00       		.byte	0
- 1089 0012 00       		.byte	0
- 1090 0013 02       		.uleb128 0x2
- 1091 0014 24       		.uleb128 0x24
- 1092 0015 00       		.byte	0
- 1093 0016 0B       		.uleb128 0xb
- 1094 0017 0B       		.uleb128 0xb
- 1095 0018 3E       		.uleb128 0x3e
- 1096 0019 0B       		.uleb128 0xb
- 1097 001a 03       		.uleb128 0x3
- 1098 001b 0E       		.uleb128 0xe
- 1099 001c 00       		.byte	0
- 1100 001d 00       		.byte	0
- 1101 001e 03       		.uleb128 0x3
- 1102 001f 24       		.uleb128 0x24
- 1103 0020 00       		.byte	0
- 1104 0021 0B       		.uleb128 0xb
- 1105 0022 0B       		.uleb128 0xb
- 1106 0023 3E       		.uleb128 0x3e
- 1107 0024 0B       		.uleb128 0xb
- 1108 0025 03       		.uleb128 0x3
- 1109 0026 08       		.uleb128 0x8
- 1110 0027 00       		.byte	0
- 1111 0028 00       		.byte	0
- 1112 0029 04       		.uleb128 0x4
- 1113 002a 16       		.uleb128 0x16
- 1114 002b 00       		.byte	0
- 1115 002c 03       		.uleb128 0x3
- 1116 002d 0E       		.uleb128 0xe
- 1117 002e 3A       		.uleb128 0x3a
- 1118 002f 0B       		.uleb128 0xb
- 1119 0030 3B       		.uleb128 0x3b
- 1120 0031 05       		.uleb128 0x5
- 1121 0032 49       		.uleb128 0x49
- 1122 0033 13       		.uleb128 0x13
- 1123 0034 00       		.byte	0
- 1124 0035 00       		.byte	0
- 1125 0036 05       		.uleb128 0x5
- 1126 0037 01       		.uleb128 0x1
- 1127 0038 01       		.byte	0x1
- 1128 0039 49       		.uleb128 0x49
- 1129 003a 13       		.uleb128 0x13
- 1130 003b 01       		.uleb128 0x1
- 1131 003c 13       		.uleb128 0x13
- 1132 003d 00       		.byte	0
- 1133 003e 00       		.byte	0
- 1134 003f 06       		.uleb128 0x6
- 1135 0040 21       		.uleb128 0x21
- 1136 0041 00       		.byte	0
- 1137 0042 49       		.uleb128 0x49
- 1138 0043 13       		.uleb128 0x13
- 1139 0044 2F       		.uleb128 0x2f
- 1140 0045 0B       		.uleb128 0xb
- 1141 0046 00       		.byte	0
- 1142 0047 00       		.byte	0
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\cccsFTbQ.s 			page 24
+ 1132 0054 2F       		.uleb128 0x2f
+ 1133 0055 0B       		.uleb128 0xb
+ 1134 0056 00       		.byte	0
+ 1135 0057 00       		.byte	0
+ 1136 0058 09       		.uleb128 0x9
+ 1137 0059 2E       		.uleb128 0x2e
+ 1138 005a 01       		.byte	0x1
+ 1139 005b 3F       		.uleb128 0x3f
+ 1140 005c 19       		.uleb128 0x19
+ 1141 005d 03       		.uleb128 0x3
+ 1142 005e 0E       		.uleb128 0xe
+ 1143 005f 3A       		.uleb128 0x3a
+ 1144 0060 0B       		.uleb128 0xb
+ 1145 0061 3B       		.uleb128 0x3b
+ 1146 0062 0B       		.uleb128 0xb
+ 1147 0063 49       		.uleb128 0x49
+ 1148 0064 13       		.uleb128 0x13
+ 1149 0065 11       		.uleb128 0x11
+ 1150 0066 01       		.uleb128 0x1
+ 1151 0067 12       		.uleb128 0x12
+ 1152 0068 06       		.uleb128 0x6
+ 1153 0069 40       		.uleb128 0x40
+ 1154 006a 18       		.uleb128 0x18
+ 1155 006b 9742     		.uleb128 0x2117
+ 1156 006d 19       		.uleb128 0x19
+ 1157 006e 01       		.uleb128 0x1
+ 1158 006f 13       		.uleb128 0x13
+ 1159 0070 00       		.byte	0
+ 1160 0071 00       		.byte	0
+ 1161 0072 0A       		.uleb128 0xa
+ 1162 0073 0B       		.uleb128 0xb
+ 1163 0074 01       		.byte	0x1
+ 1164 0075 11       		.uleb128 0x11
+ 1165 0076 01       		.uleb128 0x1
+ 1166 0077 12       		.uleb128 0x12
+ 1167 0078 06       		.uleb128 0x6
+ 1168 0079 01       		.uleb128 0x1
+ 1169 007a 13       		.uleb128 0x13
+ 1170 007b 00       		.byte	0
+ 1171 007c 00       		.byte	0
+ 1172 007d 0B       		.uleb128 0xb
+ 1173 007e 34       		.uleb128 0x34
+ 1174 007f 00       		.byte	0
+ 1175 0080 03       		.uleb128 0x3
+ 1176 0081 0E       		.uleb128 0xe
+ 1177 0082 3A       		.uleb128 0x3a
+ 1178 0083 0B       		.uleb128 0xb
+ 1179 0084 3B       		.uleb128 0x3b
+ 1180 0085 0B       		.uleb128 0xb
+ 1181 0086 49       		.uleb128 0x49
+ 1182 0087 13       		.uleb128 0x13
+ 1183 0088 02       		.uleb128 0x2
+ 1184 0089 18       		.uleb128 0x18
+ 1185 008a 00       		.byte	0
+ 1186 008b 00       		.byte	0
+ 1187 008c 0C       		.uleb128 0xc
+ 1188 008d 898201   		.uleb128 0x4109
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccivKCED.s 			page 25
 
 
- 1143 0048 07       		.uleb128 0x7
- 1144 0049 0F       		.uleb128 0xf
- 1145 004a 00       		.byte	0
- 1146 004b 0B       		.uleb128 0xb
- 1147 004c 0B       		.uleb128 0xb
- 1148 004d 49       		.uleb128 0x49
- 1149 004e 13       		.uleb128 0x13
- 1150 004f 00       		.byte	0
- 1151 0050 00       		.byte	0
- 1152 0051 08       		.uleb128 0x8
- 1153 0052 2E       		.uleb128 0x2e
- 1154 0053 01       		.byte	0x1
- 1155 0054 3F       		.uleb128 0x3f
- 1156 0055 19       		.uleb128 0x19
- 1157 0056 03       		.uleb128 0x3
- 1158 0057 0E       		.uleb128 0xe
- 1159 0058 3A       		.uleb128 0x3a
- 1160 0059 0B       		.uleb128 0xb
- 1161 005a 3B       		.uleb128 0x3b
- 1162 005b 0B       		.uleb128 0xb
- 1163 005c 49       		.uleb128 0x49
- 1164 005d 13       		.uleb128 0x13
- 1165 005e 11       		.uleb128 0x11
- 1166 005f 01       		.uleb128 0x1
- 1167 0060 12       		.uleb128 0x12
- 1168 0061 06       		.uleb128 0x6
- 1169 0062 40       		.uleb128 0x40
- 1170 0063 18       		.uleb128 0x18
- 1171 0064 9742     		.uleb128 0x2117
- 1172 0066 19       		.uleb128 0x19
- 1173 0067 01       		.uleb128 0x1
- 1174 0068 13       		.uleb128 0x13
- 1175 0069 00       		.byte	0
- 1176 006a 00       		.byte	0
- 1177 006b 09       		.uleb128 0x9
- 1178 006c 0B       		.uleb128 0xb
- 1179 006d 01       		.byte	0x1
- 1180 006e 11       		.uleb128 0x11
- 1181 006f 01       		.uleb128 0x1
- 1182 0070 12       		.uleb128 0x12
- 1183 0071 06       		.uleb128 0x6
- 1184 0072 01       		.uleb128 0x1
- 1185 0073 13       		.uleb128 0x13
- 1186 0074 00       		.byte	0
- 1187 0075 00       		.byte	0
- 1188 0076 0A       		.uleb128 0xa
- 1189 0077 34       		.uleb128 0x34
- 1190 0078 00       		.byte	0
- 1191 0079 03       		.uleb128 0x3
- 1192 007a 0E       		.uleb128 0xe
- 1193 007b 3A       		.uleb128 0x3a
- 1194 007c 0B       		.uleb128 0xb
- 1195 007d 3B       		.uleb128 0x3b
- 1196 007e 0B       		.uleb128 0xb
- 1197 007f 49       		.uleb128 0x49
- 1198 0080 13       		.uleb128 0x13
- 1199 0081 02       		.uleb128 0x2
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\cccsFTbQ.s 			page 25
+ 1189 0090 01       		.byte	0x1
+ 1190 0091 11       		.uleb128 0x11
+ 1191 0092 01       		.uleb128 0x1
+ 1192 0093 31       		.uleb128 0x31
+ 1193 0094 13       		.uleb128 0x13
+ 1194 0095 01       		.uleb128 0x1
+ 1195 0096 13       		.uleb128 0x13
+ 1196 0097 00       		.byte	0
+ 1197 0098 00       		.byte	0
+ 1198 0099 0D       		.uleb128 0xd
+ 1199 009a 8A8201   		.uleb128 0x410a
+ 1200 009d 00       		.byte	0
+ 1201 009e 02       		.uleb128 0x2
+ 1202 009f 18       		.uleb128 0x18
+ 1203 00a0 9142     		.uleb128 0x2111
+ 1204 00a2 18       		.uleb128 0x18
+ 1205 00a3 00       		.byte	0
+ 1206 00a4 00       		.byte	0
+ 1207 00a5 0E       		.uleb128 0xe
+ 1208 00a6 898201   		.uleb128 0x4109
+ 1209 00a9 00       		.byte	0
+ 1210 00aa 11       		.uleb128 0x11
+ 1211 00ab 01       		.uleb128 0x1
+ 1212 00ac 31       		.uleb128 0x31
+ 1213 00ad 13       		.uleb128 0x13
+ 1214 00ae 00       		.byte	0
+ 1215 00af 00       		.byte	0
+ 1216 00b0 0F       		.uleb128 0xf
+ 1217 00b1 898201   		.uleb128 0x4109
+ 1218 00b4 01       		.byte	0x1
+ 1219 00b5 11       		.uleb128 0x11
+ 1220 00b6 01       		.uleb128 0x1
+ 1221 00b7 31       		.uleb128 0x31
+ 1222 00b8 13       		.uleb128 0x13
+ 1223 00b9 00       		.byte	0
+ 1224 00ba 00       		.byte	0
+ 1225 00bb 10       		.uleb128 0x10
+ 1226 00bc 35       		.uleb128 0x35
+ 1227 00bd 00       		.byte	0
+ 1228 00be 49       		.uleb128 0x49
+ 1229 00bf 13       		.uleb128 0x13
+ 1230 00c0 00       		.byte	0
+ 1231 00c1 00       		.byte	0
+ 1232 00c2 11       		.uleb128 0x11
+ 1233 00c3 34       		.uleb128 0x34
+ 1234 00c4 00       		.byte	0
+ 1235 00c5 03       		.uleb128 0x3
+ 1236 00c6 0E       		.uleb128 0xe
+ 1237 00c7 3A       		.uleb128 0x3a
+ 1238 00c8 0B       		.uleb128 0xb
+ 1239 00c9 3B       		.uleb128 0x3b
+ 1240 00ca 0B       		.uleb128 0xb
+ 1241 00cb 49       		.uleb128 0x49
+ 1242 00cc 13       		.uleb128 0x13
+ 1243 00cd 3F       		.uleb128 0x3f
+ 1244 00ce 19       		.uleb128 0x19
+ 1245 00cf 02       		.uleb128 0x2
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccivKCED.s 			page 26
 
 
- 1200 0082 18       		.uleb128 0x18
- 1201 0083 00       		.byte	0
- 1202 0084 00       		.byte	0
- 1203 0085 0B       		.uleb128 0xb
- 1204 0086 898201   		.uleb128 0x4109
- 1205 0089 01       		.byte	0x1
- 1206 008a 11       		.uleb128 0x11
- 1207 008b 01       		.uleb128 0x1
- 1208 008c 31       		.uleb128 0x31
- 1209 008d 13       		.uleb128 0x13
- 1210 008e 01       		.uleb128 0x1
- 1211 008f 13       		.uleb128 0x13
- 1212 0090 00       		.byte	0
- 1213 0091 00       		.byte	0
- 1214 0092 0C       		.uleb128 0xc
- 1215 0093 8A8201   		.uleb128 0x410a
- 1216 0096 00       		.byte	0
- 1217 0097 02       		.uleb128 0x2
- 1218 0098 18       		.uleb128 0x18
- 1219 0099 9142     		.uleb128 0x2111
- 1220 009b 18       		.uleb128 0x18
- 1221 009c 00       		.byte	0
- 1222 009d 00       		.byte	0
- 1223 009e 0D       		.uleb128 0xd
- 1224 009f 898201   		.uleb128 0x4109
- 1225 00a2 00       		.byte	0
- 1226 00a3 11       		.uleb128 0x11
- 1227 00a4 01       		.uleb128 0x1
- 1228 00a5 31       		.uleb128 0x31
- 1229 00a6 13       		.uleb128 0x13
- 1230 00a7 00       		.byte	0
- 1231 00a8 00       		.byte	0
- 1232 00a9 0E       		.uleb128 0xe
- 1233 00aa 35       		.uleb128 0x35
- 1234 00ab 00       		.byte	0
- 1235 00ac 49       		.uleb128 0x49
- 1236 00ad 13       		.uleb128 0x13
- 1237 00ae 00       		.byte	0
- 1238 00af 00       		.byte	0
- 1239 00b0 0F       		.uleb128 0xf
- 1240 00b1 34       		.uleb128 0x34
- 1241 00b2 00       		.byte	0
- 1242 00b3 03       		.uleb128 0x3
- 1243 00b4 0E       		.uleb128 0xe
- 1244 00b5 3A       		.uleb128 0x3a
- 1245 00b6 0B       		.uleb128 0xb
- 1246 00b7 3B       		.uleb128 0x3b
- 1247 00b8 0B       		.uleb128 0xb
- 1248 00b9 49       		.uleb128 0x49
- 1249 00ba 13       		.uleb128 0x13
- 1250 00bb 3F       		.uleb128 0x3f
- 1251 00bc 19       		.uleb128 0x19
- 1252 00bd 02       		.uleb128 0x2
- 1253 00be 18       		.uleb128 0x18
- 1254 00bf 00       		.byte	0
- 1255 00c0 00       		.byte	0
- 1256 00c1 10       		.uleb128 0x10
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\cccsFTbQ.s 			page 26
+ 1246 00d0 18       		.uleb128 0x18
+ 1247 00d1 00       		.byte	0
+ 1248 00d2 00       		.byte	0
+ 1249 00d3 12       		.uleb128 0x12
+ 1250 00d4 34       		.uleb128 0x34
+ 1251 00d5 00       		.byte	0
+ 1252 00d6 03       		.uleb128 0x3
+ 1253 00d7 08       		.uleb128 0x8
+ 1254 00d8 3A       		.uleb128 0x3a
+ 1255 00d9 0B       		.uleb128 0xb
+ 1256 00da 3B       		.uleb128 0x3b
+ 1257 00db 0B       		.uleb128 0xb
+ 1258 00dc 49       		.uleb128 0x49
+ 1259 00dd 13       		.uleb128 0x13
+ 1260 00de 3F       		.uleb128 0x3f
+ 1261 00df 19       		.uleb128 0x19
+ 1262 00e0 02       		.uleb128 0x2
+ 1263 00e1 18       		.uleb128 0x18
+ 1264 00e2 00       		.byte	0
+ 1265 00e3 00       		.byte	0
+ 1266 00e4 13       		.uleb128 0x13
+ 1267 00e5 2E       		.uleb128 0x2e
+ 1268 00e6 01       		.byte	0x1
+ 1269 00e7 3F       		.uleb128 0x3f
+ 1270 00e8 19       		.uleb128 0x19
+ 1271 00e9 03       		.uleb128 0x3
+ 1272 00ea 0E       		.uleb128 0xe
+ 1273 00eb 3A       		.uleb128 0x3a
+ 1274 00ec 0B       		.uleb128 0xb
+ 1275 00ed 3B       		.uleb128 0x3b
+ 1276 00ee 0B       		.uleb128 0xb
+ 1277 00ef 27       		.uleb128 0x27
+ 1278 00f0 19       		.uleb128 0x19
+ 1279 00f1 3C       		.uleb128 0x3c
+ 1280 00f2 19       		.uleb128 0x19
+ 1281 00f3 01       		.uleb128 0x1
+ 1282 00f4 13       		.uleb128 0x13
+ 1283 00f5 00       		.byte	0
+ 1284 00f6 00       		.byte	0
+ 1285 00f7 14       		.uleb128 0x14
+ 1286 00f8 05       		.uleb128 0x5
+ 1287 00f9 00       		.byte	0
+ 1288 00fa 49       		.uleb128 0x49
+ 1289 00fb 13       		.uleb128 0x13
+ 1290 00fc 00       		.byte	0
+ 1291 00fd 00       		.byte	0
+ 1292 00fe 15       		.uleb128 0x15
+ 1293 00ff 2E       		.uleb128 0x2e
+ 1294 0100 01       		.byte	0x1
+ 1295 0101 3F       		.uleb128 0x3f
+ 1296 0102 19       		.uleb128 0x19
+ 1297 0103 03       		.uleb128 0x3
+ 1298 0104 0E       		.uleb128 0xe
+ 1299 0105 3A       		.uleb128 0x3a
+ 1300 0106 0B       		.uleb128 0xb
+ 1301 0107 3B       		.uleb128 0x3b
+ 1302 0108 0B       		.uleb128 0xb
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccivKCED.s 			page 27
 
 
- 1257 00c2 34       		.uleb128 0x34
- 1258 00c3 00       		.byte	0
- 1259 00c4 03       		.uleb128 0x3
- 1260 00c5 08       		.uleb128 0x8
- 1261 00c6 3A       		.uleb128 0x3a
- 1262 00c7 0B       		.uleb128 0xb
- 1263 00c8 3B       		.uleb128 0x3b
- 1264 00c9 0B       		.uleb128 0xb
- 1265 00ca 49       		.uleb128 0x49
- 1266 00cb 13       		.uleb128 0x13
- 1267 00cc 3F       		.uleb128 0x3f
- 1268 00cd 19       		.uleb128 0x19
- 1269 00ce 02       		.uleb128 0x2
- 1270 00cf 18       		.uleb128 0x18
- 1271 00d0 00       		.byte	0
- 1272 00d1 00       		.byte	0
- 1273 00d2 11       		.uleb128 0x11
- 1274 00d3 26       		.uleb128 0x26
- 1275 00d4 00       		.byte	0
- 1276 00d5 49       		.uleb128 0x49
- 1277 00d6 13       		.uleb128 0x13
- 1278 00d7 00       		.byte	0
- 1279 00d8 00       		.byte	0
- 1280 00d9 12       		.uleb128 0x12
- 1281 00da 2E       		.uleb128 0x2e
- 1282 00db 01       		.byte	0x1
- 1283 00dc 3F       		.uleb128 0x3f
- 1284 00dd 19       		.uleb128 0x19
- 1285 00de 03       		.uleb128 0x3
- 1286 00df 0E       		.uleb128 0xe
- 1287 00e0 3A       		.uleb128 0x3a
- 1288 00e1 0B       		.uleb128 0xb
- 1289 00e2 3B       		.uleb128 0x3b
- 1290 00e3 0B       		.uleb128 0xb
- 1291 00e4 27       		.uleb128 0x27
- 1292 00e5 19       		.uleb128 0x19
- 1293 00e6 3C       		.uleb128 0x3c
- 1294 00e7 19       		.uleb128 0x19
- 1295 00e8 01       		.uleb128 0x1
- 1296 00e9 13       		.uleb128 0x13
- 1297 00ea 00       		.byte	0
- 1298 00eb 00       		.byte	0
- 1299 00ec 13       		.uleb128 0x13
- 1300 00ed 05       		.uleb128 0x5
- 1301 00ee 00       		.byte	0
- 1302 00ef 49       		.uleb128 0x49
- 1303 00f0 13       		.uleb128 0x13
- 1304 00f1 00       		.byte	0
- 1305 00f2 00       		.byte	0
- 1306 00f3 14       		.uleb128 0x14
- 1307 00f4 2E       		.uleb128 0x2e
- 1308 00f5 01       		.byte	0x1
- 1309 00f6 3F       		.uleb128 0x3f
- 1310 00f7 19       		.uleb128 0x19
- 1311 00f8 03       		.uleb128 0x3
- 1312 00f9 0E       		.uleb128 0xe
- 1313 00fa 3A       		.uleb128 0x3a
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\cccsFTbQ.s 			page 27
+ 1303 0109 49       		.uleb128 0x49
+ 1304 010a 13       		.uleb128 0x13
+ 1305 010b 3C       		.uleb128 0x3c
+ 1306 010c 19       		.uleb128 0x19
+ 1307 010d 01       		.uleb128 0x1
+ 1308 010e 13       		.uleb128 0x13
+ 1309 010f 00       		.byte	0
+ 1310 0110 00       		.byte	0
+ 1311 0111 16       		.uleb128 0x16
+ 1312 0112 18       		.uleb128 0x18
+ 1313 0113 00       		.byte	0
+ 1314 0114 00       		.byte	0
+ 1315 0115 00       		.byte	0
+ 1316 0116 17       		.uleb128 0x17
+ 1317 0117 2E       		.uleb128 0x2e
+ 1318 0118 01       		.byte	0x1
+ 1319 0119 3F       		.uleb128 0x3f
+ 1320 011a 19       		.uleb128 0x19
+ 1321 011b 03       		.uleb128 0x3
+ 1322 011c 0E       		.uleb128 0xe
+ 1323 011d 3A       		.uleb128 0x3a
+ 1324 011e 0B       		.uleb128 0xb
+ 1325 011f 3B       		.uleb128 0x3b
+ 1326 0120 05       		.uleb128 0x5
+ 1327 0121 27       		.uleb128 0x27
+ 1328 0122 19       		.uleb128 0x19
+ 1329 0123 3C       		.uleb128 0x3c
+ 1330 0124 19       		.uleb128 0x19
+ 1331 0125 01       		.uleb128 0x1
+ 1332 0126 13       		.uleb128 0x13
+ 1333 0127 00       		.byte	0
+ 1334 0128 00       		.byte	0
+ 1335 0129 18       		.uleb128 0x18
+ 1336 012a 2E       		.uleb128 0x2e
+ 1337 012b 01       		.byte	0x1
+ 1338 012c 3F       		.uleb128 0x3f
+ 1339 012d 19       		.uleb128 0x19
+ 1340 012e 03       		.uleb128 0x3
+ 1341 012f 0E       		.uleb128 0xe
+ 1342 0130 3A       		.uleb128 0x3a
+ 1343 0131 0B       		.uleb128 0xb
+ 1344 0132 3B       		.uleb128 0x3b
+ 1345 0133 0B       		.uleb128 0xb
+ 1346 0134 27       		.uleb128 0x27
+ 1347 0135 19       		.uleb128 0x19
+ 1348 0136 49       		.uleb128 0x49
+ 1349 0137 13       		.uleb128 0x13
+ 1350 0138 3C       		.uleb128 0x3c
+ 1351 0139 19       		.uleb128 0x19
+ 1352 013a 01       		.uleb128 0x1
+ 1353 013b 13       		.uleb128 0x13
+ 1354 013c 00       		.byte	0
+ 1355 013d 00       		.byte	0
+ 1356 013e 19       		.uleb128 0x19
+ 1357 013f 2E       		.uleb128 0x2e
+ 1358 0140 00       		.byte	0
+ 1359 0141 3F       		.uleb128 0x3f
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccivKCED.s 			page 28
 
 
- 1314 00fb 0B       		.uleb128 0xb
- 1315 00fc 3B       		.uleb128 0x3b
- 1316 00fd 0B       		.uleb128 0xb
- 1317 00fe 49       		.uleb128 0x49
- 1318 00ff 13       		.uleb128 0x13
- 1319 0100 3C       		.uleb128 0x3c
- 1320 0101 19       		.uleb128 0x19
- 1321 0102 01       		.uleb128 0x1
- 1322 0103 13       		.uleb128 0x13
- 1323 0104 00       		.byte	0
- 1324 0105 00       		.byte	0
- 1325 0106 15       		.uleb128 0x15
- 1326 0107 18       		.uleb128 0x18
- 1327 0108 00       		.byte	0
- 1328 0109 00       		.byte	0
- 1329 010a 00       		.byte	0
- 1330 010b 16       		.uleb128 0x16
- 1331 010c 2E       		.uleb128 0x2e
- 1332 010d 01       		.byte	0x1
- 1333 010e 3F       		.uleb128 0x3f
- 1334 010f 19       		.uleb128 0x19
- 1335 0110 03       		.uleb128 0x3
- 1336 0111 0E       		.uleb128 0xe
- 1337 0112 3A       		.uleb128 0x3a
- 1338 0113 0B       		.uleb128 0xb
- 1339 0114 3B       		.uleb128 0x3b
- 1340 0115 05       		.uleb128 0x5
- 1341 0116 27       		.uleb128 0x27
- 1342 0117 19       		.uleb128 0x19
- 1343 0118 3C       		.uleb128 0x3c
- 1344 0119 19       		.uleb128 0x19
- 1345 011a 01       		.uleb128 0x1
- 1346 011b 13       		.uleb128 0x13
- 1347 011c 00       		.byte	0
- 1348 011d 00       		.byte	0
- 1349 011e 17       		.uleb128 0x17
- 1350 011f 2E       		.uleb128 0x2e
- 1351 0120 01       		.byte	0x1
- 1352 0121 3F       		.uleb128 0x3f
- 1353 0122 19       		.uleb128 0x19
- 1354 0123 03       		.uleb128 0x3
- 1355 0124 0E       		.uleb128 0xe
- 1356 0125 3A       		.uleb128 0x3a
- 1357 0126 0B       		.uleb128 0xb
- 1358 0127 3B       		.uleb128 0x3b
- 1359 0128 0B       		.uleb128 0xb
- 1360 0129 27       		.uleb128 0x27
- 1361 012a 19       		.uleb128 0x19
- 1362 012b 49       		.uleb128 0x49
- 1363 012c 13       		.uleb128 0x13
- 1364 012d 3C       		.uleb128 0x3c
- 1365 012e 19       		.uleb128 0x19
- 1366 012f 01       		.uleb128 0x1
- 1367 0130 13       		.uleb128 0x13
- 1368 0131 00       		.byte	0
- 1369 0132 00       		.byte	0
- 1370 0133 18       		.uleb128 0x18
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\cccsFTbQ.s 			page 28
+ 1360 0142 19       		.uleb128 0x19
+ 1361 0143 03       		.uleb128 0x3
+ 1362 0144 0E       		.uleb128 0xe
+ 1363 0145 3A       		.uleb128 0x3a
+ 1364 0146 0B       		.uleb128 0xb
+ 1365 0147 3B       		.uleb128 0x3b
+ 1366 0148 0B       		.uleb128 0xb
+ 1367 0149 27       		.uleb128 0x27
+ 1368 014a 19       		.uleb128 0x19
+ 1369 014b 3C       		.uleb128 0x3c
+ 1370 014c 19       		.uleb128 0x19
+ 1371 014d 00       		.byte	0
+ 1372 014e 00       		.byte	0
+ 1373 014f 1A       		.uleb128 0x1a
+ 1374 0150 2E       		.uleb128 0x2e
+ 1375 0151 01       		.byte	0x1
+ 1376 0152 3F       		.uleb128 0x3f
+ 1377 0153 19       		.uleb128 0x19
+ 1378 0154 03       		.uleb128 0x3
+ 1379 0155 0E       		.uleb128 0xe
+ 1380 0156 3A       		.uleb128 0x3a
+ 1381 0157 0B       		.uleb128 0xb
+ 1382 0158 3B       		.uleb128 0x3b
+ 1383 0159 0B       		.uleb128 0xb
+ 1384 015a 3C       		.uleb128 0x3c
+ 1385 015b 19       		.uleb128 0x19
+ 1386 015c 00       		.byte	0
+ 1387 015d 00       		.byte	0
+ 1388 015e 00       		.byte	0
+ 1389              		.section	.debug_aranges,"",%progbits
+ 1390 0000 1C000000 		.4byte	0x1c
+ 1391 0004 0200     		.2byte	0x2
+ 1392 0006 00000000 		.4byte	.Ldebug_info0
+ 1393 000a 04       		.byte	0x4
+ 1394 000b 00       		.byte	0
+ 1395 000c 0000     		.2byte	0
+ 1396 000e 0000     		.2byte	0
+ 1397 0010 00000000 		.4byte	.LFB34
+ 1398 0014 14010000 		.4byte	.LFE34-.LFB34
+ 1399 0018 00000000 		.4byte	0
+ 1400 001c 00000000 		.4byte	0
+ 1401              		.section	.debug_ranges,"",%progbits
+ 1402              	.Ldebug_ranges0:
+ 1403 0000 00000000 		.4byte	.LFB34
+ 1404 0004 14010000 		.4byte	.LFE34
+ 1405 0008 00000000 		.4byte	0
+ 1406 000c 00000000 		.4byte	0
+ 1407              		.section	.debug_line,"",%progbits
+ 1408              	.Ldebug_line0:
+ 1409 0000 64010000 		.section	.debug_str,"MS",%progbits,1
+ 1409      02002501 
+ 1409      00000201 
+ 1409      FB0E0D00 
+ 1409      01010101 
+ 1410              	.LASF34:
+ 1411 0000 74657374 		.ascii	"test7\000"
+ 1411      3700
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccivKCED.s 			page 29
 
 
- 1371 0134 2E       		.uleb128 0x2e
- 1372 0135 00       		.byte	0
- 1373 0136 3F       		.uleb128 0x3f
- 1374 0137 19       		.uleb128 0x19
- 1375 0138 03       		.uleb128 0x3
- 1376 0139 0E       		.uleb128 0xe
- 1377 013a 3A       		.uleb128 0x3a
- 1378 013b 0B       		.uleb128 0xb
- 1379 013c 3B       		.uleb128 0x3b
- 1380 013d 0B       		.uleb128 0xb
- 1381 013e 27       		.uleb128 0x27
- 1382 013f 19       		.uleb128 0x19
- 1383 0140 3C       		.uleb128 0x3c
- 1384 0141 19       		.uleb128 0x19
- 1385 0142 00       		.byte	0
- 1386 0143 00       		.byte	0
- 1387 0144 19       		.uleb128 0x19
- 1388 0145 2E       		.uleb128 0x2e
- 1389 0146 01       		.byte	0x1
- 1390 0147 3F       		.uleb128 0x3f
- 1391 0148 19       		.uleb128 0x19
- 1392 0149 03       		.uleb128 0x3
- 1393 014a 0E       		.uleb128 0xe
- 1394 014b 3A       		.uleb128 0x3a
- 1395 014c 0B       		.uleb128 0xb
- 1396 014d 3B       		.uleb128 0x3b
- 1397 014e 0B       		.uleb128 0xb
- 1398 014f 3C       		.uleb128 0x3c
- 1399 0150 19       		.uleb128 0x19
- 1400 0151 00       		.byte	0
- 1401 0152 00       		.byte	0
- 1402 0153 00       		.byte	0
- 1403              		.section	.debug_aranges,"",%progbits
- 1404 0000 1C000000 		.4byte	0x1c
- 1405 0004 0200     		.2byte	0x2
- 1406 0006 00000000 		.4byte	.Ldebug_info0
- 1407 000a 04       		.byte	0x4
- 1408 000b 00       		.byte	0
- 1409 000c 0000     		.2byte	0
- 1410 000e 0000     		.2byte	0
- 1411 0010 00000000 		.4byte	.LFB34
- 1412 0014 18010000 		.4byte	.LFE34-.LFB34
- 1413 0018 00000000 		.4byte	0
- 1414 001c 00000000 		.4byte	0
- 1415              		.section	.debug_ranges,"",%progbits
- 1416              	.Ldebug_ranges0:
- 1417 0000 00000000 		.4byte	.LFB34
- 1418 0004 18010000 		.4byte	.LFE34
- 1419 0008 00000000 		.4byte	0
- 1420 000c 00000000 		.4byte	0
- 1421              		.section	.debug_line,"",%progbits
- 1422              	.Ldebug_line0:
- 1423 0000 FE000000 		.section	.debug_str,"MS",%progbits,1
- 1423      0200BD00 
- 1423      00000201 
- 1423      FB0E0D00 
- 1423      01010101 
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\cccsFTbQ.s 			page 29
-
-
- 1424              	.LASF35:
- 1425 0000 74657374 		.ascii	"test7\000"
- 1425      3700
- 1426              	.LASF36:
- 1427 0006 74657374 		.ascii	"test8\000"
- 1427      3800
- 1428              	.LASF0:
- 1429 000c 7369676E 		.ascii	"signed char\000"
- 1429      65642063 
- 1429      68617200 
- 1430              	.LASF27:
- 1431 0018 566F6C74 		.ascii	"Volt\000"
+ 1412              	.LASF35:
+ 1413 0006 74657374 		.ascii	"test8\000"
+ 1413      3800
+ 1414              	.LASF0:
+ 1415 000c 7369676E 		.ascii	"signed char\000"
+ 1415      65642063 
+ 1415      68617200 
+ 1416              	.LASF26:
+ 1417 0018 566F6C74 		.ascii	"Volt\000"
+ 1417      00
+ 1418              	.LASF9:
+ 1419 001d 75696E74 		.ascii	"uint8\000"
+ 1419      3800
+ 1420              	.LASF38:
+ 1421 0023 55415254 		.ascii	"UART_print_UartPutString\000"
+ 1421      5F707269 
+ 1421      6E745F55 
+ 1421      61727450 
+ 1421      75745374 
+ 1422              	.LASF23:
+ 1423 003c 73746172 		.ascii	"start\000"
+ 1423      7400
+ 1424              	.LASF48:
+ 1425 0042 433A5C55 		.ascii	"C:\\Users\\PernilleLouise\\Documents\\Elektro\\4. s"
+ 1425      73657273 
+ 1425      5C506572 
+ 1425      6E696C6C 
+ 1425      654C6F75 
+ 1426 0070 656D6573 		.ascii	"emester\\E4PRJ4\\PSoCBilstyring\\Workspace01\\Desig"
+ 1426      7465725C 
+ 1426      45345052 
+ 1426      4A345C50 
+ 1426      536F4342 
+ 1427 009f 6E30312E 		.ascii	"n01.cydsn\000"
+ 1427      63796473 
+ 1427      6E00
+ 1428              	.LASF37:
+ 1429 00a9 64697374 		.ascii	"distanceToObject\000"
+ 1429      616E6365 
+ 1429      546F4F62 
+ 1429      6A656374 
+ 1429      00
+ 1430              	.LASF50:
+ 1431 00ba 64697374 		.ascii	"distance\000"
+ 1431      616E6365 
  1431      00
- 1432              	.LASF9:
- 1433 001d 75696E74 		.ascii	"uint8\000"
- 1433      3800
- 1434              	.LASF39:
- 1435 0023 55415254 		.ascii	"UART_print_UartPutString\000"
+ 1432              	.LASF12:
+ 1433 00c3 666C6F61 		.ascii	"float\000"
+ 1433      7400
+ 1434              	.LASF45:
+ 1435 00c9 55415254 		.ascii	"UART_print_Start\000"
  1435      5F707269 
- 1435      6E745F55 
- 1435      61727450 
- 1435      75745374 
- 1436              	.LASF24:
- 1437 003c 73746172 		.ascii	"start\000"
- 1437      7400
- 1438              	.LASF38:
- 1439 0042 64697374 		.ascii	"distanceToObject\000"
- 1439      616E6365 
- 1439      546F4F62 
- 1439      6A656374 
+ 1435      6E745F53 
+ 1435      74617274 
+ 1435      00
+ 1436              	.LASF1:
+ 1437 00da 756E7369 		.ascii	"unsigned char\000"
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccivKCED.s 			page 30
+
+
+ 1437      676E6564 
+ 1437      20636861 
+ 1437      7200
+ 1438              	.LASF44:
+ 1439 00e8 4144435F 		.ascii	"ADC_StartConvert\000"
+ 1439      53746172 
+ 1439      74436F6E 
+ 1439      76657274 
  1439      00
- 1440              	.LASF50:
- 1441 0053 64697374 		.ascii	"distance\000"
- 1441      616E6365 
- 1441      00
- 1442              	.LASF13:
- 1443 005c 666C6F61 		.ascii	"float\000"
- 1443      7400
- 1444              	.LASF45:
- 1445 0062 55415254 		.ascii	"UART_print_Start\000"
- 1445      5F707269 
- 1445      6E745F53 
- 1445      74617274 
- 1445      00
- 1446              	.LASF1:
- 1447 0073 756E7369 		.ascii	"unsigned char\000"
- 1447      676E6564 
- 1447      20636861 
- 1447      7200
- 1448              	.LASF44:
- 1449 0081 4144435F 		.ascii	"ADC_StartConvert\000"
- 1449      53746172 
- 1449      74436F6E 
- 1449      76657274 
+ 1440              	.LASF14:
+ 1441 00f9 63686172 		.ascii	"char8\000"
+ 1441      3800
+ 1442              	.LASF10:
+ 1443 00ff 696E7431 		.ascii	"int16\000"
+ 1443      3600
+ 1444              	.LASF5:
+ 1445 0105 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1445      20756E73 
+ 1445      69676E65 
+ 1445      6420696E 
+ 1445      7400
+ 1446              	.LASF3:
+ 1447 0117 73686F72 		.ascii	"short unsigned int\000"
+ 1447      7420756E 
+ 1447      7369676E 
+ 1447      65642069 
+ 1447      6E7400
+ 1448              	.LASF39:
+ 1449 012a 73746F70 		.ascii	"stop\000"
  1449      00
- 1450              	.LASF15:
- 1451 0092 63686172 		.ascii	"char8\000"
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\cccsFTbQ.s 			page 30
+ 1450              	.LASF13:
+ 1451 012f 646F7562 		.ascii	"double\000"
+ 1451      6C6500
+ 1452              	.LASF40:
+ 1453 0136 72656775 		.ascii	"regulateDistance\000"
+ 1453      6C617465 
+ 1453      44697374 
+ 1453      616E6365 
+ 1453      00
+ 1454              	.LASF27:
+ 1455 0147 73657444 		.ascii	"setDistance\000"
+ 1455      69737461 
+ 1455      6E636500 
+ 1456              	.LASF49:
+ 1457 0153 6D61696E 		.ascii	"main\000"
+ 1457      00
+ 1458              	.LASF17:
+ 1459 0158 77726275 		.ascii	"wrbuf\000"
+ 1459      6600
+ 1460              	.LASF11:
+ 1461 015e 666C6F61 		.ascii	"float32\000"
+ 1461      74333200 
+ 1462              	.LASF28:
+ 1463 0166 74657374 		.ascii	"test1\000"
+ 1463      3100
+ 1464              	.LASF29:
+ 1465 016c 74657374 		.ascii	"test2\000"
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccivKCED.s 			page 31
 
 
- 1451      3800
- 1452              	.LASF11:
- 1453 0098 696E7431 		.ascii	"int16\000"
- 1453      3600
- 1454              	.LASF5:
- 1455 009e 6C6F6E67 		.ascii	"long unsigned int\000"
- 1455      20756E73 
- 1455      69676E65 
- 1455      6420696E 
- 1455      7400
- 1456              	.LASF3:
- 1457 00b0 73686F72 		.ascii	"short unsigned int\000"
- 1457      7420756E 
- 1457      7369676E 
- 1457      65642069 
- 1457      6E7400
- 1458              	.LASF41:
- 1459 00c3 73746F70 		.ascii	"stop\000"
- 1459      00
- 1460              	.LASF14:
- 1461 00c8 646F7562 		.ascii	"double\000"
- 1461      6C6500
- 1462              	.LASF51:
- 1463 00cf 72656775 		.ascii	"regulateDistance\000"
- 1463      6C617465 
- 1463      44697374 
- 1463      616E6365 
- 1463      00
- 1464              	.LASF28:
- 1465 00e0 73657444 		.ascii	"setDistance\000"
- 1465      69737461 
- 1465      6E636500 
- 1466              	.LASF48:
- 1467 00ec 433A5C55 		.ascii	"C:\\Users\\PernilleLouise\\Documents\\Elektro\\4. s"
- 1467      73657273 
- 1467      5C506572 
- 1467      6E696C6C 
- 1467      654C6F75 
- 1468 011a 656D6573 		.ascii	"emester\\E4PRJ\\Projekt\\Workspace01\\Design01.cyds"
- 1468      7465725C 
- 1468      45345052 
- 1468      4A5C5072 
- 1468      6F6A656B 
- 1469 0149 6E00     		.ascii	"n\000"
- 1470              	.LASF18:
- 1471 014b 77726275 		.ascii	"wrbuf\000"
- 1471      6600
- 1472              	.LASF12:
- 1473 0151 666C6F61 		.ascii	"float32\000"
- 1473      74333200 
- 1474              	.LASF29:
- 1475 0159 74657374 		.ascii	"test1\000"
- 1475      3100
- 1476              	.LASF10:
- 1477 015f 75696E74 		.ascii	"uint32\000"
- 1477      333200
- 1478              	.LASF49:
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\cccsFTbQ.s 			page 31
-
-
- 1479 0166 6D61696E 		.ascii	"main\000"
+ 1465      3200
+ 1466              	.LASF8:
+ 1467 0172 756E7369 		.ascii	"unsigned int\000"
+ 1467      676E6564 
+ 1467      20696E74 
+ 1467      00
+ 1468              	.LASF7:
+ 1469 017f 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1469      206C6F6E 
+ 1469      6720756E 
+ 1469      7369676E 
+ 1469      65642069 
+ 1470              	.LASF24:
+ 1471 0196 72657375 		.ascii	"result\000"
+ 1471      6C7400
+ 1472              	.LASF22:
+ 1473 019d 6D6F6465 		.ascii	"mode\000"
+ 1473      00
+ 1474              	.LASF43:
+ 1475 01a2 4144435F 		.ascii	"ADC_Start\000"
+ 1475      53746172 
+ 1475      7400
+ 1476              	.LASF25:
+ 1477 01ac 64617461 		.ascii	"dataRdy\000"
+ 1477      52647900 
+ 1478              	.LASF18:
+ 1479 01b4 64697374 		.ascii	"distanceFlag\000"
+ 1479      616E6365 
+ 1479      466C6167 
  1479      00
- 1480              	.LASF31:
- 1481 016b 74657374 		.ascii	"test3\000"
- 1481      3300
- 1482              	.LASF8:
- 1483 0171 756E7369 		.ascii	"unsigned int\000"
- 1483      676E6564 
- 1483      20696E74 
- 1483      00
- 1484              	.LASF7:
- 1485 017e 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1480              	.LASF16:
+ 1481 01c1 73697A65 		.ascii	"sizetype\000"
+ 1481      74797065 
+ 1481      00
+ 1482              	.LASF51:
+ 1483 01ca 696E6974 		.ascii	"initReceiveData\000"
+ 1483      52656365 
+ 1483      69766544 
+ 1483      61746100 
+ 1484              	.LASF6:
+ 1485 01da 6C6F6E67 		.ascii	"long long int\000"
  1485      206C6F6E 
- 1485      6720756E 
- 1485      7369676E 
- 1485      65642069 
- 1486              	.LASF25:
- 1487 0195 72657375 		.ascii	"result\000"
- 1487      6C7400
- 1488              	.LASF23:
- 1489 019c 6D6F6465 		.ascii	"mode\000"
+ 1485      6720696E 
+ 1485      7400
+ 1486              	.LASF20:
+ 1487 01e8 72656164 		.ascii	"readObjData\000"
+ 1487      4F626A44 
+ 1487      61746100 
+ 1488              	.LASF15:
+ 1489 01f4 63686172 		.ascii	"char\000"
  1489      00
- 1490              	.LASF43:
- 1491 01a1 4144435F 		.ascii	"ADC_Start\000"
- 1491      53746172 
- 1491      7400
- 1492              	.LASF26:
- 1493 01ab 64617461 		.ascii	"dataRdy\000"
- 1493      52647900 
- 1494              	.LASF19:
- 1495 01b3 64697374 		.ascii	"distanceFlag\000"
- 1495      616E6365 
- 1495      466C6167 
- 1495      00
- 1496              	.LASF17:
- 1497 01c0 73697A65 		.ascii	"sizetype\000"
- 1497      74797065 
- 1497      00
- 1498              	.LASF52:
- 1499 01c9 696E6974 		.ascii	"initReceiveData\000"
- 1499      52656365 
- 1499      69766544 
- 1499      61746100 
- 1500              	.LASF6:
- 1501 01d9 6C6F6E67 		.ascii	"long long int\000"
- 1501      206C6F6E 
- 1501      6720696E 
- 1501      7400
- 1502              	.LASF21:
- 1503 01e7 72656164 		.ascii	"readObjData\000"
- 1503      4F626A44 
- 1503      61746100 
- 1504              	.LASF16:
- 1505 01f3 63686172 		.ascii	"char\000"
+ 1490              	.LASF46:
+ 1491 01f9 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 1491      4320342E 
+ 1491      392E3320 
+ 1491      32303135 
+ 1491      30333033 
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccivKCED.s 			page 32
+
+
+ 1492 022c 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
+ 1492      20726576 
+ 1492      6973696F 
+ 1492      6E203232 
+ 1492      31323230 
+ 1493 025f 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1493      66756E63 
+ 1493      74696F6E 
+ 1493      2D736563 
+ 1493      74696F6E 
+ 1494              	.LASF42:
+ 1495 0287 4932435F 		.ascii	"I2C_1_Start\000"
+ 1495      315F5374 
+ 1495      61727400 
+ 1496              	.LASF2:
+ 1497 0293 73686F72 		.ascii	"short int\000"
+ 1497      7420696E 
+ 1497      7400
+ 1498              	.LASF19:
+ 1499 029d 62756666 		.ascii	"buffer\000"
+ 1499      657200
+ 1500              	.LASF36:
+ 1501 02a4 72656365 		.ascii	"receiveData\000"
+ 1501      69766544 
+ 1501      61746100 
+ 1502              	.LASF4:
+ 1503 02b0 6C6F6E67 		.ascii	"long int\000"
+ 1503      20696E74 
+ 1503      00
+ 1504              	.LASF47:
+ 1505 02b9 2E5C7465 		.ascii	".\\test.c\000"
+ 1505      73742E63 
  1505      00
- 1506              	.LASF46:
- 1507 01f8 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\cccsFTbQ.s 			page 32
-
-
- 1507      4320342E 
- 1507      392E3320 
- 1507      32303135 
- 1507      30333033 
- 1508 022b 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
- 1508      20726576 
- 1508      6973696F 
- 1508      6E203232 
- 1508      31323230 
- 1509 025e 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
- 1509      66756E63 
- 1509      74696F6E 
- 1509      2D736563 
- 1509      74696F6E 
- 1510              	.LASF42:
- 1511 0286 4932435F 		.ascii	"I2C_1_Start\000"
- 1511      315F5374 
- 1511      61727400 
- 1512              	.LASF2:
- 1513 0292 73686F72 		.ascii	"short int\000"
- 1513      7420696E 
- 1513      7400
- 1514              	.LASF20:
- 1515 029c 62756666 		.ascii	"buffer\000"
- 1515      657200
- 1516              	.LASF37:
- 1517 02a3 72656365 		.ascii	"receiveData\000"
- 1517      69766544 
- 1517      61746100 
- 1518              	.LASF4:
- 1519 02af 6C6F6E67 		.ascii	"long int\000"
- 1519      20696E74 
- 1519      00
- 1520              	.LASF47:
- 1521 02b8 2E5C7465 		.ascii	".\\test.c\000"
- 1521      73742E63 
- 1521      00
- 1522              	.LASF22:
- 1523 02c1 5F426F6F 		.ascii	"_Bool\000"
- 1523      6C00
- 1524              	.LASF30:
- 1525 02c7 74657374 		.ascii	"test2\000"
- 1525      3200
- 1526              	.LASF40:
- 1527 02cd 43794465 		.ascii	"CyDelay\000"
- 1527      6C617900 
- 1528              	.LASF32:
- 1529 02d5 74657374 		.ascii	"test4\000"
- 1529      3400
- 1530              	.LASF33:
- 1531 02db 74657374 		.ascii	"test5\000"
- 1531      3500
- 1532              	.LASF34:
- 1533 02e1 74657374 		.ascii	"test6\000"
- 1533      3600
- 1534              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br
+ 1506              	.LASF21:
+ 1507 02c2 5F426F6F 		.ascii	"_Bool\000"
+ 1507      6C00
+ 1508              	.LASF41:
+ 1509 02c8 73707269 		.ascii	"sprintf\000"
+ 1509      6E746600 
+ 1510              	.LASF30:
+ 1511 02d0 74657374 		.ascii	"test3\000"
+ 1511      3300
+ 1512              	.LASF31:
+ 1513 02d6 74657374 		.ascii	"test4\000"
+ 1513      3400
+ 1514              	.LASF32:
+ 1515 02dc 74657374 		.ascii	"test5\000"
+ 1515      3500
+ 1516              	.LASF33:
+ 1517 02e2 74657374 		.ascii	"test6\000"
+ 1517      3600
+ 1518              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

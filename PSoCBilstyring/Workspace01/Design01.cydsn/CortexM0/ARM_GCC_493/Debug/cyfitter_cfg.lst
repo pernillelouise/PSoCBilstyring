@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 1
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccWD0ceQ.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 1
   31:.\Generated_Source\PSoC4/cyfitter_cfg.c ****     #define CY_CFG_UNUSED __attribute__ ((unused))
   32:.\Generated_Source\PSoC4/cyfitter_cfg.c ****     #ifndef CY_CFG_SECTION
   33:.\Generated_Source\PSoC4/cyfitter_cfg.c ****         #define CY_CFG_SECTION __attribute__ ((section(".psocinit")))
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 2
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccWD0ceQ.s 			page 2
 
 
   34:.\Generated_Source\PSoC4/cyfitter_cfg.c ****     #endif
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 1
   88:.\Generated_Source\PSoC4/cyfitter_cfg.c **** #ifdef CY_NEED_CYCLOCKSTARTUPERROR
   89:.\Generated_Source\PSoC4/cyfitter_cfg.c **** /*******************************************************************************
   90:.\Generated_Source\PSoC4/cyfitter_cfg.c **** * Function Name: CyClockStartupError
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 3
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccWD0ceQ.s 			page 3
 
 
   91:.\Generated_Source\PSoC4/cyfitter_cfg.c **** ********************************************************************************
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 1
  145:.\Generated_Source\PSoC4/cyfitter_cfg.c **** * Return:
  146:.\Generated_Source\PSoC4/cyfitter_cfg.c **** *   void
  147:.\Generated_Source\PSoC4/cyfitter_cfg.c **** *
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 4
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccWD0ceQ.s 			page 4
 
 
  148:.\Generated_Source\PSoC4/cyfitter_cfg.c **** *******************************************************************************/
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 1
  162:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			j++;
   65              		.loc 1 162 0
   66 0020 0135     		add	r5, r5, #1
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 5
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccWD0ceQ.s 			page 5
 
 
   67              	.LVL6:
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 1
  112              	.LVL14:
   64:.\Generated_Source\PSoC4/cyfitter_cfg.c **** CY_CFG_UNUSED
  113              		.loc 1 64 0
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 6
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccWD0ceQ.s 			page 6
 
 
  114              		@ sp needed
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 1
  141              		.loc 1 193 0
  142 000e 1820     		mov	r0, #24
  143 0010 FFF7FEFF 		bl	CySysClkWriteImoFreq
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 7
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccWD0ceQ.s 			page 7
 
 
  144              	.LVL15:
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 1
  179              		.loc 1 212 0
  180 0048 0025     		mov	r5, #0
  181 004a 2560     		str	r5, [r4]
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 8
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccWD0ceQ.s 			page 8
 
 
  213:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 1
  216 007c 38BD     		pop	{r3, r4, r5, pc}
  217              	.L9:
  218 007e C046     		.align	2
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 9
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccWD0ceQ.s 			page 9
 
 
  219              	.L8:
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 1
  253:.\Generated_Source\PSoC4/cyfitter_cfg.c **** static void AnalogSetDefault(void);
  254:.\Generated_Source\PSoC4/cyfitter_cfg.c **** static void AnalogSetDefault(void)
  255:.\Generated_Source\PSoC4/cyfitter_cfg.c **** {
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 10
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccWD0ceQ.s 			page 10
 
 
  256:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_XTND_REG32((void CYFAR *)CYREG_SAR_MUX_SWITCH0, 0x00000021u);
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 1
  275              	.L12:
  288:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 	}
  289:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_XTND_REG32((void *)(CYREG_SAR_PUMP_CTRL), regValue);
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 11
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccWD0ceQ.s 			page 11
 
 
  276              		.loc 1 289 0
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 1
  324              		.section	.psocinit
  325              		.align	2
  326              		.global	cyfitter_cfg
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 12
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccWD0ceQ.s 			page 12
 
 
  327              		.code	16
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 1
  327:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 		};
  328:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 
  329:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 		static const cy_cfg_addrvalue_t CYCODE cy_cfg_data_table[] = {
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 13
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccWD0ceQ.s 			page 13
 
 
  330:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x82u, 0x0Du},
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 1
  384:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xC1u, 0x05u},
  385:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xC5u, 0xD1u},
  386:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xC7u, 0x20u},
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 14
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccWD0ceQ.s 			page 14
 
 
  387:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xC8u, 0x23u},
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 1
  441:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x71u, 0x02u},
  442:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x77u, 0x80u},
  443:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x82u, 0x40u},
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 15
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccWD0ceQ.s 			page 15
 
 
  444:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x87u, 0x80u},
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 1
  352 00e0 3848     		ldr	r0, .L21
  353 00e2 6300     		lsl	r3, r4, #1
  354 00e4 1A19     		add	r2, r3, r4
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 16
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccWD0ceQ.s 			page 16
 
 
  355 00e6 5200     		lsl	r2, r2, #1
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 1
  398              		.loc 1 499 0
  399 0128 EE22     		mov	r2, #238
  400 012a 2B4B     		ldr	r3, .L21+20
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 17
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccWD0ceQ.s 			page 17
 
 
  401 012c 1A60     		str	r2, [r3]
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 1
  435 0160 1A70     		strb	r2, [r3]
  520:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 
  521:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 		/* Enable UDB array */
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 18
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccWD0ceQ.s 			page 18
 
 
  522:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 		CY_SET_XTND_REG8((void *)CYREG_UDB_UDBIF_WAIT_CFG, (uint8)((CY_GET_XTND_REG8((void *)CYREG_UDB_UD
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 1
  538:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_XTND_REG32((void CYFAR *)(CYREG_PRT2_PC), 0x00040000u);
  474              		.loc 1 538 0
  475 019c 8021     		mov	r1, #128
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 19
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccWD0ceQ.s 			page 19
 
 
  476 019e C902     		lsl	r1, r1, #11
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 1
  513 01dc 00500F40 		.word	1074745344
  514 01e0 08500F40 		.word	1074745352
  515 01e4 10500F40 		.word	1074745360
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 20
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccWD0ceQ.s 			page 20
 
 
  516 01e8 18500F40 		.word	1074745368
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 1
  570 0032 0F       		.byte	15
  571 0033 01       		.byte	1
  572 0034 14       		.byte	20
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 21
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccWD0ceQ.s 			page 21
 
 
  573 0035 01       		.byte	1
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 1
  627 006b 01       		.byte	1
  628 006c 60       		.byte	96
  629 006d 40       		.byte	64
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 22
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccWD0ceQ.s 			page 22
 
 
  630 006e 62       		.byte	98
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 1
  684 00a4 CB       		.byte	-53
  685 00a5 FF       		.byte	-1
  686 00a6 CD       		.byte	-51
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 23
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccWD0ceQ.s 			page 23
 
 
  687 00a7 A0       		.byte	-96
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 1
  741 00dd 04       		.byte	4
  742 00de 19       		.byte	25
  743 00df 40       		.byte	64
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 24
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccWD0ceQ.s 			page 24
 
 
  744 00e0 1A       		.byte	26
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 1
  798 0116 C4       		.byte	-60
  799 0117 84       		.byte	-124
  800 0118 CA       		.byte	-54
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 25
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccWD0ceQ.s 			page 25
 
 
  801 0119 40       		.byte	64
@@ -1494,11 +1494,11 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 1
  851 0006 00000000 		.4byte	.Ldebug_abbrev0
  852 000a 04       		.byte	0x4
  853 000b 01       		.uleb128 0x1
- 854 000c 30020000 		.4byte	.LASF43
+ 854 000c 38020000 		.4byte	.LASF43
  855 0010 01       		.byte	0x1
- 856 0011 F5010000 		.4byte	.LASF44
- 857 0015 68000000 		.4byte	.LASF45
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 26
+ 856 0011 FD010000 		.4byte	.LASF44
+ 857 0015 56000000 		.4byte	.LASF45
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccWD0ceQ.s 			page 26
 
 
  858 0019 00000000 		.4byte	.Ldebug_ranges0+0
@@ -1516,81 +1516,81 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 1
  870 0037 04       		.uleb128 0x4
  871 0038 04       		.byte	0x4
  872 0039 07       		.byte	0x7
- 873 003a 90010000 		.4byte	.LASF0
+ 873 003a 98010000 		.4byte	.LASF0
  874 003e 04       		.uleb128 0x4
  875 003f 01       		.byte	0x1
  876 0040 06       		.byte	0x6
- 877 0041 F5020000 		.4byte	.LASF1
+ 877 0041 FD020000 		.4byte	.LASF1
  878 0045 04       		.uleb128 0x4
  879 0046 01       		.byte	0x1
  880 0047 08       		.byte	0x8
- 881 0048 32010000 		.4byte	.LASF2
+ 881 0048 3A010000 		.4byte	.LASF2
  882 004c 04       		.uleb128 0x4
  883 004d 02       		.byte	0x2
  884 004e 05       		.byte	0x5
- 885 004f CD020000 		.4byte	.LASF3
+ 885 004f D5020000 		.4byte	.LASF3
  886 0053 04       		.uleb128 0x4
  887 0054 02       		.byte	0x2
  888 0055 07       		.byte	0x7
- 889 0056 01030000 		.4byte	.LASF4
+ 889 0056 09030000 		.4byte	.LASF4
  890 005a 04       		.uleb128 0x4
  891 005b 04       		.byte	0x4
  892 005c 05       		.byte	0x5
- 893 005d EC020000 		.4byte	.LASF5
+ 893 005d F4020000 		.4byte	.LASF5
  894 0061 04       		.uleb128 0x4
  895 0062 04       		.byte	0x4
  896 0063 07       		.byte	0x7
- 897 0064 FA000000 		.4byte	.LASF6
+ 897 0064 02010000 		.4byte	.LASF6
  898 0068 04       		.uleb128 0x4
  899 0069 08       		.byte	0x8
  900 006a 05       		.byte	0x5
- 901 006b 1D020000 		.4byte	.LASF7
+ 901 006b 25020000 		.4byte	.LASF7
  902 006f 04       		.uleb128 0x4
  903 0070 08       		.byte	0x8
  904 0071 07       		.byte	0x7
- 905 0072 B2010000 		.4byte	.LASF8
+ 905 0072 BA010000 		.4byte	.LASF8
  906 0076 04       		.uleb128 0x4
  907 0077 04       		.byte	0x4
  908 0078 07       		.byte	0x7
- 909 0079 EC010000 		.4byte	.LASF9
+ 909 0079 F4010000 		.4byte	.LASF9
  910 007d 05       		.uleb128 0x5
  911 007e 04       		.byte	0x4
  912 007f 06       		.uleb128 0x6
  913 0080 04       		.byte	0x4
  914 0081 85000000 		.4byte	0x85
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 27
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccWD0ceQ.s 			page 27
 
 
  915 0085 07       		.uleb128 0x7
  916 0086 04       		.uleb128 0x4
  917 0087 01       		.byte	0x1
  918 0088 08       		.byte	0x8
- 919 0089 2B020000 		.4byte	.LASF10
+ 919 0089 33020000 		.4byte	.LASF10
  920 008d 08       		.uleb128 0x8
- 921 008e 0C010000 		.4byte	.LASF12
+ 921 008e 14010000 		.4byte	.LASF12
  922 0092 03       		.byte	0x3
  923 0093 3801     		.2byte	0x138
  924 0095 45000000 		.4byte	0x45
  925 0099 08       		.uleb128 0x8
- 926 009a 77010000 		.4byte	.LASF13
+ 926 009a 7F010000 		.4byte	.LASF13
  927 009e 03       		.byte	0x3
  928 009f 3901     		.2byte	0x139
  929 00a1 53000000 		.4byte	0x53
  930 00a5 08       		.uleb128 0x8
- 931 00a6 89010000 		.4byte	.LASF14
+ 931 00a6 91010000 		.4byte	.LASF14
  932 00aa 03       		.byte	0x3
  933 00ab 3A01     		.2byte	0x13a
  934 00ad 61000000 		.4byte	0x61
  935 00b1 04       		.uleb128 0x4
  936 00b2 04       		.byte	0x4
  937 00b3 04       		.byte	0x4
- 938 00b4 DA000000 		.4byte	.LASF15
+ 938 00b4 E2000000 		.4byte	.LASF15
  939 00b8 04       		.uleb128 0x4
  940 00b9 08       		.byte	0x8
  941 00ba 04       		.byte	0x4
- 942 00bb 47010000 		.4byte	.LASF16
+ 942 00bb 4F010000 		.4byte	.LASF16
  943 00bf 08       		.uleb128 0x8
- 944 00c0 F5000000 		.4byte	.LASF17
+ 944 00c0 FD000000 		.4byte	.LASF17
  945 00c4 03       		.byte	0x3
  946 00c5 E201     		.2byte	0x1e2
  947 00c7 CB000000 		.4byte	0xcb
@@ -1604,7 +1604,7 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 1
  955 00dc 09       		.uleb128 0x9
  956 00dd A5000000 		.4byte	0xa5
  957 00e1 08       		.uleb128 0x8
- 958 00e2 C9010000 		.4byte	.LASF19
+ 958 00e2 D1010000 		.4byte	.LASF19
  959 00e6 03       		.byte	0x3
  960 00e7 F401     		.2byte	0x1f4
  961 00e9 7F000000 		.4byte	0x7f
@@ -1614,11 +1614,11 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 1
  965 00f0 7F       		.byte	0x7f
  966 00f1 0E010000 		.4byte	0x10e
  967 00f5 0B       		.uleb128 0xb
- 968 00f6 BE020000 		.4byte	.LASF20
+ 968 00f6 C6020000 		.4byte	.LASF20
  969 00fa 01       		.byte	0x1
  970 00fb 81       		.byte	0x81
  971 00fc 8D000000 		.4byte	0x8d
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 28
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccWD0ceQ.s 			page 28
 
 
  972 0100 00       		.byte	0
@@ -1630,12 +1630,12 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 1
  978 010c 01       		.byte	0x1
  979 010d 00       		.byte	0
  980 010e 03       		.uleb128 0x3
- 981 010f C7000000 		.4byte	.LASF22
+ 981 010f CF000000 		.4byte	.LASF22
  982 0113 01       		.byte	0x1
  983 0114 83       		.byte	0x83
  984 0115 ED000000 		.4byte	0xed
  985 0119 0C       		.uleb128 0xc
- 986 011a 4E010000 		.4byte	.LASF27
+ 986 011a 56010000 		.4byte	.LASF27
  987 011e 01       		.byte	0x1
  988 011f 96       		.byte	0x96
  989 0120 00000000 		.4byte	.LFB3
@@ -1644,14 +1644,14 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 1
  992 0129 9C       		.byte	0x9c
  993 012a 8B010000 		.4byte	0x18b
  994 012e 0D       		.uleb128 0xd
- 995 012f 6C010000 		.4byte	.LASF23
+ 995 012f 74010000 		.4byte	.LASF23
  996 0133 01       		.byte	0x1
  997 0134 96       		.byte	0x96
  998 0135 8B010000 		.4byte	0x18b
  999 0139 01       		.uleb128 0x1
  1000 013a 50       		.byte	0x50
  1001 013b 0D       		.uleb128 0xd
- 1002 013c 7E010000 		.4byte	.LASF24
+ 1002 013c 86010000 		.4byte	.LASF24
  1003 0140 01       		.byte	0x1
  1004 0141 96       		.byte	0x96
  1005 0142 96010000 		.4byte	0x196
@@ -1673,12 +1673,12 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 1
  1021 0163 08000000 		.4byte	.LBB2
  1022 0167 22000000 		.4byte	.LBE2-.LBB2
  1023 016b 10       		.uleb128 0x10
- 1024 016c E3010000 		.4byte	.LASF25
+ 1024 016c EB010000 		.4byte	.LASF25
  1025 0170 01       		.byte	0x1
  1026 0171 9C       		.byte	0x9c
  1027 0172 A5000000 		.4byte	0xa5
  1028 0176 3E000000 		.4byte	.LLST2
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 29
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccWD0ceQ.s 			page 29
 
 
  1029 017a 10       		.uleb128 0x10
@@ -1700,7 +1700,7 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 1
  1045 019c 11       		.uleb128 0x11
  1046 019d 0E010000 		.4byte	0x10e
  1047 01a1 0C       		.uleb128 0xc
- 1048 01a2 12010000 		.4byte	.LASF28
+ 1048 01a2 1A010000 		.4byte	.LASF28
  1049 01a6 01       		.byte	0x1
  1050 01a7 3D       		.byte	0x3d
  1051 01a8 00000000 		.4byte	.LFB0
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 1
  1083 01e5 14       		.uleb128 0x14
  1084 01e6 01       		.uleb128 0x1
  1085 01e7 50       		.byte	0x50
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 30
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccWD0ceQ.s 			page 30
 
 
  1086 01e8 03       		.uleb128 0x3
@@ -1787,7 +1787,7 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 1
  1129 0237 00       		.byte	0
  1130 0238 00       		.byte	0
  1131 0239 16       		.uleb128 0x16
- 1132 023a 1C010000 		.4byte	.LASF33
+ 1132 023a 24010000 		.4byte	.LASF33
  1133 023e 01       		.byte	0x1
  1134 023f 1601     		.2byte	0x116
  1135 0241 00000000 		.4byte	.LFB6
@@ -1796,9 +1796,9 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 1
  1138 024a 9C       		.byte	0x9c
  1139 024b 6E020000 		.4byte	0x26e
  1140 024f 17       		.uleb128 0x17
- 1141 0250 C5020000 		.4byte	.LASF30
+ 1141 0250 CD020000 		.4byte	.LASF30
  1142 0254 01       		.byte	0x1
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 31
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccWD0ceQ.s 			page 31
 
 
  1143 0255 1601     		.2byte	0x116
@@ -1806,7 +1806,7 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 1
  1145 025b 01       		.uleb128 0x1
  1146 025c 50       		.byte	0x50
  1147 025d 18       		.uleb128 0x18
- 1148 025e 14030000 		.4byte	.LASF31
+ 1148 025e 1C030000 		.4byte	.LASF31
  1149 0262 01       		.byte	0x1
  1150 0263 1801     		.2byte	0x118
  1151 0265 A5000000 		.4byte	0xa5
@@ -1832,7 +1832,7 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 1
  1171 0291 00       		.byte	0
  1172 0292 00       		.byte	0
  1173 0293 16       		.uleb128 0x16
- 1174 0294 9D010000 		.4byte	.LASF34
+ 1174 0294 A5010000 		.4byte	.LASF34
  1175 0298 01       		.byte	0x1
  1176 0299 3801     		.2byte	0x138
  1177 029b D8000000 		.4byte	.LFB7
@@ -1853,12 +1853,12 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 1
  1192 02c3 03       		.byte	0x3
  1193 02c4 0C000000 		.4byte	cy_cfg_addr_table.4739
  1194 02c8 1A       		.uleb128 0x1a
- 1195 02c9 56000000 		.4byte	.LASF36
+ 1195 02c9 BD000000 		.4byte	.LASF36
  1196 02cd 01       		.byte	0x1
  1197 02ce 4901     		.2byte	0x149
  1198 02d0 C5030000 		.4byte	0x3c5
  1199 02d4 05       		.uleb128 0x5
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 32
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccWD0ceQ.s 			page 32
 
 
  1200 02d5 03       		.byte	0x3
@@ -1869,20 +1869,20 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 1
  1205 02dd D901     		.2byte	0x1d9
  1206 02df FE020000 		.4byte	0x2fe
  1207 02e3 1C       		.uleb128 0x1c
- 1208 02e4 AA010000 		.4byte	.LASF37
+ 1208 02e4 B2010000 		.4byte	.LASF37
  1209 02e8 01       		.byte	0x1
  1210 02e9 DA01     		.2byte	0x1da
  1211 02eb 7D000000 		.4byte	0x7d
  1212 02ef 00       		.byte	0
  1213 02f0 1C       		.uleb128 0x1c
- 1214 02f1 F0000000 		.4byte	.LASF38
+ 1214 02f1 F8000000 		.4byte	.LASF38
  1215 02f5 01       		.byte	0x1
  1216 02f6 DB01     		.2byte	0x1db
  1217 02f8 99000000 		.4byte	0x99
  1218 02fc 04       		.byte	0x4
  1219 02fd 00       		.byte	0
  1220 02fe 08       		.uleb128 0x8
- 1221 02ff D6010000 		.4byte	.LASF39
+ 1221 02ff DE010000 		.4byte	.LASF39
  1222 0303 01       		.byte	0x1
  1223 0304 DC01     		.2byte	0x1dc
  1224 0306 DA020000 		.4byte	0x2da
@@ -1894,7 +1894,7 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 1
  1230 0318 01       		.byte	0x1
  1231 0319 00       		.byte	0
  1232 031a 1A       		.uleb128 0x1a
- 1233 031b E0000000 		.4byte	.LASF40
+ 1233 031b E8000000 		.4byte	.LASF40
  1234 031f 01       		.byte	0x1
  1235 0320 DE01     		.2byte	0x1de
  1236 0322 2C030000 		.4byte	0x32c
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 1
  1254 0350 01       		.byte	0x1
  1255 0351 E901     		.2byte	0x1e9
  1256 0353 5B030000 		.4byte	0x35b
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 33
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccWD0ceQ.s 			page 33
 
 
  1257 0357 04010000 		.4byte	.LLST8
@@ -1974,11 +1974,11 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 1
  1307 03c5 11       		.uleb128 0x11
  1308 03c6 B5030000 		.4byte	0x3b5
  1309 03ca 21       		.uleb128 0x21
- 1310 03cb 40010000 		.4byte	.LASF41
+ 1310 03cb 48010000 		.4byte	.LASF41
  1311 03cf 7D000000 		.4byte	0x7d
  1312 03d3 E7030000 		.4byte	0x3e7
  1313 03d7 22       		.uleb128 0x22
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 34
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccWD0ceQ.s 			page 34
 
 
  1314 03d8 7D000000 		.4byte	0x7d
@@ -1988,7 +1988,7 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 1
  1318 03e2 76000000 		.4byte	0x76
  1319 03e6 00       		.byte	0
  1320 03e7 23       		.uleb128 0x23
- 1321 03e8 D7020000 		.4byte	.LASF42
+ 1321 03e8 DF020000 		.4byte	.LASF42
  1322 03ec 04       		.byte	0x4
  1323 03ed 38       		.byte	0x38
  1324 03ee F8030000 		.4byte	0x3f8
@@ -2007,7 +2007,7 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 1
  1337 040d E1000000 		.4byte	0xe1
  1338 0411 00       		.byte	0
  1339 0412 25       		.uleb128 0x25
- 1340 0413 60010000 		.4byte	.LASF47
+ 1340 0413 68010000 		.4byte	.LASF47
  1341 0417 04       		.byte	0x4
  1342 0418 4F       		.byte	0x4f
  1343 0419 22       		.uleb128 0x22
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 1
  1368 0013 02       		.uleb128 0x2
  1369 0014 24       		.uleb128 0x24
  1370 0015 00       		.byte	0
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 35
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccWD0ceQ.s 			page 35
 
 
  1371 0016 0B       		.uleb128 0xb
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 1
  1425 004c 00       		.byte	0
  1426 004d 08       		.uleb128 0x8
  1427 004e 16       		.uleb128 0x16
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 36
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccWD0ceQ.s 			page 36
 
 
  1428 004f 00       		.byte	0
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 1
  1482 0085 0B       		.uleb128 0xb
  1483 0086 27       		.uleb128 0x27
  1484 0087 19       		.uleb128 0x19
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 37
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccWD0ceQ.s 			page 37
 
 
  1485 0088 11       		.uleb128 0x11
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 1
  1539 00bf 03       		.uleb128 0x3
  1540 00c0 0E       		.uleb128 0xe
  1541 00c1 3A       		.uleb128 0x3a
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 38
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccWD0ceQ.s 			page 38
 
 
  1542 00c2 0B       		.uleb128 0xb
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 1
  1596 00ff 31       		.uleb128 0x31
  1597 0100 13       		.uleb128 0x13
  1598 0101 01       		.uleb128 0x1
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 39
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccWD0ceQ.s 			page 39
 
 
  1599 0102 13       		.uleb128 0x13
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 1
  1653 0139 02       		.uleb128 0x2
  1654 013a 17       		.uleb128 0x17
  1655 013b 00       		.byte	0
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 40
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccWD0ceQ.s 			page 40
 
 
  1656 013c 00       		.byte	0
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 1
  1710 0172 00       		.byte	0
  1711 0173 1D       		.uleb128 0x1d
  1712 0174 01       		.uleb128 0x1
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 41
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccWD0ceQ.s 			page 41
 
 
  1713 0175 01       		.byte	0x1
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 1
  1767 01ad 19       		.uleb128 0x19
  1768 01ae 01       		.uleb128 0x1
  1769 01af 13       		.uleb128 0x13
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 42
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccWD0ceQ.s 			page 42
 
 
  1770 01b0 00       		.byte	0
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 1
  1824 01e6 03       		.uleb128 0x3
  1825 01e7 0E       		.uleb128 0xe
  1826 01e8 3A       		.uleb128 0x3a
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 43
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccWD0ceQ.s 			page 43
 
 
  1827 01e9 0B       		.uleb128 0xb
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 1
  1881              	.LLST4:
  1882 006f 00000000 		.4byte	.LVL12
  1883 0073 09000000 		.4byte	.LVL14-1
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 44
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccWD0ceQ.s 			page 44
 
 
  1884 0077 0100     		.2byte	0x1
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 1
  1938 00fc 00000000 		.4byte	0
  1939 0100 00000000 		.4byte	0
  1940              	.LLST8:
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 45
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccWD0ceQ.s 			page 45
 
 
  1941 0104 E0000000 		.4byte	.LVL25
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 1
  1995 0018 00000000 		.4byte	.LFB6
  1996 001c 20000000 		.4byte	.LFE6
  1997 0020 00000000 		.4byte	.LFB5
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 46
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccWD0ceQ.s 			page 46
 
 
  1998 0024 1C000000 		.4byte	.LFE5
@@ -2746,209 +2746,211 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 1
  2021      6464725F 
  2021      7461626C 
  2021      6500
- 2022              	.LASF36:
- 2023 0056 63795F63 		.ascii	"cy_cfg_data_table\000"
- 2023      66675F64 
- 2023      6174615F 
- 2023      7461626C 
- 2023      6500
- 2024              	.LASF45:
- 2025 0068 433A5C55 		.ascii	"C:\\Users\\PernilleLouise\\Documents\\Elektro\\4. s"
- 2025      73657273 
- 2025      5C506572 
- 2025      6E696C6C 
- 2025      654C6F75 
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 47
+ 2022              	.LASF45:
+ 2023 0056 433A5C55 		.ascii	"C:\\Users\\PernilleLouise\\Documents\\Elektro\\4. s"
+ 2023      73657273 
+ 2023      5C506572 
+ 2023      6E696C6C 
+ 2023      654C6F75 
+ 2024 0084 656D6573 		.ascii	"emester\\E4PRJ4\\PSoCBilstyring\\Workspace01\\Desig"
+ 2024      7465725C 
+ 2024      45345052 
+ 2024      4A345C50 
+ 2024      536F4342 
+ 2025 00b3 6E30312E 		.ascii	"n01.cydsn\000"
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccWD0ceQ.s 			page 47
 
 
- 2026 0096 656D6573 		.ascii	"emester\\E4PRJ\\Projekt\\Workspace01\\Design01.cyds"
- 2026      7465725C 
- 2026      45345052 
- 2026      4A5C5072 
- 2026      6F6A656B 
- 2027 00c5 6E00     		.ascii	"n\000"
+ 2025      63796473 
+ 2025      6E00
+ 2026              	.LASF36:
+ 2027 00bd 63795F63 		.ascii	"cy_cfg_data_table\000"
+ 2027      66675F64 
+ 2027      6174615F 
+ 2027      7461626C 
+ 2027      6500
  2028              	.LASF22:
- 2029 00c7 63795F63 		.ascii	"cy_cfg_addrvalue_t\000"
+ 2029 00cf 63795F63 		.ascii	"cy_cfg_addrvalue_t\000"
  2029      66675F61 
  2029      64647276 
  2029      616C7565 
  2029      5F7400
  2030              	.LASF15:
- 2031 00da 666C6F61 		.ascii	"float\000"
+ 2031 00e2 666C6F61 		.ascii	"float\000"
  2031      7400
  2032              	.LASF40:
- 2033 00e0 6366675F 		.ascii	"cfg_memset_list\000"
+ 2033 00e8 6366675F 		.ascii	"cfg_memset_list\000"
  2033      6D656D73 
  2033      65745F6C 
  2033      69737400 
  2034              	.LASF38:
- 2035 00f0 73697A65 		.ascii	"size\000"
+ 2035 00f8 73697A65 		.ascii	"size\000"
  2035      00
  2036              	.LASF17:
- 2037 00f5 72656738 		.ascii	"reg8\000"
+ 2037 00fd 72656738 		.ascii	"reg8\000"
  2037      00
  2038              	.LASF6:
- 2039 00fa 6C6F6E67 		.ascii	"long unsigned int\000"
+ 2039 0102 6C6F6E67 		.ascii	"long unsigned int\000"
  2039      20756E73 
  2039      69676E65 
  2039      6420696E 
  2039      7400
  2040              	.LASF12:
- 2041 010c 75696E74 		.ascii	"uint8\000"
+ 2041 0114 75696E74 		.ascii	"uint8\000"
  2041      3800
  2042              	.LASF28:
- 2043 0112 43594D45 		.ascii	"CYMEMZERO\000"
+ 2043 011a 43594D45 		.ascii	"CYMEMZERO\000"
  2043      4D5A4552 
  2043      4F00
  2044              	.LASF33:
- 2045 011c 53657441 		.ascii	"SetAnalogRoutingPumps\000"
+ 2045 0124 53657441 		.ascii	"SetAnalogRoutingPumps\000"
  2045      6E616C6F 
  2045      67526F75 
  2045      74696E67 
  2045      50756D70 
  2046              	.LASF2:
- 2047 0132 756E7369 		.ascii	"unsigned char\000"
+ 2047 013a 756E7369 		.ascii	"unsigned char\000"
  2047      676E6564 
  2047      20636861 
  2047      7200
  2048              	.LASF41:
- 2049 0140 6D656D73 		.ascii	"memset\000"
+ 2049 0148 6D656D73 		.ascii	"memset\000"
  2049      657400
  2050              	.LASF16:
- 2051 0147 646F7562 		.ascii	"double\000"
+ 2051 014f 646F7562 		.ascii	"double\000"
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccWD0ceQ.s 			page 48
+
+
  2051      6C6500
  2052              	.LASF27:
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 48
-
-
- 2053 014e 6366675F 		.ascii	"cfg_write_bytes32\000"
+ 2053 0156 6366675F 		.ascii	"cfg_write_bytes32\000"
  2053      77726974 
  2053      655F6279 
  2053      74657333 
  2053      3200
  2054              	.LASF47:
- 2055 0160 4379496E 		.ascii	"CyIntEnable\000"
+ 2055 0168 4379496E 		.ascii	"CyIntEnable\000"
  2055      74456E61 
  2055      626C6500 
  2056              	.LASF23:
- 2057 016c 61646472 		.ascii	"addr_table\000"
+ 2057 0174 61646472 		.ascii	"addr_table\000"
  2057      5F746162 
  2057      6C6500
  2058              	.LASF13:
- 2059 0177 75696E74 		.ascii	"uint16\000"
+ 2059 017f 75696E74 		.ascii	"uint16\000"
  2059      313600
  2060              	.LASF24:
- 2061 017e 64617461 		.ascii	"data_table\000"
+ 2061 0186 64617461 		.ascii	"data_table\000"
  2061      5F746162 
  2061      6C6500
  2062              	.LASF14:
- 2063 0189 75696E74 		.ascii	"uint32\000"
+ 2063 0191 75696E74 		.ascii	"uint32\000"
  2063      333200
  2064              	.LASF0:
- 2065 0190 756E7369 		.ascii	"unsigned int\000"
+ 2065 0198 756E7369 		.ascii	"unsigned int\000"
  2065      676E6564 
  2065      20696E74 
  2065      00
  2066              	.LASF34:
- 2067 019d 63796669 		.ascii	"cyfitter_cfg\000"
+ 2067 01a5 63796669 		.ascii	"cyfitter_cfg\000"
  2067      74746572 
  2067      5F636667 
  2067      00
  2068              	.LASF37:
- 2069 01aa 61646472 		.ascii	"address\000"
+ 2069 01b2 61646472 		.ascii	"address\000"
  2069      65737300 
  2070              	.LASF8:
- 2071 01b2 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 2071 01ba 6C6F6E67 		.ascii	"long long unsigned int\000"
  2071      206C6F6E 
  2071      6720756E 
  2071      7369676E 
  2071      65642069 
  2072              	.LASF19:
- 2073 01c9 63796973 		.ascii	"cyisraddress\000"
+ 2073 01d1 63796973 		.ascii	"cyisraddress\000"
  2073      72616464 
  2073      72657373 
  2073      00
  2074              	.LASF39:
- 2075 01d6 6366675F 		.ascii	"cfg_memset_t\000"
+ 2075 01de 6366675F 		.ascii	"cfg_memset_t\000"
  2075      6D656D73 
  2075      65745F74 
  2075      00
  2076              	.LASF25:
- 2077 01e3 62617365 		.ascii	"baseAddr\000"
+ 2077 01eb 62617365 		.ascii	"baseAddr\000"
  2077      41646472 
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccWD0ceQ.s 			page 49
+
+
  2077      00
  2078              	.LASF9:
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 49
-
-
- 2079 01ec 73697A65 		.ascii	"sizetype\000"
+ 2079 01f4 73697A65 		.ascii	"sizetype\000"
  2079      74797065 
  2079      00
  2080              	.LASF44:
- 2081 01f5 2E5C4765 		.ascii	".\\Generated_Source\\PSoC4\\cyfitter_cfg.c\000"
+ 2081 01fd 2E5C4765 		.ascii	".\\Generated_Source\\PSoC4\\cyfitter_cfg.c\000"
  2081      6E657261 
  2081      7465645F 
  2081      536F7572 
  2081      63655C50 
  2082              	.LASF7:
- 2083 021d 6C6F6E67 		.ascii	"long long int\000"
+ 2083 0225 6C6F6E67 		.ascii	"long long int\000"
  2083      206C6F6E 
  2083      6720696E 
  2083      7400
  2084              	.LASF10:
- 2085 022b 63686172 		.ascii	"char\000"
+ 2085 0233 63686172 		.ascii	"char\000"
  2085      00
  2086              	.LASF43:
- 2087 0230 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 2087 0238 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
  2087      4320342E 
  2087      392E3320 
  2087      32303135 
  2087      30333033 
- 2088 0263 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
+ 2088 026b 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
  2088      20726576 
  2088      6973696F 
  2088      6E203232 
  2088      31323230 
- 2089 0296 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 2089 029e 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
  2089      66756E63 
  2089      74696F6E 
  2089      2D736563 
  2089      74696F6E 
  2090              	.LASF20:
- 2091 02be 6F666673 		.ascii	"offset\000"
+ 2091 02c6 6F666673 		.ascii	"offset\000"
  2091      657400
  2092              	.LASF30:
- 2093 02c5 656E6162 		.ascii	"enabled\000"
+ 2093 02cd 656E6162 		.ascii	"enabled\000"
  2093      6C656400 
  2094              	.LASF3:
- 2095 02cd 73686F72 		.ascii	"short int\000"
+ 2095 02d5 73686F72 		.ascii	"short int\000"
  2095      7420696E 
  2095      7400
  2096              	.LASF42:
- 2097 02d7 43795379 		.ascii	"CySysClkWriteImoFreq\000"
+ 2097 02df 43795379 		.ascii	"CySysClkWriteImoFreq\000"
  2097      73436C6B 
  2097      57726974 
  2097      65496D6F 
  2097      46726571 
  2098              	.LASF5:
- 2099 02ec 6C6F6E67 		.ascii	"long int\000"
+ 2099 02f4 6C6F6E67 		.ascii	"long int\000"
  2099      20696E74 
  2099      00
  2100              	.LASF1:
- 2101 02f5 7369676E 		.ascii	"signed char\000"
+ 2101 02fd 7369676E 		.ascii	"signed char\000"
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccWD0ceQ.s 			page 50
+
+
  2101      65642063 
  2101      68617200 
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccscdSYh.s 			page 50
-
-
  2102              	.LASF4:
- 2103 0301 73686F72 		.ascii	"short unsigned int\000"
+ 2103 0309 73686F72 		.ascii	"short unsigned int\000"
  2103      7420756E 
  2103      7369676E 
  2103      65642069 
  2103      6E7400
  2104              	.LASF31:
- 2105 0314 72656756 		.ascii	"regValue\000"
+ 2105 031c 72656756 		.ascii	"regValue\000"
  2105      616C7565 
  2105      00
  2106              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

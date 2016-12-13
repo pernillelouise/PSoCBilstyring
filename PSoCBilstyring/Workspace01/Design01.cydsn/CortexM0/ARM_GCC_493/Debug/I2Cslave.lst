@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccReeWYy.s 			page 1
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccCrzhTs.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccReeWYy.s 			page 1
   45              	.LFE34:
   46              		.size	initReceiveData, .-initReceiveData
   47              		.section	.text.receiveData,"ax",%progbits
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccReeWYy.s 			page 2
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccCrzhTs.s 			page 2
 
 
   48              		.align	2
@@ -84,793 +84,832 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccReeWYy.s 			page 1
   64 0004 FFF7FEFF 		bl	I2C_1_I2CSlaveStatus
   65              	.LVL2:
   66 0008 1028     		cmp	r0, #16
-  67 000a 09D1     		bne	.L5
+  67 000a 0DD1     		bne	.L5
   68              	.LBB2:
   15:.\I2Cslave.c  ****     {
-  16:.\I2Cslave.c  ****         int i;
+  16:.\I2Cslave.c  ****         int i; 
   17:.\I2Cslave.c  ****         int  bytecnt=I2C_1_I2CSlaveGetWriteBufSize();
   69              		.loc 1 17 0
   70 000c FFF7FEFF 		bl	I2C_1_I2CSlaveGetWriteBufSize
   71              	.LVL3:
-  18:.\I2Cslave.c  ****         //for(i = 0; i<bytecnt; i++)
-  19:.\I2Cslave.c  ****         //{
+  18:.\I2Cslave.c  ****         for(i = 0; i<bytecnt; i++)
+  72              		.loc 1 18 0
+  73 0010 0023     		mov	r3, #0
+  74 0012 03E0     		b	.L6
+  75              	.LVL4:
+  76              	.L7:
+  19:.\I2Cslave.c  ****         {
   20:.\I2Cslave.c  ****             //Saves data from the I2C slave buffer into the userarray
   21:.\I2Cslave.c  ****             userarray[i] = (int)wrbuf[i];
-  72              		.loc 1 21 0
-  73 0010 0023     		mov	r3, #0
-  74 0012 054A     		ldr	r2, .L6
-  75 0014 D25C     		ldrb	r2, [r2, r3]
-  76 0016 E254     		strb	r2, [r4, r3]
-  22:.\I2Cslave.c  ****         //}
+  77              		.loc 1 21 0 discriminator 3
+  78 0014 064A     		ldr	r2, .L8
+  79 0016 D25C     		ldrb	r2, [r2, r3]
+  80 0018 E254     		strb	r2, [r4, r3]
+  18:.\I2Cslave.c  ****         for(i = 0; i<bytecnt; i++)
+  81              		.loc 1 18 0 discriminator 3
+  82 001a 0133     		add	r3, r3, #1
+  83              	.LVL5:
+  84              	.L6:
+  18:.\I2Cslave.c  ****         for(i = 0; i<bytecnt; i++)
+  85              		.loc 1 18 0 is_stmt 0 discriminator 1
+  86 001c 8342     		cmp	r3, r0
+  87 001e F9DB     		blt	.L7
+  22:.\I2Cslave.c  ****         }
   23:.\I2Cslave.c  ****         
   24:.\I2Cslave.c  ****         I2C_1_I2CSlaveClearReadBuf();
-  77              		.loc 1 24 0
-  78 0018 FFF7FEFF 		bl	I2C_1_I2CSlaveClearReadBuf
-  79              	.LVL4:
+  88              		.loc 1 24 0 is_stmt 1
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccCrzhTs.s 			page 3
+
+
+  89 0020 FFF7FEFF 		bl	I2C_1_I2CSlaveClearReadBuf
+  90              	.LVL6:
   25:.\I2Cslave.c  ****         I2C_1_I2CSlaveClearWriteBuf();
-  80              		.loc 1 25 0
-  81 001c FFF7FEFF 		bl	I2C_1_I2CSlaveClearWriteBuf
-  82              	.LVL5:
-  83              	.L5:
-  84              	.LBE2:
+  91              		.loc 1 25 0
+  92 0024 FFF7FEFF 		bl	I2C_1_I2CSlaveClearWriteBuf
+  93              	.LVL7:
+  94              	.L5:
+  95              	.LBE2:
   26:.\I2Cslave.c  ****     }
   27:.\I2Cslave.c  ****     I2C_1_I2CSlaveClearReadStatus();
-  85              		.loc 1 27 0
-  86 0020 FFF7FEFF 		bl	I2C_1_I2CSlaveClearReadStatus
-  87              	.LVL6:
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccReeWYy.s 			page 3
-
-
+  96              		.loc 1 27 0
+  97 0028 FFF7FEFF 		bl	I2C_1_I2CSlaveClearReadStatus
+  98              	.LVL8:
   28:.\I2Cslave.c  **** }
-  88              		.loc 1 28 0
-  89              		@ sp needed
-  90              	.LVL7:
-  91 0024 10BD     		pop	{r4, pc}
-  92              	.L7:
-  93 0026 C046     		.align	2
-  94              	.L6:
-  95 0028 00000000 		.word	wrbuf
-  96              		.cfi_endproc
-  97              	.LFE35:
-  98              		.size	receiveData, .-receiveData
-  99              		.comm	wrbuf,4,4
- 100              		.text
- 101              	.Letext0:
- 102              		.file 2 "Generated_Source\\PSoC4/cytypes.h"
- 103              		.file 3 "Generated_Source\\PSoC4/I2C_1_I2C.h"
- 104              		.file 4 ".\\I2Cslave.h"
- 105              		.section	.debug_info,"",%progbits
- 106              	.Ldebug_info0:
- 107 0000 AC010000 		.4byte	0x1ac
- 108 0004 0400     		.2byte	0x4
- 109 0006 00000000 		.4byte	.Ldebug_abbrev0
- 110 000a 04       		.byte	0x4
- 111 000b 01       		.uleb128 0x1
- 112 000c 82010000 		.4byte	.LASF20
- 113 0010 01       		.byte	0x1
- 114 0011 49020000 		.4byte	.LASF21
- 115 0015 BA000000 		.4byte	.LASF22
- 116 0019 00000000 		.4byte	.Ldebug_ranges0+0
- 117 001d 00000000 		.4byte	0
- 118 0021 00000000 		.4byte	.Ldebug_line0
- 119 0025 02       		.uleb128 0x2
- 120 0026 01       		.byte	0x1
- 121 0027 06       		.byte	0x6
- 122 0028 56020000 		.4byte	.LASF0
- 123 002c 02       		.uleb128 0x2
- 124 002d 01       		.byte	0x1
- 125 002e 08       		.byte	0x8
- 126 002f 85000000 		.4byte	.LASF1
- 127 0033 02       		.uleb128 0x2
- 128 0034 02       		.byte	0x2
- 129 0035 05       		.byte	0x5
- 130 0036 10020000 		.4byte	.LASF2
- 131 003a 02       		.uleb128 0x2
- 132 003b 02       		.byte	0x2
- 133 003c 07       		.byte	0x7
- 134 003d 00000000 		.4byte	.LASF3
- 135 0041 02       		.uleb128 0x2
- 136 0042 04       		.byte	0x4
- 137 0043 05       		.byte	0x5
- 138 0044 24020000 		.4byte	.LASF4
- 139 0048 02       		.uleb128 0x2
- 140 0049 04       		.byte	0x4
- 141 004a 07       		.byte	0x7
- 142 004b 9B000000 		.4byte	.LASF5
- 143 004f 02       		.uleb128 0x2
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccReeWYy.s 			page 4
+  99              		.loc 1 28 0
+ 100              		@ sp needed
+ 101              	.LVL9:
+ 102 002c 10BD     		pop	{r4, pc}
+ 103              	.L9:
+ 104 002e C046     		.align	2
+ 105              	.L8:
+ 106 0030 00000000 		.word	wrbuf
+ 107              		.cfi_endproc
+ 108              	.LFE35:
+ 109              		.size	receiveData, .-receiveData
+ 110              		.comm	wrbuf,4,4
+ 111              		.text
+ 112              	.Letext0:
+ 113              		.file 2 "Generated_Source\\PSoC4/cytypes.h"
+ 114              		.file 3 "Generated_Source\\PSoC4/I2C_1_I2C.h"
+ 115              		.file 4 ".\\I2Cslave.h"
+ 116              		.section	.debug_info,"",%progbits
+ 117              	.Ldebug_info0:
+ 118 0000 B2010000 		.4byte	0x1b2
+ 119 0004 0400     		.2byte	0x4
+ 120 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 121 000a 04       		.byte	0x4
+ 122 000b 01       		.uleb128 0x1
+ 123 000c 8A010000 		.4byte	.LASF21
+ 124 0010 01       		.byte	0x1
+ 125 0011 51020000 		.4byte	.LASF22
+ 126 0015 00000000 		.4byte	.LASF23
+ 127 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 128 001d 00000000 		.4byte	0
+ 129 0021 00000000 		.4byte	.Ldebug_line0
+ 130 0025 02       		.uleb128 0x2
+ 131 0026 01       		.byte	0x1
+ 132 0027 06       		.byte	0x6
+ 133 0028 5E020000 		.4byte	.LASF0
+ 134 002c 02       		.uleb128 0x2
+ 135 002d 01       		.byte	0x1
+ 136 002e 08       		.byte	0x8
+ 137 002f EC000000 		.4byte	.LASF1
+ 138 0033 02       		.uleb128 0x2
+ 139 0034 02       		.byte	0x2
+ 140 0035 05       		.byte	0x5
+ 141 0036 18020000 		.4byte	.LASF2
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccCrzhTs.s 			page 4
 
 
- 144 0050 08       		.byte	0x8
- 145 0051 05       		.byte	0x5
- 146 0052 6F010000 		.4byte	.LASF6
- 147 0056 02       		.uleb128 0x2
- 148 0057 08       		.byte	0x8
- 149 0058 07       		.byte	0x7
- 150 0059 33010000 		.4byte	.LASF7
- 151 005d 03       		.uleb128 0x3
- 152 005e 04       		.byte	0x4
- 153 005f 05       		.byte	0x5
- 154 0060 696E7400 		.ascii	"int\000"
- 155 0064 02       		.uleb128 0x2
- 156 0065 04       		.byte	0x4
- 157 0066 07       		.byte	0x7
- 158 0067 26010000 		.4byte	.LASF8
- 159 006b 04       		.uleb128 0x4
- 160 006c AD000000 		.4byte	.LASF9
- 161 0070 02       		.byte	0x2
- 162 0071 3801     		.2byte	0x138
- 163 0073 2C000000 		.4byte	0x2c
- 164 0077 04       		.uleb128 0x4
- 165 0078 1F010000 		.4byte	.LASF10
- 166 007c 02       		.byte	0x2
- 167 007d 3A01     		.2byte	0x13a
- 168 007f 48000000 		.4byte	0x48
- 169 0083 02       		.uleb128 0x2
- 170 0084 04       		.byte	0x4
- 171 0085 04       		.byte	0x4
- 172 0086 64000000 		.4byte	.LASF11
- 173 008a 02       		.uleb128 0x2
- 174 008b 08       		.byte	0x8
- 175 008c 04       		.byte	0x4
- 176 008d B3000000 		.4byte	.LASF12
- 177 0091 02       		.uleb128 0x2
- 178 0092 01       		.byte	0x1
- 179 0093 08       		.byte	0x8
- 180 0094 7D010000 		.4byte	.LASF13
- 181 0098 02       		.uleb128 0x2
- 182 0099 04       		.byte	0x4
- 183 009a 07       		.byte	0x7
- 184 009b 56010000 		.4byte	.LASF14
- 185 009f 05       		.uleb128 0x5
- 186 00a0 04       		.byte	0x4
- 187 00a1 6B000000 		.4byte	0x6b
- 188 00a5 06       		.uleb128 0x6
- 189 00a6 5F010000 		.4byte	.LASF23
- 190 00aa 01       		.byte	0x1
- 191 00ab 06       		.byte	0x6
- 192 00ac 00000000 		.4byte	.LFB34
- 193 00b0 10000000 		.4byte	.LFE34-.LFB34
- 194 00b4 01       		.uleb128 0x1
- 195 00b5 9C       		.byte	0x9c
- 196 00b6 D3000000 		.4byte	0xd3
- 197 00ba 07       		.uleb128 0x7
- 198 00bb 0A000000 		.4byte	.LVL0
- 199 00bf 6A010000 		.4byte	0x16a
- 200 00c3 08       		.uleb128 0x8
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccReeWYy.s 			page 5
+ 142 003a 02       		.uleb128 0x2
+ 143 003b 02       		.byte	0x2
+ 144 003c 07       		.byte	0x7
+ 145 003d 67000000 		.4byte	.LASF3
+ 146 0041 02       		.uleb128 0x2
+ 147 0042 04       		.byte	0x4
+ 148 0043 05       		.byte	0x5
+ 149 0044 2C020000 		.4byte	.LASF4
+ 150 0048 02       		.uleb128 0x2
+ 151 0049 04       		.byte	0x4
+ 152 004a 07       		.byte	0x7
+ 153 004b FA000000 		.4byte	.LASF5
+ 154 004f 02       		.uleb128 0x2
+ 155 0050 08       		.byte	0x8
+ 156 0051 05       		.byte	0x5
+ 157 0052 77010000 		.4byte	.LASF6
+ 158 0056 02       		.uleb128 0x2
+ 159 0057 08       		.byte	0x8
+ 160 0058 07       		.byte	0x7
+ 161 0059 3B010000 		.4byte	.LASF7
+ 162 005d 03       		.uleb128 0x3
+ 163 005e 04       		.byte	0x4
+ 164 005f 05       		.byte	0x5
+ 165 0060 696E7400 		.ascii	"int\000"
+ 166 0064 02       		.uleb128 0x2
+ 167 0065 04       		.byte	0x4
+ 168 0066 07       		.byte	0x7
+ 169 0067 2E010000 		.4byte	.LASF8
+ 170 006b 04       		.uleb128 0x4
+ 171 006c 0C010000 		.4byte	.LASF9
+ 172 0070 02       		.byte	0x2
+ 173 0071 3801     		.2byte	0x138
+ 174 0073 2C000000 		.4byte	0x2c
+ 175 0077 04       		.uleb128 0x4
+ 176 0078 27010000 		.4byte	.LASF10
+ 177 007c 02       		.byte	0x2
+ 178 007d 3A01     		.2byte	0x13a
+ 179 007f 48000000 		.4byte	0x48
+ 180 0083 02       		.uleb128 0x2
+ 181 0084 04       		.byte	0x4
+ 182 0085 04       		.byte	0x4
+ 183 0086 CB000000 		.4byte	.LASF11
+ 184 008a 02       		.uleb128 0x2
+ 185 008b 08       		.byte	0x8
+ 186 008c 04       		.byte	0x4
+ 187 008d 12010000 		.4byte	.LASF12
+ 188 0091 02       		.uleb128 0x2
+ 189 0092 01       		.byte	0x1
+ 190 0093 08       		.byte	0x8
+ 191 0094 85010000 		.4byte	.LASF13
+ 192 0098 02       		.uleb128 0x2
+ 193 0099 04       		.byte	0x4
+ 194 009a 07       		.byte	0x7
+ 195 009b 5E010000 		.4byte	.LASF14
+ 196 009f 05       		.uleb128 0x5
+ 197 00a0 04       		.byte	0x4
+ 198 00a1 6B000000 		.4byte	0x6b
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccCrzhTs.s 			page 5
 
 
- 201 00c4 01       		.uleb128 0x1
- 202 00c5 51       		.byte	0x51
- 203 00c6 01       		.uleb128 0x1
- 204 00c7 34       		.byte	0x34
- 205 00c8 08       		.uleb128 0x8
- 206 00c9 01       		.uleb128 0x1
- 207 00ca 50       		.byte	0x50
- 208 00cb 05       		.uleb128 0x5
- 209 00cc 03       		.byte	0x3
- 210 00cd 00000000 		.4byte	wrbuf
- 211 00d1 00       		.byte	0
- 212 00d2 00       		.byte	0
- 213 00d3 09       		.uleb128 0x9
- 214 00d4 4A010000 		.4byte	.LASF24
- 215 00d8 01       		.byte	0x1
- 216 00d9 0C       		.byte	0xc
- 217 00da 00000000 		.4byte	.LFB35
- 218 00de 2C000000 		.4byte	.LFE35-.LFB35
- 219 00e2 01       		.uleb128 0x1
- 220 00e3 9C       		.byte	0x9c
- 221 00e4 49010000 		.4byte	0x149
- 222 00e8 0A       		.uleb128 0xa
- 223 00e9 1A020000 		.4byte	.LASF25
- 224 00ed 01       		.byte	0x1
- 225 00ee 0C       		.byte	0xc
- 226 00ef 9F000000 		.4byte	0x9f
- 227 00f3 00000000 		.4byte	.LLST0
- 228 00f7 0B       		.uleb128 0xb
- 229 00f8 0C000000 		.4byte	.LBB2
- 230 00fc 14000000 		.4byte	.LBE2-.LBB2
- 231 0100 36010000 		.4byte	0x136
- 232 0104 0C       		.uleb128 0xc
- 233 0105 6900     		.ascii	"i\000"
- 234 0107 01       		.byte	0x1
- 235 0108 10       		.byte	0x10
- 236 0109 5D000000 		.4byte	0x5d
- 237 010d 01       		.uleb128 0x1
- 238 010e 53       		.byte	0x53
- 239 010f 0D       		.uleb128 0xd
- 240 0110 93000000 		.4byte	.LASF26
- 241 0114 01       		.byte	0x1
- 242 0115 11       		.byte	0x11
- 243 0116 5D000000 		.4byte	0x5d
- 244 011a 0E       		.uleb128 0xe
- 245 011b 10000000 		.4byte	.LVL3
- 246 011f 80010000 		.4byte	0x180
- 247 0123 0E       		.uleb128 0xe
- 248 0124 1C000000 		.4byte	.LVL4
- 249 0128 8B010000 		.4byte	0x18b
- 250 012c 0E       		.uleb128 0xe
- 251 012d 20000000 		.4byte	.LVL5
- 252 0131 92010000 		.4byte	0x192
- 253 0135 00       		.byte	0
- 254 0136 0E       		.uleb128 0xe
- 255 0137 08000000 		.4byte	.LVL2
- 256 013b 99010000 		.4byte	0x199
- 257 013f 0E       		.uleb128 0xe
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccReeWYy.s 			page 6
+ 199 00a5 06       		.uleb128 0x6
+ 200 00a6 67010000 		.4byte	.LASF24
+ 201 00aa 01       		.byte	0x1
+ 202 00ab 06       		.byte	0x6
+ 203 00ac 00000000 		.4byte	.LFB34
+ 204 00b0 10000000 		.4byte	.LFE34-.LFB34
+ 205 00b4 01       		.uleb128 0x1
+ 206 00b5 9C       		.byte	0x9c
+ 207 00b6 D3000000 		.4byte	0xd3
+ 208 00ba 07       		.uleb128 0x7
+ 209 00bb 0A000000 		.4byte	.LVL0
+ 210 00bf 70010000 		.4byte	0x170
+ 211 00c3 08       		.uleb128 0x8
+ 212 00c4 01       		.uleb128 0x1
+ 213 00c5 51       		.byte	0x51
+ 214 00c6 01       		.uleb128 0x1
+ 215 00c7 34       		.byte	0x34
+ 216 00c8 08       		.uleb128 0x8
+ 217 00c9 01       		.uleb128 0x1
+ 218 00ca 50       		.byte	0x50
+ 219 00cb 05       		.uleb128 0x5
+ 220 00cc 03       		.byte	0x3
+ 221 00cd 00000000 		.4byte	wrbuf
+ 222 00d1 00       		.byte	0
+ 223 00d2 00       		.byte	0
+ 224 00d3 09       		.uleb128 0x9
+ 225 00d4 52010000 		.4byte	.LASF25
+ 226 00d8 01       		.byte	0x1
+ 227 00d9 0C       		.byte	0xc
+ 228 00da 00000000 		.4byte	.LFB35
+ 229 00de 34000000 		.4byte	.LFE35-.LFB35
+ 230 00e2 01       		.uleb128 0x1
+ 231 00e3 9C       		.byte	0x9c
+ 232 00e4 4F010000 		.4byte	0x14f
+ 233 00e8 0A       		.uleb128 0xa
+ 234 00e9 22020000 		.4byte	.LASF26
+ 235 00ed 01       		.byte	0x1
+ 236 00ee 0C       		.byte	0xc
+ 237 00ef 9F000000 		.4byte	0x9f
+ 238 00f3 00000000 		.4byte	.LLST0
+ 239 00f7 0B       		.uleb128 0xb
+ 240 00f8 0C000000 		.4byte	.LBB2
+ 241 00fc 1C000000 		.4byte	.LBE2-.LBB2
+ 242 0100 3C010000 		.4byte	0x13c
+ 243 0104 0C       		.uleb128 0xc
+ 244 0105 6900     		.ascii	"i\000"
+ 245 0107 01       		.byte	0x1
+ 246 0108 10       		.byte	0x10
+ 247 0109 5D000000 		.4byte	0x5d
+ 248 010d 2C000000 		.4byte	.LLST1
+ 249 0111 0D       		.uleb128 0xd
+ 250 0112 19010000 		.4byte	.LASF15
+ 251 0116 01       		.byte	0x1
+ 252 0117 11       		.byte	0x11
+ 253 0118 5D000000 		.4byte	0x5d
+ 254 011c 4B000000 		.4byte	.LLST2
+ 255 0120 0E       		.uleb128 0xe
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccCrzhTs.s 			page 6
 
 
- 258 0140 24000000 		.4byte	.LVL6
- 259 0144 A4010000 		.4byte	0x1a4
- 260 0148 00       		.byte	0
- 261 0149 0F       		.uleb128 0xf
- 262 014a 6B000000 		.4byte	0x6b
- 263 014e 59010000 		.4byte	0x159
- 264 0152 10       		.uleb128 0x10
- 265 0153 98000000 		.4byte	0x98
- 266 0157 03       		.byte	0x3
- 267 0158 00       		.byte	0
- 268 0159 11       		.uleb128 0x11
- 269 015a 19010000 		.4byte	.LASF27
- 270 015e 04       		.byte	0x4
- 271 015f 13       		.byte	0x13
- 272 0160 49010000 		.4byte	0x149
- 273 0164 05       		.uleb128 0x5
- 274 0165 03       		.byte	0x3
- 275 0166 00000000 		.4byte	wrbuf
- 276 016a 12       		.uleb128 0x12
- 277 016b 62020000 		.4byte	.LASF28
- 278 016f 03       		.byte	0x3
- 279 0170 E0       		.byte	0xe0
- 280 0171 80010000 		.4byte	0x180
- 281 0175 13       		.uleb128 0x13
- 282 0176 9F000000 		.4byte	0x9f
- 283 017a 13       		.uleb128 0x13
- 284 017b 77000000 		.4byte	0x77
- 285 017f 00       		.byte	0
- 286 0180 14       		.uleb128 0x14
- 287 0181 13000000 		.4byte	.LASF17
- 288 0185 03       		.byte	0x3
- 289 0186 E2       		.byte	0xe2
- 290 0187 77000000 		.4byte	0x77
- 291 018b 15       		.uleb128 0x15
- 292 018c 6A000000 		.4byte	.LASF15
- 293 0190 03       		.byte	0x3
- 294 0191 E3       		.byte	0xe3
- 295 0192 15       		.uleb128 0x15
- 296 0193 2D020000 		.4byte	.LASF16
- 297 0197 03       		.byte	0x3
- 298 0198 E4       		.byte	0xe4
- 299 0199 14       		.uleb128 0x14
- 300 019a 31000000 		.4byte	.LASF18
- 301 019e 03       		.byte	0x3
- 302 019f D6       		.byte	0xd6
- 303 01a0 77000000 		.4byte	0x77
- 304 01a4 14       		.uleb128 0x14
- 305 01a5 46000000 		.4byte	.LASF19
- 306 01a9 03       		.byte	0x3
- 307 01aa D7       		.byte	0xd7
- 308 01ab 77000000 		.4byte	0x77
- 309 01af 00       		.byte	0
- 310              		.section	.debug_abbrev,"",%progbits
- 311              	.Ldebug_abbrev0:
- 312 0000 01       		.uleb128 0x1
- 313 0001 11       		.uleb128 0x11
- 314 0002 01       		.byte	0x1
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccReeWYy.s 			page 7
+ 256 0121 10000000 		.4byte	.LVL3
+ 257 0125 86010000 		.4byte	0x186
+ 258 0129 0E       		.uleb128 0xe
+ 259 012a 24000000 		.4byte	.LVL6
+ 260 012e 91010000 		.4byte	0x191
+ 261 0132 0E       		.uleb128 0xe
+ 262 0133 28000000 		.4byte	.LVL7
+ 263 0137 98010000 		.4byte	0x198
+ 264 013b 00       		.byte	0
+ 265 013c 0E       		.uleb128 0xe
+ 266 013d 08000000 		.4byte	.LVL2
+ 267 0141 9F010000 		.4byte	0x19f
+ 268 0145 0E       		.uleb128 0xe
+ 269 0146 2C000000 		.4byte	.LVL8
+ 270 014a AA010000 		.4byte	0x1aa
+ 271 014e 00       		.byte	0
+ 272 014f 0F       		.uleb128 0xf
+ 273 0150 6B000000 		.4byte	0x6b
+ 274 0154 5F010000 		.4byte	0x15f
+ 275 0158 10       		.uleb128 0x10
+ 276 0159 98000000 		.4byte	0x98
+ 277 015d 03       		.byte	0x3
+ 278 015e 00       		.byte	0
+ 279 015f 11       		.uleb128 0x11
+ 280 0160 21010000 		.4byte	.LASF27
+ 281 0164 04       		.byte	0x4
+ 282 0165 13       		.byte	0x13
+ 283 0166 4F010000 		.4byte	0x14f
+ 284 016a 05       		.uleb128 0x5
+ 285 016b 03       		.byte	0x3
+ 286 016c 00000000 		.4byte	wrbuf
+ 287 0170 12       		.uleb128 0x12
+ 288 0171 6A020000 		.4byte	.LASF28
+ 289 0175 03       		.byte	0x3
+ 290 0176 E0       		.byte	0xe0
+ 291 0177 86010000 		.4byte	0x186
+ 292 017b 13       		.uleb128 0x13
+ 293 017c 9F000000 		.4byte	0x9f
+ 294 0180 13       		.uleb128 0x13
+ 295 0181 77000000 		.4byte	0x77
+ 296 0185 00       		.byte	0
+ 297 0186 14       		.uleb128 0x14
+ 298 0187 7A000000 		.4byte	.LASF18
+ 299 018b 03       		.byte	0x3
+ 300 018c E2       		.byte	0xe2
+ 301 018d 77000000 		.4byte	0x77
+ 302 0191 15       		.uleb128 0x15
+ 303 0192 D1000000 		.4byte	.LASF16
+ 304 0196 03       		.byte	0x3
+ 305 0197 E3       		.byte	0xe3
+ 306 0198 15       		.uleb128 0x15
+ 307 0199 35020000 		.4byte	.LASF17
+ 308 019d 03       		.byte	0x3
+ 309 019e E4       		.byte	0xe4
+ 310 019f 14       		.uleb128 0x14
+ 311 01a0 98000000 		.4byte	.LASF19
+ 312 01a4 03       		.byte	0x3
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccCrzhTs.s 			page 7
 
 
- 315 0003 25       		.uleb128 0x25
- 316 0004 0E       		.uleb128 0xe
- 317 0005 13       		.uleb128 0x13
- 318 0006 0B       		.uleb128 0xb
- 319 0007 03       		.uleb128 0x3
- 320 0008 0E       		.uleb128 0xe
- 321 0009 1B       		.uleb128 0x1b
- 322 000a 0E       		.uleb128 0xe
- 323 000b 55       		.uleb128 0x55
- 324 000c 17       		.uleb128 0x17
- 325 000d 11       		.uleb128 0x11
- 326 000e 01       		.uleb128 0x1
- 327 000f 10       		.uleb128 0x10
- 328 0010 17       		.uleb128 0x17
- 329 0011 00       		.byte	0
- 330 0012 00       		.byte	0
- 331 0013 02       		.uleb128 0x2
- 332 0014 24       		.uleb128 0x24
- 333 0015 00       		.byte	0
- 334 0016 0B       		.uleb128 0xb
- 335 0017 0B       		.uleb128 0xb
- 336 0018 3E       		.uleb128 0x3e
- 337 0019 0B       		.uleb128 0xb
- 338 001a 03       		.uleb128 0x3
- 339 001b 0E       		.uleb128 0xe
- 340 001c 00       		.byte	0
- 341 001d 00       		.byte	0
- 342 001e 03       		.uleb128 0x3
- 343 001f 24       		.uleb128 0x24
- 344 0020 00       		.byte	0
- 345 0021 0B       		.uleb128 0xb
- 346 0022 0B       		.uleb128 0xb
- 347 0023 3E       		.uleb128 0x3e
- 348 0024 0B       		.uleb128 0xb
- 349 0025 03       		.uleb128 0x3
- 350 0026 08       		.uleb128 0x8
- 351 0027 00       		.byte	0
- 352 0028 00       		.byte	0
- 353 0029 04       		.uleb128 0x4
- 354 002a 16       		.uleb128 0x16
- 355 002b 00       		.byte	0
- 356 002c 03       		.uleb128 0x3
- 357 002d 0E       		.uleb128 0xe
- 358 002e 3A       		.uleb128 0x3a
- 359 002f 0B       		.uleb128 0xb
- 360 0030 3B       		.uleb128 0x3b
- 361 0031 05       		.uleb128 0x5
- 362 0032 49       		.uleb128 0x49
- 363 0033 13       		.uleb128 0x13
- 364 0034 00       		.byte	0
- 365 0035 00       		.byte	0
- 366 0036 05       		.uleb128 0x5
- 367 0037 0F       		.uleb128 0xf
- 368 0038 00       		.byte	0
- 369 0039 0B       		.uleb128 0xb
- 370 003a 0B       		.uleb128 0xb
- 371 003b 49       		.uleb128 0x49
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccReeWYy.s 			page 8
+ 313 01a5 D6       		.byte	0xd6
+ 314 01a6 77000000 		.4byte	0x77
+ 315 01aa 14       		.uleb128 0x14
+ 316 01ab AD000000 		.4byte	.LASF20
+ 317 01af 03       		.byte	0x3
+ 318 01b0 D7       		.byte	0xd7
+ 319 01b1 77000000 		.4byte	0x77
+ 320 01b5 00       		.byte	0
+ 321              		.section	.debug_abbrev,"",%progbits
+ 322              	.Ldebug_abbrev0:
+ 323 0000 01       		.uleb128 0x1
+ 324 0001 11       		.uleb128 0x11
+ 325 0002 01       		.byte	0x1
+ 326 0003 25       		.uleb128 0x25
+ 327 0004 0E       		.uleb128 0xe
+ 328 0005 13       		.uleb128 0x13
+ 329 0006 0B       		.uleb128 0xb
+ 330 0007 03       		.uleb128 0x3
+ 331 0008 0E       		.uleb128 0xe
+ 332 0009 1B       		.uleb128 0x1b
+ 333 000a 0E       		.uleb128 0xe
+ 334 000b 55       		.uleb128 0x55
+ 335 000c 17       		.uleb128 0x17
+ 336 000d 11       		.uleb128 0x11
+ 337 000e 01       		.uleb128 0x1
+ 338 000f 10       		.uleb128 0x10
+ 339 0010 17       		.uleb128 0x17
+ 340 0011 00       		.byte	0
+ 341 0012 00       		.byte	0
+ 342 0013 02       		.uleb128 0x2
+ 343 0014 24       		.uleb128 0x24
+ 344 0015 00       		.byte	0
+ 345 0016 0B       		.uleb128 0xb
+ 346 0017 0B       		.uleb128 0xb
+ 347 0018 3E       		.uleb128 0x3e
+ 348 0019 0B       		.uleb128 0xb
+ 349 001a 03       		.uleb128 0x3
+ 350 001b 0E       		.uleb128 0xe
+ 351 001c 00       		.byte	0
+ 352 001d 00       		.byte	0
+ 353 001e 03       		.uleb128 0x3
+ 354 001f 24       		.uleb128 0x24
+ 355 0020 00       		.byte	0
+ 356 0021 0B       		.uleb128 0xb
+ 357 0022 0B       		.uleb128 0xb
+ 358 0023 3E       		.uleb128 0x3e
+ 359 0024 0B       		.uleb128 0xb
+ 360 0025 03       		.uleb128 0x3
+ 361 0026 08       		.uleb128 0x8
+ 362 0027 00       		.byte	0
+ 363 0028 00       		.byte	0
+ 364 0029 04       		.uleb128 0x4
+ 365 002a 16       		.uleb128 0x16
+ 366 002b 00       		.byte	0
+ 367 002c 03       		.uleb128 0x3
+ 368 002d 0E       		.uleb128 0xe
+ 369 002e 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccCrzhTs.s 			page 8
 
 
- 372 003c 13       		.uleb128 0x13
- 373 003d 00       		.byte	0
- 374 003e 00       		.byte	0
- 375 003f 06       		.uleb128 0x6
- 376 0040 2E       		.uleb128 0x2e
- 377 0041 01       		.byte	0x1
- 378 0042 3F       		.uleb128 0x3f
- 379 0043 19       		.uleb128 0x19
- 380 0044 03       		.uleb128 0x3
- 381 0045 0E       		.uleb128 0xe
- 382 0046 3A       		.uleb128 0x3a
- 383 0047 0B       		.uleb128 0xb
- 384 0048 3B       		.uleb128 0x3b
- 385 0049 0B       		.uleb128 0xb
- 386 004a 11       		.uleb128 0x11
- 387 004b 01       		.uleb128 0x1
- 388 004c 12       		.uleb128 0x12
- 389 004d 06       		.uleb128 0x6
- 390 004e 40       		.uleb128 0x40
- 391 004f 18       		.uleb128 0x18
- 392 0050 9742     		.uleb128 0x2117
- 393 0052 19       		.uleb128 0x19
- 394 0053 01       		.uleb128 0x1
- 395 0054 13       		.uleb128 0x13
- 396 0055 00       		.byte	0
- 397 0056 00       		.byte	0
- 398 0057 07       		.uleb128 0x7
- 399 0058 898201   		.uleb128 0x4109
- 400 005b 01       		.byte	0x1
- 401 005c 11       		.uleb128 0x11
- 402 005d 01       		.uleb128 0x1
- 403 005e 31       		.uleb128 0x31
- 404 005f 13       		.uleb128 0x13
- 405 0060 00       		.byte	0
- 406 0061 00       		.byte	0
- 407 0062 08       		.uleb128 0x8
- 408 0063 8A8201   		.uleb128 0x410a
- 409 0066 00       		.byte	0
- 410 0067 02       		.uleb128 0x2
- 411 0068 18       		.uleb128 0x18
- 412 0069 9142     		.uleb128 0x2111
- 413 006b 18       		.uleb128 0x18
- 414 006c 00       		.byte	0
- 415 006d 00       		.byte	0
- 416 006e 09       		.uleb128 0x9
- 417 006f 2E       		.uleb128 0x2e
- 418 0070 01       		.byte	0x1
- 419 0071 3F       		.uleb128 0x3f
- 420 0072 19       		.uleb128 0x19
- 421 0073 03       		.uleb128 0x3
- 422 0074 0E       		.uleb128 0xe
- 423 0075 3A       		.uleb128 0x3a
- 424 0076 0B       		.uleb128 0xb
- 425 0077 3B       		.uleb128 0x3b
- 426 0078 0B       		.uleb128 0xb
- 427 0079 27       		.uleb128 0x27
- 428 007a 19       		.uleb128 0x19
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccReeWYy.s 			page 9
+ 370 002f 0B       		.uleb128 0xb
+ 371 0030 3B       		.uleb128 0x3b
+ 372 0031 05       		.uleb128 0x5
+ 373 0032 49       		.uleb128 0x49
+ 374 0033 13       		.uleb128 0x13
+ 375 0034 00       		.byte	0
+ 376 0035 00       		.byte	0
+ 377 0036 05       		.uleb128 0x5
+ 378 0037 0F       		.uleb128 0xf
+ 379 0038 00       		.byte	0
+ 380 0039 0B       		.uleb128 0xb
+ 381 003a 0B       		.uleb128 0xb
+ 382 003b 49       		.uleb128 0x49
+ 383 003c 13       		.uleb128 0x13
+ 384 003d 00       		.byte	0
+ 385 003e 00       		.byte	0
+ 386 003f 06       		.uleb128 0x6
+ 387 0040 2E       		.uleb128 0x2e
+ 388 0041 01       		.byte	0x1
+ 389 0042 3F       		.uleb128 0x3f
+ 390 0043 19       		.uleb128 0x19
+ 391 0044 03       		.uleb128 0x3
+ 392 0045 0E       		.uleb128 0xe
+ 393 0046 3A       		.uleb128 0x3a
+ 394 0047 0B       		.uleb128 0xb
+ 395 0048 3B       		.uleb128 0x3b
+ 396 0049 0B       		.uleb128 0xb
+ 397 004a 11       		.uleb128 0x11
+ 398 004b 01       		.uleb128 0x1
+ 399 004c 12       		.uleb128 0x12
+ 400 004d 06       		.uleb128 0x6
+ 401 004e 40       		.uleb128 0x40
+ 402 004f 18       		.uleb128 0x18
+ 403 0050 9742     		.uleb128 0x2117
+ 404 0052 19       		.uleb128 0x19
+ 405 0053 01       		.uleb128 0x1
+ 406 0054 13       		.uleb128 0x13
+ 407 0055 00       		.byte	0
+ 408 0056 00       		.byte	0
+ 409 0057 07       		.uleb128 0x7
+ 410 0058 898201   		.uleb128 0x4109
+ 411 005b 01       		.byte	0x1
+ 412 005c 11       		.uleb128 0x11
+ 413 005d 01       		.uleb128 0x1
+ 414 005e 31       		.uleb128 0x31
+ 415 005f 13       		.uleb128 0x13
+ 416 0060 00       		.byte	0
+ 417 0061 00       		.byte	0
+ 418 0062 08       		.uleb128 0x8
+ 419 0063 8A8201   		.uleb128 0x410a
+ 420 0066 00       		.byte	0
+ 421 0067 02       		.uleb128 0x2
+ 422 0068 18       		.uleb128 0x18
+ 423 0069 9142     		.uleb128 0x2111
+ 424 006b 18       		.uleb128 0x18
+ 425 006c 00       		.byte	0
+ 426 006d 00       		.byte	0
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccCrzhTs.s 			page 9
 
 
- 429 007b 11       		.uleb128 0x11
- 430 007c 01       		.uleb128 0x1
- 431 007d 12       		.uleb128 0x12
- 432 007e 06       		.uleb128 0x6
- 433 007f 40       		.uleb128 0x40
- 434 0080 18       		.uleb128 0x18
- 435 0081 9742     		.uleb128 0x2117
- 436 0083 19       		.uleb128 0x19
- 437 0084 01       		.uleb128 0x1
- 438 0085 13       		.uleb128 0x13
- 439 0086 00       		.byte	0
- 440 0087 00       		.byte	0
- 441 0088 0A       		.uleb128 0xa
- 442 0089 05       		.uleb128 0x5
- 443 008a 00       		.byte	0
- 444 008b 03       		.uleb128 0x3
- 445 008c 0E       		.uleb128 0xe
- 446 008d 3A       		.uleb128 0x3a
- 447 008e 0B       		.uleb128 0xb
- 448 008f 3B       		.uleb128 0x3b
- 449 0090 0B       		.uleb128 0xb
- 450 0091 49       		.uleb128 0x49
- 451 0092 13       		.uleb128 0x13
- 452 0093 02       		.uleb128 0x2
- 453 0094 17       		.uleb128 0x17
- 454 0095 00       		.byte	0
- 455 0096 00       		.byte	0
- 456 0097 0B       		.uleb128 0xb
- 457 0098 0B       		.uleb128 0xb
- 458 0099 01       		.byte	0x1
- 459 009a 11       		.uleb128 0x11
- 460 009b 01       		.uleb128 0x1
- 461 009c 12       		.uleb128 0x12
- 462 009d 06       		.uleb128 0x6
- 463 009e 01       		.uleb128 0x1
- 464 009f 13       		.uleb128 0x13
- 465 00a0 00       		.byte	0
- 466 00a1 00       		.byte	0
- 467 00a2 0C       		.uleb128 0xc
- 468 00a3 34       		.uleb128 0x34
- 469 00a4 00       		.byte	0
- 470 00a5 03       		.uleb128 0x3
- 471 00a6 08       		.uleb128 0x8
- 472 00a7 3A       		.uleb128 0x3a
- 473 00a8 0B       		.uleb128 0xb
- 474 00a9 3B       		.uleb128 0x3b
- 475 00aa 0B       		.uleb128 0xb
- 476 00ab 49       		.uleb128 0x49
- 477 00ac 13       		.uleb128 0x13
- 478 00ad 02       		.uleb128 0x2
- 479 00ae 18       		.uleb128 0x18
- 480 00af 00       		.byte	0
- 481 00b0 00       		.byte	0
- 482 00b1 0D       		.uleb128 0xd
- 483 00b2 34       		.uleb128 0x34
- 484 00b3 00       		.byte	0
- 485 00b4 03       		.uleb128 0x3
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccReeWYy.s 			page 10
+ 427 006e 09       		.uleb128 0x9
+ 428 006f 2E       		.uleb128 0x2e
+ 429 0070 01       		.byte	0x1
+ 430 0071 3F       		.uleb128 0x3f
+ 431 0072 19       		.uleb128 0x19
+ 432 0073 03       		.uleb128 0x3
+ 433 0074 0E       		.uleb128 0xe
+ 434 0075 3A       		.uleb128 0x3a
+ 435 0076 0B       		.uleb128 0xb
+ 436 0077 3B       		.uleb128 0x3b
+ 437 0078 0B       		.uleb128 0xb
+ 438 0079 27       		.uleb128 0x27
+ 439 007a 19       		.uleb128 0x19
+ 440 007b 11       		.uleb128 0x11
+ 441 007c 01       		.uleb128 0x1
+ 442 007d 12       		.uleb128 0x12
+ 443 007e 06       		.uleb128 0x6
+ 444 007f 40       		.uleb128 0x40
+ 445 0080 18       		.uleb128 0x18
+ 446 0081 9742     		.uleb128 0x2117
+ 447 0083 19       		.uleb128 0x19
+ 448 0084 01       		.uleb128 0x1
+ 449 0085 13       		.uleb128 0x13
+ 450 0086 00       		.byte	0
+ 451 0087 00       		.byte	0
+ 452 0088 0A       		.uleb128 0xa
+ 453 0089 05       		.uleb128 0x5
+ 454 008a 00       		.byte	0
+ 455 008b 03       		.uleb128 0x3
+ 456 008c 0E       		.uleb128 0xe
+ 457 008d 3A       		.uleb128 0x3a
+ 458 008e 0B       		.uleb128 0xb
+ 459 008f 3B       		.uleb128 0x3b
+ 460 0090 0B       		.uleb128 0xb
+ 461 0091 49       		.uleb128 0x49
+ 462 0092 13       		.uleb128 0x13
+ 463 0093 02       		.uleb128 0x2
+ 464 0094 17       		.uleb128 0x17
+ 465 0095 00       		.byte	0
+ 466 0096 00       		.byte	0
+ 467 0097 0B       		.uleb128 0xb
+ 468 0098 0B       		.uleb128 0xb
+ 469 0099 01       		.byte	0x1
+ 470 009a 11       		.uleb128 0x11
+ 471 009b 01       		.uleb128 0x1
+ 472 009c 12       		.uleb128 0x12
+ 473 009d 06       		.uleb128 0x6
+ 474 009e 01       		.uleb128 0x1
+ 475 009f 13       		.uleb128 0x13
+ 476 00a0 00       		.byte	0
+ 477 00a1 00       		.byte	0
+ 478 00a2 0C       		.uleb128 0xc
+ 479 00a3 34       		.uleb128 0x34
+ 480 00a4 00       		.byte	0
+ 481 00a5 03       		.uleb128 0x3
+ 482 00a6 08       		.uleb128 0x8
+ 483 00a7 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccCrzhTs.s 			page 10
 
 
- 486 00b5 0E       		.uleb128 0xe
- 487 00b6 3A       		.uleb128 0x3a
- 488 00b7 0B       		.uleb128 0xb
- 489 00b8 3B       		.uleb128 0x3b
- 490 00b9 0B       		.uleb128 0xb
- 491 00ba 49       		.uleb128 0x49
- 492 00bb 13       		.uleb128 0x13
- 493 00bc 00       		.byte	0
- 494 00bd 00       		.byte	0
- 495 00be 0E       		.uleb128 0xe
- 496 00bf 898201   		.uleb128 0x4109
- 497 00c2 00       		.byte	0
- 498 00c3 11       		.uleb128 0x11
- 499 00c4 01       		.uleb128 0x1
- 500 00c5 31       		.uleb128 0x31
- 501 00c6 13       		.uleb128 0x13
- 502 00c7 00       		.byte	0
- 503 00c8 00       		.byte	0
- 504 00c9 0F       		.uleb128 0xf
- 505 00ca 01       		.uleb128 0x1
- 506 00cb 01       		.byte	0x1
- 507 00cc 49       		.uleb128 0x49
- 508 00cd 13       		.uleb128 0x13
- 509 00ce 01       		.uleb128 0x1
- 510 00cf 13       		.uleb128 0x13
- 511 00d0 00       		.byte	0
- 512 00d1 00       		.byte	0
- 513 00d2 10       		.uleb128 0x10
- 514 00d3 21       		.uleb128 0x21
- 515 00d4 00       		.byte	0
- 516 00d5 49       		.uleb128 0x49
- 517 00d6 13       		.uleb128 0x13
- 518 00d7 2F       		.uleb128 0x2f
- 519 00d8 0B       		.uleb128 0xb
- 520 00d9 00       		.byte	0
- 521 00da 00       		.byte	0
- 522 00db 11       		.uleb128 0x11
- 523 00dc 34       		.uleb128 0x34
- 524 00dd 00       		.byte	0
- 525 00de 03       		.uleb128 0x3
- 526 00df 0E       		.uleb128 0xe
- 527 00e0 3A       		.uleb128 0x3a
- 528 00e1 0B       		.uleb128 0xb
- 529 00e2 3B       		.uleb128 0x3b
- 530 00e3 0B       		.uleb128 0xb
- 531 00e4 49       		.uleb128 0x49
- 532 00e5 13       		.uleb128 0x13
- 533 00e6 3F       		.uleb128 0x3f
- 534 00e7 19       		.uleb128 0x19
- 535 00e8 02       		.uleb128 0x2
- 536 00e9 18       		.uleb128 0x18
- 537 00ea 00       		.byte	0
- 538 00eb 00       		.byte	0
- 539 00ec 12       		.uleb128 0x12
- 540 00ed 2E       		.uleb128 0x2e
- 541 00ee 01       		.byte	0x1
- 542 00ef 3F       		.uleb128 0x3f
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccReeWYy.s 			page 11
+ 484 00a8 0B       		.uleb128 0xb
+ 485 00a9 3B       		.uleb128 0x3b
+ 486 00aa 0B       		.uleb128 0xb
+ 487 00ab 49       		.uleb128 0x49
+ 488 00ac 13       		.uleb128 0x13
+ 489 00ad 02       		.uleb128 0x2
+ 490 00ae 17       		.uleb128 0x17
+ 491 00af 00       		.byte	0
+ 492 00b0 00       		.byte	0
+ 493 00b1 0D       		.uleb128 0xd
+ 494 00b2 34       		.uleb128 0x34
+ 495 00b3 00       		.byte	0
+ 496 00b4 03       		.uleb128 0x3
+ 497 00b5 0E       		.uleb128 0xe
+ 498 00b6 3A       		.uleb128 0x3a
+ 499 00b7 0B       		.uleb128 0xb
+ 500 00b8 3B       		.uleb128 0x3b
+ 501 00b9 0B       		.uleb128 0xb
+ 502 00ba 49       		.uleb128 0x49
+ 503 00bb 13       		.uleb128 0x13
+ 504 00bc 02       		.uleb128 0x2
+ 505 00bd 17       		.uleb128 0x17
+ 506 00be 00       		.byte	0
+ 507 00bf 00       		.byte	0
+ 508 00c0 0E       		.uleb128 0xe
+ 509 00c1 898201   		.uleb128 0x4109
+ 510 00c4 00       		.byte	0
+ 511 00c5 11       		.uleb128 0x11
+ 512 00c6 01       		.uleb128 0x1
+ 513 00c7 31       		.uleb128 0x31
+ 514 00c8 13       		.uleb128 0x13
+ 515 00c9 00       		.byte	0
+ 516 00ca 00       		.byte	0
+ 517 00cb 0F       		.uleb128 0xf
+ 518 00cc 01       		.uleb128 0x1
+ 519 00cd 01       		.byte	0x1
+ 520 00ce 49       		.uleb128 0x49
+ 521 00cf 13       		.uleb128 0x13
+ 522 00d0 01       		.uleb128 0x1
+ 523 00d1 13       		.uleb128 0x13
+ 524 00d2 00       		.byte	0
+ 525 00d3 00       		.byte	0
+ 526 00d4 10       		.uleb128 0x10
+ 527 00d5 21       		.uleb128 0x21
+ 528 00d6 00       		.byte	0
+ 529 00d7 49       		.uleb128 0x49
+ 530 00d8 13       		.uleb128 0x13
+ 531 00d9 2F       		.uleb128 0x2f
+ 532 00da 0B       		.uleb128 0xb
+ 533 00db 00       		.byte	0
+ 534 00dc 00       		.byte	0
+ 535 00dd 11       		.uleb128 0x11
+ 536 00de 34       		.uleb128 0x34
+ 537 00df 00       		.byte	0
+ 538 00e0 03       		.uleb128 0x3
+ 539 00e1 0E       		.uleb128 0xe
+ 540 00e2 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccCrzhTs.s 			page 11
 
 
- 543 00f0 19       		.uleb128 0x19
- 544 00f1 03       		.uleb128 0x3
- 545 00f2 0E       		.uleb128 0xe
- 546 00f3 3A       		.uleb128 0x3a
- 547 00f4 0B       		.uleb128 0xb
- 548 00f5 3B       		.uleb128 0x3b
- 549 00f6 0B       		.uleb128 0xb
- 550 00f7 27       		.uleb128 0x27
- 551 00f8 19       		.uleb128 0x19
- 552 00f9 3C       		.uleb128 0x3c
- 553 00fa 19       		.uleb128 0x19
- 554 00fb 01       		.uleb128 0x1
- 555 00fc 13       		.uleb128 0x13
- 556 00fd 00       		.byte	0
- 557 00fe 00       		.byte	0
- 558 00ff 13       		.uleb128 0x13
- 559 0100 05       		.uleb128 0x5
- 560 0101 00       		.byte	0
- 561 0102 49       		.uleb128 0x49
- 562 0103 13       		.uleb128 0x13
- 563 0104 00       		.byte	0
- 564 0105 00       		.byte	0
- 565 0106 14       		.uleb128 0x14
- 566 0107 2E       		.uleb128 0x2e
- 567 0108 00       		.byte	0
- 568 0109 3F       		.uleb128 0x3f
- 569 010a 19       		.uleb128 0x19
- 570 010b 03       		.uleb128 0x3
- 571 010c 0E       		.uleb128 0xe
- 572 010d 3A       		.uleb128 0x3a
- 573 010e 0B       		.uleb128 0xb
- 574 010f 3B       		.uleb128 0x3b
- 575 0110 0B       		.uleb128 0xb
- 576 0111 27       		.uleb128 0x27
- 577 0112 19       		.uleb128 0x19
- 578 0113 49       		.uleb128 0x49
- 579 0114 13       		.uleb128 0x13
- 580 0115 3C       		.uleb128 0x3c
- 581 0116 19       		.uleb128 0x19
- 582 0117 00       		.byte	0
- 583 0118 00       		.byte	0
- 584 0119 15       		.uleb128 0x15
- 585 011a 2E       		.uleb128 0x2e
- 586 011b 00       		.byte	0
- 587 011c 3F       		.uleb128 0x3f
- 588 011d 19       		.uleb128 0x19
- 589 011e 03       		.uleb128 0x3
- 590 011f 0E       		.uleb128 0xe
- 591 0120 3A       		.uleb128 0x3a
- 592 0121 0B       		.uleb128 0xb
- 593 0122 3B       		.uleb128 0x3b
- 594 0123 0B       		.uleb128 0xb
- 595 0124 27       		.uleb128 0x27
- 596 0125 19       		.uleb128 0x19
- 597 0126 3C       		.uleb128 0x3c
- 598 0127 19       		.uleb128 0x19
- 599 0128 00       		.byte	0
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccReeWYy.s 			page 12
+ 541 00e3 0B       		.uleb128 0xb
+ 542 00e4 3B       		.uleb128 0x3b
+ 543 00e5 0B       		.uleb128 0xb
+ 544 00e6 49       		.uleb128 0x49
+ 545 00e7 13       		.uleb128 0x13
+ 546 00e8 3F       		.uleb128 0x3f
+ 547 00e9 19       		.uleb128 0x19
+ 548 00ea 02       		.uleb128 0x2
+ 549 00eb 18       		.uleb128 0x18
+ 550 00ec 00       		.byte	0
+ 551 00ed 00       		.byte	0
+ 552 00ee 12       		.uleb128 0x12
+ 553 00ef 2E       		.uleb128 0x2e
+ 554 00f0 01       		.byte	0x1
+ 555 00f1 3F       		.uleb128 0x3f
+ 556 00f2 19       		.uleb128 0x19
+ 557 00f3 03       		.uleb128 0x3
+ 558 00f4 0E       		.uleb128 0xe
+ 559 00f5 3A       		.uleb128 0x3a
+ 560 00f6 0B       		.uleb128 0xb
+ 561 00f7 3B       		.uleb128 0x3b
+ 562 00f8 0B       		.uleb128 0xb
+ 563 00f9 27       		.uleb128 0x27
+ 564 00fa 19       		.uleb128 0x19
+ 565 00fb 3C       		.uleb128 0x3c
+ 566 00fc 19       		.uleb128 0x19
+ 567 00fd 01       		.uleb128 0x1
+ 568 00fe 13       		.uleb128 0x13
+ 569 00ff 00       		.byte	0
+ 570 0100 00       		.byte	0
+ 571 0101 13       		.uleb128 0x13
+ 572 0102 05       		.uleb128 0x5
+ 573 0103 00       		.byte	0
+ 574 0104 49       		.uleb128 0x49
+ 575 0105 13       		.uleb128 0x13
+ 576 0106 00       		.byte	0
+ 577 0107 00       		.byte	0
+ 578 0108 14       		.uleb128 0x14
+ 579 0109 2E       		.uleb128 0x2e
+ 580 010a 00       		.byte	0
+ 581 010b 3F       		.uleb128 0x3f
+ 582 010c 19       		.uleb128 0x19
+ 583 010d 03       		.uleb128 0x3
+ 584 010e 0E       		.uleb128 0xe
+ 585 010f 3A       		.uleb128 0x3a
+ 586 0110 0B       		.uleb128 0xb
+ 587 0111 3B       		.uleb128 0x3b
+ 588 0112 0B       		.uleb128 0xb
+ 589 0113 27       		.uleb128 0x27
+ 590 0114 19       		.uleb128 0x19
+ 591 0115 49       		.uleb128 0x49
+ 592 0116 13       		.uleb128 0x13
+ 593 0117 3C       		.uleb128 0x3c
+ 594 0118 19       		.uleb128 0x19
+ 595 0119 00       		.byte	0
+ 596 011a 00       		.byte	0
+ 597 011b 15       		.uleb128 0x15
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccCrzhTs.s 			page 12
 
 
- 600 0129 00       		.byte	0
- 601 012a 00       		.byte	0
- 602              		.section	.debug_loc,"",%progbits
- 603              	.Ldebug_loc0:
- 604              	.LLST0:
- 605 0000 00000000 		.4byte	.LVL1
- 606 0004 07000000 		.4byte	.LVL2-1
- 607 0008 0100     		.2byte	0x1
- 608 000a 50       		.byte	0x50
- 609 000b 07000000 		.4byte	.LVL2-1
- 610 000f 24000000 		.4byte	.LVL7
- 611 0013 0100     		.2byte	0x1
- 612 0015 54       		.byte	0x54
- 613 0016 24000000 		.4byte	.LVL7
- 614 001a 2C000000 		.4byte	.LFE35
- 615 001e 0400     		.2byte	0x4
- 616 0020 F3       		.byte	0xf3
- 617 0021 01       		.uleb128 0x1
- 618 0022 50       		.byte	0x50
- 619 0023 9F       		.byte	0x9f
- 620 0024 00000000 		.4byte	0
- 621 0028 00000000 		.4byte	0
- 622              		.section	.debug_aranges,"",%progbits
- 623 0000 24000000 		.4byte	0x24
- 624 0004 0200     		.2byte	0x2
- 625 0006 00000000 		.4byte	.Ldebug_info0
- 626 000a 04       		.byte	0x4
- 627 000b 00       		.byte	0
- 628 000c 0000     		.2byte	0
- 629 000e 0000     		.2byte	0
- 630 0010 00000000 		.4byte	.LFB34
- 631 0014 10000000 		.4byte	.LFE34-.LFB34
- 632 0018 00000000 		.4byte	.LFB35
- 633 001c 2C000000 		.4byte	.LFE35-.LFB35
- 634 0020 00000000 		.4byte	0
- 635 0024 00000000 		.4byte	0
- 636              		.section	.debug_ranges,"",%progbits
- 637              	.Ldebug_ranges0:
- 638 0000 00000000 		.4byte	.LFB34
- 639 0004 10000000 		.4byte	.LFE34
- 640 0008 00000000 		.4byte	.LFB35
- 641 000c 2C000000 		.4byte	.LFE35
- 642 0010 00000000 		.4byte	0
- 643 0014 00000000 		.4byte	0
- 644              		.section	.debug_line,"",%progbits
- 645              	.Ldebug_line0:
- 646 0000 91000000 		.section	.debug_str,"MS",%progbits,1
- 646      02006600 
- 646      00000201 
- 646      FB0E0D00 
- 646      01010101 
- 647              	.LASF3:
- 648 0000 73686F72 		.ascii	"short unsigned int\000"
- 648      7420756E 
- 648      7369676E 
- 648      65642069 
- 648      6E7400
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccReeWYy.s 			page 13
+ 598 011c 2E       		.uleb128 0x2e
+ 599 011d 00       		.byte	0
+ 600 011e 3F       		.uleb128 0x3f
+ 601 011f 19       		.uleb128 0x19
+ 602 0120 03       		.uleb128 0x3
+ 603 0121 0E       		.uleb128 0xe
+ 604 0122 3A       		.uleb128 0x3a
+ 605 0123 0B       		.uleb128 0xb
+ 606 0124 3B       		.uleb128 0x3b
+ 607 0125 0B       		.uleb128 0xb
+ 608 0126 27       		.uleb128 0x27
+ 609 0127 19       		.uleb128 0x19
+ 610 0128 3C       		.uleb128 0x3c
+ 611 0129 19       		.uleb128 0x19
+ 612 012a 00       		.byte	0
+ 613 012b 00       		.byte	0
+ 614 012c 00       		.byte	0
+ 615              		.section	.debug_loc,"",%progbits
+ 616              	.Ldebug_loc0:
+ 617              	.LLST0:
+ 618 0000 00000000 		.4byte	.LVL1
+ 619 0004 07000000 		.4byte	.LVL2-1
+ 620 0008 0100     		.2byte	0x1
+ 621 000a 50       		.byte	0x50
+ 622 000b 07000000 		.4byte	.LVL2-1
+ 623 000f 2C000000 		.4byte	.LVL9
+ 624 0013 0100     		.2byte	0x1
+ 625 0015 54       		.byte	0x54
+ 626 0016 2C000000 		.4byte	.LVL9
+ 627 001a 34000000 		.4byte	.LFE35
+ 628 001e 0400     		.2byte	0x4
+ 629 0020 F3       		.byte	0xf3
+ 630 0021 01       		.uleb128 0x1
+ 631 0022 50       		.byte	0x50
+ 632 0023 9F       		.byte	0x9f
+ 633 0024 00000000 		.4byte	0
+ 634 0028 00000000 		.4byte	0
+ 635              	.LLST1:
+ 636 002c 10000000 		.4byte	.LVL3
+ 637 0030 14000000 		.4byte	.LVL4
+ 638 0034 0200     		.2byte	0x2
+ 639 0036 30       		.byte	0x30
+ 640 0037 9F       		.byte	0x9f
+ 641 0038 14000000 		.4byte	.LVL4
+ 642 003c 23000000 		.4byte	.LVL6-1
+ 643 0040 0100     		.2byte	0x1
+ 644 0042 53       		.byte	0x53
+ 645 0043 00000000 		.4byte	0
+ 646 0047 00000000 		.4byte	0
+ 647              	.LLST2:
+ 648 004b 10000000 		.4byte	.LVL3
+ 649 004f 23000000 		.4byte	.LVL6-1
+ 650 0053 0100     		.2byte	0x1
+ 651 0055 50       		.byte	0x50
+ 652 0056 00000000 		.4byte	0
+ 653 005a 00000000 		.4byte	0
+ 654              		.section	.debug_aranges,"",%progbits
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccCrzhTs.s 			page 13
 
 
- 649              	.LASF17:
- 650 0013 4932435F 		.ascii	"I2C_1_I2CSlaveGetWriteBufSize\000"
- 650      315F4932 
- 650      43536C61 
- 650      76654765 
- 650      74577269 
- 651              	.LASF18:
- 652 0031 4932435F 		.ascii	"I2C_1_I2CSlaveStatus\000"
- 652      315F4932 
- 652      43536C61 
- 652      76655374 
- 652      61747573 
- 653              	.LASF19:
- 654 0046 4932435F 		.ascii	"I2C_1_I2CSlaveClearReadStatus\000"
- 654      315F4932 
- 654      43536C61 
- 654      7665436C 
- 654      65617252 
- 655              	.LASF11:
- 656 0064 666C6F61 		.ascii	"float\000"
- 656      7400
- 657              	.LASF15:
- 658 006a 4932435F 		.ascii	"I2C_1_I2CSlaveClearReadBuf\000"
- 658      315F4932 
- 658      43536C61 
- 658      7665436C 
- 658      65617252 
- 659              	.LASF1:
- 660 0085 756E7369 		.ascii	"unsigned char\000"
- 660      676E6564 
- 660      20636861 
- 660      7200
- 661              	.LASF26:
- 662 0093 62797465 		.ascii	"bytecnt\000"
- 662      636E7400 
- 663              	.LASF5:
- 664 009b 6C6F6E67 		.ascii	"long unsigned int\000"
- 664      20756E73 
- 664      69676E65 
- 664      6420696E 
- 664      7400
- 665              	.LASF9:
- 666 00ad 75696E74 		.ascii	"uint8\000"
- 666      3800
- 667              	.LASF12:
- 668 00b3 646F7562 		.ascii	"double\000"
- 668      6C6500
- 669              	.LASF22:
- 670 00ba 433A5C55 		.ascii	"C:\\Users\\PernilleLouise\\Documents\\Elektro\\4. s"
- 670      73657273 
- 670      5C506572 
- 670      6E696C6C 
- 670      654C6F75 
- 671 00e8 656D6573 		.ascii	"emester\\E4PRJ\\Projekt\\Workspace01\\Design01.cyds"
- 671      7465725C 
- 671      45345052 
- 671      4A5C5072 
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccReeWYy.s 			page 14
+ 655 0000 24000000 		.4byte	0x24
+ 656 0004 0200     		.2byte	0x2
+ 657 0006 00000000 		.4byte	.Ldebug_info0
+ 658 000a 04       		.byte	0x4
+ 659 000b 00       		.byte	0
+ 660 000c 0000     		.2byte	0
+ 661 000e 0000     		.2byte	0
+ 662 0010 00000000 		.4byte	.LFB34
+ 663 0014 10000000 		.4byte	.LFE34-.LFB34
+ 664 0018 00000000 		.4byte	.LFB35
+ 665 001c 34000000 		.4byte	.LFE35-.LFB35
+ 666 0020 00000000 		.4byte	0
+ 667 0024 00000000 		.4byte	0
+ 668              		.section	.debug_ranges,"",%progbits
+ 669              	.Ldebug_ranges0:
+ 670 0000 00000000 		.4byte	.LFB34
+ 671 0004 10000000 		.4byte	.LFE34
+ 672 0008 00000000 		.4byte	.LFB35
+ 673 000c 34000000 		.4byte	.LFE35
+ 674 0010 00000000 		.4byte	0
+ 675 0014 00000000 		.4byte	0
+ 676              		.section	.debug_line,"",%progbits
+ 677              	.Ldebug_line0:
+ 678 0000 A2000000 		.section	.debug_str,"MS",%progbits,1
+ 678      02006600 
+ 678      00000201 
+ 678      FB0E0D00 
+ 678      01010101 
+ 679              	.LASF23:
+ 680 0000 433A5C55 		.ascii	"C:\\Users\\PernilleLouise\\Documents\\Elektro\\4. s"
+ 680      73657273 
+ 680      5C506572 
+ 680      6E696C6C 
+ 680      654C6F75 
+ 681 002e 656D6573 		.ascii	"emester\\E4PRJ4\\PSoCBilstyring\\Workspace01\\Desig"
+ 681      7465725C 
+ 681      45345052 
+ 681      4A345C50 
+ 681      536F4342 
+ 682 005d 6E30312E 		.ascii	"n01.cydsn\000"
+ 682      63796473 
+ 682      6E00
+ 683              	.LASF3:
+ 684 0067 73686F72 		.ascii	"short unsigned int\000"
+ 684      7420756E 
+ 684      7369676E 
+ 684      65642069 
+ 684      6E7400
+ 685              	.LASF18:
+ 686 007a 4932435F 		.ascii	"I2C_1_I2CSlaveGetWriteBufSize\000"
+ 686      315F4932 
+ 686      43536C61 
+ 686      76654765 
+ 686      74577269 
+ 687              	.LASF19:
+ 688 0098 4932435F 		.ascii	"I2C_1_I2CSlaveStatus\000"
+ 688      315F4932 
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccCrzhTs.s 			page 14
 
 
- 671      6F6A656B 
- 672 0117 6E00     		.ascii	"n\000"
- 673              	.LASF27:
- 674 0119 77726275 		.ascii	"wrbuf\000"
- 674      6600
- 675              	.LASF10:
- 676 011f 75696E74 		.ascii	"uint32\000"
- 676      333200
- 677              	.LASF8:
- 678 0126 756E7369 		.ascii	"unsigned int\000"
- 678      676E6564 
- 678      20696E74 
- 678      00
- 679              	.LASF7:
- 680 0133 6C6F6E67 		.ascii	"long long unsigned int\000"
- 680      206C6F6E 
- 680      6720756E 
- 680      7369676E 
- 680      65642069 
- 681              	.LASF24:
- 682 014a 72656365 		.ascii	"receiveData\000"
- 682      69766544 
- 682      61746100 
- 683              	.LASF14:
- 684 0156 73697A65 		.ascii	"sizetype\000"
- 684      74797065 
- 684      00
- 685              	.LASF23:
- 686 015f 696E6974 		.ascii	"initReceiveData\000"
- 686      52656365 
- 686      69766544 
- 686      61746100 
- 687              	.LASF6:
- 688 016f 6C6F6E67 		.ascii	"long long int\000"
- 688      206C6F6E 
- 688      6720696E 
- 688      7400
- 689              	.LASF13:
- 690 017d 63686172 		.ascii	"char\000"
- 690      00
- 691              	.LASF20:
- 692 0182 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
- 692      4320342E 
- 692      392E3320 
- 692      32303135 
- 692      30333033 
- 693 01b5 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
- 693      20726576 
- 693      6973696F 
- 693      6E203232 
- 693      31323230 
- 694 01e8 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
- 694      66756E63 
- 694      74696F6E 
- 694      2D736563 
- 694      74696F6E 
- 695              	.LASF2:
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccReeWYy.s 			page 15
+ 688      43536C61 
+ 688      76655374 
+ 688      61747573 
+ 689              	.LASF20:
+ 690 00ad 4932435F 		.ascii	"I2C_1_I2CSlaveClearReadStatus\000"
+ 690      315F4932 
+ 690      43536C61 
+ 690      7665436C 
+ 690      65617252 
+ 691              	.LASF11:
+ 692 00cb 666C6F61 		.ascii	"float\000"
+ 692      7400
+ 693              	.LASF16:
+ 694 00d1 4932435F 		.ascii	"I2C_1_I2CSlaveClearReadBuf\000"
+ 694      315F4932 
+ 694      43536C61 
+ 694      7665436C 
+ 694      65617252 
+ 695              	.LASF1:
+ 696 00ec 756E7369 		.ascii	"unsigned char\000"
+ 696      676E6564 
+ 696      20636861 
+ 696      7200
+ 697              	.LASF5:
+ 698 00fa 6C6F6E67 		.ascii	"long unsigned int\000"
+ 698      20756E73 
+ 698      69676E65 
+ 698      6420696E 
+ 698      7400
+ 699              	.LASF9:
+ 700 010c 75696E74 		.ascii	"uint8\000"
+ 700      3800
+ 701              	.LASF12:
+ 702 0112 646F7562 		.ascii	"double\000"
+ 702      6C6500
+ 703              	.LASF15:
+ 704 0119 62797465 		.ascii	"bytecnt\000"
+ 704      636E7400 
+ 705              	.LASF27:
+ 706 0121 77726275 		.ascii	"wrbuf\000"
+ 706      6600
+ 707              	.LASF10:
+ 708 0127 75696E74 		.ascii	"uint32\000"
+ 708      333200
+ 709              	.LASF8:
+ 710 012e 756E7369 		.ascii	"unsigned int\000"
+ 710      676E6564 
+ 710      20696E74 
+ 710      00
+ 711              	.LASF7:
+ 712 013b 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 712      206C6F6E 
+ 712      6720756E 
+ 712      7369676E 
+ 712      65642069 
+ 713              	.LASF25:
+ 714 0152 72656365 		.ascii	"receiveData\000"
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccCrzhTs.s 			page 15
 
 
- 696 0210 73686F72 		.ascii	"short int\000"
- 696      7420696E 
- 696      7400
- 697              	.LASF25:
- 698 021a 75736572 		.ascii	"userarray\000"
- 698      61727261 
- 698      7900
- 699              	.LASF4:
- 700 0224 6C6F6E67 		.ascii	"long int\000"
- 700      20696E74 
- 700      00
- 701              	.LASF16:
- 702 022d 4932435F 		.ascii	"I2C_1_I2CSlaveClearWriteBuf\000"
- 702      315F4932 
- 702      43536C61 
- 702      7665436C 
- 702      65617257 
- 703              	.LASF21:
- 704 0249 2E5C4932 		.ascii	".\\I2Cslave.c\000"
- 704      43736C61 
- 704      76652E63 
- 704      00
- 705              	.LASF0:
- 706 0256 7369676E 		.ascii	"signed char\000"
- 706      65642063 
- 706      68617200 
- 707              	.LASF28:
- 708 0262 4932435F 		.ascii	"I2C_1_I2CSlaveInitWriteBuf\000"
- 708      315F4932 
- 708      43536C61 
- 708      7665496E 
- 708      69745772 
- 709              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br
+ 714      69766544 
+ 714      61746100 
+ 715              	.LASF14:
+ 716 015e 73697A65 		.ascii	"sizetype\000"
+ 716      74797065 
+ 716      00
+ 717              	.LASF24:
+ 718 0167 696E6974 		.ascii	"initReceiveData\000"
+ 718      52656365 
+ 718      69766544 
+ 718      61746100 
+ 719              	.LASF6:
+ 720 0177 6C6F6E67 		.ascii	"long long int\000"
+ 720      206C6F6E 
+ 720      6720696E 
+ 720      7400
+ 721              	.LASF13:
+ 722 0185 63686172 		.ascii	"char\000"
+ 722      00
+ 723              	.LASF21:
+ 724 018a 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 724      4320342E 
+ 724      392E3320 
+ 724      32303135 
+ 724      30333033 
+ 725 01bd 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
+ 725      20726576 
+ 725      6973696F 
+ 725      6E203232 
+ 725      31323230 
+ 726 01f0 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 726      66756E63 
+ 726      74696F6E 
+ 726      2D736563 
+ 726      74696F6E 
+ 727              	.LASF2:
+ 728 0218 73686F72 		.ascii	"short int\000"
+ 728      7420696E 
+ 728      7400
+ 729              	.LASF26:
+ 730 0222 75736572 		.ascii	"userarray\000"
+ 730      61727261 
+ 730      7900
+ 731              	.LASF4:
+ 732 022c 6C6F6E67 		.ascii	"long int\000"
+ 732      20696E74 
+ 732      00
+ 733              	.LASF17:
+ 734 0235 4932435F 		.ascii	"I2C_1_I2CSlaveClearWriteBuf\000"
+ 734      315F4932 
+ 734      43536C61 
+ 734      7665436C 
+ 734      65617257 
+ 735              	.LASF22:
+ 736 0251 2E5C4932 		.ascii	".\\I2Cslave.c\000"
+ 736      43736C61 
+ 736      76652E63 
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccCrzhTs.s 			page 16
+
+
+ 736      00
+ 737              	.LASF0:
+ 738 025e 7369676E 		.ascii	"signed char\000"
+ 738      65642063 
+ 738      68617200 
+ 739              	.LASF28:
+ 740 026a 4932435F 		.ascii	"I2C_1_I2CSlaveInitWriteBuf\000"
+ 740      315F4932 
+ 740      43536C61 
+ 740      7665496E 
+ 740      69745772 
+ 741              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

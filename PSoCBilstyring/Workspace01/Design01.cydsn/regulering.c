@@ -129,9 +129,9 @@ volatile int16 V_reg;
     
     int stop()
     {
-    PWM_hojre_WriteCompare(0);
-    PWM_venstre_WriteCompare(0);
-     return 0;        
+        PWM_hojre_WriteCompare(0);
+        PWM_venstre_WriteCompare(0);
+        return 0;        
     }
     
     // Search for sound direction

@@ -1,5 +1,5 @@
-C:\Users\PernilleLouise\Documents\Elektro\4. semester\E4PRJ\Projekt\Workspace01\Design01.cydsn\Design01.cyprj|e7118417-e891-4f1b-b2a1-ae2c0e3e8c2a
-C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|aedd866e-28e8-4fdf-b30a-078d10613d1e
-C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|3761a3ea-a317-460e-b4cb-b1ab8344abbb
-C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|9be085be-f2aa-4539-865e-488afafdc1cd
-C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|9caa723e-cee1-4842-b8da-c7b242dcaac7
+C:\Users\PernilleLouise\Documents\Elektro\4. semester\E4PRJ4\PSoCBilstyring\Workspace01\Design01.cydsn\Design01.cyprj|2d4c9199-d4a4-4e18-bdac-047e8a6e8a75
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|8b5567b5-1af5-4391-9148-ac6d32813605
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|a37a86e2-3f91-4876-8fe1-260dd7af0ef5
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|a0ffbe0d-ff21-43bf-94e6-1f5a0e2db90a
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|3d3b0983-7954-4650-b62b-e6cb325e3f42

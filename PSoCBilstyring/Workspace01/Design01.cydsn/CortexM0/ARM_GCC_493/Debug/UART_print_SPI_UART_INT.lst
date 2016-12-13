@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccsHsW8f.s 			page 1
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\cc0EWtMW.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -25,46 +25,46 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccsHsW8f.s 			page 1
   22 0006 00000000 		.4byte	.Ldebug_abbrev0
   23 000a 04       		.byte	0x4
   24 000b 01       		.uleb128 0x1
-  25 000c 1E010000 		.4byte	.LASF13
+  25 000c 26010000 		.4byte	.LASF13
   26 0010 01       		.byte	0x1
   27 0011 1B000000 		.4byte	.LASF14
-  28 0015 BF000000 		.4byte	.LASF15
+  28 0015 4E000000 		.4byte	.LASF15
   29 0019 00000000 		.4byte	.Ldebug_line0
   30 001d 02       		.uleb128 0x2
   31 001e 01       		.byte	0x1
   32 001f 06       		.byte	0x6
-  33 0020 B3000000 		.4byte	.LASF0
+  33 0020 1A010000 		.4byte	.LASF0
   34 0024 02       		.uleb128 0x2
   35 0025 01       		.byte	0x1
   36 0026 08       		.byte	0x8
-  37 0027 7D000000 		.4byte	.LASF1
+  37 0027 E4000000 		.4byte	.LASF1
   38 002b 02       		.uleb128 0x2
   39 002c 02       		.byte	0x2
   40 002d 05       		.byte	0x5
-  41 002e AC010000 		.4byte	.LASF2
+  41 002e B4010000 		.4byte	.LASF2
   42 0032 02       		.uleb128 0x2
   43 0033 02       		.byte	0x2
   44 0034 07       		.byte	0x7
-  45 0035 A0000000 		.4byte	.LASF3
+  45 0035 07010000 		.4byte	.LASF3
   46 0039 02       		.uleb128 0x2
   47 003a 04       		.byte	0x4
   48 003b 05       		.byte	0x5
-  49 003c 90000000 		.4byte	.LASF4
+  49 003c F7000000 		.4byte	.LASF4
   50 0040 02       		.uleb128 0x2
   51 0041 04       		.byte	0x4
   52 0042 07       		.byte	0x7
-  53 0043 4E000000 		.4byte	.LASF5
+  53 0043 B5000000 		.4byte	.LASF5
   54 0047 02       		.uleb128 0x2
   55 0048 08       		.byte	0x8
   56 0049 05       		.byte	0x5
   57 004a 00000000 		.4byte	.LASF6
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccsHsW8f.s 			page 2
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\cc0EWtMW.s 			page 2
 
 
   58 004e 02       		.uleb128 0x2
   59 004f 08       		.byte	0x8
   60 0050 07       		.byte	0x7
-  61 0051 60000000 		.4byte	.LASF7
+  61 0051 C7000000 		.4byte	.LASF7
   62 0055 03       		.uleb128 0x3
   63 0056 04       		.byte	0x4
   64 0057 05       		.byte	0x5
@@ -76,19 +76,19 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccsHsW8f.s 			page 1
   70 0063 02       		.uleb128 0x2
   71 0064 04       		.byte	0x4
   72 0065 04       		.byte	0x4
-  73 0066 77000000 		.4byte	.LASF9
+  73 0066 DE000000 		.4byte	.LASF9
   74 006a 02       		.uleb128 0x2
   75 006b 08       		.byte	0x8
   76 006c 04       		.byte	0x4
-  77 006d 99000000 		.4byte	.LASF10
+  77 006d 00010000 		.4byte	.LASF10
   78 0071 02       		.uleb128 0x2
   79 0072 01       		.byte	0x1
   80 0073 08       		.byte	0x8
-  81 0074 8B000000 		.4byte	.LASF11
+  81 0074 F2000000 		.4byte	.LASF11
   82 0078 02       		.uleb128 0x2
   83 0079 04       		.byte	0x4
   84 007a 07       		.byte	0x7
-  85 007b B6010000 		.4byte	.LASF12
+  85 007b BE010000 		.4byte	.LASF12
   86 007f 00       		.byte	0
   87              		.section	.debug_abbrev,"",%progbits
   88              	.Ldebug_abbrev0:
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccsHsW8f.s 			page 1
  112 0017 0E       		.uleb128 0xe
  113 0018 00       		.byte	0
  114 0019 00       		.byte	0
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccsHsW8f.s 			page 3
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\cc0EWtMW.s 			page 3
 
 
  115 001a 03       		.uleb128 0x3
@@ -167,86 +167,88 @@ ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccsHsW8f.s 			page 1
  145      536F7572 
  145      63655C50 
  146 004b 2E6300   		.ascii	".c\000"
- 147              	.LASF5:
- 148 004e 6C6F6E67 		.ascii	"long unsigned int\000"
- 148      20756E73 
- 148      69676E65 
- 148      6420696E 
- 148      7400
- 149              	.LASF7:
- 150 0060 6C6F6E67 		.ascii	"long long unsigned int\000"
- 150      206C6F6E 
- 150      6720756E 
- 150      7369676E 
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccsHsW8f.s 			page 4
+ 147              	.LASF15:
+ 148 004e 433A5C55 		.ascii	"C:\\Users\\PernilleLouise\\Documents\\Elektro\\4. s"
+ 148      73657273 
+ 148      5C506572 
+ 148      6E696C6C 
+ 148      654C6F75 
+ 149 007c 656D6573 		.ascii	"emester\\E4PRJ4\\PSoCBilstyring\\Workspace01\\Desig"
+ 149      7465725C 
+ 149      45345052 
+ 149      4A345C50 
+ 149      536F4342 
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\cc0EWtMW.s 			page 4
 
 
- 150      65642069 
- 151              	.LASF9:
- 152 0077 666C6F61 		.ascii	"float\000"
+ 150 00ab 6E30312E 		.ascii	"n01.cydsn\000"
+ 150      63796473 
+ 150      6E00
+ 151              	.LASF5:
+ 152 00b5 6C6F6E67 		.ascii	"long unsigned int\000"
+ 152      20756E73 
+ 152      69676E65 
+ 152      6420696E 
  152      7400
- 153              	.LASF1:
- 154 007d 756E7369 		.ascii	"unsigned char\000"
- 154      676E6564 
- 154      20636861 
- 154      7200
- 155              	.LASF11:
- 156 008b 63686172 		.ascii	"char\000"
- 156      00
- 157              	.LASF4:
- 158 0090 6C6F6E67 		.ascii	"long int\000"
- 158      20696E74 
- 158      00
- 159              	.LASF10:
- 160 0099 646F7562 		.ascii	"double\000"
- 160      6C6500
- 161              	.LASF3:
- 162 00a0 73686F72 		.ascii	"short unsigned int\000"
- 162      7420756E 
- 162      7369676E 
- 162      65642069 
- 162      6E7400
- 163              	.LASF0:
- 164 00b3 7369676E 		.ascii	"signed char\000"
- 164      65642063 
- 164      68617200 
- 165              	.LASF15:
- 166 00bf 433A5C55 		.ascii	"C:\\Users\\PernilleLouise\\Documents\\Elektro\\4. s"
- 166      73657273 
- 166      5C506572 
- 166      6E696C6C 
- 166      654C6F75 
- 167 00ed 656D6573 		.ascii	"emester\\E4PRJ\\Projekt\\Workspace01\\Design01.cyds"
- 167      7465725C 
- 167      45345052 
- 167      4A5C5072 
- 167      6F6A656B 
- 168 011c 6E00     		.ascii	"n\000"
+ 153              	.LASF7:
+ 154 00c7 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 154      206C6F6E 
+ 154      6720756E 
+ 154      7369676E 
+ 154      65642069 
+ 155              	.LASF9:
+ 156 00de 666C6F61 		.ascii	"float\000"
+ 156      7400
+ 157              	.LASF1:
+ 158 00e4 756E7369 		.ascii	"unsigned char\000"
+ 158      676E6564 
+ 158      20636861 
+ 158      7200
+ 159              	.LASF11:
+ 160 00f2 63686172 		.ascii	"char\000"
+ 160      00
+ 161              	.LASF4:
+ 162 00f7 6C6F6E67 		.ascii	"long int\000"
+ 162      20696E74 
+ 162      00
+ 163              	.LASF10:
+ 164 0100 646F7562 		.ascii	"double\000"
+ 164      6C6500
+ 165              	.LASF3:
+ 166 0107 73686F72 		.ascii	"short unsigned int\000"
+ 166      7420756E 
+ 166      7369676E 
+ 166      65642069 
+ 166      6E7400
+ 167              	.LASF0:
+ 168 011a 7369676E 		.ascii	"signed char\000"
+ 168      65642063 
+ 168      68617200 
  169              	.LASF13:
- 170 011e 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 170 0126 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
  170      4320342E 
  170      392E3320 
  170      32303135 
  170      30333033 
- 171 0151 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
+ 171 0159 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
  171      20726576 
  171      6973696F 
  171      6E203232 
  171      31323230 
- 172 0184 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 172 018c 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
  172      66756E63 
  172      74696F6E 
+ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\cc0EWtMW.s 			page 5
+
+
  172      2D736563 
  172      74696F6E 
-ARM GAS  C:\Users\PERNIL~1\AppData\Local\Temp\ccsHsW8f.s 			page 5
-
-
  173              	.LASF2:
- 174 01ac 73686F72 		.ascii	"short int\000"
+ 174 01b4 73686F72 		.ascii	"short int\000"
  174      7420696E 
  174      7400
  175              	.LASF12:
- 176 01b6 73697A65 		.ascii	"sizetype\000"
+ 176 01be 73697A65 		.ascii	"sizetype\000"
  176      74797065 
  176      00
  177              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br
